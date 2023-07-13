@@ -13,16 +13,16 @@ import ContentMedia from "../components/ContentMedia.astro";
   <section class="my-64">
     <div class="container flex flex-col">
       <h2 class="mb-2 text-lg font-bold">WE BELIEVE</h2>
-      <p class="mb-8 text-6xl font-bold">
+      <p class="mb-16 text-6xl font-bold">
         Technology should make life
         <span class="text-highlight">easier</span>, not harder.
       </p>
-      <p class="mb-16 text-2xl">
+      <p class="mb-8 text-2xl">
         Make the technology and systems that your business relies on:
       </p>
 
       <div class="container">
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3">
+        <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
           <CallOut
             purple="FUNCTION"
             point="seamlessly"
@@ -42,18 +42,36 @@ import ContentMedia from "../components/ContentMedia.astro";
         </div>
       </div>
     </div>
+    <div
+      class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
+    >
+      <a
+        class="button has-icon"
+        href="https://github.com/markteekman/accessible-astro-starter"
+      >
+        <!-- <Icon pack="ion" name="star-outline" /> -->
+        Star on GitHub
+      </a>
+      <a
+        class="button has-icon color-secondary"
+        href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
+      >
+        <!-- <Icon pack="ion" name="bookmark-outline" /> -->
+        Read the Docs
+      </a>
+    </div>
   </section>
   <section class="my-64">
     <div class="container">
-      <h2 class="mb-2 text-lg font-bold">SERVICES</h2>
-      <p class="mb-8 text-6xl">
-        Understand, optimise and connect your processes and technology.
+      <h2 class="mb-2 text-lg font-bold">OUR SERVICES</h2>
+      <p class="mb-8 text-6xl font-bold">
+        Understand, optimise and connect processes and technology
       </p>
 
       <p class="mb-16 text-xl">
         We make the technology and systems that your business relies on
       </p>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <div class="my-4 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         <Feature
           icon="mdi:chart-timeline-variant-shimmer"
           title="Business Analytics"
@@ -70,66 +88,87 @@ import ContentMedia from "../components/ContentMedia.astro";
           strategy, when you need it
         </Feature>
       </div>
+      <div
+        class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
+      >
+        <a
+          class="button has-icon"
+          href="https://github.com/markteekman/accessible-astro-starter"
+        >
+          <!-- <Icon pack="ion" name="star-outline" /> -->
+          Star on GitHub
+        </a>
+        <a
+          class="button has-icon color-secondary"
+          href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
+        >
+          <!-- <Icon pack="ion" name="bookmark-outline" /> -->
+          Read the Docs
+        </a>
+      </div>
     </div>
   </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <h2 class="mb-2 text-lg font-bold">EXPERTISE</h2>
-    <p class="mb-8 text-6xl">
-      Understand, optimise and connect your processes and technology.
-    </p>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro
-      Components. Some are native to this theme and a lot of others are
-      integrated using a <a
-        href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for
-      your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly
-      content, aria-labels, keyboard accessible navigation and components, clear
-      outlines and tab indicators and the right color contrast, you're more
-      certain of reaching WCAG AA compliance.
-    </p>
-  </ContentMedia>
-  <section class="mb-32 mt-64">
+  <section class="my-64">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="130" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
-      </div>
+      <h2 class="mb-2 text-lg font-bold">HOLLISTIC EXPERTISE</h2>
+      <p class="mb-8 text-6xl font-bold">
+        Combining business knowledge and technical skill
+      </p>
+      <ContentMedia imgSrc="/route-vector.png" reverseImg={true}>
+        <p class="mb-2 text-xl">
+          Building technology infrastructure that is efficient and effective
+          requires an understanding of your business; your strengths, your
+          challenges and your goals.
+        </p>
+        <div class="my-4 flex flex-col justify-start gap-1">
+          <p class="text-center text-xl font-semibold">UNDERSTAND</p>
+          <p class="text-l text-center font-normal">
+            where you are and where you're going
+          </p>
+
+          <p class="mt-2 text-center text-xl font-semibold">OPTIMISE</p>
+          <p class="text-l text-center font-normal">what you already have</p>
+
+          <p class="mt-2 text-center text-xl font-semibold">INVEST</p>
+          <p class="text-l text-center font-normal">where it matters most</p>
+        </div>
+      </ContentMedia>
     </div>
   </section>
 </DefaultLayout>
 
 <style lang="scss">
   .text-highlight {
-    background: linear-gradient(
-      315deg,
-      var(--primary-200) 25%,
-      var(--secondary-500)
-    );
-    background-clip: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // background: linear-gradient(
+    //   315deg,
+    //   var(--primary-200) 25%,
+    //   var(--secondary-200)
+    // );
+    // background-position: center;
+    // background-size: auto 80%;
+    // background-repeat: no-repeat;
+    // text-shadow: 1px 1px 0 var(--neutral-600);
+    // text-shadow: 1px 1px 0 var(--neutral-100);
+    text-decoration: var(--primary-200) wavy underline;
+    // background-clip: content-box;
+    // background-clip: border-box;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
     // background-color: var(--secondary-300);
   }
 
   :global(.darkmode .text-highlight) {
-    background: linear-gradient(
-      315deg,
-      var(--primary-200) 25%,
-      var(--secondary-400)
-    );
-    background-clip: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // background: linear-gradient(
+    //   315deg,
+    //   var(--primary-200) 25%,
+    //   var(--secondary-200)
+    // );
+    // color: var();
+    text-decoration: var(--primary-200) wavy underline;
+    text-shadow: 1px 1px 0 var(--neutral-100);
+    // background-position: center;
+    // background-size: auto 80%;
+    // background-repeat: no-repeat;
+    // text-shadow: 4px 4px 0 var(--neutral-900);
   }
 </style>
