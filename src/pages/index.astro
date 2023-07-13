@@ -1,65 +1,102 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
-import Hero from '../components/Hero.astro'
-import Feature from '../components/Feature.astro'
-import Counter from '../components/Counter.astro'
-import ContentMedia from '../components/ContentMedia.astro'
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Hero from "../components/Hero.astro";
+import CallOut from "../components/CallOut.astro";
+import Feature from "../components/Feature.astro";
+import Counter from "../components/Counter.astro";
+
+import ContentMedia from "../components/ContentMedia.astro";
 ---
 
 <DefaultLayout title="Home">
   <Hero />
   <section class="my-64">
+    <div class="container flex flex-col">
+      <h2 class="mb-2 text-lg font-bold">WE BELIEVE</h2>
+      <p class="mb-8 text-6xl font-bold">
+        Technology should make life
+        <span class="text-highlight">easier</span>, not harder.
+      </p>
+      <p class="mb-16 text-2xl">
+        Make the technology and systems that your business relies on:
+      </p>
+
+      <div class="container">
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3">
+          <CallOut
+            purple="FUNCTION"
+            point="seamlessly"
+            subtext="reducing disruption"
+          />
+          <CallOut
+            purple="USABLE"
+            point="without a PhD"
+            subtext="keeping things simple"
+          />
+
+          <CallOut
+            purple="EFFICIENT"
+            point="proven ROI"
+            subtext="saving you money"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="my-64">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
+      <h2 class="mb-2 text-lg font-bold">SERVICES</h2>
+      <p class="mb-8 text-6xl">
+        Understand, optimise and connect your processes and technology.
+      </p>
+
+      <p class="mb-16 text-xl">
+        We make the technology and systems that your business relies on
+      </p>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:tailwind" title="Tailwind CSS">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
+        <Feature
+          icon="mdi:chart-timeline-variant-shimmer"
+          title="Business Analytics"
+        >
+          Assess performance, manage risk and identify opportunities to improve
+          processes and systems.
         </Feature>
-        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
-          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
+        <Feature icon="mdi:cogs" title="Tech Build & Integration">
+          Design, integrate and build the right technology, processes and
+          systems for your business.
         </Feature>
-        <Feature icon="mdi:looks" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
-        </Feature>
-        <Feature icon="mdi:eslint" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
-        </Feature>
-        <Feature icon="mdi:book-open-page-variant" title="Blog">
-          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
-        </Feature>
-        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
-        </Feature>
-        <Feature icon="mdi:theme-light-dark" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="mdi:cog" title="Design System">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
-        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
-          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
+        <Feature icon="mdi:lifebuoy" title="On Call Support">
+          Dedicated access to expertise in technology, business operations and
+          strategy, when you need it
         </Feature>
       </div>
     </div>
   </section>
   <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
+    <h2 class="mb-2 text-lg font-bold">EXPERTISE</h2>
+    <p class="mb-8 text-6xl">
+      Understand, optimise and connect your processes and technology.
+    </p>
     <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
+      This theme provides plenty of tried and tested Accessible Astro
+      Components. Some are native to this theme and a lot of others are
+      integrated using a <a
+        href="https://github.com/markteekman/accessible-astro-components"
         >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
+      >. They'll get you up and running in building an accessible solution for
+      your visitors.
     </p>
   </ContentMedia>
   <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
     <h2>WCAG 2.1 AA Compliant</h2>
     <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
+      Using semantic HTML, landmarks, skip links, screen reader friendly
+      content, aria-labels, keyboard accessible navigation and components, clear
+      outlines and tab indicators and the right color contrast, you're more
+      certain of reaching WCAG AA compliance.
     </p>
   </ContentMedia>
-  <section class="mt-64 mb-32">
+  <section class="mb-32 mt-64">
     <div class="container">
       <h2 class="mb-16 text-6xl">Counters</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
@@ -71,3 +108,28 @@ import ContentMedia from '../components/ContentMedia.astro'
     </div>
   </section>
 </DefaultLayout>
+
+<style lang="scss">
+  .text-highlight {
+    background: linear-gradient(
+      315deg,
+      var(--primary-200) 25%,
+      var(--secondary-500)
+    );
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // background-color: var(--secondary-300);
+  }
+
+  :global(.darkmode .text-highlight) {
+    background: linear-gradient(
+      315deg,
+      var(--primary-200) 25%,
+      var(--secondary-400)
+    );
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
