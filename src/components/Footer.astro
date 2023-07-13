@@ -1,0 +1,45 @@
+---
+import CallToAction from './CallToAction.astro'
+
+const currentYear = new Date().getFullYear()
+---
+
+<footer>
+  <CallToAction />
+  <section class="py-8">
+    <div class="container">
+      <div class="flex justify-between">
+        <a href="/" class="min-w-5 flex items-center gap-2 !no-underline">
+          <img
+            class="hidden dark:block"
+            src={(await import('../assets/img/logo-full-blue-dark.svg')).default}
+            alt="Your Logo"
+            width="200"
+            height="auto"
+          />
+          <img
+            class="block dark:hidden"
+            src={(await import('../assets/img/logo-full-blue.svg')).default}
+            alt="Your Logo"
+            width="200"
+            height="auto"
+          />
+        </a>
+        <div class="flex flex-col">
+          <p>
+            &copy; {currentYear} Peculiar Dynamics Ltd.
+          </p>
+          <p>Registered Office: 71-75 Shelton Street, London, WC2H 9JQ</p>
+          <p>Registered in England and Wales (14575056)</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p>
+        Built with <a href="https://astro.build/">Astro</a>. Made with ❤️ by <a href="https://github.com/lachappers"
+          >Lucy Chaplin</a
+        >
+      </p>
+    </div>
+  </section>
+</footer>
