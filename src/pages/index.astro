@@ -3,8 +3,8 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Hero from "../components/Hero.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
-import Counter from "../components/Counter.astro";
-
+import ProcessStep from "../components/ProcessStep.astro";
+import { Icon } from "astro-icon";
 import ContentMedia from "../components/ContentMedia.astro";
 ---
 
@@ -36,7 +36,7 @@ import ContentMedia from "../components/ContentMedia.astro";
 
           <CallOut
             purple="EFFICIENT"
-            point="proven ROI"
+            point="clear ROI"
             subtext="saving you money"
           />
         </div>
@@ -49,15 +49,15 @@ import ContentMedia from "../components/ContentMedia.astro";
         class="button has-icon"
         href="https://github.com/markteekman/accessible-astro-starter"
       >
-        <!-- <Icon pack="ion" name="star-outline" /> -->
-        Star on GitHub
+        Get a Quote
+        <Icon name="mdi:message-outline" />
       </a>
       <a
-        class="button has-icon color-secondary"
+        class="button color-secondary"
         href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
       >
-        <!-- <Icon pack="ion" name="bookmark-outline" /> -->
-        Read the Docs
+        About Us
+        <!-- <Icon name="mdi:message-outline" /> -->
       </a>
     </div>
   </section>
@@ -95,33 +95,32 @@ import ContentMedia from "../components/ContentMedia.astro";
           class="button has-icon"
           href="https://github.com/markteekman/accessible-astro-starter"
         >
-          <!-- <Icon pack="ion" name="star-outline" /> -->
-          Star on GitHub
+          Get a Quote
+          <Icon name="mdi:message-outline" />
         </a>
         <a
-          class="button has-icon color-secondary"
+          class="button color-secondary"
           href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
         >
-          <!-- <Icon pack="ion" name="bookmark-outline" /> -->
-          Read the Docs
+          Explore Services
         </a>
       </div>
     </div>
   </section>
   <section class="my-64">
     <div class="container">
-      <h2 class="mb-2 text-lg font-bold">HOLLISTIC EXPERTISE</h2>
+      <h2 class="mb-2 text-lg font-bold">OUR APPROACH</h2>
       <p class="mb-8 text-6xl font-bold">
         Combining business knowledge and technical skill
       </p>
-      <ContentMedia imgSrc="/route-vector.png" reverseImg={true}>
+      <ContentMedia imgSrc="/route-vector.png" reverseImg={false}>
         <p class="mb-2 text-xl">
           Building technology infrastructure that is efficient and effective
-          requires an understanding of your business; your strengths, your
-          challenges and your goals.
+          requires a hollistic understanding of your business; your strengths,
+          your challenges and your goals.
         </p>
         <div class="my-4 flex flex-col justify-start gap-1">
-          <p class="text-center text-xl font-semibold">UNDERSTAND</p>
+          <!-- <p class="text-center text-xl font-semibold">UNDERSTAND</p>
           <p class="text-l text-center font-normal">
             where you are and where you're going
           </p>
@@ -130,9 +129,39 @@ import ContentMedia from "../components/ContentMedia.astro";
           <p class="text-l text-center font-normal">what you already have</p>
 
           <p class="mt-2 text-center text-xl font-semibold">INVEST</p>
-          <p class="text-l text-center font-normal">where it matters most</p>
+          <p class="text-l text-center font-normal">where it matters most</p> -->
         </div>
       </ContentMedia>
+    </div>
+    <div
+      class="banner my-4 flex flex-col items-center justify-center gap-4 md:flex-row md:items-stretch lg:flex-row lg:items-stretch"
+    >
+      <ProcessStep icon="mdi:telescope" title="Understand">
+        where you are and where you're going
+      </ProcessStep>
+      <ProcessStep icon="mdi:pencil-ruler" title="Design">
+        Optimising what you already have or investing where it matters.
+      </ProcessStep>
+      <ProcessStep icon="mdi:rocket-launch-outline" title="Deliver">
+        Build, configure, test and launch your project.
+      </ProcessStep>
+    </div>
+    <div
+      class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
+    >
+      <a
+        class="button has-icon"
+        href="https://github.com/markteekman/accessible-astro-starter"
+      >
+        Get a Quote
+        <Icon name="mdi:message-outline" />
+      </a>
+      <a
+        class="button color-secondary"
+        href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
+      >
+        Our Approach
+      </a>
     </div>
   </section>
 </DefaultLayout>
@@ -170,5 +199,16 @@ import ContentMedia from "../components/ContentMedia.astro";
     // background-size: auto 80%;
     // background-repeat: no-repeat;
     // text-shadow: 4px 4px 0 var(--neutral-900);
+  }
+
+  .banner {
+    padding: 1rem;
+    background-color: var(--secondary-100);
+
+    background: linear-gradient(
+      315deg,
+      var(--primary-100) 25%,
+      var(--secondary-200)
+    );
   }
 </style>

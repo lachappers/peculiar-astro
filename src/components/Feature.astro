@@ -67,8 +67,16 @@ const { icon = "mdi:rocket", title = "Title" } = Astro.props;
     color: var(--action-color);
   }
 
-  :global(.darkmode .feature::before) {
+  // :global(.darkmode .feature::before) {
+  //   background-color: var(--dark-100);
+  //   box-shadow: 0 0 0 6px var(--dark-100);
+  // }
+
+  :global(.darkmode .feature) {
     background-color: var(--dark-100);
-    box-shadow: 0 0 0 6px var(--dark-100);
+    border: 3px solid var(--neutral-300);
+    box-shadow: 0.0625rem 0.0625rem 0 var(--dark-100),
+      0.5rem 0.5rem 0 var(--secondary-100);
+    border-radius: 0.5rem;
   }
 </style>
