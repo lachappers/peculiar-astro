@@ -1,7 +1,8 @@
 ---
 import { Icon } from "astro-icon";
 
-const { src = "/hero-vector.png" } = Astro.props;
+const { src = "/hero-vector.png", target } = Astro.props;
+const href = `#${target}`;
 ---
 
 <section class="hero my-24">
@@ -22,10 +23,7 @@ const { src = "/hero-vector.png" } = Astro.props;
             Get a Quote
             <Icon name="mdi:message-outline" />
           </a>
-          <a
-            class="button has-icon color-secondary"
-            href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
-          >
+          <a class="button has-icon color-secondary" {href}>
             Learn More
             <Icon name="mdi:arrow-down-bold-circle-outline" />
           </a>
@@ -57,5 +55,8 @@ const { src = "/hero-vector.png" } = Astro.props;
     background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  :global(html) {
+    scroll-behavior: smooth;
   }
 </style>

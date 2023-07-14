@@ -6,13 +6,16 @@ import Feature from "../components/Feature.astro";
 import ProcessStep from "../components/ProcessStep.astro";
 import { Icon } from "astro-icon";
 import ContentMedia from "../components/ContentMedia.astro";
+import Heading from "../components/Heading.astro";
 ---
 
 <DefaultLayout title="Home">
-  <Hero />
+  <Hero target="believe" />
   <section class="my-64">
     <div class="container flex flex-col">
-      <h2 class="mb-2 text-lg font-bold">WE BELIEVE</h2>
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="believe" text="WE BELIEVE" />
+      </h2>
       <p class="mb-16 text-6xl font-bold">
         Technology should make life
         <span class="text-highlight">easier</span>, not harder.
@@ -63,7 +66,9 @@ import ContentMedia from "../components/ContentMedia.astro";
   </section>
   <section class="my-64">
     <div class="container">
-      <h2 class="mb-2 text-lg font-bold">OUR SERVICES</h2>
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="services" text="OUR SERVICES" />
+      </h2>
       <p class="mb-8 text-6xl font-bold">
         Understand, optimise and connect processes and technology
       </p>
@@ -109,7 +114,9 @@ import ContentMedia from "../components/ContentMedia.astro";
   </section>
   <section class="my-64">
     <div class="container">
-      <h2 class="mb-2 text-lg font-bold">OUR APPROACH</h2>
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="approach" text="OUR APPROACH" />
+      </h2>
       <p class="mb-8 text-6xl font-bold">
         Combining business knowledge and technical skill
       </p>
@@ -134,9 +141,9 @@ import ContentMedia from "../components/ContentMedia.astro";
       </ContentMedia>
     </div>
     <div
-      class="banner my-4 flex flex-col items-center justify-center gap-4 md:flex-row md:items-stretch lg:flex-row lg:items-stretch"
+      class="banner my-4 flex flex-col items-center justify-center gap-y-0.5 md:flex-row md:items-stretch lg:flex-row lg:items-stretch"
     >
-      <ProcessStep icon="mdi:telescope" title="Understand">
+      <ProcessStep class="step" icon="mdi:telescope" title="Understand">
         where you are and where you're going
       </ProcessStep>
       <ProcessStep icon="mdi:pencil-ruler" title="Design">
@@ -168,47 +175,43 @@ import ContentMedia from "../components/ContentMedia.astro";
 
 <style lang="scss">
   .text-highlight {
-    // background: linear-gradient(
-    //   315deg,
-    //   var(--primary-200) 25%,
-    //   var(--secondary-200)
-    // );
-    // background-position: center;
-    // background-size: auto 80%;
-    // background-repeat: no-repeat;
-    // text-shadow: 1px 1px 0 var(--neutral-600);
-    // text-shadow: 1px 1px 0 var(--neutral-100);
     text-decoration: var(--primary-200) wavy underline;
-    // background-clip: content-box;
-    // background-clip: border-box;
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-    // background-color: var(--secondary-300);
+  }
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
   }
 
   :global(.darkmode .text-highlight) {
-    // background: linear-gradient(
-    //   315deg,
-    //   var(--primary-200) 25%,
-    //   var(--secondary-200)
-    // );
-    // color: var();
     text-decoration: var(--primary-200) wavy underline;
     text-shadow: 1px 1px 0 var(--neutral-100);
-    // background-position: center;
-    // background-size: auto 80%;
-    // background-repeat: no-repeat;
-    // text-shadow: 4px 4px 0 var(--neutral-900);
   }
 
   .banner {
     padding: 1rem;
     background-color: var(--secondary-100);
-
     background: linear-gradient(
       315deg,
       var(--primary-100) 25%,
       var(--secondary-200)
     );
+    > :first-child {
+      border: 3px solid forestgreen;
+    }
   }
 </style>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+</script>
