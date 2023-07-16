@@ -1,35 +1,57 @@
 ---
 import { Icon } from "astro-icon";
+import Button from "./Button.astro";
 
-const { src = "/hero-vector.png", target } = Astro.props;
-const href = `#${target}`;
+const {
+  title,
+  gradientText,
+  imgSrc = "/hero-vector.png",
+  learnTarget = null,
+  quoteButton = false,
+  learnButton = false,
+} = Astro.props;
+const learnLink = `${learnTarget}`;
 ---
 
 <section class="hero my-24">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
-      <div class="flex flex-col items-center gap-8 md:items-start">
+    <div
+      class="grid grid-cols-1 content-center items-center gap-x-16 lg:grid-cols-2"
+    >
+      <div class="m-0 flex flex-col items-center md:items-start">
         <h1 class="z-10 text-center text-6xl md:text-left lg:text-7xl">
-          <slot>
-            Making Technology
-            <span class="text-gradient">That Works</span>
-          </slot>
+          {title}
+          <span class="text-gradient">{gradientText}</span>
         </h1>
-        <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a
-            class="button has-icon"
-            href="https://github.com/markteekman/accessible-astro-starter"
-          >
-            Get a Quote
-            <Icon name="mdi:message-outline" />
-          </a>
-          <a class="button has-icon color-secondary" {href}>
-            Learn More
-            <Icon name="mdi:arrow-down-bold-circle-outline" />
-          </a>
+        <div class="mt-8 flex flex-col gap-3 min-[500px]:flex-row">
+          {
+            quoteButton ? (
+              <Button text="Get a Quote" href="/" icon="mdi:message-outline" />
+            ) : (
+              ""
+            )
+          }
+          {
+            learnButton ? (
+              <Button
+                buttonColor="color-secondary"
+                href={learnLink}
+                text="Learn More"
+                icon="mdi:arrow-down"
+              />
+            ) : (
+              ""
+            )
+          }
         </div>
       </div>
-      <img class="hidden lg:block" src={src} alt="" decoding="async" />
+      <img
+        class="hidden lg:row-span-2 lg:block"
+        src={imgSrc}
+        alt=""
+        decoding="async"
+      />
+      <slot />
     </div>
   </div>
 </section>

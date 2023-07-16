@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
 import ProcessStep from "../components/ProcessStep.astro";
@@ -10,7 +11,14 @@ import Heading from "../components/Heading.astro";
 ---
 
 <DefaultLayout title="Home">
-  <Hero target="believe" />
+  <Hero
+    title="Making Technology"
+    gradientText="That Works"
+    learnTarget={`#believe`}
+    quoteButton={true}
+    learnButton={true}
+    imgSrc="/hero-vector.png"
+  />
   <section class="my-64">
     <div class="container flex flex-col">
       <h2 class="mb-2 text-lg font-bold">
@@ -48,22 +56,11 @@ import Heading from "../components/Heading.astro";
     <div
       class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
     >
-      <a
-        class="button has-icon"
-        href="https://github.com/markteekman/accessible-astro-starter"
-      >
-        Get a Quote
-        <Icon name="mdi:message-outline" />
-      </a>
-      <a
-        class="button color-secondary"
-        href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
-      >
-        About Us
-        <!-- <Icon name="mdi:message-outline" /> -->
-      </a>
+      <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
+      <Button href="/" text="About Us" buttonColor="color-secondary" />
     </div>
   </section>
+
   <section class="my-64">
     <div class="container">
       <h2 class="mb-2 text-lg font-bold">
@@ -96,19 +93,12 @@ import Heading from "../components/Heading.astro";
       <div
         class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
       >
-        <a
-          class="button has-icon"
-          href="https://github.com/markteekman/accessible-astro-starter"
-        >
-          Get a Quote
-          <Icon name="mdi:message-outline" />
-        </a>
-        <a
-          class="button color-secondary"
-          href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
-        >
-          Explore Services
-        </a>
+        <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
+        <Button
+          href="/"
+          text="Explore Services"
+          buttonColor="color-secondary"
+        />
       </div>
     </div>
   </section>
@@ -156,19 +146,8 @@ import Heading from "../components/Heading.astro";
     <div
       class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
     >
-      <a
-        class="button has-icon"
-        href="https://github.com/markteekman/accessible-astro-starter"
-      >
-        Get a Quote
-        <Icon name="mdi:message-outline" />
-      </a>
-      <a
-        class="button color-secondary"
-        href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
-      >
-        Our Approach
-      </a>
+      <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
+      <Button href="/" text="Our Approach" buttonColor="color-secondary" />
     </div>
   </section>
 </DefaultLayout>
@@ -203,6 +182,22 @@ import Heading from "../components/Heading.astro";
       border: 3px solid forestgreen;
     }
   }
+  // :global(.mint) {
+  //   background-color: var(--accent-mint);
+  //   color: var(--dark-100);
+  // }
+  // :global(.teal) {
+  //   background-color: var(--accent-teal);
+  //   color: var(--neutral-100);
+  // }
+  // :global(.purple) {
+  //   background-color: var(--accent-purple);
+  //   color: var(--neutral-100);
+  // }
+  // :global(.gold) {
+  //   background-color: var(--accent-gold);
+  //   color: var(--dark-100);
+  // }
 </style>
 <script>
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

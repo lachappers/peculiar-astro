@@ -22,12 +22,12 @@ import { Icon } from "astro-icon";
         <div
           class="contact grid grid-cols-1 content-center gap-12 md:grid-cols-2"
         >
-          <div>
+          <div class="contact-card">
             <Icon name="ic:outline-email" />
             <h2 class="">Email</h2>
             <p>
               If your message isn't quite right for the contact box here, feel
-              free to email directly.
+              free to email us directly
             </p>
             <a class="email-link" href="" aria-label="send me an email">
               <span class="hidden">ANTISPAM</span
@@ -82,14 +82,12 @@ import { Icon } from "astro-icon";
           </div>
 
           <div class="mt-4">
-            <label class="mb-2 block text-sm">Email address</label>
+            <label class="mb-2">Email address</label>
             <input type="email" placeholder="johndoe@example.com" class="" />
           </div>
 
           <div class="mt-4 w-full">
-            <label class="mb-2 block text-sm text-gray-600 dark:text-gray-200"
-              >Message</label
-            >
+            <label class="mb-2">Message</label>
             <textarea class="md:h-56" placeholder="Message"></textarea>
           </div>
 
@@ -119,12 +117,16 @@ import { Icon } from "astro-icon";
     padding: 2rem;
     border: 3px solid var(--font-color);
     border-radius: 0.5rem;
-    background: var(--secondary-background);
+    background: var(--accent-purple);
+
+    box-shadow: var(--shadow-light);
+    font-weight: 700;
   }
   form label {
     margin-bottom: 0.25rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.25rem;
+    color: var(--secondary-50);
   }
   form input {
     margin-top: 0.25rem;
@@ -149,23 +151,33 @@ import { Icon } from "astro-icon";
     padding: 0.625rem 1.25rem;
     border: 1px solid var(--neutral-500);
   }
+
+  .contact-card {
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-light);
+    border: 3px solid var(--neutral-900);
+
+    padding: 2rem;
+
+    background-color: var(--accent-mint);
+  }
   .contact h2 {
     margin-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.5rem;
     font-weight: 600;
   }
 
   .contact p {
     margin-top: 0.25rem;
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     line-height: 1.25rem;
   }
   .contact a {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
+    padding-top: 0.5rem;
+    font-size: 1.125rem;
     line-height: 1.25rem;
-    color: var(--action-color);
+    color: salmon;
   }
 
   [astro-icon] {

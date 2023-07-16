@@ -1,5 +1,158 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+import Heading from "../components/Heading.astro";
+import { Icon } from "astro-icon";
+import ContentMedia from "../components/ContentMedia.astro";
 ---
 
-<DefaultLayout title="Services" />
+<DefaultLayout title="Services">
+  <Hero
+    title="Invest in Technology"
+    gradientText="That Matters"
+    imgSrc="/invest-vector.png"
+  >
+    <p class="self-start text-center text-xl md:text-left md:text-2xl">
+      Unlock the potential of your business with accessible, affordable and
+      understandable technology paired with one-time or ongoing tech support.
+    </p>
+    <div
+      class="container col-span-full mt-16 flex flex-wrap justify-center gap-3 min-[200px]:flex-row"
+    >
+      <Button
+        href="#businessAnalysis"
+        icon="mdi:arrow-right"
+        text="Business Analytics"
+        buttonColor="mint"
+      />
+      <Button
+        href="#webDev"
+        icon="mdi:arrow-right"
+        text="Website & App Development"
+        buttonColor="teal"
+      />
+      <Button
+        href="#systemIntegration"
+        icon="mdi:arrow-right"
+        text="System Integration"
+        buttonColor="purple"
+      />
+      <Button
+        href="#ongoing"
+        icon="mdi:arrow-right"
+        text="Ongoing Support"
+        buttonColor="gold"
+      />
+    </div>
+  </Hero>
+
+  <section class="business mint my-16">
+    <div class="container py-32">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
+      </h2>
+      <p class="mb-16 text-6xl font-bold">
+        Understand the dynamics of your business.
+      </p>
+      <p class="mb-8 text-2xl">
+        Assess performance, manage risk and identify opportunities to improve
+        processes and systems.
+      </p>
+    </div>
+  </section>
+  <section class="webdev teal my-16">
+    <div class="container py-32">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
+      </h2>
+      <p class="mb-16 text-6xl font-bold">Translate ideas into technology.</p>
+      <p class="mb-8 text-2xl">
+        Got a great idea but can't code? Confused by the cost and complexity of
+        building and maintaining a website?
+      </p>
+    </div>
+  </section>
+  <section class="systemInt purple my-16">
+    <div class="container py-32">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
+      </h2>
+      <p class="mb-16 text-6xl font-bold">
+        Reduce the burdon of running your business.
+      </p>
+      <p class="mb-8 text-2xl">
+        You should be able to trust technology to reduce the cost and complexity
+        of running your business, not increase it.
+      </p>
+    </div>
+  </section>
+  <section class="ongoing gold my-16">
+    <div class="container py-32">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="ongoing" text="ONGOING SUPPORT" />
+      </h2>
+      <p class="mb-16 text-6xl font-bold">Let us take care of the admin.</p>
+      <p class="mb-8 text-2xl">
+        Guaranteed, flexible access to expertise, ongoing managed support
+        functions or routine maintenance, that already knows your business.
+      </p>
+      <p class="mb-8 text-2xl">
+        Let us manage the admin of running your business, so you don't need to
+        do it yourself or hire externally.
+      </p>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  .business {
+    // background: var(--accent-mint);
+  }
+  .webdev {
+    // background: var(--accent-teal);
+  }
+  .systemInt {
+    // background: var(--accent-purple);
+  }
+  .ongoing {
+    // background: var(--accent-gold);
+  }
+
+  a {
+    text-transform: uppercase;
+  }
+  .mint {
+    background-color: var(--accent-mint);
+    color: var(--dark-100);
+  }
+  .teal {
+    background-color: var(--accent-teal);
+    color: var(--neutral-100);
+  }
+  .purple {
+    background-color: var(--accent-purple);
+    color: var(--neutral-100);
+  }
+  .gold {
+    background-color: var(--accent-gold);
+    color: var(--dark-100);
+  }
+
+  .tag {
+    border-radius: 9999px;
+    border: 2px solid var(--neutral-800);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+</script>

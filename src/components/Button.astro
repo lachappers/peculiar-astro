@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon";
+
+const { icon = null, text = "Text", href, buttonColor = "" } = Astro.props;
+---
+
+{ !icon ?
+    (
+        <a class=`button ${buttonColor}` {href}>
+            {text}
+        </a>
+        )
+    :
+    (
+    <a class=`button has-icon ${buttonColor}` {href}>
+        {text}
+        <Icon name={icon} />
+    </a>)
+}
+
+<style lang="scss">
+
+    :global(.mint) {
+      background-color: var(--accent-mint);
+      color: var(--dark-100);
+    }
+    :global(.teal) {
+      background-color: var(--accent-teal);
+      color: var(--neutral-100);
+    }
+    :global(.purple) {
+      background-color: var(--accent-purple);
+      color: var(--neutral-100);
+    }
+    :global(.gold) {
+      background-color: var(--accent-gold);
+      color: var(--dark-100);
+    }
+  </style>

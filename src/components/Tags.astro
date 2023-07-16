@@ -1,0 +1,22 @@
+---
+const {tags, tagColor} = Astro.props;
+---
+
+<ul>
+
+  {
+    {tags}.foreach(tag, ()=> {
+      (<li class=`tag ${tagColor}`>
+        {tag}
+      </li>)
+    })
+  }
+
+</ul>
+
+<style lang='scss'>
+      .tag {
+    border-radius: 9999px;
+    border: 2px solid var(--neutral-800);
+  }
+</style>
