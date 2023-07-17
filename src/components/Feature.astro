@@ -1,10 +1,14 @@
 ---
 import { Icon } from "astro-icon";
 
-const { icon = "mdi:rocket", title = "Title" } = Astro.props;
+const {
+  icon = "mdi:rocket",
+  title = "Title",
+  featureColor = "neutral",
+} = Astro.props;
 ---
 
-<div class="feature flex flex-col gap-2">
+<div class=`feature flex flex-col gap-2 ${featureColor}`>
   <Icon name={icon} />
   <div class="content">
     <h3>{title}</h3>
@@ -24,7 +28,6 @@ const { icon = "mdi:rocket", title = "Title" } = Astro.props;
     width: calc(100% - 0.5rem);
     padding: 2rem;
 
-    background-color: var(--neutral-100);
     border: 3px solid var(--neutral-900);
     box-shadow: 0.0625rem 0.0625rem 0 var(--secondary-100),
       0.5rem 0.5rem 0 var(--dark-100);
@@ -38,33 +41,11 @@ const { icon = "mdi:rocket", title = "Title" } = Astro.props;
     @include breakpoint(large) {
       width: 100%;
     }
-
-    // &::before,
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    // }
-
-    // &::before {
-    //   inset: 0;
-    //   background-color: var(--neutral-100);
-    //   border: 3px solid var(--neutral-700);
-    //   border-radius: 1rem;
-    //   box-shadow: 0 0 0 6px var(--neutral-100);
-    //   z-index: 1;
-    // }
-
-    // &::after {
-    //   background-color: var(--action-color);
-    //   inset: 1rem -0.85rem -0.85rem 1rem;
-    //   border-radius: 1rem;
-    //   z-index: 0;
-    // }
   }
 
   :global(.feature [astro-icon]) {
     width: 4rem;
-    color: var(--action-color);
+    // color: var(--action-color);
   }
 
   :global(.darkmode .feature) {
