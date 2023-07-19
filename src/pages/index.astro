@@ -67,44 +67,50 @@ import Heading from "../components/Heading.astro";
         <Heading id="services" text="OUR SERVICES" />
       </h2>
       <p class="mb-8 text-6xl font-bold">
-        Understand, optimise and connect processes and technology
+        Technology should <span class="text-highlight">save</span> you time and money.
       </p>
 
       <p class="mb-16 text-xl">
-        We make the technology and systems that your business relies on
+        Understand, optimise and connect your business processes and technology
+        to reduce cost, increase security and attract more business.
       </p>
-      <div class="my-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="my-4 grid grid-cols-1 content-stretch gap-6 md:grid-cols-2">
         <Feature
-          icon="mdi:chart-timeline-variant-shimmer"
-          title="Business Analytics"
-          featureColor="mint"
+          icon="ic:baseline-web"
+          title="Website & App Development"
+          featureColor="blue"
+          href="/services/#webDev"
         >
-          Assess performance, manage risk and identify opportunities to improve
-          processes and systems.
-        </Feature>
-        <Feature
-          icon="mdi:cogs"
-          title="Tech Build & Integration"
-          featureColor="teal"
-        >
-          Design, integrate and build the right technology, processes and
-          systems for your business.
-        </Feature>
-        <Feature
-          icon="mdi:cogs"
-          title="Tech Build & Integration"
-          featureColor="purple"
-        >
-          Design, integrate and build the right technology, processes and
-          systems for your business.
+          Build or update your website to attract more customers, save you time
+          and stand out from the crowd.
         </Feature>
         <Feature
           icon="mdi:lifebuoy"
           title="On Call Support"
           featureColor="gold"
+          href="/services/#ongoing"
         >
           Dedicated access to expertise in technology, business operations and
           strategy, when you need it
+        </Feature>
+        <Feature
+          icon="mdi:cogs"
+          title="Integration & Automation"
+          featureColor="mint"
+          href="/services/#systemIntegration"
+        >
+          Design, integrate and build the right technology, processes and
+          systems for your business.
+        </Feature>
+
+        <Feature
+          icon="mdi:chart-timeline-variant-shimmer"
+          title="Business Analytics"
+          featureColor="purple"
+          href="/services/#businessAnalysis"
+        >
+          Assess performance, manage risk and identify opportunities to improve
+          processes and systems.
         </Feature>
       </div>
       <div
@@ -125,7 +131,8 @@ import Heading from "../components/Heading.astro";
         <Heading id="approach" text="OUR APPROACH" />
       </h2>
       <p class="mb-8 text-6xl font-bold">
-        Combining business knowledge and technical skill
+        Technology should <span class="text-highlight">fit</span> your business,
+        not shape it.
       </p>
       <ContentMedia imgSrc="/route-vector.png" reverseImg={false}>
         <p class="mb-2 text-xl">
@@ -199,22 +206,6 @@ import Heading from "../components/Heading.astro";
       border: 3px solid forestgreen;
     }
   }
-  // :global(.mint) {
-  //   background-color: var(--accent-mint);
-  //   color: var(--dark-100);
-  // }
-  // :global(.teal) {
-  //   background-color: var(--accent-teal);
-  //   color: var(--neutral-100);
-  // }
-  // :global(.purple) {
-  //   background-color: var(--accent-purple);
-  //   color: var(--neutral-100);
-  // }
-  // :global(.gold) {
-  //   background-color: var(--accent-gold);
-  //   color: var(--dark-100);
-  // }
 </style>
 <script>
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

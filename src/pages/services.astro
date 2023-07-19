@@ -4,7 +4,8 @@ import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
 import Heading from "../components/Heading.astro";
 import { Icon } from "astro-icon";
-import ContentMedia from "../components/ContentMedia.astro";
+import Feature from "../components/Feature.astro";
+import CallOut from "../components/CallOut.astro";
 ---
 
 <DefaultLayout title="Services">
@@ -21,70 +22,119 @@ import ContentMedia from "../components/ContentMedia.astro";
       class="container col-span-full mt-16 flex flex-wrap justify-center gap-3 min-[200px]:flex-row"
     >
       <Button
-        href="#businessAnalysis"
-        icon="mdi:arrow-right"
-        text="Business Analytics"
-        buttonColor="mint"
-      />
-      <Button
         href="#webDev"
         icon="mdi:arrow-right"
         text="Website & App Development"
-        buttonColor="teal"
+        buttonColor="blue"
       />
-      <Button
-        href="#systemIntegration"
-        icon="mdi:arrow-right"
-        text="System Integration"
-        buttonColor="purple"
-      />
+
       <Button
         href="#ongoing"
         icon="mdi:arrow-right"
         text="Ongoing Support"
         buttonColor="gold"
       />
+      <Button
+        href="#systemIntegration"
+        icon="mdi:arrow-right"
+        text="System Integration"
+        buttonColor="mint"
+      />
+      <Button
+        href="#businessAnalysis"
+        icon="mdi:arrow-right"
+        text="Business Analytics"
+        buttonColor="purple"
+      />
     </div>
   </Hero>
-
-  <section class="business mint my-16">
-    <div class="container py-32">
+  <section class="my-32">
+    <div class="container flex flex-col">
       <h2 class="mb-2 text-lg font-bold">
-        <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
+        <Heading id="approach" text="OUR APPROACH" />
       </h2>
-      <p class="mb-16 text-6xl font-bold">
-        Understand the dynamics of your business.
+      <p class="mb-8 text-4xl font-bold">
+        Technology that
+        <span class="text-highlight">connects</span> your business and customers.
       </p>
-      <p class="mb-8 text-2xl">
-        Assess performance, manage risk and identify opportunities to improve
-        processes and systems.
+      <p class="mb-8 text-xl">
+        Grow, profressionalise and promote your business with custom solutions
+        that deliver value; to give you the time to focus on delivering your
+        products and services. Our approach is:
       </p>
+
+      <div class="container">
+        <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
+          <CallOut
+            purple="Tech-Led"
+            point="Processes and Service"
+            subtext="Keep costs down and delivery fast."
+          />
+          <CallOut
+            purple="UK-Based"
+            point="British Suppliers"
+            subtext="Supporting local businesses and tech talent."
+          />
+
+          <CallOut
+            purple="Transparent"
+            point="Upfront Costs"
+            subtext="Fixed fees, clear briefs and simple pricing."
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
+    >
+      <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
+      <Button href="/" text="About Us" buttonColor="color-secondary" />
     </div>
   </section>
-  <section class="webdev teal my-16">
+
+  <section class="webdev blue my-16">
     <div class="container py-32">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
       </h2>
-      <p class="mb-16 text-6xl font-bold">Translate ideas into technology.</p>
-      <p class="mb-8 text-2xl">
-        Got a great idea but can't code? Confused by the cost and complexity of
-        building and maintaining a website?
+      <p class="mb-16 text-4xl font-bold">Translate ideas into technology.</p>
+      <p class="mb-8 text-xl">
+        Got a great idea but can't code? Frustrated by the cost and complexity
+        of building and maintaining a website?
       </p>
-    </div>
-  </section>
-  <section class="systemInt purple my-16">
-    <div class="container py-32">
-      <h2 class="mb-2 text-lg font-bold">
-        <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
-      </h2>
-      <p class="mb-16 text-6xl font-bold">
-        Reduce the burdon of running your business.
-      </p>
-      <p class="mb-8 text-2xl">
-        You should be able to trust technology to reduce the cost and complexity
-        of running your business, not increase it.
-      </p>
+      <div class="grid grid-cols-1 content-stretch gap-6 lg:grid-cols-3">
+        <Feature icon="ic:baseline-web" title="eCommerce Store">
+          Your digital shopfront, products and payment with Shopify from £8,000
+          all in (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+        <Feature icon="ic:baseline-web" title="Website Build or Refresh">
+          Valuable, secure and modern custom-coded business websites, from
+          £3,500 all in (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+
+        <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
+          Bespoke interal apps, customer dashboards or a mock up of your next
+          venture for a pitch or research from £5,000 (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+      </div>
     </div>
   </section>
   <section class="ongoing gold my-16">
@@ -92,15 +142,109 @@ import ContentMedia from "../components/ContentMedia.astro";
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="ongoing" text="ONGOING SUPPORT" />
       </h2>
-      <p class="mb-16 text-6xl font-bold">Let us take care of the admin.</p>
-      <p class="mb-8 text-2xl">
+      <p class="mb-16 text-4xl font-bold">Let us take care of the admin.</p>
+      <p class="mb-8 text-xl">
         Guaranteed, flexible access to expertise, ongoing managed support
         functions or routine maintenance, that already knows your business.
       </p>
-      <p class="mb-8 text-2xl">
+      <p class="mb-8 text-xl">
         Let us manage the admin of running your business, so you don't need to
         do it yourself or hire externally.
       </p>
+      <div class="grid grid-cols-1 content-stretch gap-6 md:grid-cols-2">
+        <Feature
+          icon="ic:baseline-web"
+          title="Web Hosting & Domain Maintenance"
+        >
+          Let us cover the basics of keeping your website up and running, from
+          £50 per month (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+        <Feature icon="ic:baseline-web" title="Business Essentials">
+          Everything you need for a professional, secure web presence and
+          customer experience; from £150 per month (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+
+        <!-- <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
+          from £5,000 (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature> -->
+      </div>
+    </div>
+  </section>
+  <section class="systemInt mint my-16">
+    <div class="container py-32">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
+      </h2>
+      <p class="mb-16 text-4xl font-bold">
+        Reduce the burdon of running your business.
+      </p>
+      <p class="mb-8 text-xl">
+        You should be able to trust technology to reduce the cost and complexity
+        of running your business, not increase it.
+      </p>
+
+      <div class="flex max-w-md place-self-center">
+        <Feature
+          icon="ic:baseline-web"
+          title="Web Hosting & Domain Maintenance"
+        >
+          Let us cover the basics of keeping your website up and running, from
+          £50 per month (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+      </div>
+    </div>
+  </section>
+  <section class="business purple my-16">
+    <div class="container py-32">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
+      </h2>
+      <p class="mb-16 text-4xl font-bold">
+        Understand the dynamics of your business.
+      </p>
+      <p class="mb-8 text-xl">
+        Assess performance, manage risk and identify opportunities to improve
+        processes and systems.
+      </p>
+      <div class="flex max-w-md place-self-center">
+        <Feature
+          icon="ic:baseline-web"
+          title="Web Hosting & Domain Maintenance"
+        >
+          Let us cover the basics of keeping your website up and running, from
+          £50 per month (ex.VAT).
+          <Button
+            icon="mdi:arrow-right"
+            href="/"
+            text="Details & Booking"
+            buttonColor="color-secondary"
+          />
+        </Feature>
+      </div>
     </div>
   </section>
 </DefaultLayout>
@@ -118,28 +262,31 @@ import ContentMedia from "../components/ContentMedia.astro";
   .ongoing {
     // background: var(--accent-gold);
   }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   a {
     text-transform: uppercase;
   }
   .mint {
-    background-color: var(--accent-mint);
+    background-color: var(--accent-mint-100);
     color: var(--dark-100);
   }
   .teal {
-    background-color: var(--accent-teal);
+    background-color: var(--accent-teal-100);
     color: var(--neutral-100);
   }
   .purple {
-    background-color: var(--accent-purple);
+    background-color: var(--accent-purple-100);
     color: var(--neutral-100);
   }
   .gold {
-    background-color: var(--accent-gold);
+    background-color: var(--accent-gold-100);
     color: var(--dark-100);
   }
-
-
 </style>
 
 <script>

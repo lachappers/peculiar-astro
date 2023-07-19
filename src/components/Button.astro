@@ -21,49 +21,63 @@ const { icon = null, text = "Text", href, buttonColor = "" } = Astro.props;
 <style lang="scss">
 
     :global(.mint) {
-      background-color: var(--accent-mint);
+      background-color: var(--accent-mint-100);
       color: var(--dark-100);
     }
     :global(.darkmode .mint){
       background-color: var(--dark-100);
       color: var(--neutral-100);
       // color: var(--accent-mint);
-      border: 2px solid var(--accent-mint);
+      border: 2px solid var(--accent-mint-100);
       border-radius: 0.5rem;
       margin: 1rem;
     }
+
+    :global(.blue) {
+      background-color: var(--accent-blue-100);
+      color: var(--neutral-200);
+    }
+    :global(.darkmode .blue){
+      background-color: var(--dark-100);
+      color: var(--neutral-100);
+      border: 2px solid var(--accent-blue-100);
+      border-radius: 0.5rem;
+      margin: 1rem;
+    }
+
+    
     :global(.teal) {
-      background-color: var(--accent-teal);
+      background-color: var(--accent-teal-100);
       color: var(--neutral-200);
     }
     :global(.darkmode .teal){
       background-color: var(--dark-100);
       // color: var(--accent-teal);
       
-      border: 2px solid var(--accent-teal);
+      border: 2px solid var(--accent-teal-100);
       border-radius: 0.5rem;
       margin: 1rem;
     }
     :global(.purple) {
-      background-color: var(--accent-purple);
+      background-color: var(--accent-purple-100);
       color: var(--neutral-100);
     }
     :global(.darkmode .purple){
       background-color: var(--dark-100);
       
       // color: var(--accent-purple);
-      border: 2px solid var(--accent-purple);
+      border: 2px solid var(--accent-purple-100);
       border-radius: 0.5rem;
       margin: 1rem;
     }
     :global(.gold) {
-      background-color: var(--accent-gold);
+      background-color: var(--accent-gold-100);
       color: var(--dark-100);
     }
     :global(.darkmode .gold){
       background-color: var(--dark-100);
       // color: var(--accent-gold);
-      border: 2px solid var(--accent-gold);
+      border: 2px solid var(--accent-gold-100);
       color: var(--neutral-100);
       border-radius: 0.5rem;
       margin: 1rem;

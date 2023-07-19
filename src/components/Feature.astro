@@ -5,20 +5,40 @@ const {
   icon = "mdi:rocket",
   title = "Title",
   featureColor = "neutral",
+  href = null,
 } = Astro.props;
 ---
+{ !href ? (
+  <div class=`feature flex flex-col gap-2 justify-between ${featureColor}`>
 
-<div class=`feature flex flex-col gap-2 ${featureColor}`>
-  <Icon name={icon} />
-  <div class="content">
-    <h3>{title}</h3>
-    <p>
+    <div class="content flex flex-col">
+      <Icon name={icon} />
+      <h3>{title}</h3>
+    </div>
+      
+    <div class="content mt-4 flex-auto flex flex-col gap-8 justify-between ">
       <slot
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot
       >
-    </p>
+    </div>
   </div>
-</div>
+  )
+  : (
+  <a {href} class="flex featureLink">
+    <div class=`feature flex flex-col gap-2 ${featureColor}`>
+      <Icon name={icon} />
+      <div class="content flex flex-col">
+        <h3>{title}</h3>
+        <div class="mt-4 flex flex-col gap-8 justify-between ">
+          <slot>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.
+          </slot>
+        </>
+      </div>
+    </div>
+  </a>
+  </>
+  )}
 
 <style lang="scss">
   @use "../assets/scss/base/breakpoint" as *;
@@ -38,9 +58,17 @@ const {
       z-index: 2;
     }
 
+
     @include breakpoint(large) {
       width: 100%;
     }
+  }
+
+  .content > div:last-child {
+    padding: .5rem;
+    background-color: salmon;
+    border: 1px solid salmon;
+  
   }
 
   :global(.feature [astro-icon]) {
