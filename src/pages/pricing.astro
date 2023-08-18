@@ -1,0 +1,386 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Hero from "../components/Hero.astro";
+import Heading from "../components/Heading.astro";
+import Button from "../components/Button.astro";
+import CallOut from "../components/CallOut.astro";
+import Feature from "../components/Feature.astro";
+import { Icon } from "astro-icon";
+---
+
+<DefaultLayout title="Pricing">
+  <Hero
+    title="Tech Essentials from"
+    gradientText="£1,000 upfront"
+    learnTarget={`#pricing`}
+    quoteButton={true}
+    learnButton={true}
+    imgSrc="/hero-vector.png"
+  />
+  <section class="my-64">
+    <div class="container flex flex-col">
+      <h2 class="mb-2 text-lg font-bold">
+        <Heading id="pricing" text="HOW IT WORKS" />
+      </h2>
+      <p class="mb-16 text-6xl font-bold">
+        Keeping it
+        <span class="text-highlight">simple</span>.
+      </p>
+      <!-- <p class="mb-8 text-2xl">
+        Make the technology and systems that your business relies on:
+      </p> -->
+      <div class="container">
+        <p class="mb-4 text-2xl font-semibold">Design & Build</p>
+
+        <div class="flex flex-wrap" id="tabs-id">
+          <div class="w-full">
+            <ul
+              class="mb-0 flex list-none flex-row flex-wrap rounded no-underline"
+            >
+              <li class="flex-auto text-center no-underline">
+                <a
+                  class="block bg-pink-600 px-5 py-3 text-xs font-bold uppercase leading-normal text-white no-underline shadow-lg"
+                  onclick="changeActiveTab(event,'tab-profile')"
+                >
+                  Pay Monthly
+                </a>
+              </li>
+              <li class="flex-auto text-center">
+                <a
+                  class="bg-white px-5 py-3 text-xs font-bold uppercase leading-normal text-pink-600 no-underline shadow-lg"
+                  onclick="changeActiveTab(event,'tab-settings')"
+                >
+                  Pay by Milestone
+                </a>
+              </li>
+              <li class="flex-auto text-center">
+                <a
+                  class="bg-white px-5 py-3 text-xs font-bold uppercase leading-normal text-pink-600 no-underline shadow-lg"
+                  onclick="changeActiveTab(event,'tab-options')"
+                >
+                  Pay Upfront
+                </a>
+              </li>
+            </ul>
+
+            <div
+              class="relative mb-6 flex w-full min-w-0 flex-col break-words rounded bg-white shadow-lg"
+            >
+              <div class="flex-auto px-4 py-5">
+                <div class="tab-content tab-space">
+                  <div class="block" id="tab-profile">
+                    <p>
+                      Collaboratively administrate empowered markets via
+                      plug-and-play networks. Dynamically procrastinate B2C
+                      users after installed base benefits.
+                      <br />
+                      <br />
+                      Dramatically visualize customer directed convergence without
+                      revolutionary ROI.
+                    </p>
+                  </div>
+                  <div class="hidden" id="tab-settings">
+                    <p>
+                      Completely synergize resource taxing relationships via
+                      premier niche markets. Professionally cultivate one-to-one
+                      customer service with robust ideas.
+                      <br />
+                      <br />
+                      Dynamically innovate resource-leveling customer service for
+                      state of the art customer service.
+                    </p>
+                  </div>
+                  <div class="hidden" id="tab-options">
+                    <p>
+                      Efficiently unleash cross-media information without
+                      cross-media value. Quickly maximize timely deliverables
+                      for real-time schemas.
+                      <br />
+                      <br />
+                      Dramatically maintain clicks-and-mortar solutions without functional
+                      solutions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
+          <CallOut
+            purple="1"
+            point="Quote"
+            subtext="Build a detailed custom quote with our interactive tool."
+          />
+          <CallOut
+            purple="2"
+            point="Design"
+            subtext="Using our intelligent design tool and a 2hr design session."
+          />
+          <CallOut
+            purple="3"
+            point="Relax"
+            subtext="...whilst we build, test and look after your tech!"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
+      <Button href="/" icon="ph:chat" text="Get a Quote" />
+      <Button href="/" text="About Us" buttonColor="color-secondary" />
+    </div>
+  </section>
+  <section class="peach my-64 py-8">
+    <div class="container flex flex-col items-center py-8">
+      <h2 class="mb-2 w-full text-lg font-bold">
+        <Heading
+          id="included"
+          text="Get your tech up and running, or up to scratch"
+        />
+      </h2>
+      <p class="mb-16 w-full text-6xl font-bold">
+        <span class="text-highlight">Always included</span>, as standard:
+      </p>
+      <div
+        class="grid max-w-screen-lg grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
+      >
+        <Feature
+          icon="carbon:screen"
+          title="Website & Content"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Design or migration, build & optimisation.
+        </Feature>
+        <Feature
+          icon="ion:mail-outline"
+          title="Custom Email"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Professional email matching your domain.
+        </Feature>
+        <Feature
+          icon="carbon:tool-kit"
+          title="Productivity Tools"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Google Workspace and products.
+        </Feature>
+        <Feature
+          icon="ph:broadcast"
+          title="Reputation & Reviews"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Search engine & review site registration.
+        </Feature>
+        <Feature
+          icon="carbon:chat"
+          title="Customer Contact"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Setup or config of CRM & website.
+        </Feature>
+        <Feature
+          icon="ep:data-line"
+          title="Data & Insights"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Google Analytics to track performance.
+        </Feature>
+        <Feature
+          icon="ph:cookie"
+          title="Legal & GDPR"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Compliant website policies & content.
+        </Feature>
+        <Feature
+          icon="ph:lock-light"
+          title="Security Basics"
+          featureColor=""
+          contentClasses="text-center items-center"
+        >
+          Secure hosting, domain & data setup.
+        </Feature>
+      </div>
+      <div class="my-8 flex w-full items-center gap-4">
+        <div class="flex-auto border-b-2 border-solid border-indigo-600"></div>
+        <p>PLUS</p>
+        <div class="flex-auto border-b-2 border-solid border-indigo-600"></div>
+      </div>
+      <ul class="grid grid-cols-2 content-center gap-8 text-sm md:grid-cols-3">
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+
+          Custom coded, accessible 5-page site
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          SEO optimisation
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+
+          Domain registration & management
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+
+          Migration of existing content
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Secure site & email hosting
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Anti-spam contact form
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          https and SSL certificates
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Performance scanning & updates
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Content licensing & management
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Mobile & desktop compatibility
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Backups & security updates
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Configured with your branding
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Google search console registration
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Mobile & desktop compatibility
+        </li>
+        <li class="flex h-6 items-center gap-2">
+          <div class="h-6 w-6 flex-none">
+            <Icon name="charm:tick" />
+          </div>
+          Comprehensive, custom add-ons as required
+        </li>
+      </ul>
+    </div>
+    <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
+      <Button href="/" icon="ph:chat" text="Get a Quote" />
+      <Button href="/" text="About Us" buttonColor="color-secondary" />
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  .text-highlight {
+    text-decoration: var(--primary-200) wavy underline;
+  }
+  .mint {
+    background-color: var(--accent-mint-100);
+    color: var(--dark-100);
+  }
+  .teal {
+    background-color: var(--accent-teal-100);
+    color: var(--neutral-100);
+  }
+  .purple {
+    background-color: var(--accent-purple-100);
+    color: var(--neutral-100);
+  }
+  .gold {
+    background-color: var(--accent-gold-100);
+    color: var(--dark-100);
+  }
+  .peach {
+    background-color: var(--accent-peach-100);
+    color: var(--peach-100);
+  }
+  .peach > .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid var(--neutral-900);
+    border-radius: 0.5rem;
+    background-color: var(--secondary-50);
+  }
+
+  svg {
+    background-color: var(--accent-mint-100);
+    color: var(--dark-100);
+    border-radius: 9999px;
+  }
+</style>
+<script type="text/javascript">
+  function changeActiveTab(event, tabID) {
+    let element = event.target;
+    while (element.nodeName !== "A") {
+      element = element.parentNode;
+    }
+    ulElement = element.parentNode.parentNode;
+    aElements = ulElement.querySelectorAll("li > a");
+    tabContents = document
+      .getElementById("tabs-id")
+      .querySelectorAll(".tab-content > div");
+    for (let i = 0; i < aElements.length; i++) {
+      aElements[i].classList.remove("text-white");
+      aElements[i].classList.remove("bg-pink-600");
+      aElements[i].classList.add("text-pink-600");
+      aElements[i].classList.add("bg-white");
+      tabContents[i].classList.add("hidden");
+      tabContents[i].classList.remove("block");
+    }
+    element.classList.remove("text-pink-600");
+    element.classList.remove("bg-white");
+    element.classList.add("text-white");
+    element.classList.add("bg-pink-600");
+    document.getElementById(tabID).classList.remove("hidden");
+    document.getElementById(tabID).classList.add("block");
+  }
+</script>

@@ -19,7 +19,7 @@ import CallOut from "../components/CallOut.astro";
       understandable technology paired with one-time or ongoing tech support.
     </p>
     <div
-      class="container col-span-full mt-16 flex flex-wrap justify-center gap-3 min-[200px]:flex-row"
+      class="col-span-full mt-16 flex max-w-screen-lg flex-wrap justify-center gap-3 min-[200px]:flex-row"
     >
       <Button
         href="#webDev"
@@ -48,8 +48,8 @@ import CallOut from "../components/CallOut.astro";
       />
     </div>
   </Hero>
-  <section class="my-32">
-    <div class="container flex flex-col">
+  <section class="approach my-32 py-8">
+    <div class="container flex flex-col rounded-lg py-8">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="approach" text="OUR APPROACH" />
       </h2>
@@ -60,52 +60,91 @@ import CallOut from "../components/CallOut.astro";
       <p class="mb-8 text-xl">
         Grow, profressionalise and promote your business with custom solutions
         that deliver value; to give you the time to focus on delivering your
-        products and services. Our approach is:
+        products and services.
       </p>
+      <p class="mb-8 text-xl">Our approach is:</p>
 
-      <div class="container">
-        <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
-          <CallOut
-            purple="Tech-Led"
-            point="Processes and Service"
-            subtext="Keep costs down and delivery fast."
-          />
-          <CallOut
-            purple="UK-Based"
-            point="British Suppliers"
-            subtext="Supporting local businesses and tech talent."
-          />
+      <div
+        class="mb-16 grid grid-cols-1 justify-items-center gap-8 md:grid-cols-3"
+      >
+        <CallOut
+          purple="Tech-Led"
+          point="Processes and Service"
+          subtext="Keep costs down and delivery fast."
+        />
+        <CallOut
+          purple="UK-Based"
+          point="British Suppliers"
+          subtext="Supporting local businesses and tech talent."
+        />
 
-          <CallOut
-            purple="Transparent"
-            point="Upfront Costs"
-            subtext="Fixed fees, clear briefs and simple pricing."
-          />
-        </div>
+        <CallOut
+          purple="Transparent"
+          point="Upfront Costs"
+          subtext="Fixed fees, clear briefs and simple pricing."
+        />
       </div>
-    </div>
-    <div
-      class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
-    >
-      <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
-      <Button href="/" text="About Us" buttonColor="color-secondary" />
+      <ul class="flex flex-col gap-4 text-xl">
+        Our tech is:
+        <li>
+          <span class="font-bold">hand-coded</span> i.e. no wordpress or bloated
+          frameworks
+          <span class="font-bold">for speed and performance</span> to optimise your
+          page ranking and SEO - getting you in front of <span
+            class="font-bold"
+          >
+            more eyeballs
+          </span>
+        </li>
+        <li>
+          <span class="font-bold">integrated</span> tying together all your online
+          profiles
+          <span class="font-bold">and</span> your core business processes (like customer
+          quotes or your accounting tools) - to <span class="font-bold">
+            save you time and reduce complexity
+          </span>
+        </li>
+        <li>
+          <span class="font-bold">comprehensively managed</span>; we handle
+          everything behind the scenes so you can <span class="font-bold"
+            >set it and forget it</span
+          > and focus on serving your customers <span class="font-bold"
+            >tech-stress free</span
+          >
+        </li>
+      </ul>
+      <div
+        class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
+      >
+        <Button href="/" icon="ph:chat" text="Get a Quote" />
+        <Button
+          href="#webDev"
+          icon="mdi:arrow-down"
+          text="Services"
+          buttonColor="color-secondary"
+        />
+      </div>
     </div>
   </section>
 
-  <section class="webdev blue my-16">
-    <div class="container py-32">
-      <h2 class="mb-2 text-lg font-bold">
+  <section class="webdev blue my-16 py-8">
+    <div class="container flex flex-col items-center py-32">
+      <h2 class="mb-2 w-full text-lg font-bold">
         <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
       </h2>
-      <p class="mb-16 text-4xl font-bold">Translate ideas into technology.</p>
-      <p class="mb-8 text-xl">
+      <p class="mb-8 w-full text-4xl font-bold">
+        Translate ideas into technology.
+      </p>
+      <p class="mb-8 w-full text-xl">
         Got a great idea but can't code? Frustrated by the cost and complexity
         of building and maintaining a website?
       </p>
-      <div class="grid grid-cols-1 content-stretch gap-6 lg:grid-cols-3">
-        <Feature icon="ic:baseline-web" title="eCommerce Store">
-          Your digital shopfront, products and payment with Shopify from £8,000
-          all in (ex.VAT).
+      <div
+        class="grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <Feature icon="ic:baseline-web" title="eCommerce & Digital Stores">
+          Your digital shopfront, products and payment with Shopify
+          <span class="text-xl font-bold">From £8,000 (ex.VAT)</span>
           <Button
             icon="mdi:arrow-right"
             href="/"
@@ -114,8 +153,8 @@ import CallOut from "../components/CallOut.astro";
           />
         </Feature>
         <Feature icon="ic:baseline-web" title="Website Build or Refresh">
-          Valuable, secure and modern custom-coded business websites, from
-          £3,500 all in (ex.VAT).
+          Valuable, secure and modern custom-coded business websites
+          <span class="text-xl font-bold">From £3,000 (ex.VAT)</span>
           <Button
             icon="mdi:arrow-right"
             href="/"
@@ -126,7 +165,9 @@ import CallOut from "../components/CallOut.astro";
 
         <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
           Bespoke interal apps, customer dashboards or a mock up of your next
-          venture for a pitch or research from £5,000 (ex.VAT).
+          venture for a pitch or research
+          <span class="text-xl font-bold">From £5,000 (ex.VAT)</span>
+
           <Button
             icon="mdi:arrow-right"
             href="/"
@@ -137,27 +178,30 @@ import CallOut from "../components/CallOut.astro";
       </div>
     </div>
   </section>
-  <section class="ongoing gold my-16">
-    <div class="container py-32">
-      <h2 class="mb-2 text-lg font-bold">
+
+  <section class="ongoing gold my-16 py-8">
+    <div class="container flex flex-col items-center py-32">
+      <h2 class="mb-2 w-full text-lg font-bold">
         <Heading id="ongoing" text="ONGOING SUPPORT" />
       </h2>
-      <p class="mb-16 text-4xl font-bold">Let us take care of the admin.</p>
-      <p class="mb-8 text-xl">
+      <p class="mb-8 w-full text-4xl font-bold">
+        Let us take care of the admin.
+      </p>
+      <p class="mb-8 w-full text-xl">
         Guaranteed, flexible access to expertise, ongoing managed support
-        functions or routine maintenance, that already knows your business.
+        functions or routine maintenance, that already knows your business. Let
+        us manage the admin of running your business, so you don't need to do it
+        yourself or hire externally.
       </p>
-      <p class="mb-8 text-xl">
-        Let us manage the admin of running your business, so you don't need to
-        do it yourself or hire externally.
-      </p>
-      <div class="grid grid-cols-1 content-stretch gap-6 md:grid-cols-2">
+      <div
+        class="grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2"
+      >
         <Feature
           icon="ic:baseline-web"
           title="Web Hosting & Domain Maintenance"
         >
-          Let us cover the basics of keeping your website up and running, from
-          £50 per month (ex.VAT).
+          Let us cover the basics of keeping your website up and running,
+          <span class="text-xl font-bold">From £50 per month (ex.VAT)</span>
           <Button
             icon="mdi:arrow-right"
             href="/"
@@ -165,9 +209,10 @@ import CallOut from "../components/CallOut.astro";
             buttonColor="color-secondary"
           />
         </Feature>
-        <Feature icon="ic:baseline-web" title="Business Essentials">
+        <Feature icon="ic:baseline-web" title="Business Technology Essentials">
           Everything you need for a professional, secure web presence and
-          customer experience; from £150 per month (ex.VAT).
+          customer experience;
+          <span class="text-xl font-bold">From £150 per month (ex.VAT)</span>
           <Button
             icon="mdi:arrow-right"
             href="/"
@@ -188,12 +233,12 @@ import CallOut from "../components/CallOut.astro";
       </div>
     </div>
   </section>
-  <section class="systemInt mint my-16">
+  <section class="systemInt mint my-16 py-8">
     <div class="container py-32">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
       </h2>
-      <p class="mb-16 text-4xl font-bold">
+      <p class="mb-8 text-4xl font-bold">
         Reduce the burdon of running your business.
       </p>
       <p class="mb-8 text-xl">
@@ -202,28 +247,27 @@ import CallOut from "../components/CallOut.astro";
       </p>
 
       <div class="flex max-w-md place-self-center">
-        <Feature
-          icon="ic:baseline-web"
-          title="Web Hosting & Domain Maintenance"
-        >
-          Let us cover the basics of keeping your website up and running, from
-          £50 per month (ex.VAT).
+        <Feature icon="ic:baseline-web" title="Let's get connected">
+          Automate, streamline or reconfigure your processes and systems to
+          simplify, secure or fix ineffective tech.
+          <span class="font-bold">Priced case-by-case</span>
+
           <Button
-            icon="mdi:arrow-right"
+            icon="mdi:comment-question-outline"
             href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
+            text="Enquire"
+            buttonColor="color-primary"
           />
         </Feature>
       </div>
     </div>
   </section>
-  <section class="business purple my-16">
+  <section class="business purple my-16 py-8">
     <div class="container py-32">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
       </h2>
-      <p class="mb-16 text-4xl font-bold">
+      <p class="mb-8 text-4xl font-bold">
         Understand the dynamics of your business.
       </p>
       <p class="mb-8 text-xl">
@@ -231,17 +275,15 @@ import CallOut from "../components/CallOut.astro";
         processes and systems.
       </p>
       <div class="flex max-w-md place-self-center">
-        <Feature
-          icon="ic:baseline-web"
-          title="Web Hosting & Domain Maintenance"
-        >
-          Let us cover the basics of keeping your website up and running, from
-          £50 per month (ex.VAT).
+        <Feature icon="ic:baseline-web" title="Health Check">
+          Understand what's working, what's not and what could be next for your
+          business.
+          <span class="font-bold">Priced case-by-case</span>
           <Button
-            icon="mdi:arrow-right"
+            icon="mdi:comment-question-outline"
             href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
+            text="Enquire"
+            buttonColor="color-primary"
           />
         </Feature>
       </div>
@@ -250,6 +292,16 @@ import CallOut from "../components/CallOut.astro";
 </DefaultLayout>
 
 <style lang="scss">
+  .approach {
+    background-color: var(--accent-peach-100);
+  }
+  .approach > .container,
+  .ongoing > .container,
+  .systemInt > .container {
+    background-color: var(--secondary-50);
+    border: 3px solid var(--neutral-900);
+    border-radius: 0.5rem;
+  }
   .business {
     // background: var(--accent-mint);
   }
@@ -266,6 +318,8 @@ import CallOut from "../components/CallOut.astro";
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 3px solid var(--neutral-900);
+    border-radius: 0.5rem;
   }
 
   a {

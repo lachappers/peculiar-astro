@@ -6,17 +6,18 @@ const {
   title = "Title",
   featureColor = "neutral",
   href = null,
+  contentClasses = ""
 } = Astro.props;
 ---
 { !href ? (
-  <div class=`feature flex flex-col gap-2 justify-between ${featureColor}`>
+  <div class=`feature  ${featureColor}`>
 
-    <div class="content flex flex-col">
+    <div class=`content ${contentClasses}`>
       <Icon name={icon} />
       <h3>{title}</h3>
     </div>
       
-    <div class="content mt-4 flex-auto flex flex-col gap-8 justify-between ">
+    <div class=`content ${contentClasses}`>
       <slot
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot
       >
@@ -25,11 +26,11 @@ const {
   )
   : (
   <a {href} class="flex featureLink">
-    <div class=`feature flex flex-col gap-2 ${featureColor}`>
+    <div class=`feature ${featureColor}`>
       <Icon name={icon} />
-      <div class="content flex flex-col">
+      <div class=`content ${contentClasses}`>
         <h3>{title}</h3>
-        <div class="mt-4 flex flex-col gap-8 justify-between ">
+        <div class=`content ${contentClasses}`>
           <slot>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.
           </slot>
@@ -45,8 +46,11 @@ const {
 
   .feature {
     position: relative;
-    width: calc(100% - 0.5rem);
-    padding: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.25rem;
 
     border: 3px solid var(--neutral-900);
     box-shadow: 0.0625rem 0.0625rem 0 var(--secondary-100),
@@ -59,15 +63,26 @@ const {
     }
 
 
+
     @include breakpoint(large) {
       width: 100%;
     }
   }
 
+  .content {
+    // flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    gap: .5rem;
+  }
+
   .content > div:last-child {
-    padding: .5rem;
-    background-color: salmon;
-    border: 1px solid salmon;
+    // padding-top: 1rem;
+    // padding: .5rem 0;
+    // background-color: salmon;
+    // border: 1px solid salmon;
   
   }
 

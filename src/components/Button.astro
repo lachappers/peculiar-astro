@@ -6,13 +6,13 @@ const { icon = null, text = "Text", href, buttonColor = "" } = Astro.props;
 
 { !icon ?
     (
-        <a class=`button ${buttonColor}` {href}>
+        <a class=`text-lg button ${buttonColor}` {href}>
             {text}
         </a>
         )
     :
     (
-    <a class=`button has-icon ${buttonColor}` {href}>
+    <a class=`text-lg button has-icon ${buttonColor}` {href}>
         {text}
         <Icon name={icon} />
     </a>)
