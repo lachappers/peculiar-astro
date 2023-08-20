@@ -125,11 +125,11 @@ import CallOut from "../components/CallOut.astro";
       <div
         class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
       >
-        <Button href="/" icon="ph:chat" text="Get a Quote" />
+        <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
         <Button
           href="#webDev"
           icon="mdi:arrow-down"
-          text="Services"
+          text="How We Can Help"
           buttonColor="color-secondary"
         />
       </div>
@@ -149,42 +149,34 @@ import CallOut from "../components/CallOut.astro";
         of building and maintaining a website?
       </p>
       <div
-        class="grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3"
+        class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3"
       >
         <Feature icon="ic:baseline-web" title="eCommerce & Digital Stores">
           Your digital shopfront, products and payment with Shopify
-          <span class="text-xl font-bold">From £8,000 (ex.VAT)</span>
-          <Button
-            icon="mdi:arrow-right"
-            href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
-          />
+          <span class="text-xl font-bold">From £9,000 (ex.VAT)</span>
+          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
         </Feature>
         <Feature icon="ic:baseline-web" title="Website Build or Refresh">
           Valuable, secure and modern custom-coded business websites
-          <span class="text-xl font-bold">From £3,000 (ex.VAT)</span>
-          <Button
-            icon="mdi:arrow-right"
-            href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
-          />
+          <span class="text-xl font-bold">From £4,000 (ex.VAT)</span>
+          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
         </Feature>
 
         <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
           Bespoke interal apps, customer dashboards or a mock up of your next
           venture for a pitch or research
-          <span class="text-xl font-bold">From £5,000 (ex.VAT)</span>
+          <span class="text-xl font-bold">From £6,000 (ex.VAT)</span>
 
-          <Button
-            icon="mdi:arrow-right"
-            href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
-          />
+          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
         </Feature>
       </div>
+
+      <Button
+        icon="mdi:arrow-down"
+        href="#ongoing"
+        text="Support Services"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
 
@@ -203,31 +195,21 @@ import CallOut from "../components/CallOut.astro";
         yourself or hire externally.
       </p>
       <div
-        class="grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2"
+        class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2"
       >
         <Feature
           icon="ic:baseline-web"
           title="Web Hosting & Domain Maintenance"
         >
           Let us cover the basics of keeping your website up and running,
-          <span class="text-xl font-bold">From £50 per month (ex.VAT)</span>
-          <Button
-            icon="mdi:arrow-right"
-            href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
-          />
+          <span class="text-xl font-bold">From £75 per month (ex.VAT)</span>
+          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
         </Feature>
         <Feature icon="ic:baseline-web" title="Business Technology Essentials">
           Everything you need for a professional, secure web presence and
           customer experience;
           <span class="text-xl font-bold">From £150 per month (ex.VAT)</span>
-          <Button
-            icon="mdi:arrow-right"
-            href="/"
-            text="Details & Booking"
-            buttonColor="color-secondary"
-          />
+          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
         </Feature>
 
         <!-- <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
@@ -235,16 +217,22 @@ import CallOut from "../components/CallOut.astro";
           <Button
             icon="mdi:arrow-right"
             href="/"
-            text="Details & Booking"
+            text="Get Booked In"
             buttonColor="color-secondary"
           />
         </Feature> -->
       </div>
+      <Button
+        icon="mdi:arrow-down"
+        href="#systemIntegration"
+        text="Connecting Tech"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
   <section class="systemInt mint my-16 py-8">
-    <div class="container py-32">
-      <h2 class="mb-2 text-lg font-bold">
+    <div class="container items-center py-32">
+      <h2 class="mb-2 w-full text-lg font-bold">
         <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
       </h2>
       <p class="mb-8 text-4xl font-bold">
@@ -255,7 +243,7 @@ import CallOut from "../components/CallOut.astro";
         of running your business, not increase it.
       </p>
 
-      <div class="flex max-w-md place-self-center">
+      <div class="mb-8 flex max-w-md place-self-center">
         <Feature icon="ic:baseline-web" title="Let's get connected">
           Automate, streamline or reconfigure your processes and systems to
           simplify, secure or fix ineffective tech.
@@ -269,11 +257,18 @@ import CallOut from "../components/CallOut.astro";
           />
         </Feature>
       </div>
+      <Button
+        icon="mdi:arrow-down"
+        href="#businessAnalysis"
+        text="Data Insights"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
+
   <section class="business purple my-16 px-4 py-8">
-    <div class="container py-32">
-      <h2 class="mb-2 text-lg font-bold">
+    <div class="container items-center py-32">
+      <h2 class="mb-2 w-full text-lg font-bold">
         <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
       </h2>
       <p class="mb-8 text-4xl font-bold">
@@ -283,7 +278,7 @@ import CallOut from "../components/CallOut.astro";
         Assess performance, manage risk and identify opportunities to improve
         processes and systems.
       </p>
-      <div class="flex max-w-md place-self-center">
+      <div class="mb-8 flex max-w-md place-self-center">
         <Feature icon="ic:baseline-web" title="Health Check">
           Understand what's working, what's not and what could be next for your
           business.
@@ -296,6 +291,12 @@ import CallOut from "../components/CallOut.astro";
           />
         </Feature>
       </div>
+      <Button
+        icon="mdi:arrow-right"
+        href="/pricing"
+        text="Our Pricing"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
 </DefaultLayout>
@@ -307,8 +308,8 @@ import CallOut from "../components/CallOut.astro";
   .approach > .container,
   .ongoing > .container,
   .systemInt > .container {
-    background-color: var(--secondary-50);
-    border: 3px solid var(--neutral-900);
+    background-color: var(--background);
+    border: 3px solid var(--dark-100);
     border-radius: 0.5rem;
   }
   .business {

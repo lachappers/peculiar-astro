@@ -12,7 +12,7 @@ import { Icon } from "astro-icon";
   <Hero
     title="Tech Essentials from"
     gradientText="£1,000 upfront"
-    learnTarget={`#pricing`}
+    learnTarget={`#howItWorks`}
     quoteButton={true}
     learnButton={true}
     imgSrc="/hero-vector.png"
@@ -20,7 +20,7 @@ import { Icon } from "astro-icon";
   <section class="my-64">
     <div class="container flex flex-col">
       <h2 class="mb-2 text-lg font-bold">
-        <Heading id="pricing" text="HOW IT WORKS" />
+        <Heading id="howItWorks" text="HOW IT WORKS" />
       </h2>
       <p class="mb-16 text-6xl font-bold">
         Keeping it
@@ -57,8 +57,12 @@ import { Icon } from "astro-icon";
       </div>
     </div>
     <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
-      <Button href="/" icon="ph:chat" text="Get a Quote" />
-      <Button href="/" text="About Us" buttonColor="color-secondary" />
+      <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
+      <Button
+        href="/services/#approach"
+        text="Our Approach"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
   <section class="peach my-64 py-8">
@@ -242,8 +246,13 @@ import { Icon } from "astro-icon";
       </ul>
     </div>
     <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
-      <Button href="/" icon="ph:chat" text="Get a Quote" />
-      <Button href="/" text="About Us" buttonColor="color-secondary" />
+      <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
+      <Button
+        href="#example"
+        icon="mdi:arrow-down"
+        text="Pricing Example"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
 
@@ -256,9 +265,29 @@ import { Icon } from "astro-icon";
         <span class="text-highlight">Transparent</span>, customisable products,
         services & pricing
       </p>
-      <div class="flex justify-between p-4">
-        <div class="">Some words</div>
+      <div
+        class="flex flex-col items-center justify-between gap-4 p-4 lg:flex-row"
+      >
+        <div class="mb-8 text-2xl">
+          <p class="">
+            We use technology to build custom, detailed quotes that allow you to
+            pick more of what you want, and less of what you don't.
+          </p>
+          <br />
+          <p class="">
+            Our quotes are fixed - preventing any nasty surprises - with any
+            extras priced clearly and comprehensively, so you know what you're
+            signing up for.
+          </p>
+          <br />
+          <p class="">
+            We offer flexible payment options, to suit your business, with
+            discounts for any work paid up front, any follow on work and any
+            successful referrals you make to us.
+          </p>
+        </div>
         <div class="example peach max-w-md items-center gap-2 p-4">
+          <p class="text-xl font-bold">EXAMPLE QUOTE</p>
           <div class="toggle relative flex w-full justify-between px-4 py-8">
             <p class="w-1/5 font-semibold">PAY MONTHLY</p>
             <input
@@ -362,7 +391,7 @@ import { Icon } from "astro-icon";
               <p class="text-lg font-semibold">paid after design is agreed</p>
             </div>
           </div>
-          <Button href="/" icon="ph:chat" text="Get a Quote" />
+          <Button href="/quoter" icon="ph:chat" text="Get Your Quote" />
         </div>
       </div>
     </div>

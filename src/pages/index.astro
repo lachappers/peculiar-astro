@@ -19,7 +19,7 @@ import Heading from "../components/Heading.astro";
     learnButton={true}
     imgSrc="/hero-vector.png"
   />
-  <section class="my-64">
+  <section class="">
     <div class="container flex flex-col">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="believe" text="WE BELIEVE" />
@@ -56,12 +56,16 @@ import Heading from "../components/Heading.astro";
     <div
       class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
     >
-      <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
-      <Button href="/" text="About Us" buttonColor="color-secondary" />
+      <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
+      <Button
+        href="/services/#approach"
+        text="About Us"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
 
-  <section class="my-64">
+  <section class="">
     <div class="container">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="services" text="OUR SERVICES" />
@@ -86,7 +90,7 @@ import Heading from "../components/Heading.astro";
         </Feature>
         <Feature
           icon="mdi:lifebuoy"
-          title="On Call Support"
+          title="Routine & On Call Support"
           featureColor="gold"
           href="/services/#ongoing"
         >
@@ -118,17 +122,17 @@ import Heading from "../components/Heading.astro";
       >
         <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
         <Button
-          href="/"
+          href="/services"
           text="Explore Services"
           buttonColor="color-secondary"
         />
       </div>
     </div>
   </section>
-  <section class="my-64">
+  <section class="">
     <div class="container mb-8">
       <h2 class="mb-2 text-lg font-bold">
-        <Heading id="approach" text="OUR APPROACH" />
+        <Heading id="how" text="HOW WE WORK" />
       </h2>
       <p class="mb-8 text-6xl font-bold">
         Technology should <span class="text-highlight">fit</span> your business,
@@ -159,7 +163,11 @@ import Heading from "../components/Heading.astro";
       class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
     >
       <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
-      <Button href="/" text="Our Approach" buttonColor="color-secondary" />
+      <Button
+        href="/pricing/#howItWorks"
+        text="Learn More"
+        buttonColor="color-secondary"
+      />
     </div>
   </section>
 </DefaultLayout>
@@ -171,9 +179,7 @@ import Heading from "../components/Heading.astro";
   :global(html) {
     scroll-behavior: smooth;
   }
-  :global(section) {
-    min-height: 100vh;
-  }
+
   @media (prefers-reduced-motion: reduce) {
     :global(html) {
       scroll-behavior: auto;
@@ -196,6 +202,9 @@ import Heading from "../components/Heading.astro";
     > :first-child {
       border: 3px solid forestgreen;
     }
+  }
+  .darkmode .mint {
+    border: 3px solid var(--accent-mint-100);
   }
 </style>
 <script>
