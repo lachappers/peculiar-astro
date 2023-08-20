@@ -14,12 +14,13 @@ import CallOut from "../components/CallOut.astro";
     gradientText="That Matters"
     imgSrc="/invest-vector.png"
   >
-    <p class="self-start text-center text-xl md:text-left md:text-2xl">
+    <p class="mb-4 self-start text-center text-xl md:text-left md:text-2xl">
       Unlock the potential of your business with accessible, affordable and
       understandable technology paired with one-time or ongoing tech support.
     </p>
+
     <div
-      class="col-span-full mt-16 flex max-w-screen-lg flex-wrap justify-center gap-3 min-[200px]:flex-row"
+      class="col-span-full mt-4 flex w-full flex-wrap justify-center gap-3 min-[200px]:flex-row xl:col-span-1"
     >
       <Button
         href="#webDev"
@@ -47,8 +48,16 @@ import CallOut from "../components/CallOut.astro";
         buttonColor="purple"
       />
     </div>
+    <div class="col-span-full mt-16 flex w-full justify-center">
+      <Button
+        buttonColor="color-secondary"
+        href="#approach"
+        text="Our Approach"
+        icon="mdi:arrow-down"
+      />
+    </div>
   </Hero>
-  <section class="approach my-32 py-8">
+  <section class="approach my-32 px-4 py-8">
     <div class="container flex flex-col rounded-lg py-8">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="approach" text="OUR APPROACH" />
@@ -127,7 +136,7 @@ import CallOut from "../components/CallOut.astro";
     </div>
   </section>
 
-  <section class="webdev blue my-16 py-8">
+  <section class="webdev blue my-16 px-4 py-8">
     <div class="container flex flex-col items-center py-32">
       <h2 class="mb-2 w-full text-lg font-bold">
         <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
@@ -179,7 +188,7 @@ import CallOut from "../components/CallOut.astro";
     </div>
   </section>
 
-  <section class="ongoing gold my-16 py-8">
+  <section class="ongoing gold my-16 px-4 py-8">
     <div class="container flex flex-col items-center py-32">
       <h2 class="mb-2 w-full text-lg font-bold">
         <Heading id="ongoing" text="ONGOING SUPPORT" />
@@ -262,7 +271,7 @@ import CallOut from "../components/CallOut.astro";
       </div>
     </div>
   </section>
-  <section class="business purple my-16 py-8">
+  <section class="business purple my-16 px-4 py-8">
     <div class="container py-32">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />

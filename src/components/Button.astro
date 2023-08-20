@@ -1,18 +1,18 @@
 ---
 import { Icon } from "astro-icon";
 
-const { icon = null, text = "Text", href, buttonColor = "" } = Astro.props;
+const { icon = null, text = "Text", href, buttonColor = "", addClasses="" } = Astro.props;
 ---
 
 { !icon ?
     (
-        <a class=`text-lg button ${buttonColor}` {href}>
+        <a class=`text-lg button ${buttonColor} ${addClasses}` {href}>
             {text}
         </a>
         )
     :
     (
-    <a class=`text-lg button has-icon ${buttonColor}` {href}>
+    <a class=`text-lg button has-icon ${buttonColor} ${addClasses}` {href}>
         {text}
         <Icon name={icon} />
     </a>)

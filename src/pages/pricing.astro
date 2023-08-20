@@ -29,83 +29,13 @@ import { Icon } from "astro-icon";
       <!-- <p class="mb-8 text-2xl">
         Make the technology and systems that your business relies on:
       </p> -->
+      <p class="mb-8 text-2xl">
+        We use our intelligent digital tools to quickly shape, reconfigure and
+        build the right technology for you, at the right price, on your
+        schedule.
+      </p>
       <div class="container">
-        <p class="mb-4 text-2xl font-semibold">Design & Build</p>
-
-        <div class="flex flex-wrap" id="tabs-id">
-          <div class="w-full">
-            <ul
-              class="mb-0 flex list-none flex-row flex-wrap rounded no-underline"
-            >
-              <li class="flex-auto text-center no-underline">
-                <a
-                  class="block bg-pink-600 px-5 py-3 text-xs font-bold uppercase leading-normal text-white no-underline shadow-lg"
-                  onclick="changeActiveTab(event,'tab-profile')"
-                >
-                  Pay Monthly
-                </a>
-              </li>
-              <li class="flex-auto text-center">
-                <a
-                  class="bg-white px-5 py-3 text-xs font-bold uppercase leading-normal text-pink-600 no-underline shadow-lg"
-                  onclick="changeActiveTab(event,'tab-settings')"
-                >
-                  Pay by Milestone
-                </a>
-              </li>
-              <li class="flex-auto text-center">
-                <a
-                  class="bg-white px-5 py-3 text-xs font-bold uppercase leading-normal text-pink-600 no-underline shadow-lg"
-                  onclick="changeActiveTab(event,'tab-options')"
-                >
-                  Pay Upfront
-                </a>
-              </li>
-            </ul>
-
-            <div
-              class="relative mb-6 flex w-full min-w-0 flex-col break-words rounded bg-white shadow-lg"
-            >
-              <div class="flex-auto px-4 py-5">
-                <div class="tab-content tab-space">
-                  <div class="block" id="tab-profile">
-                    <p>
-                      Collaboratively administrate empowered markets via
-                      plug-and-play networks. Dynamically procrastinate B2C
-                      users after installed base benefits.
-                      <br />
-                      <br />
-                      Dramatically visualize customer directed convergence without
-                      revolutionary ROI.
-                    </p>
-                  </div>
-                  <div class="hidden" id="tab-settings">
-                    <p>
-                      Completely synergize resource taxing relationships via
-                      premier niche markets. Professionally cultivate one-to-one
-                      customer service with robust ideas.
-                      <br />
-                      <br />
-                      Dynamically innovate resource-leveling customer service for
-                      state of the art customer service.
-                    </p>
-                  </div>
-                  <div class="hidden" id="tab-options">
-                    <p>
-                      Efficiently unleash cross-media information without
-                      cross-media value. Quickly maximize timely deliverables
-                      for real-time schemas.
-                      <br />
-                      <br />
-                      Dramatically maintain clicks-and-mortar solutions without functional
-                      solutions.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="mb-8 text-2xl">It's as easy as...</p>
 
         <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
           <CallOut
@@ -333,10 +263,12 @@ import { Icon } from "astro-icon";
             <p class="w-1/5 font-semibold">PAY MONTHLY</p>
             <input
               type="checkbox"
-              id="hs-basic-usage"
+              id="exampleToggle"
               class="relative h-10 w-[4.5rem] cursor-pointer appearance-none rounded-full border border-2 border-black bg-gray-100 ring-1 ring-black ring-offset-white transition-colors duration-200 ease-in-out before:inline-block before:h-9 before:w-9 before:translate-x-0 before:transform before:rounded-full before:bg-white before:shadow before:ring-2 before:ring-black before:transition before:duration-200 before:ease-in-out checked:bg-blue-600 checked:bg-none checked:before:translate-x-full checked:before:bg-blue-200 focus:border-blue-600 focus:outline-none focus:ring-blue-600 dark:bg-gray-700 dark:before:bg-gray-400 dark:checked:bg-blue-600 dark:checked:before:bg-blue-200 dark:focus:ring-offset-gray-800"
             />
-            <label for="hs-basic-usage" class="sr-only">switch</label>
+            <label for="exampleToggle" class="sr-only"
+              >toggle cost by payment term</label
+            >
             <p class="w-1/5 text-right font-semibold">PAY UPFRONT</p>
             <span
               class="absolute bottom-2 right-2 rounded-full border-2 border-black bg-blue-800 px-1 text-xs font-light text-blue-50"
@@ -347,7 +279,19 @@ import { Icon } from "astro-icon";
             class="grid w-full grid-cols-4 gap-2 rounded-md border-2 border-black p-2"
           >
             <div class="col-span-3 text-lg font-bold">DESIGN & BUILD</div>
-            <p class="justify-self-end text-lg font-bold">£4,500</p>
+            <p class="monthly row-span-2 justify-self-end text-lg font-bold">
+              £4,500
+            </p>
+            <div
+              class="upfront relative row-span-2 flex hidden flex-col justify-self-end"
+            >
+              <p class="text-lg font-light line-through">£4,500</p>
+              <p class="text-lg font-bold">£4,150</p>
+              <span
+                class="absolute bottom-0 w-full rounded-full border-2 border-black bg-blue-800 px-1 text-center text-xs font-light text-blue-50"
+                >-10%</span
+              >
+            </div>
             <p class="col-span-3">
               5 page, hand-coded, brochure site. Hosting, email, productivity &
               web presence tools setup.
@@ -361,9 +305,21 @@ import { Icon } from "astro-icon";
                 (12 months)</span
               >
             </div>
-            <p class="justify-self-end text-lg font-bold">
+            <p class="monthly row-span-2 justify-self-end text-lg font-bold">
               £75 <span class="text-sm font-light"> /month</span>
             </p>
+            <div
+              class="upfront relative row-span-2 flex hidden flex-col items-end justify-self-end"
+            >
+              <p class="text-lg font-light line-through">£75</p>
+              <p class="text-lg font-bold">£67.50</p>
+              <p class="text-sm font-light">/month</p>
+
+              <span
+                class="absolute bottom-0 w-full rounded-full border-2 border-black bg-blue-800 px-1 text-center text-xs font-light text-blue-50"
+                >-10%</span
+              >
+            </div>
             <p class="col-span-3">
               Core package incl; domain & email hosting, security & performance
               updates, Google Workspace (x1).
@@ -397,6 +353,13 @@ import { Icon } from "astro-icon";
                 <span class="text-xs font-light">(ex.VAT)</span>
               </p>
               <p class="text-lg font-semibold">for 12 months</p>
+            </div>
+            <div class="upfront flex hidden flex-col items-center">
+              <p class="text-4xl font-bold">
+                £3960
+                <span class="text-xs font-light">(ex.VAT)</span>
+              </p>
+              <p class="text-lg font-semibold">paid after design is agreed</p>
             </div>
           </div>
           <Button href="/" icon="ph:chat" text="Get a Quote" />
@@ -434,9 +397,9 @@ import { Icon } from "astro-icon";
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border: 3px solid var(--neutral-900);
+      border: 3px solid var(--font-color);
       border-radius: 0.5rem;
-      background-color: var(--secondary-50);
+      background-color: var(--background);
     }
     .example {
       background-color: var(--accent-mint-100);
@@ -450,39 +413,25 @@ import { Icon } from "astro-icon";
     }
   </style>
   <script type="text/javascript">
-    function changeActiveTab(event, tabID) {
-      let element = event.target;
-      while (element.nodeName !== "A") {
-        element = element.parentNode;
-      }
-      ulElement = element.parentNode.parentNode;
-      aElements = ulElement.querySelectorAll("li > a");
-      tabContents = document
-        .getElementById("tabs-id")
-        .querySelectorAll(".tab-content > div");
-      for (let i = 0; i < aElements.length; i++) {
-        aElements[i].classList.remove("text-white");
-        aElements[i].classList.remove("bg-pink-600");
-        aElements[i].classList.add("text-pink-600");
-        aElements[i].classList.add("bg-white");
-        tabContents[i].classList.add("hidden");
-        tabContents[i].classList.remove("block");
-      }
-      element.classList.remove("text-pink-600");
-      element.classList.remove("bg-white");
-      element.classList.add("text-white");
-      element.classList.add("bg-pink-600");
-      document.getElementById(tabID).classList.remove("hidden");
-      document.getElementById(tabID).classList.add("block");
-    }
+    const monthlys = document.querySelectorAll(".monthly");
+    const upfronts = document.querySelectorAll(".upfront");
 
-    function toggle(event, toggleClass) {
-      var x = document.getElementById(toggleClass);
-      if (x.style.display === "none") {
-        x.style.display = "block";
+    document.getElementById("exampleToggle").addEventListener("change", () => {
+      if (document.querySelector("#exampleToggle:checked")) {
+        monthlys.forEach((m) => {
+          m.classList.add("hidden");
+        });
+        upfronts.forEach((u) => {
+          u.classList.remove("hidden");
+        });
       } else {
-        x.style.display = "none";
+        monthlys.forEach((m) => {
+          m.classList.remove("hidden");
+        });
+        upfronts.forEach((u) => {
+          u.classList.add("hidden");
+        });
       }
-    }
+    });
   </script>
 </DefaultLayout>

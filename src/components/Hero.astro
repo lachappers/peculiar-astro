@@ -13,12 +13,14 @@ const {
 const learnLink = `${learnTarget}`;
 ---
 
-<section class="hero my-24">
+<section class="hero my-24 flex min-h-[80vh] items-center">
   <div class="container">
     <div
       class="grid grid-cols-1 content-center items-center gap-x-16 lg:grid-cols-2"
     >
-      <div class="m-0 flex flex-col items-center md:items-start">
+      <div
+        class="row-end-auto m-0 flex flex-col items-center justify-between md:items-start"
+      >
         <h1 class="z-10 text-center text-6xl md:text-left lg:text-7xl">
           {title}
           <span class="text-gradient">{gradientText}</span>
@@ -46,7 +48,7 @@ const learnLink = `${learnTarget}`;
         </div>
       </div>
       <img
-        class="hidden lg:row-span-2 lg:block"
+        class="hidden lg:row-span-3 lg:block"
         src={imgSrc}
         alt=""
         decoding="async"

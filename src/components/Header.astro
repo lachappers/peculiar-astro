@@ -5,7 +5,7 @@ import { Icon } from "astro-icon";
 import Button from "../components/Button.astro";
 ---
 
-<header>
+<header class="sticky top-0">
   <SkipLinks />
   <Navigation>
     <li class="menu-item">
@@ -61,6 +61,9 @@ import Button from "../components/Button.astro";
       @use "../assets/scss/base/outline" as *;
 
       header {
+        background-color: var(--background);
+        z-index: 50;
+        border-bottom: 3px solid var(--font-color);
         .type-icon a {
           display: block;
 

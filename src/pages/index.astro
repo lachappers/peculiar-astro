@@ -171,6 +171,9 @@ import Heading from "../components/Heading.astro";
   :global(html) {
     scroll-behavior: smooth;
   }
+  :global(section) {
+    min-height: 100vh;
+  }
   @media (prefers-reduced-motion: reduce) {
     :global(html) {
       scroll-behavior: auto;
