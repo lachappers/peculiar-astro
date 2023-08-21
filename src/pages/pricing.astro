@@ -6,6 +6,7 @@ import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
 import { Icon } from "astro-icon";
+import CallToAction from "../components/CallToAction.astro";
 ---
 
 <DefaultLayout title="Pricing">
@@ -396,71 +397,72 @@ import { Icon } from "astro-icon";
       </div>
     </div>
   </section>
-
-  <style lang="scss">
-    .text-highlight {
-      text-decoration: var(--primary-200) wavy underline;
-    }
-    .mint {
-      background-color: var(--accent-mint-100);
-      color: var(--dark-100);
-    }
-    .teal {
-      background-color: var(--accent-teal-100);
-      color: var(--neutral-100);
-    }
-    .purple {
-      background-color: var(--accent-purple-100);
-      color: var(--neutral-100);
-    }
-    .gold {
-      background-color: var(--accent-gold-100);
-      color: var(--dark-100);
-    }
-    .peach {
-      background-color: var(--accent-peach-100);
-      color: var(--peach-100);
-    }
-    .peach > .container,
-    .example {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border: 3px solid var(--font-color);
-      border-radius: 0.5rem;
-      background-color: var(--background);
-    }
-    .example {
-      background-color: var(--accent-mint-100);
-      color: var(--dark-100);
-    }
-
-    svg {
-      background-color: var(--accent-mint-100);
-      color: var(--dark-100);
-      border-radius: 9999px;
-    }
-  </style>
-  <script type="text/javascript">
-    const monthlys = document.querySelectorAll(".monthly");
-    const upfronts = document.querySelectorAll(".upfront");
-
-    document.getElementById("exampleToggle").addEventListener("change", () => {
-      if (document.querySelector("#exampleToggle:checked")) {
-        monthlys.forEach((m) => {
-          m.classList.add("hidden");
-        });
-        upfronts.forEach((u) => {
-          u.classList.remove("hidden");
-        });
-      } else {
-        monthlys.forEach((m) => {
-          m.classList.remove("hidden");
-        });
-        upfronts.forEach((u) => {
-          u.classList.add("hidden");
-        });
-      }
-    });
-  </script>
+  <CallToAction />
 </DefaultLayout>
+
+<style lang="scss">
+  .text-highlight {
+    text-decoration: var(--primary-200) wavy underline;
+  }
+  .mint {
+    background-color: var(--accent-mint-100);
+    color: var(--dark-100);
+  }
+  .teal {
+    background-color: var(--accent-teal-100);
+    color: var(--neutral-100);
+  }
+  .purple {
+    background-color: var(--accent-purple-100);
+    color: var(--neutral-100);
+  }
+  .gold {
+    background-color: var(--accent-gold-100);
+    color: var(--dark-100);
+  }
+  .peach {
+    background-color: var(--accent-peach-100);
+    color: var(--peach-100);
+  }
+  .peach > .container,
+  .example {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid var(--font-color);
+    border-radius: 0.5rem;
+    background-color: var(--background);
+  }
+  .example {
+    background-color: var(--accent-mint-100);
+    color: var(--dark-100);
+  }
+
+  svg {
+    background-color: var(--accent-mint-100);
+    color: var(--dark-100);
+    border-radius: 9999px;
+  }
+</style>
+<script type="text/javascript">
+  const monthlys = document.querySelectorAll(".monthly");
+  const upfronts = document.querySelectorAll(".upfront");
+
+  document.getElementById("exampleToggle").addEventListener("change", () => {
+    if (document.querySelector("#exampleToggle:checked")) {
+      monthlys.forEach((m) => {
+        m.classList.add("hidden");
+      });
+      upfronts.forEach((u) => {
+        u.classList.remove("hidden");
+      });
+    } else {
+      monthlys.forEach((m) => {
+        m.classList.remove("hidden");
+      });
+      upfronts.forEach((u) => {
+        u.classList.add("hidden");
+      });
+    }
+  });
+</script>

@@ -1,26 +1,23 @@
 ---
-import CallToAction from "./CallToAction.astro";
-
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  <CallToAction />
   <section class="container py-4 text-xs">
     <div class="flex justify-between">
-      <a href="/" class="min-w-5 flex items-center gap-2 !no-underline">
+      <a href="/" class="flex items-center gap-2 !no-underline">
         <img
           class="hidden dark:block"
-          src={(await import("../assets/img/logo-full-blue-dark.svg")).default}
-          alt=""
-          width="200"
+          src={(await import("../assets/img/350x100-alt-dark.png")).default}
+          alt="Your Logo"
+          width="300"
           height="auto"
         />
         <img
           class="block dark:hidden"
-          src={(await import("../assets/img/logo-full-blue.svg")).default}
-          alt=""
-          width="200"
+          src={(await import("../assets/img/350x100.png")).default}
+          alt="Your Logo"
+          width="300"
           height="auto"
         />
       </a>
@@ -41,12 +38,12 @@ const currentYear = new Date().getFullYear();
         </p></a
       >
       <ul role="directory" class="flex flex-wrap justify-end">
-        <li><a href="">Terms and Conditions</a> |</li>
+        <li><a href="../policies/terms">Terms and Conditions</a> |</li>
         <li><a href="">Sitemap</a> |</li>
-        <li><a href="">Privacy Policy</a> |</li>
+        <li><a href="../policies/privacy">Privacy Policy</a> |</li>
         <li><a href="">Accessibility</a> |</li>
         <li><a href="">Supplier Code of Conduct</a> |</li>
-        <li><a href="">Cookie Notice</a>&nbsp;&nbsp</li>
+        <li><a href="../policies/cookies">Cookie Notice</a>&nbsp;&nbsp</li>
       </ul>
     </div>
     <div class="mt-4 text-gray-400">

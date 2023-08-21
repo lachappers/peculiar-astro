@@ -6,6 +6,7 @@ import Heading from "../components/Heading.astro";
 import { Icon } from "astro-icon";
 import Feature from "../components/Feature.astro";
 import CallOut from "../components/CallOut.astro";
+import CallToAction from "../components/CallToAction.astro";
 ---
 
 <DefaultLayout title="Services">
@@ -57,21 +58,23 @@ import CallOut from "../components/CallOut.astro";
       />
     </div>
   </Hero>
-  <section class="approach my-32 px-4 py-8">
-    <div class="container flex flex-col rounded-lg py-8">
-      <h2 class="mb-2 text-lg font-bold">
-        <Heading id="approach" text="OUR APPROACH" />
-      </h2>
-      <p class="mb-8 text-4xl font-bold">
-        Technology that
-        <span class="text-highlight">connects</span> your business and customers.
-      </p>
-      <p class="mb-8 text-xl">
-        Grow, profressionalise and promote your business with custom solutions
-        that deliver value; to give you the time to focus on delivering your
-        products and services.
-      </p>
-      <p class="mb-8 text-xl">Our approach is:</p>
+  <section class="approach px-4 py-8">
+    <div class="container flex flex-col items-center rounded-lg py-8">
+      <div class="flex max-w-2xl flex-none flex-col items-center">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading id="approach" text="OUR APPROACH" />
+        </h2>
+        <p class="mb-8 w-full text-4xl font-bold">
+          Technology that
+          <span class="text-highlight">connects</span> your business and customers.
+        </p>
+        <p class="mb-8 w-full max-w-[75ch] text-xl">
+          Grow, professionalise and promote your business with custom solutions
+          that deliver value; to give you the time to focus on delivering your
+          products and services.
+        </p>
+        <p class="mb-8 w-full text-xl">Our approach is:</p>
+      </div>
 
       <div
         class="mb-16 grid grid-cols-1 justify-items-center gap-8 md:grid-cols-3"
@@ -93,9 +96,11 @@ import CallOut from "../components/CallOut.astro";
           subtext="Fixed fees, clear briefs and simple pricing."
         />
       </div>
-      <ul class="flex flex-col gap-4 text-xl">
-        Our tech is:
-        <li>
+      <ul
+        class="flex w-full max-w-2xl flex-none flex-col items-center gap-4 text-xl"
+      >
+        <p class="w-full max-w-[75ch]">Our tech is:</p>
+        <li class="w-full max-w-[70ch] pl-4">
           <span class="font-bold">hand-coded</span> i.e. no wordpress or bloated
           frameworks
           <span class="font-bold">for speed and performance</span> to optimise your
@@ -105,7 +110,7 @@ import CallOut from "../components/CallOut.astro";
             more eyeballs
           </span>
         </li>
-        <li>
+        <li class="max-w-[75ch] pl-4">
           <span class="font-bold">integrated</span> tying together all your online
           profiles
           <span class="font-bold">and</span> your core business processes (like customer
@@ -113,7 +118,7 @@ import CallOut from "../components/CallOut.astro";
             save you time and reduce complexity
           </span>
         </li>
-        <li>
+        <li class="max-w-[75ch] pl-4">
           <span class="font-bold">comprehensively managed</span>; we handle
           everything behind the scenes so you can <span class="font-bold"
             >set it and forget it</span
@@ -136,18 +141,20 @@ import CallOut from "../components/CallOut.astro";
     </div>
   </section>
 
-  <section class="webdev blue my-16 px-4 py-8">
+  <section class="webdev blue px-4 py-8">
     <div class="container flex flex-col items-center py-32">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
-      </h2>
-      <p class="mb-8 w-full text-4xl font-bold">
-        Translate ideas into technology.
-      </p>
-      <p class="mb-8 w-full text-xl">
-        Got a great idea but can't code? Frustrated by the cost and complexity
-        of building and maintaining a website?
-      </p>
+      <div class="max-w-[75ch]">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
+        </h2>
+        <p class="mb-8 w-full text-4xl font-bold">
+          Translate ideas into technology.
+        </p>
+        <p class="mb-8 w-full text-xl">
+          Got a great idea but can't code? Frustrated by the cost and complexity
+          of building and maintaining a website?
+        </p>
+      </div>
       <div
         class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3"
       >
@@ -180,20 +187,22 @@ import CallOut from "../components/CallOut.astro";
     </div>
   </section>
 
-  <section class="ongoing gold my-16 px-4 py-8">
+  <section class="ongoing gold px-4 py-8">
     <div class="container flex flex-col items-center py-32">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading id="ongoing" text="ONGOING SUPPORT" />
-      </h2>
-      <p class="mb-8 w-full text-4xl font-bold">
-        Let us take care of the admin.
-      </p>
-      <p class="mb-8 w-full text-xl">
-        Guaranteed, flexible access to expertise, ongoing managed support
-        functions or routine maintenance, that already knows your business. Let
-        us manage the admin of running your business, so you don't need to do it
-        yourself or hire externally.
-      </p>
+      <div class="max-w-[75ch]">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading id="ongoing" text="ONGOING SUPPORT" />
+        </h2>
+        <p class="mb-8 w-full text-4xl font-bold">
+          Let us take care of the admin.
+        </p>
+        <p class="mb-8 w-full text-xl">
+          Guaranteed, flexible access to expertise, ongoing managed support
+          functions or routine maintenance, that already knows your business.
+          Let us manage the admin of running your business, so you don't need to
+          do it yourself or hire externally.
+        </p>
+      </div>
       <div
         class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2"
       >
@@ -230,18 +239,20 @@ import CallOut from "../components/CallOut.astro";
       />
     </div>
   </section>
-  <section class="systemInt mint my-16 py-8">
-    <div class="container items-center py-32">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
-      </h2>
-      <p class="mb-8 text-4xl font-bold">
-        Reduce the burdon of running your business.
-      </p>
-      <p class="mb-8 text-xl">
-        You should be able to trust technology to reduce the cost and complexity
-        of running your business, not increase it.
-      </p>
+  <section class="systemInt mint px-4 py-8">
+    <div class="container flex flex-col items-center py-32">
+      <div class="max-w-[75ch]">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
+        </h2>
+        <p class="mb-8 w-full text-4xl font-bold">
+          Reduce the burdon of running your business.
+        </p>
+        <p class="mb-8 w-full text-xl">
+          You should be able to trust technology to reduce the cost and
+          complexity of running your business, not increase it.
+        </p>
+      </div>
 
       <div class="mb-8 flex max-w-md place-self-center">
         <Feature icon="ic:baseline-web" title="Let's get connected">
@@ -266,18 +277,20 @@ import CallOut from "../components/CallOut.astro";
     </div>
   </section>
 
-  <section class="business purple my-16 px-4 py-8">
+  <section class="business purple px-4 py-8">
     <div class="container items-center py-32">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
-      </h2>
-      <p class="mb-8 text-4xl font-bold">
-        Understand the dynamics of your business.
-      </p>
-      <p class="mb-8 text-xl">
-        Assess performance, manage risk and identify opportunities to improve
-        processes and systems.
-      </p>
+      <div class="max-w-[75ch]">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
+        </h2>
+        <p class="mb-8 text-4xl font-bold">
+          Understand the dynamics of your business.
+        </p>
+        <p class="mb-8 text-xl">
+          Assess performance, manage risk and identify opportunities to improve
+          processes and systems.
+        </p>
+      </div>
       <div class="mb-8 flex max-w-md place-self-center">
         <Feature icon="ic:baseline-web" title="Health Check">
           Understand what's working, what's not and what could be next for your
@@ -299,6 +312,7 @@ import CallOut from "../components/CallOut.astro";
       />
     </div>
   </section>
+  <CallToAction />
 </DefaultLayout>
 
 <style lang="scss">

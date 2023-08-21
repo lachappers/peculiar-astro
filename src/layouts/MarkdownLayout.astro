@@ -1,13 +1,33 @@
 ---
-import DefaultLayout from './DefaultLayout.astro'
-
-const { frontmatter } = Astro.props
+import DefaultLayout from "./DefaultLayout.astro";
+import Heading from "../components/Heading.astro";
+const { frontmatter } = Astro.props;
 ---
 
 <DefaultLayout title={frontmatter.title}>
-  <div class="container">
-    <div class="space-content my-12">
-      <slot />
-    </div>
+  <h1 class="mt-16 w-full text-center text-4xl font-bold">
+    <Heading id={frontmatter.link} text={frontmatter.title} />
+  </h1>
+
+  <div class="policy space-content container max-w-[80ch]">
+    <slot />
   </div>
 </DefaultLayout>
+
+<style lang="scss" is:global>
+  .policy > ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    padding-left: 0.5rem;
+  }
+  .policy > ol > li {
+    padding-left: 0.5rem;
+  }
+
+  .policy > ul {
+    // list-style-type: decimal;
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 0.5rem;
+  }
+</style>

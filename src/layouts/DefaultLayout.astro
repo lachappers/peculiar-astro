@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 const {
   title = "Peculiar Astro",
   description = "A project inspired by the accessible-astro theme with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.",
-  url,
+  url = "https://www.peculiardynamics.co.uk",
   image = "/social-preview-image.png",
   author = "Lucy Chaplin",
 } = Astro.props;
@@ -39,6 +39,7 @@ const {
     <main id="main-content" class="mb-32 flex flex-col gap-32 scroll-smooth">
       <slot />
     </main>
+
     <Footer />
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

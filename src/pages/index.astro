@@ -8,6 +8,7 @@ import ProcessStep from "../components/ProcessStep.astro";
 import { Icon } from "astro-icon";
 import ContentMedia from "../components/ContentMedia.astro";
 import Heading from "../components/Heading.astro";
+import CallToAction from "../components/CallToAction.astro";
 ---
 
 <DefaultLayout title="Home">
@@ -120,7 +121,7 @@ import Heading from "../components/Heading.astro";
       <div
         class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
       >
-        <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
+        <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
         <Button
           href="/services"
           text="Explore Services"
@@ -162,7 +163,7 @@ import Heading from "../components/Heading.astro";
     <div
       class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
     >
-      <Button href="/" icon="mdi:message-outline" text="Get a Quote" />
+      <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
       <Button
         href="/pricing/#howItWorks"
         text="Learn More"
@@ -170,6 +171,7 @@ import Heading from "../components/Heading.astro";
       />
     </div>
   </section>
+  <CallToAction />
 </DefaultLayout>
 
 <style lang="scss">
