@@ -1,6 +1,0 @@
-{
-    "editor.codeActionsOnSave": {},
-    "prettier.useEditorConfig": false,
-    "astro.trace.server": "messages",
-    "git.ignoreLimitWarning": true
-}
