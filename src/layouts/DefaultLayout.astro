@@ -50,11 +50,13 @@ const {
   </head>
   <body>
     <Header />
+
     <main id="main-content" class="mb-32 flex flex-col gap-32 scroll-smooth">
       <slot />
     </main>
 
     <Footer />
+
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -66,6 +68,8 @@ const {
         });
       });
     </script>
+
+    <script></script>
 
     <style lang="scss" is:global>
       // theme settings
