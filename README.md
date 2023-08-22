@@ -46,21 +46,21 @@ Before you begin, ensure you have the following software installed:
 1. Clone this repository using Git:
 
 ```bash
-Copy code
+
 git clone https://github.com/your-username/business-website.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-Copy code
+
 cd business-website
 ```
 
 3. Install project dependencies:
 
 ```bash
-Copy code
+
 npm install
 ```
 
@@ -69,7 +69,7 @@ npm install
 To start the development server and preview your website, run:
 
 ```bash
-Copy code
+
 npm run dev
 ```
 
