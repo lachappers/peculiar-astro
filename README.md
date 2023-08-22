@@ -1,63 +1,98 @@
 # Accessible Astro Starter
 
-![social-preview-image](https://user-images.githubusercontent.com/3909046/219942674-9894853e-def8-4180-84b8-6b577dacfcaa.png)
+![website-preview-image](./src/assets/img/homepage.png)
 
 Accessible Astro Starter is a ready to use, SEO and a11y friendly blogging theme. It contains plenty of accessible components to build several page types, Tailwind CSS to help you build faster and example pages such as a dynamic Blog, 404, Markdown and MDX. This theme is designed to help you build your project faster and provide a solid base for accessibility!
 
-🚀 [Live Preview](https://accessible-astro.netlify.app/)
+This is the Peculiar Dynamics website repository, built using AstroJS, the accessible Astro starter template, ESLint, Tailwind CSS, and Google Analytics integration.
 
-## ♿ (Accessibility) Features
+🚀 [Live Preview](https://peculiardynamics.co.uk/)
 
-- Tailwind CSS support
-- Prettier integration with `prettier-plugin-astro` and `prettier-plugin-tailwind`
-- ESLint integration with strict accessibility settings for `eslint-plugin-jsx-a11y`
-- Markdown and MDX support with examples included in the theme
-- Uses the awesome `astro-icon` package for the icons
-- Excellent Lighthouse/PageSpeed scores
-- Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
-- Outline focus indicator which works on dark and light backgrounds
-- Several `aria` attributes which provide a better experience for screen reader users
-- `[...page].astro` and `[post].astro` demonstrate the use of dynamic routes and provide a basic blog with breadcrumbs and pagination
-- `404.astro` provides a custom 404 error page which you can adjust to your needs
-- `Header.astro` component included in the `DefaultLayout.astro` layout
-- `Footer.astro` component included in the `DefaultLayout.astro` layout
-- `SkipLinks.astro` component to skip to either the main menu or the main content
-- `Navigation.astro` component with keyboard accessible (dropdown) navigation (arrow keys, escape key)
-- `ResponsiveToggle.astro` component with an accessible responsive toggle button for the mobile navigation
-- `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme setting
-- `SiteMeta.astro` SEO component for setting custom meta data on different pages
-- `.sr-only` utility class for screen reader only text content (hides text visually)
-- `prefers-reduced-motion` disables animations for users that have this preference turned on
-- Ships with many components such as Accordions, Breadcrumbs, Modals, Pagination [and many more](https://accessible-astro.dev/accessible-components)
-- A collection of utility classes such as breakpoints, button classes, font settings, resets and outlines in `src/assets/scss/base`
+## Table of Contents
 
-## 🚀 Getting started
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Google Analytics Integration](#google-analytics-integration)
+- [Credits](#credits)
 
-Clone this theme locally and run any of the following commands in your terminal:
+## Introduction
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+This repository contains the source code for the frontend of the Peculiar Dynamics website, which is built using AstroJS. AstroJS is a modern static site generator that focuses on performance and developer experience. We've used the accessible Astro starter template as a foundation for our website, ensuring a solid starting point for creating an accessible and user-friendly web presence.
 
-## 📦 Other Accessible Astro projects
+## Features
 
-- [Accessible Astro Dashboard](https://github.com/markteekman/accessible-astro-dashboard/)
-- [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components/)
+- AstroJS: Leverage the power of AstroJS to create a high-performance static website that delivers a seamless user experience.
+- Accessible Starter Template: Start with an accessible template that lays the groundwork for an inclusive website design.
+- ESLint: Maintain code quality and consistency across the project using ESLint, a popular JavaScript linter.
+- Tailwind CSS: Utilize Tailwind CSS for efficient styling and design. Tailwind's utility-first approach empowers rapid development.
+- Google Analytics: Gain insights into your website's performance and visitor behavior with integrated Google Analytics tracking.
 
-## ❤️ Helping out
+## Getting Started
 
-If you find that something isn't working right then I'm always happy to hear it to improve this starter! You can contribute in many ways and forms. Let me know by either:
+### Prerequisites
 
-1. [Filing an issue](https://github.com/markteekman/accessible-astro-starter/issues)
-2. [Submitting a pull request](https://github.com/markteekman/accessible-astro-starter/pulls)
-3. [Starting a discussion](https://github.com/markteekman/accessible-astro-starter/discussions)
-4. [Buying me a coffee!](https://www.buymeacoffee.com/markteekman)
+Before you begin, ensure you have the following software installed:
 
-## ☕ Thank you!
+- Node.js: Download and install Node.js
+- Git: Download and install Git
 
-A big thank you to the creators of the awesome Astro static site generator and to all using this starter to make the web a bit more accessible for all people around the world :)
+### Installation
 
-[![buymeacoffee-button](https://user-images.githubusercontent.com/3909046/150683481-be070424-7bb0-4dd7-a3cb-43b5605163f5.png)](https://www.buymeacoffee.com/markteekman)
+1. Clone this repository using Git:
+
+```bash
+Copy code
+git clone https://github.com/your-username/business-website.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+Copy code
+cd business-website
+```
+
+3. Install project dependencies:
+
+```bash
+Copy code
+npm install
+```
+
+## Usage
+
+To start the development server and preview your website, run:
+
+```bash
+Copy code
+npm run dev
+```
+
+This will build and serve the website locally. Open your browser and navigate to `http://localhost:3000` to see the website in action.
+
+## Configuration
+
+Customize the website to match your business by modifying the content, styles, and images. The project structure is organized for easy navigation:
+
+- /src: Contains the source code of your website, including pages, layouts, and components.
+- /src/pages: Create new pages or modify existing ones.
+- /src/layouts: Customize the layout structure of your pages.
+- /src/components: Reusable components that can be used across multiple pages.
+
+## Google Analytics Integration
+
+Google Analytics is integrated into the website to provide insights into visitor behavior. To enable Google Analytics tracking:
+
+1. Replace YOUR_GA_TRACKING_ID in the src/utils/ga.js file with your actual Google Analytics tracking ID.
+2. The integration is already set up in the template, so data will be collected automatically.
+
+---
+
+## Credits
+
+- Starter template: [Accessible Astro Starter](https://accessible-astro.dev/)

@@ -7,21 +7,24 @@ import { Icon } from "astro-icon";
 import Feature from "../components/Feature.astro";
 import CallOut from "../components/CallOut.astro";
 import CallToAction from "../components/CallToAction.astro";
+import investVector from "../assets/img/invest-vector.png";
 ---
 
 <DefaultLayout title="Services">
   <Hero
     title="Invest in Technology"
     gradientText="That Matters"
-    imgSrc="/invest-vector.png"
+    imgSrc={investVector}
   >
-    <p class="mb-4 self-start text-center text-xl md:text-left md:text-2xl">
+    <p
+      class="col-start-1 mb-4 self-start text-center text-xl md:text-left md:text-2xl"
+    >
       Unlock the potential of your business with accessible, affordable and
       understandable technology paired with one-time or ongoing tech support.
     </p>
 
     <div
-      class="col-span-full mt-4 flex w-full flex-wrap justify-center gap-3 min-[200px]:flex-row xl:col-span-1"
+      class="row-start-3 mt-4 flex w-full flex-wrap justify-center gap-3 min-[200px]:flex-row md:col-span-full xl:col-span-1"
     >
       <Button
         href="#webDev"
@@ -59,7 +62,9 @@ import CallToAction from "../components/CallToAction.astro";
     </div>
   </Hero>
   <section class="approach px-4 py-8">
-    <div class="container flex flex-col items-center rounded-lg py-8">
+    <div
+      class="container flex flex-col items-center rounded-lg py-8 sm:max-w-screen-xl"
+    >
       <div class="flex max-w-2xl flex-none flex-col items-center">
         <h2 class="mb-2 w-full text-lg font-bold">
           <Heading id="approach" text="OUR APPROACH" />
@@ -142,7 +147,7 @@ import CallToAction from "../components/CallToAction.astro";
   </section>
 
   <section class="webdev blue px-4 py-8">
-    <div class="container flex flex-col items-center py-32">
+    <div class="container flex flex-col items-center py-32 sm:max-w-screen-xl">
       <div class="max-w-[75ch]">
         <h2 class="mb-2 w-full text-lg font-bold">
           <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
@@ -188,7 +193,7 @@ import CallToAction from "../components/CallToAction.astro";
   </section>
 
   <section class="ongoing gold px-4 py-8">
-    <div class="container flex flex-col items-center py-32">
+    <div class="container flex flex-col items-center py-32 sm:max-w-screen-xl">
       <div class="max-w-[75ch]">
         <h2 class="mb-2 w-full text-lg font-bold">
           <Heading id="ongoing" text="ONGOING SUPPORT" />
@@ -240,7 +245,7 @@ import CallToAction from "../components/CallToAction.astro";
     </div>
   </section>
   <section class="systemInt mint px-4 py-8">
-    <div class="container flex flex-col items-center py-32">
+    <div class="container flex flex-col items-center py-32 sm:max-w-screen-xl">
       <div class="max-w-[75ch]">
         <h2 class="mb-2 w-full text-lg font-bold">
           <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
@@ -278,7 +283,7 @@ import CallToAction from "../components/CallToAction.astro";
   </section>
 
   <section class="business purple px-4 py-8">
-    <div class="container items-center py-32">
+    <div class="container items-center py-32 sm:max-w-screen-xl">
       <div class="max-w-[75ch]">
         <h2 class="mb-2 w-full text-lg font-bold">
           <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />

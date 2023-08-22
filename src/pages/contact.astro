@@ -20,7 +20,7 @@ import { Icon } from "astro-icon";
 
       <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div class="contact grid grid-cols-1 content-center gap-12">
-          <div class="contact-card">
+          <div class="contact-card neutral">
             <Icon name="ic:outline-email" />
             <h2 class="">Email</h2>
             <p>
@@ -116,15 +116,13 @@ import { Icon } from "astro-icon";
     border: 3px solid var(--font-color);
     border-radius: 0.5rem;
     background: var(--accent-purple);
-
-    box-shadow: var(--shadow-light);
     font-weight: 700;
   }
   form label {
     margin-bottom: 0.25rem;
     font-size: 1rem;
     line-height: 1.25rem;
-    color: var(--secondary-50);
+    color: var(--font-color);
   }
   form input {
     margin-top: 0.25rem;
@@ -132,7 +130,8 @@ import { Icon } from "astro-icon";
     width: 100%;
     border-radius: 0.5rem;
     padding: 0.625rem 1.25rem;
-    border: 1px solid var(--neutral-500);
+    border: 3px solid var(--font-color);
+    background-color: var(--neutral-background);
   }
 
   form input::placeholder,
@@ -147,18 +146,22 @@ import { Icon } from "astro-icon";
     height: 8rem;
     border-radius: 0.5rem;
     padding: 0.625rem 1.25rem;
-    border: 1px solid var(--neutral-500);
+    border: 3px solid var(--font-color);
+    background-color: var(--neutral-background);
   }
 
-  .contact-card {
+  .contact-card,
+  form {
     border-radius: 0.5rem;
-    box-shadow: var(--shadow-light);
-    border: 3px solid var(--neutral-900);
 
+    border: 3px solid var(--font-color);
+    box-shadow: 0.0625rem 0.0625rem 0 var(--background),
+      0.5rem 0.5rem 0 var(--font-color);
     padding: 2rem;
 
     background-color: var(--accent-mint);
   }
+
   .contact h2 {
     margin-top: 0.5rem;
     font-size: 1.5rem;

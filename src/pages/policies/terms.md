@@ -4,11 +4,15 @@ title: Terms & Conditions
 link: terms
 ---
 
-Peculiar Dynamics Ltd uses this site to give a better service to its customers. Please read the following rules that govern your use of peculiardynamics.co.uk, which you accept by accessing it. If you don't agree, please don't use it. We reserve the right to update or change the Terms and Conditions at any time without prior notice, that is why we recommend that you read this section every time you use this site.
+Peculiar Dynamics Ltd uses this site to give a better service to its customers. Please read the following rules that govern your use of peculiardynamics.co.uk, which you accept by accessing it. If you don't agree, please don't use it.
+
+We reserve the right to update or change the Terms and Conditions at any time without prior notice, that is why we recommend that you read this section every time you use this site.
 
 ## Introduction
 
-These terms and conditions apply between you, the User of this Website (including any sub-domains, unless expressly excluded by their own terms and conditions), and Peculiar Dynamics Ltd, the owner and operator of this Website. Please read these terms and conditions carefully, as they affect your legal rights. Your agreement to comply with and be bound by these terms and conditions is deemed to occur upon your first use of the Website. If you do not agree to be bound by these terms and conditions, you should stop using the Website immediately.
+These terms and conditions apply between you, the User of this Website (including any sub-domains, unless expressly excluded by their own terms and conditions), and Peculiar Dynamics Ltd, the owner and operator of this Website. Please read these terms and conditions carefully, as they affect your legal rights.
+
+Your agreement to comply with and be bound by these terms and conditions is deemed to occur upon your first use of the Website. If you do not agree to be bound by these terms and conditions, you should stop using the Website immediately.
 
 In these terms and conditions, User or Users means any third party that accesses the Website and is not either (i) employed by Peculiar Dynamics Ltd and acting in the course of their employment or (ii) engaged as a consultant or otherwise providing services to Peculiar Dynamics Ltd and accessing the Website in connection with the provision of such services.
 
@@ -16,7 +20,9 @@ You must be at least 18 years of age to use this Website. By using the Website a
 
 ## Intellectual property and acceptable use
 
-All Content included on the Website, unless uploaded by Users, is the property of Peculiar Dynamics Ltd, our affiliates or other relevant third parties. In these terms and conditions, Content means any text, graphics, images, audio, video, software, data compilations, page layout, underlying code and software and any other form of information capable of being stored in a computer that appears on or forms part of this Website, including any such content uploaded by Users. By continuing to use the Website you acknowledge that such Content is protected by copyright, trademarks, database rights and other intellectual property rights. Nothing on this site shall be construed as granting, by implication, estoppel, or otherwise, any license or right to use any trademark, logo or service mark displayed on the site without the owner's prior written permission.
+All Content included on the Website, unless uploaded by Users, is the property of Peculiar Dynamics Ltd, our affiliates or other relevant third parties. In these terms and conditions, Content means any text, graphics, images, audio, video, software, data compilations, page layout, underlying code and software and any other form of information capable of being stored in a computer that appears on or forms part of this Website, including any such content uploaded by Users.
+
+By continuing to use the Website you acknowledge that such Content is protected by copyright, trademarks, database rights and other intellectual property rights. Nothing on this site shall be construed as granting, by implication, estoppel, or otherwise, any license or right to use any trademark, logo or service mark displayed on the site without the owner's prior written permission.
 
 You may, for your own personal, non-commercial use only, do the following:
 
@@ -35,7 +41,7 @@ You may not use the Website for any of the following purposes:
 
 ## Registration
 
-You must ensure that the details provided by you on registration or at any time are correct and complete.
+Should you create an account with us, you must ensure that the details provided by you on registration or at any time are correct and complete.
 
 You must inform us immediately of any changes to the information that you provide when registering by updating your personal details to ensure we can communicate with you effectively.
 
@@ -63,7 +69,11 @@ Whilst Peculiar Dynamics Ltd uses reasonable endeavours to ensure that the Websi
 
 Peculiar Dynamics Ltd accepts no liability for any disruption or non-availability of the Website.
 
-Peculiar Dynamics Ltd reserves the right to alter, suspend or discontinue any part (or the whole of) the Website including, but not limited to, any products and/or services available. These terms and conditions shall continue to apply to any modified version of the Website unless it is expressly stated otherwise.
+Peculiar Dynamics Ltd reserves the right to alter, suspend or discontinue any part (or the whole of) the Website including, but not limited to, any products and/or services available.
+
+The content of the pages of this website is for your general information and use only. It is subject to change without notice.
+
+These terms and conditions shall continue to apply to any modified version of the Website unless it is expressly stated otherwise.
 
 ## Limitation of liability
 

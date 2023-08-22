@@ -7,6 +7,7 @@ import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
 import { Icon } from "astro-icon";
 import CallToAction from "../components/CallToAction.astro";
+import heroVector from "../assets/img/hero-vector.webp";
 ---
 
 <DefaultLayout title="Pricing">
@@ -16,26 +17,27 @@ import CallToAction from "../components/CallToAction.astro";
     learnTarget={`#howItWorks`}
     quoteButton={true}
     learnButton={true}
-    imgSrc="/hero-vector.png"
+    imgSrc={heroVector}
   />
-  <section class="my-64">
-    <div class="container flex flex-col">
+  <section class="px-4 py-8">
+    <div class="container flex flex-col sm:max-w-screen-xl">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="howItWorks" text="HOW IT WORKS" />
       </h2>
-      <p class="mb-16 text-6xl font-bold">
+      <p class="mb-16 text-4xl font-bold">
         Keeping it
         <span class="text-highlight">simple</span>.
       </p>
       <!-- <p class="mb-8 text-2xl">
-        Make the technology and systems that your business relies on:
-      </p> -->
-      <p class="mb-8 text-2xl">
+          Make the technology and systems that your business relies on:
+        </p> -->
+      <p class="mb-8 max-w-[75ch] text-2xl">
         We use our intelligent digital tools to quickly shape, reconfigure and
         build the right technology for you, at the right price, on your
         schedule.
       </p>
-      <div class="container">
+
+      <div class="container max-w-screen-xl">
         <p class="mb-8 text-2xl">It's as easy as...</p>
 
         <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
@@ -66,17 +68,19 @@ import CallToAction from "../components/CallToAction.astro";
       />
     </div>
   </section>
-  <section class="peach my-64 py-8">
-    <div class="container flex flex-col items-center py-8">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading
-          id="included"
-          text="Get your tech up and running, or up to scratch"
-        />
-      </h2>
-      <p class="mb-16 w-full text-6xl font-bold">
-        <span class="text-highlight">Always included</span>, as standard:
-      </p>
+  <section class="peach px-4 py-8">
+    <div class="container flex flex-col items-center py-8 sm:max-w-screen-xl">
+      <div class="max-w-screen-lg">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading
+            id="included"
+            text="Get your tech up and running, or up to scratch"
+          />
+        </h2>
+        <p class="mb-16 w-full text-4xl font-bold">
+          <span class="text-highlight">Always included</span>, as standard:
+        </p>
+      </div>
       <div
         class="grid max-w-screen-lg grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
       >
@@ -257,19 +261,23 @@ import CallToAction from "../components/CallToAction.astro";
     </div>
   </section>
 
-  <section class="my-64 py-8">
-    <div class="container flex flex-col items-center py-8">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading id="example" text="Example pricing" />
-      </h2>
-      <p class="mb-16 w-full text-6xl font-bold">
-        <span class="text-highlight">Transparent</span>, customisable products,
-        services & pricing
-      </p>
+  <section class="px-4 py-8">
+    <div
+      class="max-w container flex max-w-sm flex-col items-center px-4 py-8 sm:max-w-screen-xl"
+    >
+      <div class="max-w-screen-lg">
+        <h2 class="mb-2 w-full text-lg font-bold">
+          <Heading id="example" text="Example pricing" />
+        </h2>
+        <p class="mb-16 w-full text-4xl font-bold">
+          <span class="text-highlight">Transparent</span>, customisable
+          products, services & pricing
+        </p>
+      </div>
       <div
-        class="flex flex-col items-center justify-between gap-4 p-4 lg:flex-row"
+        class="flex w-full max-w-screen-lg flex-col items-center justify-between gap-8 p-4 lg:flex-row"
       >
-        <div class="mb-8 text-2xl">
+        <div class="mb-8 max-w-[40ch] text-2xl">
           <p class="">
             We use technology to build custom, detailed quotes that allow you to
             pick more of what you want, and less of what you don't.
@@ -287,7 +295,7 @@ import CallToAction from "../components/CallToAction.astro";
             successful referrals you make to us.
           </p>
         </div>
-        <div class="example peach max-w-md items-center gap-2 p-4">
+        <div class="example peach max-w-md flex-none items-center gap-2 p-4">
           <p class="text-xl font-bold">EXAMPLE QUOTE</p>
           <div class="toggle relative flex w-full justify-between px-4 py-8">
             <p class="w-1/5 font-semibold">PAY MONTHLY</p>

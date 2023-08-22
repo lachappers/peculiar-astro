@@ -5,7 +5,7 @@ import Button from "./Button.astro";
 const {
   title,
   gradientText,
-  imgSrc = "/hero-vector.png",
+  imgSrc = "../assets/img/hero-vector.svg",
   learnTarget = null,
   quoteButton = false,
   learnButton = false,
@@ -16,44 +16,46 @@ const learnLink = `${learnTarget}`;
 <section class="hero my-24 flex min-h-[80vh] items-center">
   <div class="container">
     <div
-      class="grid grid-cols-1 content-center items-center gap-x-16 lg:grid-cols-2"
+      class="grid max-w-max auto-rows-min grid-cols-1 grid-rows-1 content-center items-center justify-items-center gap-x-16 lg:grid-cols-2"
     >
       <div
-        class="row-end-auto m-0 flex flex-col items-center justify-between md:items-start"
+        class="col-start-1 flex flex-col items-center justify-center gap-8 py-4 md:items-start"
       >
         <h1 class="z-10 text-center text-6xl md:text-left lg:text-7xl">
           {title}
           <span class="text-gradient">{gradientText}</span>
         </h1>
-        <div class="mt-8 flex flex-col gap-3 min-[500px]:flex-row">
-          {
-            quoteButton ? (
-              <Button text="Get a Quote" href="/quoter" icon="ph:chat" />
-            ) : (
-              ""
-            )
-          }
-          {
-            learnButton ? (
-              <Button
-                buttonColor="color-secondary"
-                href={learnLink}
-                text="Learn More"
-                icon="mdi:arrow-down"
-              />
-            ) : (
-              ""
-            )
-          }
-        </div>
+        {
+          quoteButton || learnButton ? (
+            <div class="flex flex-col gap-3 min-[500px]:flex-row">
+              {quoteButton ? (
+                <Button text="Get a Quote" href="/quoter" icon="ph:chat" />
+              ) : (
+                ""
+              )}
+              {learnButton ? (
+                <Button
+                  buttonColor="color-secondary"
+                  href={learnLink}
+                  text="Learn More"
+                  icon="mdi:arrow-down"
+                />
+              ) : (
+                ""
+              )}
+            </div>
+          ) : (
+            ""
+          )
+        }
       </div>
+      <slot />
       <img
-        class="hidden lg:row-span-3 lg:block"
-        src={imgSrc}
+        class="col-start-2 row-start-1 hidden lg:row-end-3 lg:block xl:row-end-4"
+        src={imgSrc.src}
         alt=""
         decoding="async"
       />
-      <slot />
     </div>
   </div>
 </section>

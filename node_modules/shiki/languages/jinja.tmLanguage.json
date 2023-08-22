@@ -28,11 +28,11 @@
       "begin": "{{-?",
       "captures": [
         {
-          "name": "variable.entity.other.jinja.delimiter"
+          "name": "entity.other.jinja.delimiter.variable"
         }
       ],
       "end": "-?}}",
-      "name": "variable.meta.scope.jinja",
+      "name": "meta.scope.jinja.variable",
       "patterns": [
         {
           "include": "#expression"
