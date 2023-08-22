@@ -1,4 +1,4 @@
-# Accessible Astro Starter
+# Peculiar Dynamics Home
 
 ![website-preview-image](./src/assets/img/homepage.png)
 
