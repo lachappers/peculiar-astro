@@ -4,12 +4,16 @@
   "version": "1.0.0",
   "author": "Lucy Chaplin",
   "homepage": "https://peculiardynamics.co.uk/",
+  "repository": {
+    "url": "https://github.com/lachappers/peculiar-astro.git"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
     "@astrojs/mdx": "^0.15.2",
@@ -23,6 +27,7 @@
     "eslint": "^8.33.0",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "gh-pages": "^6.0.0",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.8.1",
     "prettier-plugin-tailwindcss": "^0.2.2",
