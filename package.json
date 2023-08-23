@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^2.0.2",
-    "astro-compress": "^2.0.14"
+    "astro-compress": "^2.0.14",
+    "vanilla-cookieconsent": "^2.9.2"
   }
 }

@@ -1,0 +1,129 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<section
+  aria-labelledby="cookie-heading"
+  id="consent-popup"
+  class="hidden-consent flex max-w-md flex-col items-center gap-4 p-4 py-8"
+>
+  <div class="flex flex-col gap-2">
+    <h2 id="cookie-heading" class="inline-flex items-center gap-2 font-bold">
+      <Icon name="ph:cookie-light" class="h-8" />Cookie Consent
+    </h2>
+    <p class="text-sm">
+      We use cookies to make this site work. We’d also like to use analytics
+      cookies so we can understand how you use this site and make improvements.
+    </p>
+    <p class="text-sm">
+      By clicking "Accept", you agree to our use of cookies - as detailed in our <a
+        href="/policies/cookies">Cookie Notice</a
+      >.
+    </p>
+  </div>
+  <div class="flex flex-wrap items-center justify-around gap-4 gap-y-6">
+    <button id="accept" class="button color-success">Accept</button>
+    <button id="reject" class="button color-neutral">Reject</button>
+    <button id="cookie-more" class="cookie-more size-small flex-auto font-thin"
+      >Learn more and customise</button
+    >
+  </div>
+</section>
+<section aria-labelledby="cookie-centre" id="cookie-center"></section>
+<style lang="scss">
+  #consent-popup {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    // right: 0;
+
+    opacity: 1;
+    background-color: var(--secondary-background);
+    border: 2px solid var(--action-color);
+    transition: opacity 0.8s ease;
+
+    &.hidden-consent {
+      opacity: 0;
+    }
+  }
+  .cookie-more {
+    display: inline-flex;
+    padding: 0.75rem 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+
+    border: 2px solid var(--font-color);
+    box-shadow: var(--shadow-light);
+    border-radius: 3px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out;
+    min-width: 11rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--neutral-background-light);
+    color: var(--font-color);
+    // border-color: (var(--font-color));
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+
+      color: var(--neutral-100);
+
+      background-color: var(--neutral-background);
+      border-color: var(--neutral-400);
+    }
+
+    &.size-small {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.3125rem;
+    }
+  }
+  .darkmode .cookie-more {
+    box-shadow: var(--shadow-dark);
+  }
+</style>
+<script>
+  const cookieStorage = {
+    getItem: (key) => {
+      const cookies = document.cookie
+        .split(";")
+        .map((cookie) => cookie.split("="))
+        .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
+      return cookies[key];
+    },
+    setItem: (key, value) => {
+      document.cookie = `${key}=${value}`;
+    },
+  };
+  const storageType = cookieStorage;
+  const consentPropertyName = "peculiar_consent";
+  const showCookiePopup = () => !storageType.getItem(consentPropertyName);
+
+  const saveConsent = () => storageType.setItem(consentPropertyName, true);
+  const saveReject = () => storageType.setItem(consentPropertyName, false);
+
+  window.onload = () => {
+    const consentPopup = document.getElementById("consent-popup");
+    const acceptBtn = document.getElementById("accept");
+    const rejectBtn = document.getElementById("reject");
+    const moreBtn = document.getElementById("cookie-more");
+    const acceptFn = (event) => {
+      saveConsent(storageType);
+      consentPopup.classList.add("hidden-consent");
+    };
+    const rejectFn = (event) => {
+      saveReject(storageType);
+      consentPopup.classList.add("hidden-consent");
+    };
+    acceptBtn?.addEventListener("click", acceptFn);
+    rejectBtn?.addEventListener("click", rejectFn);
+    if (showCookiePopup(storageType)) {
+      setTimeout(() => {
+        consentPopup?.classList.remove("hidden-consent");
+      }, 1000);
+    }
+  };
+</script>

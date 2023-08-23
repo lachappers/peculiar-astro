@@ -3,6 +3,7 @@ import "../assets/scss/globals.scss";
 import SiteMeta from "../components/SiteMeta.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Cookies from "../components/Cookies.astro";
 
 const {
   title = "Peculiar Astro",
@@ -74,6 +75,7 @@ const {
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
+    <Cookies />
     <Header />
 
     <main id="main-content" class="mb-32 flex flex-col gap-32 scroll-smooth">
@@ -93,8 +95,6 @@ const {
         });
       });
     </script>
-
-    <script></script>
 
     <style lang="scss" is:global>
       // theme settings
@@ -128,9 +128,9 @@ const {
         --action-color-state: var(--secondary-500);
         --background: var(--dark-100);
         --primary-background: var(--primary-600);
-        --secondary-background: var(--dark-100);
+        --secondary-background: var(--neutral-800);
         --neutral-background: var(--neutral-900);
-        --neutral-background-light: var(--neutral-900);
+        --neutral-background-light: var(--neutral-800);
       }
 
       // sticky footer on low content pages

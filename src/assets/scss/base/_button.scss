@@ -13,7 +13,7 @@
   // background-color: var(--primary-100);
   background-color: var(--primary-300);
   // border: 3px solid var(--primary-100);
-  border: 3px solid var(--dark-100);
+  border: 3px solid var(--font-color);
   box-shadow: var(--shadow-light);
   border-radius: 3px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -49,12 +49,13 @@
   }
 
   &.color-neutral {
-    background-color: var(--neutral-500);
-    border-color: (var(--neutral-500));
+    background-color: var(--neutral-background);
+    color: var(--font-color);
+    border-color: (var(--font-color));
 
     &:hover,
     &:focus {
-      background-color: var(--neutral-400);
+      background-color: var(--neutral-background-light);
       border-color: var(--neutral-400);
     }
   }
@@ -71,24 +72,25 @@
   }
 
   &.color-success {
-    background-color: var(--success-400);
-    border-color: (var(--success-400));
+    background-color: var(--green-300);
+    border-color: (var(--font-color));
 
     &:hover,
     &:focus {
-      background-color: var(--success-300);
-      border-color: var(--success-300);
+      background-color: var(--green-200);
+      color: var(--green-400);
     }
   }
 
   &.color-warning {
-    background-color: var(--warning-400);
-    border-color: (var(--warning-400));
+    background-color: var(--yellow-400);
+    border-color: (var(--font-color));
 
     &:hover,
     &:focus {
-      background-color: var(--warning-300);
-      border-color: var(--warning-300);
+      background-color: var(--yellow-200);
+      color: var(--yellow-400);
+      // border-color: var(--warning-300);
     }
   }
 
