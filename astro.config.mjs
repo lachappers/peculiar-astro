@@ -5,8 +5,10 @@ import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 
-import jopSoftwarecookieconsent from "@jop-software/astro-cookieconsent";
-import cookieconsent from "@jop-software/astro-cookieconsent";
+// import jopSoftwarecookieconsent from "@jop-software/astro-cookieconsent";
+// import cookieconsent from "@jop-software/astro-cookieconsent";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,23 +22,7 @@ export default defineConfig({
     tailwind(),
     partytown(),
     sitemap(),
-    jopSoftwarecookieconsent(),
-    cookieconsent({
-      // ...
-      gui_options: {
-        consent_modal: {
-          layout: "cloud", // box/cloud/bar
-          position: "bottom center", // bottom/middle/top + left/right/center
-          transition: "slide", // zoom/slide
-          swap_buttons: false, // enable to invert buttons
-        },
-        settings_modal: {
-          layout: "box", // box/bar
-          // position: 'left',           // left/right
-          transition: "slide", // zoom/slide
-        },
-      },
-      // ...
-    }),
+
+    react(),
   ],
 });
