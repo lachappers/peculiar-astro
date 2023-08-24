@@ -26,11 +26,12 @@ const {
     <link rel="sitemap" href="/sitemap-index.xml" />
     <!-- Google tag (gtag.js) -->
     <script
-      type="text/partytown"
+      type="text/plain"
       async
+      data-cookiecategory="analytics"
       src="https://www.googletagmanager.com/gtag/js?id=G-J2E7MTN9P5"
     ></script>
-    <script type="text/partytown">
+    <script type="text/plain" data-cookiecategory="analytics">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -40,7 +41,7 @@ const {
       gtag("config", "G-J2E7MTN9P5");
     </script>
     <!-- Google Tag Manager -->
-    <script>
+    <script type="text/plain" data-cookiecategory="analytics">
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -75,6 +76,7 @@ const {
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
+
     <Cookies />
     <Header />
 

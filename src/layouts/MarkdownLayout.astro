@@ -31,3 +31,25 @@ const { frontmatter } = Astro.props;
     padding-left: 0.5rem;
   }
 </style>
+
+<script>
+  if (document.getElementById("cookies")) {
+    insertCookiesBtn();
+  }
+  // if title === "privacy"
+
+  function insertCookiesBtn() {
+    const content = document.querySelector(".policy");
+    const b = document.createElement("button");
+    b.setAttribute("data-cc", "c-settings");
+    b.innerHTML = "Manage Cookie Settings";
+    b.classList.add(
+      "button",
+      "color-neutral",
+      "size-small",
+      "max-w-fit",
+      "self-center"
+    );
+    content.parentNode.insertBefore(b, content);
+  }
+</script>
