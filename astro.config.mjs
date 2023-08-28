@@ -23,6 +23,8 @@ export default defineConfig({
     partytown(),
     sitemap(),
 
-    react(),
+    react({
+      experimentalReactChildren: true,
+    }),
   ],
 });

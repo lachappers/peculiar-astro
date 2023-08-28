@@ -3,7 +3,7 @@ import "../assets/scss/globals.scss";
 import SiteMeta from "../components/SiteMeta.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Cookies from "../components/Cookies.astro";
+
 import CookieConsentComponent from "../components/CookieBanner.jsx";
 
 const {
@@ -108,16 +108,27 @@ const {
         --font-measure: 70ch;
         --font-family-default: "Open Sans", sans-serif;
         --font-family-special: "Open Sans", sans-serif;
+        --white: var(--n-100);
+        --dark: var(--n-10);
         // light theme
-        --font-color: var(--neutral-900);
+        --font-color: var(--n-10);
+        --font-variant: var(--nv-30);
+        --outline: var(--nv-50);
+        --outline-variant: var(--nv-80);
         --action-color: var(--primary-300);
         --action-color-state: var(--primary-600);
-        // --background: var(--neutral-100);
-        --background: var(--secondary-50);
+
+        --background: var(--surface);
+        --background-alt: var(--surface-dim);
         --primary-background: var(--primary-100);
         --secondary-background: var(--secondary-100);
         --neutral-background: var(--neutral-200);
         --neutral-background-light: var(--neutral-100);
+        --surface: var(--n-98);
+        --surface-bright: var(--n-98);
+        --surface-dim: var(--n-87);
+        --container-lowest: var(--n-100);
+
         --shadow-light: 1px 1px 0 var(--secondary-100),
           5px 5px 0 var(--dark-100);
         --shadow-dark: 1px 1px 0 var(--neutral-800),
@@ -126,14 +137,22 @@ const {
 
       // dark color scheme overrides
       .darkmode {
-        --font-color: var(--neutral-100);
+        --font-color: var(--n-90);
+        --font-variant: var(--nv-80);
+        --outline: var(--nv-60);
+        --outline-variant: var(--nv-30);
         --action-color: var(--secondary-100);
         --action-color-state: var(--secondary-500);
-        --background: var(--dark-100);
+        --background: var(--surface);
+        --background-alt: var(--surface-bright);
         --primary-background: var(--primary-600);
         --secondary-background: var(--neutral-800);
         --neutral-background: var(--neutral-900);
         --neutral-background-light: var(--neutral-800);
+        --surface: var(--n-6);
+        --surface-bright: var(--n-24);
+        --surface-dim: var(--n-6);
+        --container-lowest: var(--n-4);
       }
 
       // sticky footer on low content pages

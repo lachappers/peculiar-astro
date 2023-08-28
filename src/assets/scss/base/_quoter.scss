@@ -1,0 +1,36 @@
+.quoter {
+  background: var(--surface-dim);
+}
+.tool {
+  background: var(--surface);
+}
+
+.quotey {
+  background: var(--container-lowest);
+  border: 3px solid var(--outline);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4;
+}
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.choice {
+  border: 1px solid var(--outline);
+}
+.next-btn {
+  background-color: var(--secondary-background);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 3px solid var(--outline);
+}
+.back-btn {
+  background-color: var(--neutral-background);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 3px solid var(--outline);
+}

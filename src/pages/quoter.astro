@@ -4,9 +4,17 @@ import Heading from "../components/Heading.astro";
 
 import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
+
+import Quoter from "../components/quoter/Quoter.jsx";
 ---
 
 <DefaultLayout title="Quoter">
+  <div
+    class="quoter flex min-h-screen w-full items-center justify-evenly px-16"
+  >
+    <Quoter client:load />
+  </div>
+
   <section class="flex items-center justify-center">
     <div class="container flex flex-col items-center gap-8">
       <div>
@@ -29,7 +37,7 @@ import { Image } from "astro:assets";
         ,
         height="400px"
         ,
-        class="h-96 w-96 rounded-full object-cover"
+        class="giphy h-96 w-96 rounded-full object-cover"
       />
 
       <Button href="/contact" icon="mdi:arrow-right" text="Contact Form" />
@@ -40,7 +48,7 @@ import { Image } from "astro:assets";
 <script></script>
 
 <style lang="scss">
-  img {
+  .giphy {
     border-color: var(--font-color);
     border: 3px solid;
   }
