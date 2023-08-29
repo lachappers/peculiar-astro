@@ -48,8 +48,9 @@ export default function Tool() {
   if (loading) return <p>Loading data...</p>;
 
   return (
-    <div className=" tool flex flex-col justify-between gap-2">
-      <h2>Question space</h2>
+    <div className=" tool flex flex-col justify-between gap-4">
+      <h2>Section Heading</h2>
+      <p>Section Description</p>
       <QuestionsList
         questionsList={questionsList}
         questionCount={questionCount}

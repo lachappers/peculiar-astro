@@ -19,21 +19,25 @@ export default function Question({
     (question && (
       <div className="quotey" key={question.id}>
         <h2 className="col-span-full w-full">{q.name}</h2>
-        <div className="choices flex flex-col">
+        <p className="font-sm mb-4 italic">{q.description}</p>
+        <div className="choices ">
           {q.choices.map((choice) => (
-            
-                <label htmlFor={choice.id} key={choice.id} >
+                <div key={choice.id}  className="choice flex gap-2">
+                
                     <input
-                    id={choice.id}
-                    type="radio"
-                    value={choice.id}
-                    name="choices"
-                    onChange={handleSelector}
-                    className="choice"
-                    checked={choice.id == answer || choice.isSelected}
-                    />
-                    {choice.name}
-                </label>
+                        key={choice.id} 
+                        id={choice.id}
+                        type="radio"
+                        value={choice.id}
+                        name="choices"
+                        onChange={handleSelector}
+                        className=""
+                        checked={choice.id == answer || choice.isSelected}
+                        />
+                    <label htmlFor={choice.id} >
+                        {choice.name}
+                    </label>
+                </div>
             
         ))}
         </div>
