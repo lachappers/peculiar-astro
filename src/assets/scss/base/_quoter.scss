@@ -1,6 +1,5 @@
 .quoter {
   background: var(--surface-dim);
-
 }
 .tool {
   background: var(--surface);
@@ -8,7 +7,7 @@
 }
 
 .quotey {
-    // width: 100%;
+  // width: 100%;
   background: var(--container-lowest);
   border: 3px solid var(--outline);
   border-radius: 0.5rem;
@@ -17,41 +16,53 @@
   flex-direction: column;
   gap: 4;
 }
-.choices {
+table {
+  background: var(--container-lowest);
+  border: 3px solid var(--outline);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+.options {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
 }
-.choice {
-  
-  
+.option {
+  background-color: var(--action-color);
+  border: 3px solid var(--font-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
 }
-.choices input[type="radio"]{
-    opacity: 0;
-    position: fixed;
-    width: 0;
+.options input[type="radio"] {
+  // opacity: 0;
+  // position: fixed;
+  // width: 2em;
+  // height: 2em;
+  // width: 0;
 }
-.choices label {
-    flex: auto;
-    display: inline-block;
-    background-color: #ddd;
-    padding: .5rem 1.5rem;
-    
-    cursor: pointer;
-    border: 2px solid var(--outline-variant);
-    border-radius: .5rem;
+.options label {
+  flex: auto;
+  display: flex;
+  background-color: #ddd;
+  padding: 0.5rem 1.5rem;
+
+  cursor: pointer;
+  border: 2px solid var(--outline-variant);
+  border-radius: 0.5rem;
 }
-.choices input[type="radio"]:checked + label {
-    background-color:#bfb;
-    border-color: #4c4; 
+
+.options input[type="radio"]:checked + label {
+  background-color: var(--green-100);
+  border-color: var(--green-300);
+  color: var(--green-500);
 }
-.choices input[type="radio"]:focus + label {
-    border: 2px dashed #444;
+.options .option input[type="radio"]:focus + label {
+  border: 2px dashed var(--font-color);
 }
-.choices label:hover {
-    background-color: #dfd;
-  }
+.options label:hover {
+  background-color: var(--green-100);
+}
 
 .next-btn {
   background-color: var(--secondary-background);
@@ -64,4 +75,18 @@
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   border: 3px solid var(--outline);
+}
+.progress {
+  height: 100%;
+  background-color: var(--secondary-background);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.progress > span {
+  background-color: var(--action-color);
+  border-radius: inherit;
+  display: block;
+  padding: 0 1rem;
+  color: var(--surface);
+  min-width: fit-content;
 }

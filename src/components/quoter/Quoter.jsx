@@ -10,7 +10,7 @@ export default function Quoter() {
       <div className="w-1/3 min-w-max flex flex-col gap-2 justify-center items-center">
         <Sidebar />
       </div>
-      <div className="tool max-w-screen-sm lg:max-w-screen-lg lg:p-16 rounded-md border-2 border-solid p-8 ">
+      <div className="tool max-w-screen-sm lg:max-w-screen-lg rounded-md border-2 border-solid p-8 ">
         <Tool />
       </div>
     </>

@@ -5,10 +5,15 @@ import Heading from "../components/Heading.astro";
 import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
 
+import Quoter from "../components/quoter/Quoter.jsx";
 ---
 
 <DefaultLayout title="Quoter">
-
+  <div
+    class="quoter flex min-h-screen w-full items-center justify-evenly flex-col lg:flex-row px-16 gap-4"
+  >
+    <Quoter client:load />
+  </div>
 
   <section class="flex items-center justify-center">
     <div class="container flex flex-col items-center gap-8">

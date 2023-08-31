@@ -1,59 +1,47 @@
 import React, { useEffect, useState } from "react";
-import Greeting from "./Greeting";
-import { k as countUsers } from "./UserList";
-import QuestionsList from "./QuestionsList";
-// import { countUsers as countUsers } from "./UserList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
 
-// import { UserList } from "./UserList";
+import DraftQuote from "./Quote";
+import Survey from "./Survey";
 
-function getQuestionsList() {
-  const [questionsList, setQuestionsList] = useState([]);
-  const [questionCount, setQuestionCount] = useState(0);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(
-      "questions.json",
-      { mode: "cors" },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
-      .then((response) => {
-        if (response.status >= 400) {
-          throw new Error("server error");
-        }
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setQuestionsList(data);
-        setQuestionCount(data.length);
-      })
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
-  }, []);
-
-  return { questionsList, questionCount, error, loading };
-}
+library.add(far, fab, fas);
 
 export default function Tool() {
-  const { questionsList, questionCount, error, loading } = getQuestionsList();
-  if (error) return <p>A network error was encountered</p>;
-  if (loading) return <p>Loading data...</p>;
+  const [isComplete, setIsComplete] = useState(false);
+  const [surveyAnswers, setSurveyAnswers] = useState({});
+  // const { questionsList, questionCount, error, loading } = getQuestionsList();
+  // if (error) return <p>A network error was encountered</p>;
+  // if (loading) return <p>Loading data...</p>;
 
+  if (isComplete) {
+    return (
+      <div className="tool flex flex-col justify-between gap-4">
+        Completed wooo
+        <DraftQuote />
+      </div>
+    );
+  }
   return (
     <div className=" tool flex flex-col justify-between gap-4">
-      <h2>Section Heading</h2>
-      <p>Section Description</p>
-      <QuestionsList
+      {/* <FontAwesomeIcon icon="fa-regular fa-user" size="sm" /> */}
+      {/* <FontAwesomeIcon icon={["fas", "coffee"]} /> */}
+
+      {/* <h2>Section Heading</h2>
+      <p>Section Description</p> */}
+      {/* <QuestionsList
         questionsList={questionsList}
         questionCount={questionCount}
+      /> */}
+      {/* <DraftQuote /> */}
+      <Survey
+        setIsComplete={setIsComplete}
+        setSurveyAnswers={setSurveyAnswers}
       />
     </div>
   );
