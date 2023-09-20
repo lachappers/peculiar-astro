@@ -23,16 +23,14 @@ table {
   padding: 2rem;
 }
 .options {
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
+  display: grid;
+
   gap: 0.5rem;
   justify-content: center;
 }
 .option {
-  background-color: var(--action-color);
-  border: 3px solid var(--font-color);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1.5rem;
 }
 .options input[type="radio"] {
   // opacity: 0;
@@ -44,12 +42,16 @@ table {
 .options label {
   flex: auto;
   display: flex;
-  background-color: #ddd;
-  padding: 0.5rem 1.5rem;
-
+  // background-color: #ddd;
+  // padding: 0.5rem 1.5rem;
+  text-align: center;
   cursor: pointer;
-  border: 2px solid var(--outline-variant);
+  border: 3px solid var(--action-color);
   border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  // border: 2px solid var(--outline-variant);
+  // border-radius: 0.5rem;
 }
 
 .options input[type="radio"]:checked + label {

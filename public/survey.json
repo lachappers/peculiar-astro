@@ -1,146 +1,847 @@
 {
-  "id": 1,
-  "name": "Test Survey",
-  "description": "Testing via consoley",
-  "lifecycle_stage": "",
-  "created_at": "2023-08-10T16:47:26.776Z",
-  "updated_at": "2023-08-10T19:07:56.420Z",
+  "id": 2,
+  "name": "Quote Builder",
+  "description": "Build a quote that we can start working on from today!",
+  "lifecycle_stage": "enquiry",
+  "created_at": "2023-09-01T08:37:08.368Z",
+  "updated_at": "2023-09-20T16:39:25.199Z",
   "sections": [
     {
-      "id": 1,
-      "survey_id": 1,
-      "name": "Testing section",
-      "description": "Tester section description",
-      "created_at": "2023-08-10T16:47:26.783Z",
-      "updated_at": "2023-08-10T19:09:14.275Z",
+      "id": 7,
+      "survey_id": 2,
+      "name": "Let's get started!",
+      "description": "",
+      "created_at": "2023-09-01T08:37:08.375Z",
+      "updated_at": "2023-09-01T08:57:02.838Z",
       "position": 1,
       "questions": [
         {
-          "id": 3,
-          "name": "Another 2nd one",
+          "id": 8,
+          "name": "What are you looking for today?",
           "description": "",
-          "question_type": "single_choice",
-          "required": "",
-          "created_at": "2023-08-11T15:07:51.234Z",
-          "updated_at": "2023-08-15T15:55:49.660Z",
-          "section_id": 1,
+          "question_type": "multiple_choice",
+          "required": false,
+          "created_at": "2023-09-01T08:37:08.386Z",
+          "updated_at": "2023-09-01T10:27:52.491Z",
+          "section_id": 7,
           "position": 1,
           "options": [
             {
-              "id": 5,
-              "name": "and anothery",
-              "icon": "fa-regular fa-user",
-              "description": "Explaining anothery is something that I think is really important but I need to test how much content we can fit in",
-              "question_id": 3,
-              "created_at": "2023-08-11T15:07:51.238Z",
-              "updated_at": "2023-08-15T16:05:45.978Z",
-              "position": 1
-            }
-          ]
-        },
-        {
-          "id": 1,
-          "name": "Numero uno question",
-          "description": "Helper text uno",
-          "question_type": "single_choice",
-          "required": "",
-          "created_at": "2023-08-10T19:09:32.368Z",
-          "updated_at": "2023-08-15T15:55:49.659Z",
-          "section_id": 1,
-          "position": 2,
-          "options": [
-            {
-              "id": 3,
-              "name": "Option 3",
-              "question_id": 1,
-              "created_at": "2023-08-10T19:23:54.596Z",
-              "updated_at": "2023-08-15T16:19:36.182Z",
-              "position": 1
+              "id": 6,
+              "name": "Design & Development",
+              "question_id": 8,
+              "created_at": "2023-09-01T08:37:08.391Z",
+              "updated_at": "2023-09-01T10:18:25.889Z",
+              "position": 1,
+              "description": "Websites, eCommerce, Apps +",
+              "icon": "fa fa-pencil"
             },
             {
-              "id": 1,
-              "name": "Option 1",
-              "question_id": 1,
-              "created_at": "2023-08-10T19:23:54.592Z",
-              "updated_at": "2023-08-15T16:19:36.183Z",
-              "position": 3
+              "id": 7,
+              "name": "Support Services & Subscriptions",
+              "question_id": 8,
+              "created_at": "2023-09-01T08:57:02.843Z",
+              "updated_at": "2023-09-01T10:18:25.893Z",
+              "position": 2,
+              "description": "Hosting, Maintenance, Email +",
+              "icon": "fa fa-repeat"
             },
             {
-              "id": 2,
-              "name": "Option 2ty",
-              "question_id": 1,
-              "created_at": "2023-08-10T19:23:54.595Z",
-              "updated_at": "2023-08-15T15:38:16.411Z",
-              "position": 5
+              "id": 8,
+              "name": "Integration & Data Insights",
+              "question_id": 8,
+              "created_at": "2023-09-01T08:57:02.848Z",
+              "updated_at": "2023-09-01T10:18:25.895Z",
+              "position": 3,
+              "description": "Connect/ Optimise/ Streamline your Systems and Strategies",
+              "icon": "fa fa-network-wired"
+            },
+            {
+              "id": 9,
+              "name": "Something else",
+              "question_id": 8,
+              "created_at": "2023-09-01T08:57:02.852Z",
+              "updated_at": "2023-09-01T10:13:18.702Z",
+              "position": 7,
+              "description": "Not quite sure or something not listed here?",
+              "icon": "fa fa-question"
             }
           ]
         }
       ]
     },
     {
-      "id": 2,
-      "survey_id": 1,
-      "name": "Dos",
-      "description": "",
-      "created_at": "2023-08-10T19:43:10.561Z",
-      "updated_at": "2023-08-10T19:43:10.561Z",
+      "id": 8,
+      "survey_id": 2,
+      "name": "What are we working with?",
+      "description": "These basics help us build a more accurate quote for you. Once we start working together, we will ask more questions to understand your requirements better.",
+      "created_at": "2023-09-01T10:27:52.493Z",
+      "updated_at": "2023-09-01T10:27:52.493Z",
       "position": 2,
       "questions": [
         {
-          "id": 2,
-          "name": "Attempt 4",
-          "description": "",
-          "question_type": "single_choice",
-          "required": "",
-          "created_at": "2023-08-10T20:07:06.745Z",
-          "updated_at": "2023-08-10T20:07:06.745Z",
-          "section_id": 2,
+          "id": 10,
+          "name": "Do you already have a website?",
+          "description": "Please provide the link to your current website if you have one.",
+          "question_type": "text",
+          "required": false,
+          "created_at": "2023-09-01T10:33:32.255Z",
+          "updated_at": "2023-09-02T16:47:48.205Z",
+          "section_id": 8,
+          "position": 1,
+          "options": []
+        },
+        {
+          "id": 95,
+          "name": "Tell us a bit about your business.",
+          "description": "What industry are you in? What products/ services do you sell?",
+          "question_type": "long_text",
+          "required": false,
+          "created_at": "2023-09-02T16:47:48.207Z",
+          "updated_at": "2023-09-02T16:59:32.314Z",
+          "section_id": 8,
           "position": 2,
+          "options": []
+        },
+        {
+          "id": 96,
+          "name": "Which of these best describes where your business will be in 12 months time?",
+          "description": "What geography do you operate out of to serve your customers?",
+          "question_type": "single_choice",
+          "required": false,
+          "created_at": "2023-09-02T16:47:48.211Z",
+          "updated_at": "2023-09-02T16:59:32.314Z",
+          "section_id": 8,
+          "position": 3,
           "options": [
             {
-              "id": 4,
-              "name": "Any better eh?",
-              "question_id": 2,
-              "created_at": "2023-08-10T20:07:06.747Z",
-              "updated_at": "2023-08-15T19:14:28.362Z",
-              "position": 4
+              "id": 15,
+              "name": "Local",
+              "question_id": 96,
+              "created_at": "2023-09-02T16:50:33.205Z",
+              "updated_at": "2023-09-02T16:50:33.205Z",
+              "position": 1,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 16,
+              "name": "Regional",
+              "question_id": 96,
+              "created_at": "2023-09-02T16:50:33.212Z",
+              "updated_at": "2023-09-02T16:50:33.212Z",
+              "position": 2,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 17,
+              "name": "UK-wide",
+              "question_id": 96,
+              "created_at": "2023-09-02T16:50:33.215Z",
+              "updated_at": "2023-09-02T16:50:33.215Z",
+              "position": 3,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 18,
+              "name": "International",
+              "question_id": 96,
+              "created_at": "2023-09-02T16:50:33.218Z",
+              "updated_at": "2023-09-02T16:50:33.218Z",
+              "position": 4,
+              "description": "",
+              "icon": ""
             }
           ]
         },
         {
-          "id": 4,
-          "name": "Another one for the road",
+          "id": 9,
+          "name": "How many customers do you anticipate you'll serve over the next 12 months?",
           "description": "",
-          "question_type": "single_choice",
-          "required": "",
-          "created_at": "2023-08-15T11:06:03.519Z",
-          "updated_at": "2023-08-15T16:09:36.933Z",
-          "section_id": 2,
-          "position": 3,
+          "question_type": "text",
+          "required": false,
+          "created_at": "2023-09-01T10:27:52.498Z",
+          "updated_at": "2023-09-02T16:59:32.315Z",
+          "section_id": 8,
+          "position": 4,
           "options": []
         }
       ]
     },
     {
-      "id": 6,
-      "survey_id": 1,
-      "name": "Third one",
-      "description": "",
-      "created_at": "2023-08-15T19:23:20.935Z",
-      "updated_at": "2023-08-15T19:23:20.935Z",
+      "id": 9,
+      "survey_id": 2,
+      "name": "How's it looking?",
+      "description": "Share some details about your design, content and brand.",
+      "created_at": "2023-09-01T10:33:32.258Z",
+      "updated_at": "2023-09-02T17:09:22.016Z",
       "position": 3,
       "questions": [
         {
-          "id": 7,
-          "name": "Third q",
-          "description": "",
+          "id": 97,
+          "name": "Design:",
+          "description": "The layout & structure of your site or app",
           "question_type": "single_choice",
-          "required": "",
-          "created_at": "2023-08-15T19:23:20.938Z",
-          "updated_at": "2023-08-15T19:23:20.938Z",
-          "section_id": 6,
+          "required": true,
+          "created_at": "2023-09-02T17:09:22.033Z",
+          "updated_at": "2023-09-20T13:19:29.462Z",
+          "section_id": 9,
           "position": 1,
+          "options": [
+            {
+              "id": 19,
+              "name": "We want to start from scratch",
+              "question_id": 97,
+              "created_at": "2023-09-02T17:09:22.036Z",
+              "updated_at": "2023-09-02T17:09:22.036Z",
+              "position": 1,
+              "description": "We'll build a new design together",
+              "icon": ""
+            },
+            {
+              "id": 20,
+              "name": "We've got a template/ design in mind",
+              "question_id": 97,
+              "created_at": "2023-09-02T17:09:22.040Z",
+              "updated_at": "2023-09-02T17:09:22.040Z",
+              "position": 2,
+              "description": "We'll build to your existing design spec",
+              "icon": ""
+            },
+            {
+              "id": 21,
+              "name": "We like our exiting site",
+              "question_id": 97,
+              "created_at": "2023-09-02T17:09:22.042Z",
+              "updated_at": "2023-09-02T17:09:22.042Z",
+              "position": 3,
+              "description": "We'll build a new site, keeping your design, optimised for performance, mobile devices and analytics",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "id": 98,
+          "name": "Content:",
+          "description": "The text and images your site or app uses",
+          "question_type": "single_choice",
+          "required": true,
+          "created_at": "2023-09-02T17:23:07.117Z",
+          "updated_at": "2023-09-20T13:19:29.463Z",
+          "section_id": 9,
+          "position": 2,
+          "options": [
+            {
+              "id": 22,
+              "name": "I've got nothing!",
+              "question_id": 98,
+              "created_at": "2023-09-02T17:23:07.121Z",
+              "updated_at": "2023-09-20T13:19:29.464Z",
+              "position": 1,
+              "description": "We can build your site with placeholder text and images or help you source copy and images later",
+              "icon": ""
+            },
+            {
+              "id": 24,
+              "name": "Use what I have already",
+              "question_id": 98,
+              "created_at": "2023-09-02T17:23:07.127Z",
+              "updated_at": "2023-09-20T13:19:29.467Z",
+              "position": 2,
+              "description": "We'll take the images and content from your existing site and work our design around it, we can edit this later",
+              "icon": ""
+            },
+            {
+              "id": 23,
+              "name": "I will provide some",
+              "question_id": 98,
+              "created_at": "2023-09-02T17:23:07.124Z",
+              "updated_at": "2023-09-20T13:19:29.471Z",
+              "position": 3,
+              "description": "We'll draw up a design, then you'll provide us with text and imagery you've created or licensed for use on your site",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "id": 99,
+          "name": "Logo and Colour Palette:",
+          "description": "Your brand identity",
+          "question_type": "single_choice",
+          "required": true,
+          "created_at": "2023-09-20T13:19:29.473Z",
+          "updated_at": "2023-09-20T13:19:29.473Z",
+          "section_id": 9,
+          "position": 3,
+          "options": [
+            {
+              "id": 25,
+              "name": "I've got nothing!",
+              "question_id": 99,
+              "created_at": "2023-09-20T13:19:29.479Z",
+              "updated_at": "2023-09-20T13:19:29.479Z",
+              "position": 1,
+              "description": "We'll build a logo and colour palette for you",
+              "icon": ""
+            },
+            {
+              "id": 26,
+              "name": "I'll provide it",
+              "question_id": 99,
+              "created_at": "2023-09-20T13:19:29.483Z",
+              "updated_at": "2023-09-20T13:19:29.483Z",
+              "position": 2,
+              "description": "We'll design your site with either content you provide us or a placeholder logo and colour scheme",
+              "icon": ""
+            },
+            {
+              "id": 27,
+              "name": "Use what I have already",
+              "question_id": 99,
+              "created_at": "2023-09-20T13:19:29.491Z",
+              "updated_at": "2023-09-20T13:19:29.491Z",
+              "position": 3,
+              "description": "We'll take the colour palette and logo from your existing site",
+              "icon": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "survey_id": 2,
+      "name": "Features",
+      "description": "Add extra features to your site to impress customers, capture more interest or improve your efficiency. We include heaps of features as standard with our sites - check out our pricing page for details.",
+      "created_at": "2023-09-20T14:37:26.658Z",
+      "updated_at": "2023-09-20T14:37:26.658Z",
+      "position": 4,
+      "questions": [
+        {
+          "id": 100,
+          "name": "Additional Functionality",
+          "description": "",
+          "question_type": "multiple_choice",
+          "required": false,
+          "created_at": "2023-09-20T14:37:26.665Z",
+          "updated_at": "2023-09-20T14:37:26.665Z",
+          "section_id": 59,
+          "position": 1,
+          "options": [
+            {
+              "id": 28,
+              "name": "Newsletter Signup",
+              "question_id": 100,
+              "created_at": "2023-09-20T14:37:26.674Z",
+              "updated_at": "2023-09-20T14:48:27.337Z",
+              "position": 1,
+              "description": "Capture details securely in compliance with GDPR",
+              "icon": "fa fa-envelope"
+            },
+            {
+              "id": 29,
+              "name": "Interactive Gallery/ Portfolio",
+              "question_id": 100,
+              "created_at": "2023-09-20T14:48:27.339Z",
+              "updated_at": "2023-09-20T14:48:27.339Z",
+              "position": 2,
+              "description": "A photo or case study gallery to showcase your credentials",
+              "icon": "fa fa-images"
+            },
+            {
+              "id": 30,
+              "name": "Search Bar",
+              "question_id": 100,
+              "created_at": "2023-09-20T14:48:27.343Z",
+              "updated_at": "2023-09-20T14:48:27.343Z",
+              "position": 3,
+              "description": "Enable customers to quickly find what they're looking for",
+              "icon": "fa-solid fa-magnifying-glass"
+            },
+            {
+              "id": 31,
+              "name": "Blog/ News ",
+              "question_id": 100,
+              "created_at": "2023-09-20T14:48:27.346Z",
+              "updated_at": "2023-09-20T14:48:27.346Z",
+              "position": 4,
+              "description": "Share updates and posts with your customers",
+              "icon": "fa fa-newspaper"
+            },
+            {
+              "id": 32,
+              "name": "Review or Social Media Feed",
+              "question_id": 100,
+              "created_at": "2023-09-20T14:48:27.349Z",
+              "updated_at": "2023-09-20T14:49:57.253Z",
+              "position": 5,
+              "description": "Embedded content from sites like Trust Pilot or Instagram",
+              "icon": "fa-solid fa-bullhorn"
+            },
+            {
+              "id": 33,
+              "name": "Chat Support",
+              "question_id": 100,
+              "created_at": "2023-09-20T14:48:27.351Z",
+              "updated_at": "2023-09-20T14:49:57.255Z",
+              "position": 6,
+              "description": "Enable customers to contact you from a chat window on any page",
+              "icon": "fa fa-message"
+            }
+          ]
+        },
+        {
+          "id": 101,
+          "name": "Third Party Integrations",
+          "description": "Where great tools already exist, we can embed these into your site, app or processes, for trusted, high-quality service",
+          "question_type": "multiple_choice",
+          "required": false,
+          "created_at": "2023-09-20T15:06:53.957Z",
+          "updated_at": "2023-09-20T15:20:56.601Z",
+          "section_id": 59,
+          "position": 2,
+          "options": [
+            {
+              "id": 34,
+              "name": "Appointment Scheduling",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:06:53.977Z",
+              "updated_at": "2023-09-20T15:11:35.408Z",
+              "position": 1,
+              "description": "Book meetings with you, like consultations",
+              "icon": "fa-regular fa-calendar"
+            },
+            {
+              "id": 35,
+              "name": "Service Booking",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:06:53.983Z",
+              "updated_at": "2023-09-20T15:11:35.409Z",
+              "position": 2,
+              "description": "Select from a menu then book and pay for services ",
+              "icon": "fa-solid fa-bell-concierge"
+            },
+            {
+              "id": 36,
+              "name": "Feedback and Surveys",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:06:53.989Z",
+              "updated_at": "2023-09-20T15:11:35.411Z",
+              "position": 3,
+              "description": "Collect feedback or send automated requests",
+              "icon": "fa-solid fa-square-poll-vertical"
+            },
+            {
+              "id": 37,
+              "name": "Payments Processing",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:06:53.992Z",
+              "updated_at": "2023-09-20T15:20:56.606Z",
+              "position": 7,
+              "description": "Online payments when a full store isn't needed",
+              "icon": "fa fa-credit-card"
+            },
+            {
+              "id": 38,
+              "name": "Event Sign Up",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:20:56.608Z",
+              "updated_at": "2023-09-20T15:20:56.608Z",
+              "position": 8,
+              "description": "RSVP directly from your site",
+              "icon": "fa-regular fa-calendar-check"
+            },
+            {
+              "id": 39,
+              "name": "Inventory Management",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:20:56.610Z",
+              "updated_at": "2023-09-20T15:20:56.610Z",
+              "position": 9,
+              "description": "Keep track of product and service availability",
+              "icon": "fa-solid fa-warehouse"
+            },
+            {
+              "id": 40,
+              "name": "Chat Bots",
+              "question_id": 101,
+              "created_at": "2023-09-20T15:20:56.616Z",
+              "updated_at": "2023-09-20T15:20:56.616Z",
+              "position": 10,
+              "description": "Answer common questions instantly, direct visitors to support pages or forward complex queries to humans",
+              "icon": "fa-solid fa-robot"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "name": "App-level Functionality",
+          "description": "Built bespoke for your business",
+          "question_type": "multiple_choice",
+          "required": false,
+          "created_at": "2023-09-20T15:43:56.760Z",
+          "updated_at": "2023-09-20T15:43:56.760Z",
+          "section_id": 59,
+          "position": 3,
+          "options": [
+            {
+              "id": 41,
+              "name": "Customer Login and Portal",
+              "question_id": 102,
+              "created_at": "2023-09-20T15:43:56.765Z",
+              "updated_at": "2023-09-20T15:43:56.765Z",
+              "position": 1,
+              "description": "Allow customers to create accounts to manage orders, bookings or other interactions",
+              "icon": "fa-solid fa-table-columns"
+            },
+            {
+              "id": 42,
+              "name": "Admin Dashboard",
+              "question_id": 102,
+              "created_at": "2023-09-20T15:43:56.768Z",
+              "updated_at": "2023-09-20T15:43:56.768Z",
+              "position": 2,
+              "description": "Your login to keep track of your site and business performance",
+              "icon": "fa-solid fa-unlock"
+            },
+            {
+              "id": 43,
+              "name": "Smart Quoting Tool",
+              "question_id": 102,
+              "created_at": "2023-09-20T15:43:56.771Z",
+              "updated_at": "2023-09-20T15:43:56.771Z",
+              "position": 3,
+              "description": "Automated information capture to send quotes instantly",
+              "icon": "fa-solid fa-receipt"
+            },
+            {
+              "id": 44,
+              "name": "Contract and Signature Management",
+              "question_id": 102,
+              "created_at": "2023-09-20T15:43:56.774Z",
+              "updated_at": "2023-09-20T15:43:56.774Z",
+              "position": 4,
+              "description": "Create, capture and store electronic, legally binding documents",
+              "icon": "fa-solid fa-signature"
+            },
+            {
+              "id": 45,
+              "name": "Something else!",
+              "question_id": 102,
+              "created_at": "2023-09-20T15:43:56.777Z",
+              "updated_at": "2023-09-20T15:43:56.777Z",
+              "position": 5,
+              "description": "Want some other functionality we haven't listed?",
+              "icon": "fa-solid fa-plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "survey_id": 2,
+      "name": "Extra Services",
+      "description": "Add these extra services to your quote if you'd like them. After you've accepted your quote, we'll get some more information from you to tailor the service to your business.",
+      "created_at": "2023-09-20T15:43:56.780Z",
+      "updated_at": "2023-09-20T15:43:56.780Z",
+      "position": 5,
+      "questions": [
+        {
+          "id": 103,
+          "name": "Content Management System",
+          "description": "If you would like to update, edit and add content to your site directly, you'll need one of these.",
+          "question_type": "single_choice",
+          "required": true,
+          "created_at": "2023-09-20T15:43:56.783Z",
+          "updated_at": "2023-09-20T15:43:56.783Z",
+          "section_id": 60,
+          "position": 1,
+          "options": [
+            {
+              "id": 46,
+              "name": "Yes",
+              "question_id": 103,
+              "created_at": "2023-09-20T15:43:56.785Z",
+              "updated_at": "2023-09-20T15:43:56.785Z",
+              "position": 1,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 47,
+              "name": "No",
+              "question_id": 103,
+              "created_at": "2023-09-20T15:43:56.788Z",
+              "updated_at": "2023-09-20T15:43:56.788Z",
+              "position": 2,
+              "description": "",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "id": 104,
+          "name": "Additional Pages",
+          "description": "We provide 5 pages with layouts as standard. If you think you'll need more, let us know how many.",
+          "question_type": "text",
+          "required": false,
+          "created_at": "2023-09-20T15:43:56.792Z",
+          "updated_at": "2023-09-20T15:43:56.792Z",
+          "section_id": 60,
+          "position": 2,
           "options": []
+        },
+        {
+          "id": 105,
+          "name": "Additional Languages",
+          "description": "Will you require additional languages now or in the future?",
+          "question_type": "single_choice",
+          "required": true,
+          "created_at": "2023-09-20T15:43:56.795Z",
+          "updated_at": "2023-09-20T15:43:56.795Z",
+          "section_id": 60,
+          "position": 3,
+          "options": [
+            {
+              "id": 48,
+              "name": "Yes",
+              "question_id": 105,
+              "created_at": "2023-09-20T15:43:56.798Z",
+              "updated_at": "2023-09-20T15:43:56.798Z",
+              "position": 1,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 49,
+              "name": "No",
+              "question_id": 105,
+              "created_at": "2023-09-20T15:43:56.802Z",
+              "updated_at": "2023-09-20T15:43:56.802Z",
+              "position": 2,
+              "description": "",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "id": 106,
+          "name": "Product Pages",
+          "description": "Do you require us to build product listings?",
+          "question_type": "single_choice",
+          "required": false,
+          "created_at": "2023-09-20T15:43:56.807Z",
+          "updated_at": "2023-09-20T15:43:56.807Z",
+          "section_id": 60,
+          "position": 4,
+          "options": [
+            {
+              "id": 50,
+              "name": "Yes, template only",
+              "question_id": 106,
+              "created_at": "2023-09-20T15:43:56.813Z",
+              "updated_at": "2023-09-20T15:43:56.813Z",
+              "position": 1,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 51,
+              "name": "Yes, and populate with products for me",
+              "question_id": 106,
+              "created_at": "2023-09-20T15:43:56.821Z",
+              "updated_at": "2023-09-20T15:43:56.821Z",
+              "position": 2,
+              "description": "",
+              "icon": ""
+            },
+            {
+              "id": 52,
+              "name": "No",
+              "question_id": 106,
+              "created_at": "2023-09-20T15:43:56.824Z",
+              "updated_at": "2023-09-20T15:43:56.824Z",
+              "position": 3,
+              "description": "",
+              "icon": ""
+            }
+          ]
+        },
+        {
+          "id": 107,
+          "name": "How many products will you require us to build?",
+          "description": "",
+          "question_type": "text",
+          "required": false,
+          "created_at": "2023-09-20T15:43:56.828Z",
+          "updated_at": "2023-09-20T15:43:56.828Z",
+          "section_id": 60,
+          "position": 5,
+          "options": []
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "survey_id": 2,
+      "name": "Deals, Discounts and Premium Services",
+      "description": "We provide 12 months of hosting, management, maintenance, updates and support to minimise complexity and keep your tech operating efficiently and securely.",
+      "created_at": "2023-09-20T15:55:59.597Z",
+      "updated_at": "2023-09-20T15:55:59.597Z",
+      "position": 6,
+      "questions": [
+        {
+          "id": 108,
+          "name": "Additional Monthly Support",
+          "description": "",
+          "question_type": "multiple_choice",
+          "required": false,
+          "created_at": "2023-09-20T15:55:59.601Z",
+          "updated_at": "2023-09-20T15:55:59.601Z",
+          "section_id": 61,
+          "position": 1,
+          "options": [
+            {
+              "id": 53,
+              "name": "Monthly performance, security and reputation reports",
+              "question_id": 108,
+              "created_at": "2023-09-20T15:55:59.605Z",
+              "updated_at": "2023-09-20T15:55:59.605Z",
+              "position": 1,
+              "description": "Access to in depth insights about your business",
+              "icon": "fa-solid fa-magnifying-glass-chart"
+            },
+            {
+              "id": 54,
+              "name": "Upgrade: Daily backups",
+              "question_id": 108,
+              "created_at": "2023-09-20T15:55:59.619Z",
+              "updated_at": "2023-09-20T15:55:59.619Z",
+              "position": 2,
+              "description": "More regular storage of your site and information in case of outage",
+              "icon": "fa-regular fa-floppy-disk"
+            },
+            {
+              "id": 55,
+              "name": "Upgrade: 1 hour content updates",
+              "question_id": 108,
+              "created_at": "2023-09-20T15:55:59.624Z",
+              "updated_at": "2023-09-20T15:55:59.624Z",
+              "position": 3,
+              "description": "Dedicated time for us to make any edits to your site",
+              "icon": "fa-solid fa-1"
+            },
+            {
+              "id": 56,
+              "name": "Upgrade: 5 hours content updates",
+              "question_id": 108,
+              "created_at": "2023-09-20T15:55:59.627Z",
+              "updated_at": "2023-09-20T15:55:59.627Z",
+              "position": 4,
+              "description": "Dedicated time for us to make any edits to your site",
+              "icon": "fa-solid fa-5"
+            },
+            {
+              "id": 57,
+              "name": "2hr Live Training Session",
+              "question_id": 108,
+              "created_at": "2023-09-20T15:55:59.630Z",
+              "updated_at": "2023-09-20T15:55:59.630Z",
+              "position": 5,
+              "description": "Virtual or in person training",
+              "icon": "fa-solid fa-person-chalkboard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "survey_id": 2,
+      "name": "Premiums, Discounts and Payment Plans",
+      "description": "Whether you need our services quickly, or want to smooth out your spend; transparently priced premiums and generous discounts passed on as our way of saying thanks.",
+      "created_at": "2023-09-20T16:19:23.890Z",
+      "updated_at": "2023-09-20T16:19:23.890Z",
+      "position": 7,
+      "questions": [
+        {
+          "id": 109,
+          "name": "Preferred Payment Plan",
+          "description": "Let us know how you'd prefer to pay",
+          "question_type": "single_choice",
+          "required": true,
+          "created_at": "2023-09-20T16:19:23.893Z",
+          "updated_at": "2023-09-20T16:19:23.893Z",
+          "section_id": 62,
+          "position": 1,
+          "options": [
+            {
+              "id": 58,
+              "name": "Pay Upfront (-10%)",
+              "question_id": 109,
+              "created_at": "2023-09-20T16:19:23.896Z",
+              "updated_at": "2023-09-20T16:19:23.896Z",
+              "position": 1,
+              "description": "Save 10% if you make full payment when you approve our design",
+              "icon": "fa-solid fa-sack-dollar"
+            },
+            {
+              "id": 59,
+              "name": "Pay by Launch (-5%)",
+              "question_id": 109,
+              "created_at": "2023-09-20T16:19:23.900Z",
+              "updated_at": "2023-09-20T16:19:23.900Z",
+              "position": 2,
+              "description": "Save 5% if you have pay in full before launch day",
+              "icon": "fa-solid fa-coins"
+            },
+            {
+              "id": 60,
+              "name": "Pay Monthly",
+              "question_id": 109,
+              "created_at": "2023-09-20T16:19:23.904Z",
+              "updated_at": "2023-09-20T16:19:23.904Z",
+              "position": 3,
+              "description": "Spread the full cost over 12 months",
+              "icon": "fa-solid fa-piggy-bank"
+            }
+          ]
+        },
+        {
+          "id": 110,
+          "name": "In a hurry?",
+          "description": "Secure a guaranteed delivery date when you pay your deposit. You'll see our earliest estimated delivery date on your quote.",
+          "question_type": "single_choice",
+          "required": false,
+          "created_at": "2023-09-20T16:19:23.908Z",
+          "updated_at": "2023-09-20T16:19:23.908Z",
+          "section_id": 62,
+          "position": 2,
+          "options": [
+            {
+              "id": 61,
+              "name": "Need it fast (+5%)",
+              "question_id": 110,
+              "created_at": "2023-09-20T16:19:23.910Z",
+              "updated_at": "2023-09-20T16:19:23.910Z",
+              "position": 1,
+              "description": "Typical timeline savings of up to 15% on our standard timeline",
+              "icon": "fa-solid fa-motorcycle"
+            },
+            {
+              "id": 62,
+              "name": "Need it now (+15%)",
+              "question_id": 110,
+              "created_at": "2023-09-20T16:19:23.912Z",
+              "updated_at": "2023-09-20T16:19:23.912Z",
+              "position": 2,
+              "description": "Typical timeline savings of up to 50% and priority in our queue",
+              "icon": "fa-solid fa-rocket"
+            }
+          ]
         }
       ]
     }

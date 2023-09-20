@@ -128,9 +128,13 @@ export default function Survey({ setIsComplete, setSurveyAnswers }) {
   return (
     survey && (
       <form className=" flex flex-col justify-between gap-4">
-        <h2>{survey.name}</h2>
-        <p>{survey.description}</p>
-
+        {/* Move this to sidebar? */}
+        {sectionIndex == 0 && (
+          <>
+            <h2>{survey.name}</h2>
+            <p>{survey.description}</p>
+          </>
+        )}
         <Section sectionList={survey.sections} sectionIndex={sectionIndex} />
         <QuestionList
           questionList={survey.sections[sectionIndex].questions}
