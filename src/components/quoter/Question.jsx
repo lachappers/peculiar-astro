@@ -14,20 +14,22 @@ export default function Question({
   sectionAnswers,
 }) {
   console.log(question);
+  const [inputType, setInputType] = useState("Text");
 
-  // const optionList = question.options?.map((option) => (
-  //   <ul
-  //     className="options grid-cols-2 grid-rows-2"
-  //     role="list"
-  //     aria-labelledby={`question_${question.id}`}
-  //   >
-  //     <Option
-  //       option={option}
-  //       isChecked={option.id == sectionAnswers[question.id]}
-  //       key={option.id}
-  //     />
-  //   </ul>
-  // ));
+  function ShortText() {}
+  function LongText() {}
+  function isChoice() {
+    if (
+      question.question_type == "multiple_choice" ||
+      question.question_type == "single_choice"
+    ) {
+      console.log("choice");
+      return true;
+    } else {
+      console.log("not choice");
+      return false;
+    }
+  }
 
   return (
     (question && (
@@ -39,13 +41,29 @@ export default function Question({
           {question.name}
         </h2>
         <p className="mb-4 text-sm italic">{question.description}</p>
-        {/* {optionList} */}
-        <OptionList
-          question={question}
-          sectionAnswers={sectionAnswers}
-          setChoice={setChoice}
-          setQuestionAnswered={setQuestionAnswered}
-        />
+
+        {isChoice() ? (
+          <OptionList
+            question={question}
+            sectionAnswers={sectionAnswers}
+            setChoice={setChoice}
+            setQuestionAnswered={setQuestionAnswered}
+          />
+        ) : (
+          <>
+            <label
+              htmlFor={`response-${question.id}`}
+              className="flex flex-col items-center justify-center gap-1"
+            >
+              <input
+                id={`response-${question.id}`}
+                name="myInput"
+                className="form-input"
+                type={inputType}
+              />
+            </label>
+          </>
+        )}
       </div>
     )) || <h1>Loading choices...</h1>
   );

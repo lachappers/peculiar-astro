@@ -10,40 +10,36 @@ export default function QuestionList({
   // const [questionIndex, setIndex] = useState(0);
 
   const [questionAnswered, setQuestionAnswered] = useState(null);
-  const [choice, setChoice] = useState(null);
-  // const getSectionAnswers = (questionAnswered, choice) => {
+  const [choice, setChoice] = useState([]);
+
   const [sectionAnswers, setSectionAnswers] = useState({});
-  //   if (questionAnswered !== null && choice !== null) {
-  //     // return console.log("question answered");
-  //     setSectionAnswers({
-  //       ...sectionAnswers,
-  //       [questionAnswered]: choice,
-  //     });
 
-  //     setQuestionAnswered(null);
-  //     setChoice(null);
-  //   }
-
-  //   return { sectionAnswers };
-  // };
-
-  // const { sectionAnswers } = getSectionAnswers(questionAnswered, choice);
   useEffect(() => {
-    if (questionAnswered !== null && choice !== null) {
+    // console.log("choice:");
+    // console.log(choice);
+    // console.log("Q:");
+    // console.log(questionAnswered);
+    // console.log("section:");
+    // console.log(sectionAnswers);
+    if (questionAnswered !== null && choice.length > 0) {
       setSectionAnswers({
         ...sectionAnswers,
         [questionAnswered]: choice,
       });
       return () => {
-        setQuestionAnswered(null);
-        setChoice(null);
+        // setQuestionAnswered(null);
+        setChoice([]);
       };
     }
-  }, [questionAnswered, choice]);
+  }, [choice]);
 
   useEffect(() => {
     saveSurvey(sectionAnswers);
   }, [sectionAnswers]);
+
+  // function updateChoice(update) {
+  //   setChoice([...choice, update])
+  // }
 
   return (
     (questionList && sectionAnswers && (
