@@ -488,10 +488,10 @@
           "options": [
             {
               "id": 41,
-              "name": "Customer Login and Portal",
+              "name": "Customer Login & Portal",
               "question_id": 102,
               "created_at": "2023-09-20T15:43:56.765Z",
-              "updated_at": "2023-09-20T15:43:56.765Z",
+              "updated_at": "2023-09-22T08:19:33.742Z",
               "position": 1,
               "description": "Allow customers to create accounts to manage orders, bookings or other interactions",
               "icon": "fa-solid fa-table-columns"
@@ -517,24 +517,24 @@
               "icon": "fa-solid fa-receipt"
             },
             {
-              "id": 44,
-              "name": "Contract and Signature Management",
-              "question_id": 102,
-              "created_at": "2023-09-20T15:43:56.774Z",
-              "updated_at": "2023-09-20T15:43:56.774Z",
-              "position": 4,
-              "description": "Create, capture and store electronic, legally binding documents",
-              "icon": "fa-solid fa-signature"
-            },
-            {
               "id": 45,
               "name": "Something else!",
               "question_id": 102,
               "created_at": "2023-09-20T15:43:56.777Z",
-              "updated_at": "2023-09-20T15:43:56.777Z",
-              "position": 5,
+              "updated_at": "2023-09-22T07:33:50.262Z",
+              "position": 4,
               "description": "Want some other functionality we haven't listed?",
               "icon": "fa-solid fa-plus"
+            },
+            {
+              "id": 44,
+              "name": "Contract & Signature Management",
+              "question_id": 102,
+              "created_at": "2023-09-20T15:43:56.774Z",
+              "updated_at": "2023-09-22T08:19:33.745Z",
+              "position": 7,
+              "description": "Create, capture and store electronic, legally binding documents",
+              "icon": "fa-solid fa-signature"
             }
           ]
         }

@@ -124,6 +124,9 @@ export default function Survey({ setIsComplete, setSurveyAnswers }) {
   function saveSurvey(sectionAnswers) {
     setSurveyAnswers(sectionAnswers);
   }
+  // useEffect(() => {
+  //   setSurveyAnswers(sectionAnswers);
+  // }, [sectionAnswers]);
 
   return (
     survey && (
