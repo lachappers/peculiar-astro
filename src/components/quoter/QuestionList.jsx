@@ -15,12 +15,12 @@ export default function QuestionList({
   const [sectionAnswers, setSectionAnswers] = useState({});
 
   useEffect(() => {
-    console.log("choice:");
-    console.log(choice);
-    console.log("Q:");
-    console.log(questionAnswered);
-    console.log("section:");
-    console.log(sectionAnswers);
+    // console.log("choice:");
+    // console.log(choice);
+    // console.log("Q:");
+    // console.log(questionAnswered);
+    // console.log("section:");
+    // console.log(sectionAnswers);
     if (questionAnswered !== null && choice.length > 0) {
       setSectionAnswers({
         ...sectionAnswers,

@@ -7,8 +7,10 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import OptionList from "./OptionList";
 library.add(far, fab, fas);
 
-function setupQuestion() {
-  const [inputType, setInputType] = useState(null);
+function setupQuestion(q) {
+  const inputType = q.question_type;
+
+  return { inputType };
 }
 
 export default function Question({
@@ -17,7 +19,10 @@ export default function Question({
   setQuestionAnswered,
   sectionAnswers,
 }) {
+  const { inputType } = setupQuestion(question);
   // console.log(question);
+  // console.log(inputType);
+  // console.log(question.options);
 
   // function ShortText() {}
   // function LongText() {}
@@ -47,14 +52,14 @@ export default function Question({
         {question.required && (
           <p className="-mt-2 mb-4 text-right text-xs italic">(Required)</p>
         )}
-        {/* {isChoice ? ( */}
-        <OptionList
-          question={question}
-          sectionAnswers={sectionAnswers}
-          setChoice={setChoice}
-          setQuestionAnswered={setQuestionAnswered}
-        />
-        {/* ) : (
+        {question.options.length > 0 ? (
+          <OptionList
+            question={question}
+            sectionAnswers={sectionAnswers}
+            setChoice={setChoice}
+            setQuestionAnswered={setQuestionAnswered}
+          />
+        ) : (
           <>
             <label className="flex flex-col items-center justify-center gap-1">
               <input
@@ -64,7 +69,7 @@ export default function Question({
               />
             </label>
           </>
-        )} */}
+        )}
       </div>
     )) || <h1>Loading choices...</h1>
   );

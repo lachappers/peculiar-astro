@@ -83,7 +83,7 @@ export default function OptionList({
   );
   //   console.log(sectionAnswers);
 
-  //   console.log(checkedState);
+  console.log(checkedState);
 
   useEffect(() => {
     // console.log("usefeecting");
@@ -101,13 +101,16 @@ export default function OptionList({
     const { value, checked } = e.target;
     // console.log(value);
     // console.log(checked);
-    if (checkedState.includes(intValue)) {
+    if (multiple && checkedState.includes(intValue)) {
       // setQuestionAnswered(parseInt(question.id));
       setQuestionAnswered(question.id);
       setCheckedState(checkedState.filter((v) => v !== intValue));
-    } else {
+    } else if (multiple) {
       setQuestionAnswered(question.id);
       setCheckedState([...checkedState, intValue]);
+    } else {
+      setQuestionAnswered(question.id);
+      setCheckedState([intValue]);
     }
   }
 
@@ -128,16 +131,8 @@ export default function OptionList({
             key={option.id}
             option={option}
             isChecked={checkChecked(option.id)}
-            // isChecked={
-            //   option.id == sectionAnswers[question.id] ||
-            //   checkedState.includes(option.id)
-            // }
-            // isChecked={checkedState.includes(option.id)}
-            // isChecked={sectionAnswers[question.id].includes(option.id)}
-
             input_type={setInputType()}
             handleSelector={handleSelector}
-            // index = {index}
           />
         ))}
       </ul>
