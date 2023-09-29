@@ -11,24 +11,23 @@ function Option({ option, isChecked, input_type, handleSelector }) {
   if (option.icon) {
     return (
       <li key={option.id} className="option flex flex-col items-center gap-2">
-        <input
-          id={`option-${option.id}`}
-          type={input_type}
-          value={option.id}
-          // name="options"
-          checked={isChecked}
-          onChange={handleSelector}
-          className="relative left-[1em] top-[3.5em] h-[1em] w-[1em]"
-        />
-
         <label
           htmlFor={`option-${option.id}`}
           className="flex flex-col items-center justify-center gap-1"
         >
+          <input
+            id={`option-${option.id}`}
+            type={input_type}
+            value={option.id}
+            // name="options"
+            checked={isChecked}
+            onChange={handleSelector}
+            // className="relative left-[1em] top-[3.5em] h-[1em] w-[1em]"
+          />
           {option.icon ? <FontAwesomeIcon icon={option.icon} size="2x" /> : ""}
           <h4 className="text-lg capitalize">{option.name}</h4>
           {option.description ? (
-            <div className="max-w-[30ch] text-center text-sm italic">
+            <div className="max-w-[35ch] text-center text-sm italic">
               {option.description}
             </div>
           ) : (
@@ -39,10 +38,7 @@ function Option({ option, isChecked, input_type, handleSelector }) {
     );
   } else {
     return (
-      <li
-        key={option.id}
-        className="option flex items-center justify-center gap-2"
-      >
+      <li key={option.id} className="option ">
         <label
           htmlFor={`option-${option.id}`}
           className="flex flex-col items-center justify-center gap-1"
@@ -53,10 +49,17 @@ function Option({ option, isChecked, input_type, handleSelector }) {
             value={option.id}
             // name="options"
             onChange={handleSelector}
-            className="relative left-8 "
+            // className="relative left-8 "
             checked={isChecked}
           />
-          <h4 className="capitalize">{option.name}</h4>
+          <h4 className="text-lg capitalize">{option.name}</h4>
+          {option.description ? (
+            <div className="max-w-[35ch] text-center text-sm italic">
+              {option.description}
+            </div>
+          ) : (
+            ""
+          )}
         </label>
       </li>
     );
@@ -122,7 +125,7 @@ export default function OptionList({
     question.options &&
     checkedState && (
       <ul
-        className="options grid-cols-2 grid-rows-2"
+        className="options grid-cols-2 grid-rows-2 content-stretch"
         role="list"
         aria-labelledby={`question_${question.id}`}
       >

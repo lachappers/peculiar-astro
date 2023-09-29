@@ -1,0 +1,281 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Heading from "../components/Heading.astro";
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+import logo from "../assets/img/1074x584.png";
+---
+
+<DefaultLayout title="Your Estimate">
+  <section class="my-24 box-border flex flex-col items-center">
+    <div
+      class="estimater flex w-full max-w-screen-lg flex-col items-center space-y-16 p-8"
+    >
+      <div
+        class="flex w-full flex-col items-center justify-between gap-4 md:flex-row"
+      >
+        <div class="flex flex-col items-center gap-4 md:w-fit md:items-start">
+          <img
+            class="max-w-md lg:max-w-lg"
+            src={logo.src}
+            alt=""
+            decoding="async"
+          />
+
+          <h1 class="z-10 text-center text-4xl md:text-left md:text-6xl">
+            Initial Estimate
+          </h1>
+          <p class="text-xl lg:text-2xl">date</p>
+        </div>
+        <div
+          class="md:text-md flex flex-none flex-col items-center text-sm md:w-fit md:items-end"
+        >
+          <p>71-75 Shelton Street</p>
+          <p>Covent Garden</p>
+          <p>London</p>
+          <p>WC2H 9JQ</p>
+          <a class="email-link mt-4" href="" aria-label="send me an email">
+            <p class="">
+              <span class="hidden">ANTISPAM</span
+              >accounts@<!-- antispam-->peculiardynamics.co.uk
+            </p>
+          </a>
+          <a href="https://peculiardynamics.co.uk"
+            >https://peculiardynamics.co.uk</a
+          >
+          <p class="mt-2">VAT: 440548112</p>
+        </div>
+      </div>
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
+      <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+        <div class="max-w-[50ch]">
+          And we’re off! <br /><br />We’re delighted that you’re considering
+          working with us, and are pleased to present this Initial Quote along
+          with all the information you’ll need to get started today. <br /><br
+          />Once you’ve reviewed this document, you can click the button at the
+          bottom to pay your deposit and get cracking on your brief instantly. <br
+          /><br />No hidden fees, no endless back and forth, no more time
+          wasted. How great is that?!
+        </div>
+        <div class="rounded-md border-2 border-solid border-red-400 p-4">
+          This document is still a WIP so some things might be missing or not
+          quite right. Please refer to the email we've shared along side this
+          with details that you'll need to know.
+        </div>
+        <!-- <ol class="">
+          <li></li>
+        </ol> -->
+      </div>
+
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
+      <div
+        class="prose mt-8 flex w-full flex-col justify-between gap-16 text-base md:flex-row"
+      >
+        <ol class="list max-w-[50ch] list-decimal">
+          <h2 class="mb-4 whitespace-nowrap">Your Challenges</h2>
+          <li class="">
+            <strong>Attracting customers</strong> and standing out from your competition
+          </li>
+          <li class="">
+            <strong>Raising Awareness</strong> of your Business and building your
+            digital reputation
+          </li>
+          <li class="">
+            <strong>Improving profit margin</strong> - through saving yourself time
+            or reducing costs of technology or manual processes
+          </li>
+          <li class="">
+            Streamlining your tech to help you build <strong>
+              effective, efficient, streamlined processes
+            </strong>
+          </li>
+        </ol>
+
+        <ol class="inline max-w-[60ch] list-decimal text-base">
+          <h2 class="mb-4 whitespace-nowrap">How we can help</h2>
+          <li class="">
+            Use of our intelligent design and discovery tools to build your
+            brief on your own schedule and <strong>
+              keep the time you need to invest to a minimum
+            </strong>.
+          </li>
+          <li class="">
+            Fresh new design or migration of your existing site and brand to a
+            <strong
+              >hand coded site, built to improve search rankings and stay secure</strong
+            >.
+          </li>
+          <li class="">
+            <strong>Pay only for what you want and need:</strong> custom-built additional
+            functionality, targeted to work for your industry, meet your customer's
+            needs 24/7, with less hassle for you.
+          </li>
+          <li class="">
+            <strong>Transparent, fixed pricing and timeline</strong> with minimal
+            tech jargon so you know exactly what you're paying for.
+          </li>
+          <li class="">
+            <strong
+              >Domain, professional email and hosting setup and management</strong
+            > to keep your web presence and messaging secure, available and speedy
+          </li>
+          <li class="">
+            Detailed analytics available to you forever with reporting from us
+            to track the changes you're seeing from this investment for the
+            first 6 months.
+          </li>
+          <li class="">
+            <strong
+              >A year of our Core Support Package included:
+            </strong>providing access to 24/7 support, our training and
+            reference Library, optimisation and troubleshooting of your site and
+            features and proactive scanning and updates to optimise SEO,
+            performance and security - giving you more time to get back to
+            business.
+          </li>
+        </ol>
+      </div>
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
+
+      <div class="flex max-w-[75ch] flex-col items-start justify-between gap-4">
+        <h2>Why work with us?</h2>
+        <ol class="max-w-[65ch]">
+          <li>
+            <strong>Tech-led</strong> - our automated processes, self-service support
+            and smart tools;
+
+            <ol>
+              <li>
+                Reduce the human hours needed from you and us, to help us
+                deliver exceptional quality, fast, without the premium price tag
+              </li>
+              <li>
+                Allow you to work with us 24/7, on your own schedule, at your
+                own pace, without taking time away from your business
+              </li>
+            </ol>
+          </li>
+          <li>
+            <strong>UK-based…</strong>
+            <ol>
+              <li>
+                … rigorously-vetted experts who understand business and
+                technology, no call centres, crossed wires or mass produced
+                rubbish
+              </li>
+              <li>
+                … suppliers, solutions and tools wherever possible to support
+                other British Businesses like ours.
+              </li>
+            </ol>
+          </li>
+          <li>
+            <strong>Transparent, upfront, flexible</strong> pricing and payment options
+            <ol>
+              <li>
+                Enabling us to pass on discounts for upfront payment, or spread
+                out the cost of your investment
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
+
+      <div class="flex max-w-[75ch] flex-col items-start justify-between gap-4">
+        <h2>The Fine Print</h2>
+        <div>
+          We share all of our Terms and Conditions, along with other important
+          Policies upfront and publicly so that you know right from the offset
+          how we work. <br /><br />An important point to note - paying the
+          deposit does not commit you to accepting The Proposal we will build
+          together. It secures a design session where we will present you with
+          some options and full details of the products and services we
+          recommend. This deposit will then be deducted from the services you
+          choose to purchase. <br /><br />Please take some time to familiarise
+          yourself with these at the following links:
+        </div>
+        <ul>
+          <li>
+            <a
+              href="https://docs.google.com/document/d/1il7DS2pKGMHRHaVLDUJY2EBUj5HYKedvepcAbJ7SCe0/view"
+              >Our Terms and Conditions</a
+            >
+          </li>
+          <li>
+            <a href="https://peculiardynamics.co.uk/policies/privacy/"
+              >Our Privacy Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
+
+      <div class="flex max-w-[75ch] flex-col items-center gap-4">
+        <h2 class="w-full">The 'Let's Go' Button</h2>
+        <div>
+          Clicking the button below will redirect you to a secure payment link
+          to pay your deposit of £1,000 +VAT. We’ll then send you a message for
+          you to book a design session and get started on building your brief. <br
+          /><br />
+          Please ensure you have read and understood the Terms and Conditions as
+          referenced in the section above before proceeding.
+        </div>
+        <Button href="/services" text="Let's Go!" />
+        <p>OR</p>
+        <div
+          class="max-w-[45ch] rounded-md border-2 border-solid border-blue-400 p-4 text-center"
+        >
+          Pay via BACS using the following information: <br /><br />Peculiar
+          Dynamics Ltd.
+          <br />Bank: Mettle <br />Bank/Sort Code: 040333 <br />Account Number:
+          57536348 <br />Payment Reference: [DEPOSIT0000]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script></script>
+
+  <style lang="scss">
+    .estimater {
+      border: 1px solid brown;
+    }
+    li {
+      display: list-item;
+      list-style-position: outside;
+      margin-left: 2rem;
+    }
+    ol {
+      list-style-type: decimal;
+    }
+    ol li {
+      list-style: decimal;
+    }
+    ul,
+    ol {
+      margin-top: 1rem;
+    }
+    ul li {
+      list-style: disc;
+    }
+    ol li ol li {
+      list-style: lower-latin;
+      margin-left: 2rem;
+    }
+    li:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</DefaultLayout>
