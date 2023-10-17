@@ -92,68 +92,12 @@ import cookieconsent from "@jop-software/astro-cookieconsent";
   }
 </style>
 <script>
-  //   const cookieStorage = {
-  //     getItem: (key) => {
-  //       const cookies = document.cookie
-  //         .split(";")
-  //         .map((cookie) => cookie.split("="))
-  //         .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
-  //       return cookies[key];
-  //     },
-  //     // setItem: (key, value) => {
-  //     //   document.cookie = `${key}=${value}`;
-  //     // },
-  //     setItem: (name, value, expiryDays, domain, path, secure) => {
-  //       const exdate = new Date();
-  //       exdate.setHours(
-  //         exdate.getHours() +
-  //           (typeof expiryDays !== "number" ? 365 : expiryDays) * 24
-  //       );
-  //       document.cookie =
-  //         name +
-  //         "=" +
-  //         value +
-  //         ";expires=" +
-  //         exdate.toUTCString() +
-  //         ";path=" +
-  //         (path || "/") +
-  //         (domain ? ";domain=" + domain : "") +
-  //         (secure ? ";secure" : "");
-  //     },
-  //   };
-  //   const storageType = cookieStorage;
-  //   const consentPropertyName = "peculiar_consent";
-  //   const showCookiePopup = () => !storageType.getItem(consentPropertyName);
-
-  //   const saveConsent = () => storageType.setItem(consentPropertyName, true);
-  //   const saveReject = () => storageType.setItem(consentPropertyName, false);
-
   document.addEventListener("DOMContentLoaded", () =>
     console.log("DOMContentLoaded")
   );
   window.onload = () => {
     console.log("cookie");
     cookieConsentInit();
-
-    //     //     const consentPopup = document.getElementById("consent-popup");
-    //     //     const acceptBtn = document.getElementById("accept");
-    //     //     const rejectBtn = document.getElementById("reject");
-    //     //     const moreBtn = document.getElementById("cookie-more");
-    //     //     const acceptFn = (event) => {
-    //     //       saveConsent(storageType);
-    //     //       consentPopup.classList.add("hidden-consent");
-    //     //     };
-    //     //     const rejectFn = (event) => {
-    //     //       saveReject(storageType);
-    //     //       consentPopup.classList.add("hidden-consent");
-    //     //     };
-    //     //     acceptBtn?.addEventListener("click", acceptFn);
-    //     //     rejectBtn?.addEventListener("click", rejectFn);
-    //     //     if (showCookiePopup(storageType)) {
-    //     //       setTimeout(() => {
-    //     //         consentPopup?.classList.remove("hidden-consent");
-    //     //       }, 1000);
-    //     //     }
   };
 
   function cookieConsentInit() {
@@ -166,7 +110,7 @@ import cookieconsent from "@jop-software/astro-cookieconsent";
       autoclear_cookies: true, // default: false
       page_scripts: true, // default: false
 
-      mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
+      mode: "opt-in", // default: 'opt-in'; value: 'opt-in' or 'opt-out'
       // delay: 0,                               // default: 0
       //   auto_language: "document", // default: null; could also be 'browser' or 'document'
       // autorun: true,                          // default: true

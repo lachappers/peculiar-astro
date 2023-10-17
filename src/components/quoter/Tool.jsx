@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
-
+import { Redirect } from "react-router-dom";
 // import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 // import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
 
@@ -19,18 +19,16 @@ export default function Tool() {
   // const { questionsList, questionCount, error, loading } = getQuestionsList();
   // if (error) return <p>A network error was encountered</p>;
   // if (loading) return <p>Loading data...</p>;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   if (isComplete) {
-    navigate("http://localhost:3001/users/sign_in");
+    <Route path="http://localhost:3001/users/sign_in" />;
+    // navigate("http://localhost:3001/users/sign_in");
     // return (
-
-    // <div className="tool flex flex-col justify-between gap-4">
-    {
-      /* Completed wooo
-        <DraftQuote /> */
-    }
-    // </div>
+    //   <div className="tool flex flex-col justify-between gap-4">
+    //     Completed wooo
+    //     <DraftQuote />
+    //   </div>
     // );
   }
   return (

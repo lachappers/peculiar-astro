@@ -4,6 +4,43 @@ import Heading from "../components/Heading.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
 import logo from "../assets/img/1074x584.png";
+const { addPagesQ = 0, addFunctionalityQ = 1 } = Astro.props;
+const vat = "20%";
+const contents = [
+  {
+    quantity: "Service",
+    description: "Website Design, Build and Launch",
+    price: "4500.00",
+    time: "3-5 weeks",
+  },
+  {
+    quantity: addPagesQ,
+    description: "Additional Site Page - Design, Build and Launch",
+    price: "125.00",
+    time: "2-5 days",
+  },
+  {
+    quantity: addFunctionalityQ,
+    description:
+      "Additional Functionality (Standard) - Design, Build and Launch",
+    price: "125.00",
+    time: "3-5 days",
+  },
+  {
+    quantity: "12 Months",
+    description: "Core Support Package",
+    price: "900.00",
+  },
+  {
+    quantity: addFunctionalityQ,
+    description:
+      "Additional annual charge per unit of additional functionality",
+    price: "288.00",
+  },
+];
+const duration = "4-6 weeks";
+const ref = "TFGQ001";
+const date = new Date();
 ---
 
 <DefaultLayout title="Your Estimate">
@@ -25,7 +62,9 @@ import logo from "../assets/img/1074x584.png";
           <h1 class="z-10 text-center text-4xl md:text-left md:text-6xl">
             Initial Estimate
           </h1>
-          <p class="text-xl lg:text-2xl">date</p>
+          <p class="text-xl lg:text-2xl">
+            {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}
+          </p>
         </div>
         <div
           class="md:text-md flex flex-none flex-col items-center text-sm md:w-fit md:items-end"
@@ -190,6 +229,81 @@ import logo from "../assets/img/1074x584.png";
       <hr
         class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
       />
+      <div class="flex w-full flex-col gap-4">
+        <h2>The Quote</h2>
+        <p class="text-right text-lg font-bold">Ref: {ref}</p>
+        <table class="table-fixed">
+          <thead>
+            <tr>
+              <th scope="col">Quantity</th>
+              <th scope="col" class="w-64">Description</th>
+              <th scope="col">Unit Price (£)</th>
+              <th scope="col">VAT</th>
+              <th scope="col">Net Subtotal</th>
+              <th scope="col">Unit Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              contents.map(
+                (item) =>
+                  item.quantity !== 0 && (
+                    <tr>
+                      <td class="text-center">{item.quantity}</td>
+                      <td class="text-left">{item.description}</td>
+                      <td class="text-center">{item.price}</td>
+                      <td class="text-center">{vat}</td>
+                      <td class="tprice text-center font-bold">
+                        {(
+                          (isNaN(item.quantity) ? 1 : item.quantity) *
+                          item.price
+                        ).toFixed(2)}
+                      </td>
+                      <td class="text-center">{item.time}</td>
+                    </tr>
+                  )
+              )
+            }
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Net Total</td>
+              <td id="netTotal"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>VAT</td>
+
+              <td id="totalVAT"></td>
+              <td></td>
+            </tr>
+            <tr class="text-md font-bold">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>GBP Total</td>
+              <td id="totalPrice"></td>
+              <td></td>
+            </tr>
+            <tr class="">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Estimated Duration</td>
+
+              <td></td>
+              <td>{duration}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
 
       <div class="flex max-w-[75ch] flex-col items-start justify-between gap-4">
         <h2>The Fine Print</h2>
@@ -232,7 +346,10 @@ import logo from "../assets/img/1074x584.png";
           Please ensure you have read and understood the Terms and Conditions as
           referenced in the section above before proceeding.
         </div>
-        <Button href="/services" text="Let's Go!" />
+        <Button
+          href="https://buy.stripe.com/3cs6q586R8s19TaaEF"
+          text="Let's Go!"
+        />
         <p>OR</p>
         <div
           class="max-w-[45ch] rounded-md border-2 border-solid border-blue-400 p-4 text-center"
@@ -240,17 +357,28 @@ import logo from "../assets/img/1074x584.png";
           Pay via BACS using the following information: <br /><br />Peculiar
           Dynamics Ltd.
           <br />Bank: Mettle <br />Bank/Sort Code: 040333 <br />Account Number:
-          57536348 <br />Payment Reference: [DEPOSIT0000]
+          57536348 <br />Payment Reference: {ref}
         </div>
       </div>
     </div>
   </section>
 
-  <script></script>
+  <script>
+    let sum = 0;
+    const prices = [...document.querySelectorAll(".tprice")].map((td) =>
+      isNaN(td.textContent) ? 0 : +td.textContent
+    ); // an array of numbers
+    if (prices.length) sum = prices.reduce((a, b) => a + b); // reduced to a sum
+    document.getElementById("netTotal").innerHTML += "£" + sum.toFixed(2);
+    document.getElementById("totalVAT").innerHTML +=
+      "£" + (sum * 0.2).toFixed(2);
+    document.getElementById("totalPrice").innerHTML +=
+      "£" + (sum * 1.2).toFixed(2);
+  </script>
 
   <style lang="scss">
     .estimater {
-      border: 1px solid brown;
+      //   border: 1px solid brown;
     }
     li {
       display: list-item;
@@ -276,6 +404,17 @@ import logo from "../assets/img/1074x584.png";
     }
     li:not(:last-child) {
       margin-bottom: 0.5rem;
+    }
+    // table {
+    //   border-collapse: collapse;
+    //   border: 1px solid black;
+    //   text-align: center;
+    //   vertical-align: middle;
+    // }
+    td {
+      padding: 1rem;
+      //   text-align: center;
+      vertical-align: middle;
     }
   </style>
 </DefaultLayout>
