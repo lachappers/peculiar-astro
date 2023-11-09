@@ -25,9 +25,9 @@ import { Icon } from "astro-icon";
             <h2 class="">Email</h2>
             <p>
               If your message isn't quite right for the contact box here, feel
-              free to email us directly
+              free to email us directly on:
             </p>
-            <a class="email-link" href="" aria-label="send me an email">
+            <a class="email-link pt-4" href="" aria-label="send me an email">
               <span class="hidden">ANTISPAM</span
               >info@<!-- antispam-->peculiardynamics.co.uk
             </a>
@@ -124,14 +124,15 @@ import { Icon } from "astro-icon";
     line-height: 1.25rem;
     color: var(--font-color);
   }
-  form input {
-    margin-top: 0.25rem;
-    display: block;
-    width: 100%;
-    border-radius: 0.5rem;
+  form input,
+  form textarea {
+    // margin-top: 0.25rem;
+    // display: block;
+    // width: 100%;
+    // border-radius: 0.5rem;
     padding: 0.625rem 1.25rem;
-    border: 3px solid var(--font-color);
-    background-color: var(--neutral-background);
+    // border: 3px solid var(--font-color);
+    // background-color: var(--neutral-background);
   }
 
   form input::placeholder,
@@ -140,14 +141,14 @@ import { Icon } from "astro-icon";
   }
 
   form textarea {
-    margin-top: 0.25rem;
-    display: block;
-    width: 100%;
+    // margin-top: 0.25rem;
+    // display: block;
+    // width: 100%;
     height: 8rem;
-    border-radius: 0.5rem;
-    padding: 0.625rem 1.25rem;
-    border: 3px solid var(--font-color);
-    background-color: var(--neutral-background);
+    // border-radius: 0.5rem;
+    // padding: 0.625rem 1.25rem;
+    // border: 3px solid var(--font-color);
+    // background-color: var(--neutral-background);
   }
 
   .contact-card,

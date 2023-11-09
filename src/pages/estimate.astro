@@ -4,6 +4,8 @@ import Heading from "../components/Heading.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
 import logo from "../assets/img/1074x584.png";
+import headshot from "../assets/img/headshot.jpg";
+import { Image } from "astro:assets";
 const { addPagesQ = 0, addFunctionalityQ = 1 } = Astro.props;
 const vat = "20%";
 const contents = [
@@ -182,7 +184,9 @@ const date = new Date();
         class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
       />
 
-      <div class="flex max-w-[75ch] flex-col items-start justify-between gap-4">
+      <div
+        class="flex max-w-screen-md flex-col items-start justify-between gap-4"
+      >
         <h2>Why work with us?</h2>
         <ol class="max-w-[65ch]">
           <li>
@@ -229,6 +233,69 @@ const date = new Date();
       <hr
         class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
       />
+
+      <div
+        class="flex w-full max-w-screen-md flex-col items-start justify-between gap-4 pt-32"
+      >
+        <div
+          class="secondary-bg relative flex w-full max-w-screen-md flex-col items-end self-end rounded-lg border-4 border-black p-4"
+        >
+          <h2 class="w-full max-w-[75ch] pl-56">
+            A note from Lucy<br />
+          </h2>
+          <p class="mb-4 w-full pl-56 text-xl italic" aria-role="doc-subtitle">
+            Peculiar Founder
+          </p>
+          <img
+            class="absolute -left-24 -top-32 aspect-square max-w-xs self-start rounded-full border-4 border-green-300 object-cover"
+            src={headshot.src}
+            alt=""
+            decoding="async"
+          />
+          <div
+            class="flex w-full max-w-[80ch] flex-col gap-2 rounded-lg border-4 border-black bg-white p-8"
+          >
+            <p class="pl-32">
+              Have you ever noticed that deer-caught-in-the-headlights face that
+              business owners pull when asked about their tech?
+            </p>
+            <p>
+              For those of us who remember floppy disks, a whole lot has changed
+              since they began their demisn - not just in technology, but in
+              business. A kick-ass product and excellent customer service might
+              keep you alive, but alone, that's no longer enough.
+            </p>
+            <p>
+              Accessing affordable technology <em>and</em> understanding how to use
+              it is essential, and it doesn't need to make you feel as if a 1999
+              Ford Fiesta van is about to turn you into roadside venison.
+            </p>
+            <p>
+              I accidentally fell into technology; consulting globally for huge
+              companies, later working for Google and Amazon, gaining an MBA
+              from a world-leading Business School, before landing in Operations
+              leadership accross the London HealthTech scene.
+            </p>
+            <p>
+              I now help small and frowing businesses and Entrepreneurs find and
+              build the technology they need without the smoke and mirrors, to
+              realise the dynamics at play and the harness value technology can
+              bring.
+            </p>
+            <p>
+              I enjoy working as a client-facing technology developer, whilst
+              curating a team of technically excellent and business-savvy humans
+              to help us grow to support even more peculiar businesses.
+            </p>
+            <p>Thank you for considering working with us!</p>
+          </div>
+        </div>
+      </div>
+
+      <hr
+        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+      />
+
       <div class="flex w-full flex-col gap-4">
         <h2>The Quote</h2>
         <p class="text-right text-lg font-bold">Ref: {ref}</p>
@@ -415,6 +482,9 @@ const date = new Date();
       padding: 1rem;
       //   text-align: center;
       vertical-align: middle;
+    }
+    .secondary-bg {
+      background-color: var(--secondary-100);
     }
   </style>
 </DefaultLayout>
