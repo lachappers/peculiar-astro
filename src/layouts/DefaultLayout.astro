@@ -3,14 +3,15 @@ import "../assets/scss/globals.scss";
 import SiteMeta from "../components/SiteMeta.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
+import { Image } from "astro:assets";
+import logo from "../assets/1074x584.png";
 import CookieConsentComponent from "../components/CookieBanner.jsx";
 
 const {
   title = "Peculiar Astro",
   description = "Making Technology That Works. Designing, building and improving websites, software and strategy for ambitious businesses.",
   url = "https://www.peculiardynamics.co.uk",
-  image = "/social-preview-image.png",
+  // image = "images/1075x584.png",
   author = "Lucy Chaplin",
 } = Astro.props;
 ---
@@ -30,11 +31,9 @@ const {
       title={title}
       description={description.substring(0, 100)}
       url={Astro.site
-        ? `${Astro.site}/${title.toLowerCase().replaceAll(" ", "-")}`
-        : `https://accessible-astro.dev/${title
-            .toLowerCase()
-            .replaceAll(" ", "-")}`}
-      image={image}
+        ? `${Astro.site}${title.toLowerCase().replaceAll(" ", "-")}`
+        : url}
+      image={"1075x584.png"}
       author={author}
     />
     <script
