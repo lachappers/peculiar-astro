@@ -20,7 +20,7 @@ export default function QuestionList({
     // console.log("Q:");
     // console.log(questionAnswered);
     // console.log("section:");
-    // console.log(sectionAnswers);
+    console.log(sectionAnswers);
     if (questionAnswered !== null && choice.length > 0) {
       setSectionAnswers({
         ...sectionAnswers,

@@ -5,6 +5,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import OptionList from "./OptionList";
+import TextInput from "./TextInput";
 library.add(far, fab, fas);
 
 function setupQuestion(q) {
@@ -61,13 +62,15 @@ export default function Question({
           />
         ) : (
           <>
-            <label className="flex flex-col items-center justify-center gap-1">
-              <input
-                name={`response-${question.id}`}
-                className="form-input"
-                type={inputType}
-              />
-            </label>
+            <TextInput
+              question={question}
+              sectionAnswers={sectionAnswers}
+              setChoice={setChoice}
+              setQuestionAnswered={setQuestionAnswered}
+              name={`response-${question.id}`}
+              className="form-input"
+              type={inputType}
+            />
           </>
         )}
       </div>

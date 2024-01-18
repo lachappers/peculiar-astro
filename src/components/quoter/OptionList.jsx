@@ -72,6 +72,9 @@ export default function OptionList({
   setChoice,
   setQuestionAnswered,
 }) {
+  // console.log("option");
+  // console.log(sectionAnswers);
+
   const multiple = question.question_type == "multiple_choice";
   function setInputType() {
     if (multiple) {
@@ -86,19 +89,28 @@ export default function OptionList({
   );
   //   console.log(sectionAnswers);
 
-  console.log(checkedState);
+  // console.log(checkedState);
 
   useEffect(() => {
     // console.log("usefeecting");
+    console.log(checkedState);
     setChoice(checkedState);
     // setQuestionAnswered(question.id);
-    console.log("post-handling");
-    console.log(checkedState);
+    console.log("post-handling optionlist");
+    // console.log(sectionAnswers);
+    // console.log(checkedState);
+    //  No cleanup function due to multichoice
+    // if (question.id)
+    // return () => {
+    //   setQuestionAnswered(null);
+    //   setChoice([]);
+    // };
   }, [checkedState]);
 
   function handleSelector(e) {
-    console.log("handling");
-    console.log(checkedState);
+    console.log("handling optionlist");
+    // console.log(sectionAnswers);
+    // console.log(checkedState);
     // console.log(parseInt(e.target.value));
     const intValue = parseInt(e.target.value);
     const { value, checked } = e.target;

@@ -7,10 +7,10 @@ import Tool from "./Tool.jsx";
 export default function Quoter() {
   return (
     <>
-      <div className="w-1/3 min-w-max flex flex-col gap-2 justify-center items-center">
+      <div className="flex w-1/3 min-w-max flex-col items-center justify-center gap-2">
         <Sidebar />
       </div>
-      <div className="tool max-w-screen-sm lg:max-w-screen-lg rounded-md border-2 border-solid p-8 ">
+      <div className="tool max-w-screen-sm rounded-md border-2 border-solid p-8 lg:max-w-screen-lg ">
         <Tool />
       </div>
     </>
