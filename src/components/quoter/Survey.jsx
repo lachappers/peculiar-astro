@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Section from "./Section";
 import QuestionList from "./QuestionList";
+import { GoogleSpreadsheet } from "google-spreadsheet";
 
 function getSurvey() {
   const [survey, setSurvey] = useState([]);
   //   const [sectionCount, setSectionCount] = useState(0);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  //   const [surveyAnswers, setSurveyAnswers] = useState({});
+
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
@@ -45,9 +46,6 @@ function Buttons({ setSectionIndex, hasBack, hasNext, setIsComplete }) {
   function handleNext() {
     if (hasNext) {
       setSectionIndex((i) => i + 1);
-    } else {
-      setIsComplete(true);
-      //   alert("you've reached the end");
     }
   }
   function handleBack() {
@@ -55,47 +53,26 @@ function Buttons({ setSectionIndex, hasBack, hasNext, setIsComplete }) {
       setSectionIndex((i) => i - 1);
     }
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsComplete(true);
-  }
-  function handleNav(sectionIndex) {}
-  if (hasBack && hasNext) {
-    return (
-      <div className="flex w-full justify-between gap-2">
-        <button onClick={handleBack} className="back-btn" type="button">
-          Back<span className="sr-only"> Question</span>
-        </button>
-        <button onClick={handleNext} className="next-btn" type="button">
-          Next<span className="sr-only"> Question</span>
-        </button>
-      </div>
-    );
-  } else if (!hasNext) {
-    return (
-      <div className="flex w-full justify-between gap-2">
+
+  return (
+    <div className="flex w-full justify-between gap-2">
+      {hasBack && (
         <button onClick={handleBack} className="back-btn w-full" type="button">
           Back<span className="sr-only"> Question</span>
         </button>
-        {/* <button
-          onClick={handleSubmit}
-          className="next-btn w-full"
-          type="submit"
-        >
-          Submit<span className="sr-only"> Response</span>
-        </button> */}
+      )}
+      {hasNext && (
         <button onClick={handleNext} className="next-btn w-full" type="button">
+          Next<span className="sr-only"> Question</span>
+        </button>
+      )}
+      {!hasNext && (
+        <button className="next-btn w-full" type="submit">
           Submit<span className="sr-only"> Response</span>
         </button>
-      </div>
-    );
-  } else {
-    return (
-      <button onClick={handleNext} className="next-btn w-full" type="button">
-        Next<span className="sr-only"> Question</span>
-      </button>
-    );
-  }
+      )}
+    </div>
+  );
 }
 
 const ProgressBar = ({ sectionCount, sectionIndex }) => {
@@ -114,9 +91,12 @@ const ProgressBar = ({ sectionCount, sectionIndex }) => {
   );
 };
 
-export default function Survey({ setIsComplete, setSurveyAnswers }) {
+export default function Survey({ setIsComplete }) {
   const { survey, error, loading } = getSurvey();
+  const [surveyAnswers, setSurveyAnswers] = useState({});
   const [sectionIndex, setSectionIndex] = useState(0);
+
+  const formRef = useRef(null);
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading data...</p>;
@@ -125,9 +105,62 @@ export default function Survey({ setIsComplete, setSurveyAnswers }) {
     setSurveyAnswers(sectionAnswers);
   }
 
+  console.log("Survey answers:");
+  console.log(surveyAnswers);
+
+  // function submitData(e) {
+  //   e.preventDefault();
+  //   // const formData = new formData()
+  // }
+
+  console.log(formRef.current);
+
+  function submitData(e) {
+    // e.preventDefault();
+    console.log("submitting");
+
+    // const surveyForm = document.getElementById("quoterForm");
+    const formData = new FormData(formRef.current);
+    //   const responseData = JSON.stringify(surveyAnswers);
+    //   console.log(responseData);
+    //   // console.log(formData.values);
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwb0RIW1gpCMop7qA7j_Vi_Rnl7Tv8LCjF24t3rOMWT9CzCo4eqQPHO0LVKmr0eshxdFg/exec",
+      {
+        method: "POST",
+        body: formData,
+        mode: "cors",
+      }
+    )
+      .then((res) => {
+        console.log(res);
+        console.log("submitted");
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log("there was an error");
+      });
+    setIsComplete(true);
+  }
+
   return (
-    survey && (
-      <form className=" flex flex-col justify-between gap-4">
+    survey &&
+    surveyAnswers && (
+      <form
+        id="quoter"
+        name="quoterForm"
+        className=" flex flex-col justify-between gap-4"
+        method="post"
+        ref={formRef}
+        onSubmit={submitData}
+      >
+        <input
+          type="hidden"
+          name="responses"
+          value={JSON.stringify(surveyAnswers)}
+          // value={surveyAnswers}
+        />
         {/* Move this to sidebar? */}
         {sectionIndex == 0 && (
           <>

@@ -76,6 +76,7 @@ export default function OptionList({
   // console.log(sectionAnswers);
 
   const multiple = question.question_type == "multiple_choice";
+
   function setInputType() {
     if (multiple) {
       return "checkbox";
@@ -87,11 +88,30 @@ export default function OptionList({
   const [checkedState, setCheckedState] = useState(
     sectionAnswers[question.id] ? sectionAnswers[question.id] : []
   );
+
+  // function setGridCols() {
+
+  // }
+  // const gridCols = () => {
+  //   if (question.options.length % 3 == 0) {
+  //     return (gridCols = "grid-cols-3");
+  //   } else {
+  //     return (gridCols = "grid-cols-2 lg:grid-cols-4");
+  //   }
+  // };
   //   console.log(sectionAnswers);
 
   // console.log(checkedState);
+  function GridCols() {
+    if (question.options.length % 3 == 0 || question.options.length % 5 == 0) {
+      return "grid-cols-3";
+    } else {
+      return "grid-cols-2 xl:grid-cols-4";
+    }
+  }
 
   useEffect(() => {
+    console.log(question.options.length);
     // console.log("usefeecting");
     console.log(checkedState);
     setChoice(checkedState);
@@ -137,7 +157,7 @@ export default function OptionList({
     question.options &&
     checkedState && (
       <ul
-        className="options grid-cols-2 grid-rows-2 content-stretch"
+        className={`options content-stretch ${GridCols()}`}
         role="list"
         aria-labelledby={`question_${question.id}`}
       >

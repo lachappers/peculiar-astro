@@ -14,6 +14,9 @@ export default function QuestionList({
 
   const [sectionAnswers, setSectionAnswers] = useState({});
 
+  console.log("Section Answers:");
+  console.log(sectionAnswers);
+
   useEffect(() => {
     // console.log("choice:");
     // console.log(choice);

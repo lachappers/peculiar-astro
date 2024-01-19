@@ -15,21 +15,24 @@ library.add(far, fab, fas);
 
 export default function Tool() {
   const [isComplete, setIsComplete] = useState(false);
-  const [surveyAnswers, setSurveyAnswers] = useState({});
+  // const [surveyAnswers, setSurveyAnswers] = useState({});
   // const { questionsList, questionCount, error, loading } = getQuestionsList();
   // if (error) return <p>A network error was encountered</p>;
   // if (loading) return <p>Loading data...</p>;
   // const navigate = useNavigate();
 
   if (isComplete) {
-    <Route path="http://localhost:3001/users/sign_in" />;
+    // <Route path="http://localhost:3001/users/sign_in" />;
     // navigate("http://localhost:3001/users/sign_in");
-    // return (
-    //   <div className="tool flex flex-col justify-between gap-4">
-    //     Completed wooo
-    //     <DraftQuote />
-    //   </div>
-    // );
+    // console.log(surveyAnswers);
+    // submitData(e);
+
+    return (
+      <div className="tool flex flex-col justify-between gap-4">
+        Completed wooo
+        {/* <DraftQuote /> */}
+      </div>
+    );
   }
   return (
     <div className=" tool flex flex-col justify-between gap-4">
@@ -45,7 +48,7 @@ export default function Tool() {
       {/* <DraftQuote /> */}
       <Survey
         setIsComplete={setIsComplete}
-        setSurveyAnswers={setSurveyAnswers}
+        // setSurveyAnswers={setSurveyAnswers}
       />
     </div>
   );

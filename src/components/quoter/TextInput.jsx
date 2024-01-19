@@ -26,7 +26,7 @@ export default function TextInput({
   //   console.log(response);
 
   //   useEffect(() => {
-  //     console.log(response);
+  //     //   console.log(response);
   //     setChoice(response);
   //     console.log("post-handling textinput");
   //     return () => {
@@ -43,7 +43,7 @@ export default function TextInput({
 
     // if (responseState) {
     setQuestionAnswered(question.id);
-    // setResponse(e.target.value);
+    setResponse(e.target.value);
     setChoice(e.target.value);
 
     // setResponseState([...responseState, response]);
@@ -56,7 +56,7 @@ export default function TextInput({
       {type == "text" ? (
         <input
           name={name}
-          className={className}
+          className="form-input rounded-lg"
           type={type}
           onChange={handleEntry}
           defaultValue={response}
@@ -64,7 +64,7 @@ export default function TextInput({
       ) : (
         <textarea
           name={name}
-          className={className}
+          className="form-textarea rounded-lg"
           type={type}
           rows={4}
           onChange={handleEntry}
