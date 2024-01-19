@@ -25,7 +25,7 @@ function Option({ option, isChecked, input_type, handleSelector }) {
             // className="relative left-[1em] top-[3.5em] h-[1em] w-[1em]"
           />
           {option.icon ? <FontAwesomeIcon icon={option.icon} size="2x" /> : ""}
-          <h4 className="text-lg capitalize">{option.name}</h4>
+          <h4 className="text-base capitalize">{option.name}</h4>
           {option.description ? (
             <div className="max-w-[35ch] text-center text-sm italic">
               {option.description}
@@ -48,9 +48,9 @@ function Option({ option, isChecked, input_type, handleSelector }) {
             type={input_type}
             value={option.id}
             // name="options"
+            checked={isChecked}
             onChange={handleSelector}
             // className="relative left-8 "
-            checked={isChecked}
           />
           <h4 className="text-lg capitalize">{option.name}</h4>
           {option.description ? (
@@ -89,19 +89,6 @@ export default function OptionList({
     sectionAnswers[question.id] ? sectionAnswers[question.id] : []
   );
 
-  // function setGridCols() {
-
-  // }
-  // const gridCols = () => {
-  //   if (question.options.length % 3 == 0) {
-  //     return (gridCols = "grid-cols-3");
-  //   } else {
-  //     return (gridCols = "grid-cols-2 lg:grid-cols-4");
-  //   }
-  // };
-  //   console.log(sectionAnswers);
-
-  // console.log(checkedState);
   function GridCols() {
     if (question.options.length % 3 == 0 || question.options.length % 5 == 0) {
       return "grid-cols-3";
@@ -111,12 +98,14 @@ export default function OptionList({
   }
 
   useEffect(() => {
-    console.log(question.options.length);
+    console.log("setting choice at option list");
+    // console.log(question.options.length);
     // console.log("usefeecting");
-    console.log(checkedState);
+    // console.log(checkedState);
     setChoice(checkedState);
+
     // setQuestionAnswered(question.id);
-    console.log("post-handling optionlist");
+
     // console.log(sectionAnswers);
     // console.log(checkedState);
     //  No cleanup function due to multichoice

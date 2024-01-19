@@ -5,42 +5,42 @@ import { Icon } from "astro-icon";
 ---
 
 <DefaultLayout title="Contact">
-  <section class="my-32">
-    <div class="container mx-auto">
-      <div>
-        <h1 class="mb-2 text-lg font-bold">
-          <Heading id="contact" text="Contact Us" />
-        </h1>
-        <p class="mb-8 text-4xl font-bold">Want to find out more?</p>
-        <p class="mb-16 text-2xl">
-          We’d love to hear from you. Please fill out this form or shoot us an
-          email.
-        </p>
-      </div>
+  <section class="container flex flex-col justify-center">
+    <!-- <div class="container mx-auto"> -->
+    <div>
+      <h1 class="mb-2 text-lg font-bold">
+        <Heading id="contact" text="Contact Us" />
+      </h1>
+      <p class="mb-8 text-4xl font-bold">Want to find out more?</p>
+      <p class="mb-16 text-2xl">
+        We’d love to hear from you. Please fill out this form or shoot us an
+        email.
+      </p>
+    </div>
 
-      <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
-        <div class="contact grid grid-cols-1 content-center gap-12">
-          <div class="contact-card neutral">
-            <Icon name="ic:outline-email" />
-            <h2 class="">Email</h2>
-            <p>
-              If your message isn't quite right for the contact box here, feel
-              free to email us directly on:
-            </p>
-            <a class="email-link pt-4" href="" aria-label="send me an email">
-              <span class="hidden">ANTISPAM</span
-              >info@<!-- antispam-->peculiardynamics.co.uk
-            </a>
-          </div>
+    <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
+      <div class="contact grid grid-cols-1 content-center gap-12">
+        <div class="contact-card neutral">
+          <Icon name="ic:outline-email" />
+          <h2 class="">Email</h2>
+          <p>
+            If your message isn't quite right for the contact box here, feel
+            free to email us directly on:
+          </p>
+          <a class="email-link pt-4" href="" aria-label="send me an email">
+            <span class="hidden">ANTISPAM</span
+            >info@<!-- antispam-->peculiardynamics.co.uk
+          </a>
+        </div>
 
-          <!-- <div>
+        <!-- <div>
             <Icon name="ic:outline-chat" />
             <h2 class="">Live chat</h2>
             <p class="">Our friendly team is here to help.</p>
             <p class="" ">Start new chat</p>
           </div> -->
 
-          <!-- <div>
+        <!-- <div>
             <Icon name="ion:location-outline" />
             <h2 class="">Office</h2>
             <p class="">
@@ -51,7 +51,7 @@ import { Icon } from "astro-icon";
             </>
           </div> -->
 
-          <!-- <div>
+        <!-- <div>
             <Icon name="mdi:phone-outline" />
             <h2
               class="mt-4 text-base font-medium text-gray-800 dark:text-white"
@@ -65,34 +65,56 @@ import { Icon } from "astro-icon";
               +1 (555) 000-0000
             </p>
           </div> -->
-        </div>
-        <form>
-          <div class="-mx-2 md:flex md:items-center">
-            <div class="flex-1 px-2">
-              <label class="mb-2 block text-sm">First Name</label>
-              <input type="text" placeholder="John " class="" />
-            </div>
-
-            <div class="mt-4 flex-1 px-2 md:mt-0">
-              <label class="">Last Name</label>
-              <input type="text" placeholder="Doe" class="" />
-            </div>
-          </div>
-
-          <div class="mt-4">
-            <label class="mb-2">Email address</label>
-            <input type="email" placeholder="johndoe@example.com" class="" />
-          </div>
-
-          <div class="mt-4 w-full">
-            <label class="mb-2">Message</label>
-            <textarea class="md:h-56" placeholder="Message"></textarea>
-          </div>
-
-          <button class="button mt-4 w-full"> Send message</button>
-        </form>
       </div>
+      <form method="post">
+        <!-- <div class="-mx-2 md:flex md:items-center">
+          <div class="flex-1 px-2">
+            <label class="mb-2 block text-sm">First Name</label>
+            <input type="text" placeholder="Ada" class="" />
+          </div>
+          
+          <div class="mt-4 flex-1 px-2 md:mt-0">
+            <label class="">Last Name</label>
+            <input type="text" placeholder="Doe" class="" />
+          </div>
+        </div> -->
+        <div class="mt-4">
+          <label class="mb-2">Name</label>
+          <input
+            name="name"
+            type="text"
+            placeholder="Ada Lovelace"
+            class=""
+            required
+          />
+        </div>
+
+        <div class="mt-4">
+          <label class="mb-2">Email address</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="adalovelace@example.com"
+            class=""
+            required
+          />
+        </div>
+
+        <div class="mt-4 w-full">
+          <label class="mb-2">Message</label>
+          <textarea
+            name="message"
+            class="md:h-56"
+            placeholder="Message"
+            required
+            minlength="20"
+            maxlength="1500"></textarea>
+        </div>
+
+        <button type="submit" class="button mt-4 w-full"> Send message</button>
+      </form>
     </div>
+    <!-- </div> -->
   </section>
 </DefaultLayout>
 

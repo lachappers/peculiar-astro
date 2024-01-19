@@ -19,7 +19,7 @@ export default defineConfig({
   integrations: [
     compress(),
     mdx(),
-    tailwind(),
+    tailwind({ config: { applyBaseStyles: false } }),
     partytown(),
     sitemap(),
 

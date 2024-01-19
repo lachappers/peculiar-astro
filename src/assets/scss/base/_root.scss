@@ -11,3 +11,23 @@
     }
   }
 }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-50) var(--secondary-200);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-alt);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-50);
+  border-radius: 14px;
+  border: 3px solid var(--secondary-200);
+}

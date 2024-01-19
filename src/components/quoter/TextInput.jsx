@@ -6,7 +6,7 @@ export default function TextInput({
   setChoice,
   setQuestionAnswered,
   name,
-  className,
+  //   className,
   type,
 }) {
   //   console.log("textinput");

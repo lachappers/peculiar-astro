@@ -21,37 +21,25 @@ export default function Question({
   sectionAnswers,
 }) {
   const { inputType } = setupQuestion(question);
-  // console.log(question);
-  // console.log(inputType);
-  // console.log(question.options);
-
-  // function ShortText() {}
-  // function LongText() {}
-  // function isChoice() {
-  //   if (
-  //     question.question_type == "multiple_choice" ||
-  //     question.question_type == "single_choice"
-  //   ) {
-  //     console.log("choice");
-  //     return true;
-  //   } else {
-  //     console.log("not choice");
-  //     return false;
-  //   }
-  // }
 
   return (
     (question && (
-      <div className="quotey" key={question.id}>
+      <div
+        className="questionBody relative flex h-full grow flex-col justify-center gap-1 "
+        key={question.id}
+      >
         <h2
           id={`question-${question.id}`}
           className="col-span-full w-full text-xl"
         >
           {question.name}
         </h2>
+
         <p className="mb-4 text-sm italic">{question.description}</p>
         {question.required && (
-          <p className="-mt-2 mb-4 text-right text-xs italic">(Required)</p>
+          <p className="absolute right-0 top-2 w-max  px-2 text-right text-xs italic">
+            (Required)
+          </p>
         )}
         {question.options.length > 0 ? (
           <OptionList
@@ -68,7 +56,7 @@ export default function Question({
               setChoice={setChoice}
               setQuestionAnswered={setQuestionAnswered}
               name={`response-${question.id}`}
-              className="form-input"
+              // className=
               type={inputType}
             />
           </>

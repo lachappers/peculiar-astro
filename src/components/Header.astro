@@ -5,7 +5,7 @@ import { Icon } from "astro-icon";
 import Button from "../components/Button.astro";
 ---
 
-<header class="sticky top-0">
+<header class="">
   <SkipLinks />
   <Navigation>
     <li class="menu-item">
@@ -61,37 +61,38 @@ import Button from "../components/Button.astro";
     <style lang="scss" is:global>
       @use "../assets/scss/base/outline" as *;
 
-      header {
-        background-color: var(--background);
-        z-index: 50;
-        border-bottom: 3px solid var(--font-color);
-        .type-icon a {
-          display: block;
+      // header {
+      //   height: 7rem;
+      //   background-color: var(--background);
+      //   z-index: 50;
+      //   border-bottom: 3px solid var(--font-color);
+      //   .type-icon a {
+      //     display: block;
 
-          [astro-icon] {
-            margin-top: -4px;
-            width: 30px;
+      //     [astro-icon] {
+      //       margin-top: -4px;
+      //       width: 30px;
 
-            path {
-              fill: var(--action-color);
-              transition: fill 0.2s ease-in-out;
-            }
-          }
-          svg {
-            path {
-              fill: var(--action-color);
-              transition: fill 0.2s ease-in-out;
-            }
-          }
+      //       path {
+      //         fill: var(--action-color);
+      //         transition: fill 0.2s ease-in-out;
+      //       }
+      //     }
+      //     svg {
+      //       path {
+      //         fill: var(--action-color);
+      //         transition: fill 0.2s ease-in-out;
+      //       }
+      //     }
 
-          &:hover {
-            [astro-icon] path,
-            svg path {
-              fill: var(--action-color-state);
-            }
-          }
-        }
-      }
+      //     &:hover {
+      //       [astro-icon] path,
+      //       svg path {
+      //         fill: var(--action-color-state);
+      //       }
+      //     }
+      //   }
+      // }
     </style>
   </Navigation>
 </header>

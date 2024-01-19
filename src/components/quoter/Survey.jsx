@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Section from "./Section";
 import QuestionList from "./QuestionList";
-import { GoogleSpreadsheet } from "google-spreadsheet";
 
 function getSurvey() {
   const [survey, setSurvey] = useState([]);
@@ -55,7 +54,7 @@ function Buttons({ setSectionIndex, hasBack, hasNext, setIsComplete }) {
   }
 
   return (
-    <div className="flex w-full justify-between gap-2">
+    <div className="navButtons flex h-max w-full justify-between gap-2">
       {hasBack && (
         <button onClick={handleBack} className="back-btn w-full" type="button">
           Back<span className="sr-only"> Question</span>
@@ -82,9 +81,9 @@ const ProgressBar = ({ sectionCount, sectionIndex }) => {
   };
   return (
     <>
-      <div className="progress w-full">
-        <span className="flex" style={completedStyle}>
-          {`${sectionIndex + 1} of ${sectionCount}`}
+      <div className="progress h-4 w-full">
+        <span className="flex h-4" style={completedStyle}>
+          {/* {`${sectionIndex + 1} of ${sectionCount}`} */}
         </span>
       </div>
     </>
@@ -105,25 +104,14 @@ export default function Survey({ setIsComplete }) {
     setSurveyAnswers(sectionAnswers);
   }
 
-  console.log("Survey answers:");
-  console.log(surveyAnswers);
-
-  // function submitData(e) {
-  //   e.preventDefault();
-  //   // const formData = new formData()
-  // }
-
-  console.log(formRef.current);
+  // console.log("Survey answers:");
+  // console.log(surveyAnswers);
+  // console.log(formRef.current);
 
   function submitData(e) {
     // e.preventDefault();
     console.log("submitting");
-
-    // const surveyForm = document.getElementById("quoterForm");
     const formData = new FormData(formRef.current);
-    //   const responseData = JSON.stringify(surveyAnswers);
-    //   console.log(responseData);
-    //   // console.log(formData.values);
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwb0RIW1gpCMop7qA7j_Vi_Rnl7Tv8LCjF24t3rOMWT9CzCo4eqQPHO0LVKmr0eshxdFg/exec",
@@ -150,7 +138,7 @@ export default function Survey({ setIsComplete }) {
       <form
         id="quoter"
         name="quoterForm"
-        className=" flex flex-col justify-between gap-4"
+        className=" flex h-full flex-col justify-between gap-4"
         method="post"
         ref={formRef}
         onSubmit={submitData}
@@ -180,9 +168,7 @@ export default function Survey({ setIsComplete }) {
           hasNext={sectionIndex < survey.sections.length - 1}
           setIsComplete={setIsComplete}
         />
-        {/* <p>
-            ({sectionIndex + 1} of {survey.sections.length})
-            </p> */}
+
         <ProgressBar
           sectionCount={survey.sections.length}
           sectionIndex={sectionIndex}

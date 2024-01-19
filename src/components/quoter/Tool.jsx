@@ -21,21 +21,22 @@ export default function Tool() {
   // if (loading) return <p>Loading data...</p>;
   // const navigate = useNavigate();
 
-  if (isComplete) {
-    // <Route path="http://localhost:3001/users/sign_in" />;
-    // navigate("http://localhost:3001/users/sign_in");
-    // console.log(surveyAnswers);
-    // submitData(e);
+  // if (isComplete) {
+  //   // <Route path="http://localhost:3001/users/sign_in" />;
+  //   // navigate("http://localhost:3001/users/sign_in");
+  //   // console.log(surveyAnswers);
+  //   // submitData(e);
 
-    return (
-      <div className="tool flex flex-col justify-between gap-4">
-        Completed wooo
-        {/* <DraftQuote /> */}
-      </div>
-    );
-  }
+  //   return (
+  //     <div className="tool flex flex-col justify-between gap-4">
+  //       Completed wooo
+  //       {/* <DraftQuote /> */}
+  //     </div>
+  //   );
+  // }
   return (
-    <div className=" tool flex flex-col justify-between gap-4">
+    <>
+      {/* <div className=" tool flex flex-col justify-between gap-4"> */}
       {/* <FontAwesomeIcon icon="fa-regular fa-user" size="sm" /> */}
       {/* <FontAwesomeIcon icon={["fas", "coffee"]} /> */}
 
@@ -46,10 +47,19 @@ export default function Tool() {
         questionCount={questionCount}
       /> */}
       {/* <DraftQuote /> */}
-      <Survey
-        setIsComplete={setIsComplete}
-        // setSurveyAnswers={setSurveyAnswers}
-      />
-    </div>
+      {isComplete && (
+        <>
+          Completed wooo
+          {/* <DraftQuote /> */}
+        </>
+      )}
+      {!isComplete && (
+        <Survey
+          setIsComplete={setIsComplete}
+          // setSurveyAnswers={setSurveyAnswers}
+        />
+      )}
+      {/* </div> */}
+    </>
   );
 }

@@ -80,7 +80,7 @@ const {
     <CookieConsentComponent client:load />
     <Header />
 
-    <main id="main-content" class="mb-32 flex flex-col gap-32 scroll-smooth">
+    <main id="main-content" class="">
       <slot />
     </main>
 
@@ -100,80 +100,34 @@ const {
 
     <style lang="scss" is:global>
       // theme settings
-      :root {
-        --radius-small: 3px;
-        --radius-large: 6px;
-        --gap-default: 2rem;
-        --font-measure: 70ch;
-        --font-family-default: "Open Sans", sans-serif;
-        --font-family-special: "Open Sans", sans-serif;
-        --white: var(--n-100);
-        --dark: var(--n-10);
-        // light theme
-        --font-color: var(--n-10);
-        --font-variant: var(--nv-30);
-        --outline: var(--nv-50);
-        --outline-variant: var(--nv-80);
-        --action-color: var(--primary-300);
-        --action-color-state: var(--primary-600);
-
-        --background: var(--surface);
-        --background-alt: var(--surface-dim);
-        --primary-background: var(--primary-100);
-        --secondary-background: var(--secondary-100);
-        --neutral-background: var(--n-200);
-        --neutral-background-light: var(--n-100);
-        --surface: var(--n-98);
-        --surface-bright: var(--n-98);
-        --surface-dim: var(--n-87);
-        --container-lowest: var(--n-100);
-
-        --shadow-light: 1px 1px 0 var(--secondary-100),
-          5px 5px 0 var(--dark-100);
-        --shadow-dark: 1px 1px 0 var(--n-10), 5px 5px 0 var(--secondary-100);
-      }
-
-      // dark color scheme overrides
-      .darkmode {
-        --font-color: var(--n-90);
-        --font-variant: var(--nv-80);
-        --outline: var(--nv-60);
-        --outline-variant: var(--nv-30);
-        --action-color: var(--secondary-100);
-        --action-color-state: var(--secondary-500);
-        --background: var(--surface);
-        --background-alt: var(--surface-bright);
-        --primary-background: var(--primary-600);
-        --secondary-background: var(--n-10);
-        --neutral-background: var(--n-6);
-        --neutral-background-light: var(--nl-10);
-        --surface: var(--n-6);
-        --surface-bright: var(--n-24);
-        --surface-dim: var(--n-6);
-        --container-lowest: var(--n-4);
-      }
 
       // sticky footer on low content pages
       html,
       body {
-        height: 100%;
-        overflow-x: hidden;
+        // height: 100%;
+        // height: 100vh;
+
+        // overflow: auto;
+        // overflow-x: hidden;
+        // overflow: hidden;
       }
 
-      body {
-        display: flex;
-        flex-direction: column;
-        color: var(--font-color);
-        background-color: var(--background);
+      // body {
 
-        main {
-          flex: 1 0 auto;
-        }
+      //   display: flex;
+      //   flex-direction: column;
+      //   color: var(--font-color);
+      //   background-color: var(--background);
 
-        footer {
-          flex-shrink: 0;
-        }
-      }
+      //   main {
+      //     flex: 1 0 auto;
+      //     overflow-y: scroll;
+      //   }
+
+      //   footer {
+      //     flex-shrink: 0;
+      //   }
+      // }
 
       pre {
         padding: 1rem;

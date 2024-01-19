@@ -1,9 +1,10 @@
 .quoter {
   background: var(--surface-dim);
+  padding: 2rem 0;
 }
 .tool {
   background: var(--surface);
-  width: 100%;
+  // width: 100%;
 }
 input,
 textarea {
@@ -17,14 +18,15 @@ textarea {
   @apply focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40  dark:focus:border-blue-300;
 }
 
-.quotey {
+.questionList {
   // width: 100%;
-  background: var(--container-lowest);
+  background: var(--neutral-background);
   border: 3px solid var(--outline);
   border-radius: 0.5rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  // padding: 1rem;
   gap: 4;
 }
 table {
@@ -44,6 +46,7 @@ table {
 .option {
   position: relative;
   height: 100%;
+  background: var(--container-lowest);
 }
 .options input[type="radio"],
 .options input[type="checkbox"] {
