@@ -2,6 +2,7 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Heading from "../components/Heading.astro";
 import { Icon } from "astro-icon";
+import ContactForm from "../components/ContactForm.jsx";
 ---
 
 <DefaultLayout title="Contact">
@@ -66,53 +67,7 @@ import { Icon } from "astro-icon";
             </p>
           </div> -->
       </div>
-      <form method="post">
-        <!-- <div class="-mx-2 md:flex md:items-center">
-          <div class="flex-1 px-2">
-            <label class="mb-2 block text-sm">First Name</label>
-            <input type="text" placeholder="Ada" class="" />
-          </div>
-          
-          <div class="mt-4 flex-1 px-2 md:mt-0">
-            <label class="">Last Name</label>
-            <input type="text" placeholder="Doe" class="" />
-          </div>
-        </div> -->
-        <div class="mt-4">
-          <label class="mb-2">Name</label>
-          <input
-            name="name"
-            type="text"
-            placeholder="Ada Lovelace"
-            class=""
-            required
-          />
-        </div>
-
-        <div class="mt-4">
-          <label class="mb-2">Email address</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="adalovelace@example.com"
-            class=""
-            required
-          />
-        </div>
-
-        <div class="mt-4 w-full">
-          <label class="mb-2">Message</label>
-          <textarea
-            name="message"
-            class="md:h-56"
-            placeholder="Message"
-            required
-            minlength="20"
-            maxlength="1500"></textarea>
-        </div>
-
-        <button type="submit" class="button mt-4 w-full"> Send message</button>
-      </form>
+      <ContactForm client:load />
     </div>
     <!-- </div> -->
   </section>
@@ -130,6 +85,10 @@ import { Icon } from "astro-icon";
         .concat("?subject=I've got a Peculiar Query")
     );
   });
+
+  function captcha() {
+    console.log("captcha");
+  }
 </script>
 
 <style lang="scss">

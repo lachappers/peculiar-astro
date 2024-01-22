@@ -49,6 +49,7 @@ function Buttons({ setSectionIndex, hasBack, hasNext, setIsComplete }) {
   }
   function handleBack() {
     if (hasBack) {
+      // saveSurvey(sectionAnswers);
       setSectionIndex((i) => i - 1);
     }
   }
@@ -129,7 +130,6 @@ export default function Survey({ setIsComplete }) {
         console.log(err);
         console.log("there was an error");
       });
-    setIsComplete(true);
   }
 
   return (
