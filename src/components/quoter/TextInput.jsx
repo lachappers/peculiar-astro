@@ -8,6 +8,7 @@ export default function TextInput({
   name,
   //   className,
   type,
+  setQuestionComplete,
 }) {
   //   console.log("textinput");
   //   console.log(sectionAnswers);
@@ -17,6 +18,11 @@ export default function TextInput({
   const [response, setResponse] = useState(
     sectionAnswers[question.id] ? sectionAnswers[question.id] : ""
   );
+  const isRequired = question.required;
+
+  console.log(isRequired);
+
+  isRequired ? setQuestionComplete(false) : setQuestionComplete(true);
 
   //   console.log("response state:");
   //   console.log(responseState);
@@ -46,8 +52,12 @@ export default function TextInput({
     setResponse(e.target.value);
     setChoice(e.target.value);
 
+    responseValid(e.target.value);
     // setResponseState([...responseState, response]);
     // }
+  }
+  function responseValid(response) {
+    setQuestionComplete(true);
   }
 
   return (
@@ -60,6 +70,7 @@ export default function TextInput({
           type={type}
           onChange={handleEntry}
           defaultValue={response}
+          maxLength={50}
         />
       ) : (
         <textarea
@@ -69,6 +80,7 @@ export default function TextInput({
           rows={4}
           onChange={handleEntry}
           defaultValue={response}
+          maxLength={1000}
         />
       )}
     </label>

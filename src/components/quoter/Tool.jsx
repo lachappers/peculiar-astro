@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -14,7 +14,7 @@ import Survey from "./Survey";
 library.add(far, fab, fas);
 
 export default function Tool() {
-  const [isComplete, setIsComplete] = useState(false);
+  const [surveyComplete, setSurveyComplete] = useState(false);
   // const [surveyAnswers, setSurveyAnswers] = useState({});
   // const { questionsList, questionCount, error, loading } = getQuestionsList();
   // if (error) return <p>A network error was encountered</p>;
@@ -47,15 +47,15 @@ export default function Tool() {
         questionCount={questionCount}
       /> */}
       {/* <DraftQuote /> */}
-      {isComplete && (
+      {surveyComplete && (
         <>
           Completed wooo
           {/* <DraftQuote /> */}
         </>
       )}
-      {!isComplete && (
+      {!surveyComplete && (
         <Survey
-          setIsComplete={setIsComplete}
+          setSurveyComplete={setSurveyComplete}
           // setSurveyAnswers={setSurveyAnswers}
         />
       )}

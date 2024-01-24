@@ -20,7 +20,7 @@
           "name": "What are you looking for today?",
           "description": "",
           "question_type": "multiple_choice",
-          "required": false,
+          "required": true,
           "created_at": "2023-09-01T08:37:08.386Z",
           "updated_at": "2023-09-01T10:27:52.491Z",
           "section_id": 7,

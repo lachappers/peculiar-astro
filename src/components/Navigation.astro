@@ -1,8 +1,8 @@
 ---
 import ResponsiveToggle from "./ResponsiveToggle.astro";
 import DarkMode from "./DarkMode.astro";
-import darkLogo from "../assets/img/350x100-alt-dark.png";
-import lightLogo from "../assets/img/350x100.png";
+import darkLogo from "../assets/img/350x100-alt-dark.webp";
+import lightLogo from "../assets/img/350x100.webp";
 ---
 
 <div id="main-navigation" class="is-desktop py-4">
@@ -12,15 +12,15 @@ import lightLogo from "../assets/img/350x100.png";
         class="hidden dark:block"
         src={darkLogo.src}
         alt="Our Logo"
-        width="300"
-        height="auto"
+        width="350"
+        height="100"
       />
       <img
         class="block dark:hidden"
         src={lightLogo.src}
         alt="Our Logo"
         width="300"
-        height="auto"
+        height="100"
       />
     </a>
     <div class="wrapper">

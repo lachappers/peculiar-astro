@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom/client";
+import { useEffect, useState } from "react";
+
 import Sidebar from "./Sidebar.jsx";
 import Greeting from "./Greeting.jsx";
 import Tool from "./Tool.jsx";

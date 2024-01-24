@@ -27,7 +27,7 @@ function Option({ option, isChecked, input_type, handleSelector }) {
           {option.icon ? <FontAwesomeIcon icon={option.icon} size="2x" /> : ""}
           <h4 className="text-base capitalize">{option.name}</h4>
           {option.description ? (
-            <div className="max-w-[35ch] text-center text-sm italic">
+            <div className="max-w-[45ch] text-center text-sm italic">
               {option.description}
             </div>
           ) : (
@@ -52,9 +52,9 @@ function Option({ option, isChecked, input_type, handleSelector }) {
             onChange={handleSelector}
             // className="relative left-8 "
           />
-          <h4 className="text-lg capitalize">{option.name}</h4>
+          <h4 className="text-base capitalize">{option.name}</h4>
           {option.description ? (
-            <div className="max-w-[35ch] text-center text-sm italic">
+            <div className="max-w-[45ch] text-center text-sm italic">
               {option.description}
             </div>
           ) : (
@@ -71,11 +71,14 @@ export default function OptionList({
   sectionAnswers,
   setChoice,
   setQuestionAnswered,
+  setQuestionComplete,
 }) {
   // console.log("option");
   // console.log(sectionAnswers);
 
   const multiple = question.question_type == "multiple_choice";
+
+  // console.log(question.required);
 
   function setInputType() {
     if (multiple) {
@@ -99,21 +102,8 @@ export default function OptionList({
 
   useEffect(() => {
     console.log("setting choice at option list");
-    // console.log(question.options.length);
-    // console.log("usefeecting");
-    // console.log(checkedState);
+
     setChoice(checkedState);
-
-    // setQuestionAnswered(question.id);
-
-    // console.log(sectionAnswers);
-    // console.log(checkedState);
-    //  No cleanup function due to multichoice
-    // if (question.id)
-    // return () => {
-    //   setQuestionAnswered(null);
-    //   setChoice([]);
-    // };
   }, [checkedState]);
 
   function handleSelector(e) {
@@ -136,6 +126,7 @@ export default function OptionList({
       setQuestionAnswered(question.id);
       setCheckedState([intValue]);
     }
+    setQuestionComplete(true);
   }
 
   function checkChecked(target) {

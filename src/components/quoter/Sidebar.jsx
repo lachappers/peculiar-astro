@@ -1,4 +1,4 @@
-function Sidebar() {
+export default function Sidebar() {
   return (
     <>
       <h2 className="">Build your quote</h2>
@@ -9,5 +9,3 @@ function Sidebar() {
     </>
   );
 }
-
-export default Sidebar;

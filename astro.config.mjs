@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import compress from "astro-compress";
-import mdx from "@astrojs/mdx";
+
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
@@ -9,16 +9,17 @@ import sitemap from "@astrojs/sitemap";
 // import cookieconsent from "@jop-software/astro-cookieconsent";
 
 import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://peculiardynamics.co.uk",
   experimental: {
-    assets: true,
+    contentCollectionCache: true,
   },
   integrations: [
     compress(),
-    mdx(),
+
     tailwind({ config: { applyBaseStyles: false } }),
     partytown(),
     sitemap(),
@@ -26,5 +27,6 @@ export default defineConfig({
     react({
       experimentalReactChildren: true,
     }),
+    mdx(),
   ],
 });

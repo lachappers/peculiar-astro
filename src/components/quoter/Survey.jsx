@@ -8,7 +8,7 @@ function getSurvey() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const [isComplete, setIsComplete] = useState(false);
+  const [surveyComplete, setSurveyComplete] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -41,10 +41,18 @@ function getSurvey() {
   return { survey, error, loading };
 }
 
-function Buttons({ setSectionIndex, hasBack, hasNext, setIsComplete }) {
+function Buttons({
+  setSectionIndex,
+  hasBack,
+  hasNext,
+  setSurveyComplete,
+  sectionComplete,
+}) {
   function handleNext() {
-    if (hasNext) {
-      setSectionIndex((i) => i + 1);
+    if (sectionComplete) {
+      if (hasNext) {
+        setSectionIndex((i) => i + 1);
+      }
     }
   }
   function handleBack() {
@@ -62,12 +70,16 @@ function Buttons({ setSectionIndex, hasBack, hasNext, setIsComplete }) {
         </button>
       )}
       {hasNext && (
-        <button onClick={handleNext} className="next-btn w-full" type="button">
+        <button
+          onClick={handleNext}
+          className="next-btn w-full font-bold"
+          type="button"
+        >
           Next<span className="sr-only"> Question</span>
         </button>
       )}
       {!hasNext && (
-        <button className="next-btn w-full" type="submit">
+        <button className="next-btn w-full font-bold" type="submit">
           Submit<span className="sr-only"> Response</span>
         </button>
       )}
@@ -91,10 +103,11 @@ const ProgressBar = ({ sectionCount, sectionIndex }) => {
   );
 };
 
-export default function Survey({ setIsComplete }) {
+export default function Survey({ setsurveyComplete }) {
   const { survey, error, loading } = getSurvey();
   const [surveyAnswers, setSurveyAnswers] = useState({});
   const [sectionIndex, setSectionIndex] = useState(0);
+  const [sectionComplete, setSectionComplete] = useState(false);
 
   const formRef = useRef(null);
 
@@ -110,7 +123,7 @@ export default function Survey({ setIsComplete }) {
   // console.log(formRef.current);
 
   function submitData(e) {
-    // e.preventDefault();
+    e.preventDefault();
     console.log("submitting");
     const formData = new FormData(formRef.current);
 
@@ -125,6 +138,7 @@ export default function Survey({ setIsComplete }) {
       .then((res) => {
         console.log(res);
         console.log("submitted");
+        setsurveyComplete(true);
       })
       .catch((err) => {
         console.log(err);
@@ -161,12 +175,15 @@ export default function Survey({ setIsComplete }) {
           questionList={survey.sections[sectionIndex].questions}
           questionCount={survey.sections[sectionIndex].questions.length}
           saveSurvey={saveSurvey}
+          setSectionComplete={setSectionComplete}
         />
         <Buttons
           setSectionIndex={setSectionIndex}
           hasBack={sectionIndex > 0}
           hasNext={sectionIndex < survey.sections.length - 1}
-          setIsComplete={setIsComplete}
+          sectionComplete={sectionComplete}
+          setsurveyComplete={setsurveyComplete}
+          sectionComplete={sectionComplete}
         />
 
         <ProgressBar

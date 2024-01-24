@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ContactForm() {
   const formRef = useRef(null);
@@ -40,11 +40,6 @@ export default function ContactForm() {
           "There was an error submitting your message. Please resubmit or try again later."
         );
       });
-
-    // const data = await response.json();
-    // if (data.message) {
-    //   setResponseMessage(data.message);
-    // }
   }
 
   return (
