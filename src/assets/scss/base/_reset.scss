@@ -39,7 +39,7 @@ body {
     z-index: 50;
 
     width: 100%;
-    height: 7rem;
+    max-height: 7rem;
     background-color: var(--background);
 
     border-bottom: 3px solid var(--font-color);
@@ -177,6 +177,12 @@ svg,
 video {
   display: block;
   max-width: 100%;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 table {
