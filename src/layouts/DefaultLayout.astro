@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/1074x584.png";
 import CookieConsentComponent from "../components/CookieBanner.jsx";
+// import Whatsapp from "../components/Whatsapp.astro";
 
 const {
   title = "Peculiar Astro",
@@ -51,6 +52,17 @@ const {
       gtag("config", "G-J2E7MTN9P5");
     </script>
 
+    <!-- Whatsapp link redirect -->
+
+    <!-- <script
+      src="https://dashboard.chatfuel.com/integration/landing-wa-widget.js"
+      async
+      defer
+      data-prefilled="Hi, I've got a question"
+      data-welcome="Hello there! How can we help you today?"
+      data-phone="447405952020"
+    ></script> -->
+
     <!-- Google tag (gtag.js) -->
 
     <!-- Google Tag Manager -->
@@ -86,7 +98,7 @@ const {
     </main>
 
     <Footer />
-
+    <!-- <Whatsapp /> -->
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {

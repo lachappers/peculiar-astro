@@ -6,28 +6,28 @@ import darkLogo from "../assets/img/350x100-alt-dark.webp";
 import lightLogo from "../assets/img/350x100.webp";
 ---
 
-<div id="main-navigation" class="is-desktop flex h-24 py-2">
-  <div class="container flex max-h-full justify-between">
-    <a
-      href="/"
-      class="flex max-h-full max-w-fit items-center justify-start gap-2 !no-underline"
-    >
+<div
+  id="main-navigation"
+  class="is-desktop flex max-h-24 w-full max-w-full py-2"
+>
+  <div class="container flex max-h-full w-full max-w-full justify-between">
+    <a href="/" class="min-w-32 flex w-fit flex-auto items-center">
       <img
-        class="hidden h-full max-w-fit object-contain dark:block"
+        class="hidden object-contain dark:block"
         src={darkLogo.src}
         alt="Our Logo"
         width="350"
         height="100"
       />
       <img
-        class="block h-full max-w-fit object-contain dark:hidden"
+        class="block object-contain dark:hidden"
         src={lightLogo.src}
         alt="Our Logo"
         width="350"
         height="100"
       />
     </a>
-    <div class="wrapper">
+    <div class="flex w-full flex-auto items-center justify-end gap-4">
       <nav
         id="desktop-menu"
         class="desktop-menu"
@@ -40,7 +40,40 @@ import lightLogo from "../assets/img/350x100.webp";
       <DarkMode />
       <ResponsiveToggle />
     </div>
+    <!-- <a
+      href="/"
+      class="flex h-full max-h-full flex-auto items-center justify-start gap-2 border border-pink-200 !no-underline"
+    >
+      <img
+        class="hidden max-w-fit object-contain dark:block"
+        src={darkLogo.src}
+        alt="Our Logo"
+        width="350"
+        height="100"
+      />
+      <img
+        class="block max-h-full max-w-fit border border-green-300 object-contain dark:hidden"
+        src={lightLogo.src}
+        alt="Our Logo"
+        width="350"
+        height="100"
+      />
+    </a>
+    <div class="wrapper flex items-center gap-2 border border-orange-200">
+      <nav
+        id="desktop-menu"
+        class="desktop-menu"
+        aria-label="Main navigation desktop"
+      >
+        <ul class="menu">
+          <slot />
+        </ul>
+      </nav>
+      <DarkMode />
+      <ResponsiveToggle />
+    </div> -->
   </div>
+
   <nav
     id="mobile-menu"
     class="mobile-menu self-end"
@@ -266,11 +299,11 @@ import lightLogo from "../assets/img/350x100.webp";
 
   #main-navigation {
     > .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 0rem 2rem;
-      max-height: 100%;
+      // display: flex;
+      // justify-content: space-between;
+      // gap: 1.5rem;
+      // padding: 0rem 2rem;
+      // max-height: 100%;
       // background-color: aqua;
     }
 
@@ -319,9 +352,9 @@ import lightLogo from "../assets/img/350x100.webp";
     }
 
     .wrapper {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      // display: flex;
+      // align-items: center;
+      // gap: 0.5rem;
     }
 
     nav {
