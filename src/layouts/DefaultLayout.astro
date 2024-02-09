@@ -90,6 +90,12 @@ const {
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
+
+    <!--Screen reader skip main nav-->
+    <a class="hidden" aria-label="skip to main content" href="#main-content"
+      >Click To Skip To Main Content</a
+    >
+
     <CookieConsentComponent client:load />
     <Header />
 
@@ -117,30 +123,7 @@ const {
       // sticky footer on low content pages
       html,
       body {
-        // height: 100%;
-        // height: 100vh;
-
-        // overflow: auto;
-        // overflow-x: hidden;
-        // overflow: hidden;
       }
-
-      // body {
-
-      //   display: flex;
-      //   flex-direction: column;
-      //   color: var(--font-color);
-      //   background-color: var(--background);
-
-      //   main {
-      //     flex: 1 0 auto;
-      //     overflow-y: scroll;
-      //   }
-
-      //   footer {
-      //     flex-shrink: 0;
-      //   }
-      // }
 
       pre {
         padding: 1rem;

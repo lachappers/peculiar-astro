@@ -20,28 +20,8 @@ import Button from "../components/Button.astro";
     <li class="menu-item">
       <a href="/contact/">Contact</a>
     </li>
+    <!-- menu from https://accessible-astro.dev" -->
 
-    <!-- <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">Example Pages</button>
-      <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <a href="/mdx-page/">MDX Page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/markdown-page/">Markdown Page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/accessible-components">Accessible Components</a>
-        </li>
-      </ul>
-    </li> -->
-    <!-- <li class="menu-item">
-      <a
-        href="https://accessible-astro.dev"
-        title="external link"
-        rel="external noopener noreferrer">External Link</a
-      >
-    </li> -->
     <li class="menu-item type-icon">
       <a href="/quoter">
         <svg
@@ -60,39 +40,6 @@ import Button from "../components/Button.astro";
 
     <style lang="scss" is:global>
       @use "../assets/scss/base/outline" as *;
-
-      // header {
-      //   height: 7rem;
-      //   background-color: var(--background);
-      //   z-index: 50;
-      //   border-bottom: 3px solid var(--font-color);
-      //   .type-icon a {
-      //     display: block;
-
-      //     [astro-icon] {
-      //       margin-top: -4px;
-      //       width: 30px;
-
-      //       path {
-      //         fill: var(--action-color);
-      //         transition: fill 0.2s ease-in-out;
-      //       }
-      //     }
-      //     svg {
-      //       path {
-      //         fill: var(--action-color);
-      //         transition: fill 0.2s ease-in-out;
-      //       }
-      //     }
-
-      //     &:hover {
-      //       [astro-icon] path,
-      //       svg path {
-      //         fill: var(--action-color-state);
-      //       }
-      //     }
-      //   }
-      // }
     </style>
   </Navigation>
 </header>

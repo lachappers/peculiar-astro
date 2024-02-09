@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import ResponsiveToggle from "./ResponsiveToggle.astro";
 import DarkMode from "./DarkMode.astro";
 import darkLogo from "../assets/img/350x100-alt-dark.webp";
@@ -12,7 +12,7 @@ import lightLogo from "../assets/img/350x100.webp";
 >
   <div class="container flex max-h-full w-full max-w-full justify-between">
     <a href="/" class="min-w-32 flex w-fit flex-auto items-center">
-      <img
+      <!-- <img
         class="hidden object-contain dark:block"
         src={darkLogo.src}
         alt="Our Logo"
@@ -22,6 +22,20 @@ import lightLogo from "../assets/img/350x100.webp";
       <img
         class="block object-contain dark:hidden"
         src={lightLogo.src}
+        alt="Our Logo"
+        width="350"
+        height="100"
+      /> -->
+      <Image
+        class="block object-contain dark:hidden"
+        src={lightLogo}
+        alt="Our Logo"
+        width="350"
+        height="100"
+      />
+      <Image
+        class="hidden object-contain dark:block"
+        src={darkLogo}
         alt="Our Logo"
         width="350"
         height="100"
@@ -40,38 +54,6 @@ import lightLogo from "../assets/img/350x100.webp";
       <DarkMode />
       <ResponsiveToggle />
     </div>
-    <!-- <a
-      href="/"
-      class="flex h-full max-h-full flex-auto items-center justify-start gap-2 border border-pink-200 !no-underline"
-    >
-      <img
-        class="hidden max-w-fit object-contain dark:block"
-        src={darkLogo.src}
-        alt="Our Logo"
-        width="350"
-        height="100"
-      />
-      <img
-        class="block max-h-full max-w-fit border border-green-300 object-contain dark:hidden"
-        src={lightLogo.src}
-        alt="Our Logo"
-        width="350"
-        height="100"
-      />
-    </a>
-    <div class="wrapper flex items-center gap-2 border border-orange-200">
-      <nav
-        id="desktop-menu"
-        class="desktop-menu"
-        aria-label="Main navigation desktop"
-      >
-        <ul class="menu">
-          <slot />
-        </ul>
-      </nav>
-      <DarkMode />
-      <ResponsiveToggle />
-    </div> -->
   </div>
 
   <nav

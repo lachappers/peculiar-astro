@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function ContactForm() {
   const formRef = useRef(null);
@@ -69,7 +69,7 @@ export default function ContactForm() {
           name="name"
           type="text"
           placeholder="Ada Lovelace"
-          className="form-input rounded border-2 bg-inherit"
+          className="form-input rounded border-2 border-[--font-color] bg-inherit"
           required
         />
       </div>
@@ -80,7 +80,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           placeholder="adalovelace@example.com"
-          className="form-input rounded border-2 bg-inherit"
+          className="form-input rounded border-2 border-[--font-color] bg-inherit"
           required
         />
       </div>
@@ -89,7 +89,7 @@ export default function ContactForm() {
         <label className="mb-2">Message</label>
         <textarea
           name="message"
-          className="form-textarea rounded border-2 bg-inherit md:h-56"
+          className="form-textarea rounded border-2 border-[--font-color] bg-inherit md:h-56"
           placeholder="Message"
           required
           minLength="20"

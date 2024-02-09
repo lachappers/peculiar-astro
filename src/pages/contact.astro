@@ -33,39 +33,19 @@ import ContactForm from "../components/ContactForm.jsx";
             >info@<!-- antispam-->peculiardynamics.co.uk
           </a>
         </div>
-
-        <!-- <div>
-            <Icon name="ic:outline-chat" />
-            <h2 class="">Live chat</h2>
-            <p class="">Our friendly team is here to help.</p>
-            <p class="" ">Start new chat</p>
-          </div> -->
-
-        <!-- <div>
-            <Icon name="ion:location-outline" />
-            <h2 class="">Office</h2>
-            <p class="">
-              Come say hello at our office HQ.
-            </p>
-            <a class="">
-              100 Smith Street Collingwood VIC 3066 AU
-            </>
-          </div> -->
-
-        <!-- <div>
-            <Icon name="mdi:phone-outline" />
-            <h2
-              class="mt-4 text-base font-medium text-gray-800 dark:text-white"
-            >
-              Phone
-            </h2>
-            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-              Mon-Fri from 8am to 5pm.
-            </p>
-            <p class="mt-2 text-sm text-blue-500 dark:text-blue-400">
-              +1 (555) 000-0000
-            </p>
-          </div> -->
+        <div class="contact-card neutral">
+          <Icon name="ic:outline-whatsapp" />
+          <h2 class="mb-2">WhatsApp</h2>
+          <a
+            class=""
+            rel="noreferrer"
+            target="_blank"
+            href="https://wa.me/447405952020"
+            aria-label="whatsapp us"
+          >
+            Click here to chat now on WhatsApp
+          </a>
+        </div>
       </div>
       <ContactForm client:load />
     </div>
@@ -103,13 +83,7 @@ import ContactForm from "../components/ContactForm.jsx";
   }
   form input,
   form textarea {
-    // margin-top: 0.25rem;
-    // display: block;
-    // width: 100%;
-    // border-radius: 0.5rem;
     padding: 0.625rem 1.25rem;
-    // border: 3px solid var(--font-color);
-    // background-color: var(--neutral-background);
   }
 
   form input::placeholder,
@@ -118,14 +92,7 @@ import ContactForm from "../components/ContactForm.jsx";
   }
 
   form textarea {
-    // margin-top: 0.25rem;
-    // display: block;
-    // width: 100%;
     height: 8rem;
-    // border-radius: 0.5rem;
-    // padding: 0.625rem 1.25rem;
-    // border: 3px solid var(--font-color);
-    // background-color: var(--neutral-background);
   }
 
   .contact-card,
@@ -160,8 +127,6 @@ import ContactForm from "../components/ContactForm.jsx";
   }
 
   [astro-icon] {
-    /* color: var(--action-color); */
-    /* vertical-align: middle; */
     height: 2rem;
     width: 2rem;
   }
