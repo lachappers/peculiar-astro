@@ -6,7 +6,7 @@ const {
   title,
   subtitle,
   gradientText,
-  imgSrc = "../assets/img/hero-vector.svg",
+  imgSrc,
   learnTarget = null,
   quoteButton = false,
   learnButton = false,
@@ -62,7 +62,10 @@ const learnLink = `${learnTarget}`;
       </div>
       <slot />
       <Image
-        src={imgSrc}
+        src={imgSrc.src}
+        height={imgSrc.attributes.height}
+        width={imgSrc.attributes.width}
+        loading="eager"
         alt=""
         class="col-start-2 row-start-1 hidden lg:row-end-3 lg:block xl:row-end-4"
       />

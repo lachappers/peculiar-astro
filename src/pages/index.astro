@@ -1,5 +1,6 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { getImage } from "astro:assets";
 import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
@@ -10,7 +11,18 @@ import ContentMedia from "../components/ContentMedia.astro";
 import Heading from "../components/Heading.astro";
 import CallToAction from "../components/CallToAction.astro";
 import heroVector from "../assets/img/hero-vector.webp";
+
+const optimisedHero = await getImage({
+  src: heroVector,
+  format: "webp",
+  width: 800,
+  loading: "eager",
+});
 ---
+
+<Fragment slot="head">
+  <link rel="preload" href={optimisedHero.src} as="image" />
+</Fragment>
 
 <DefaultLayout title="Home">
   <Hero
@@ -20,7 +32,7 @@ import heroVector from "../assets/img/hero-vector.webp";
     learnTarget={`#believe`}
     quoteButton={true}
     learnButton={true}
-    imgSrc={heroVector}
+    imgSrc={optimisedHero}
   />
   <section class="">
     <div class="container flex flex-col gap-2">
