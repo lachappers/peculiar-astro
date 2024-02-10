@@ -36,7 +36,9 @@
   }
 
   &.color-secondary {
-    background-color: var(--secondary-300);
+    background-color: var(--accent-purple-100);
+    color: var(--neutral-100);
+
     // border-color: (var(--secondary-100));
 
     &:hover,

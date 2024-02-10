@@ -36,12 +36,12 @@ import { Icon } from "astro-icon";
   };
 
   // execution;
-  responsiveToggle.addEventListener("click", (_) => {
+  responsiveToggle?.addEventListener("click", (_) => {
     const mobileNavigation = document.querySelector(".mobile-menu");
     console.log(responsiveToggle);
 
-    mobileNavigation.classList.toggle("show");
-    mobileNavigation.classList.contains("show")
+    mobileNavigation?.classList.toggle("show");
+    mobileNavigation?.classList.contains("show")
       ? openMenu(responsiveToggle)
       : closeMenu(responsiveToggle);
   });
@@ -51,26 +51,6 @@ import { Icon } from "astro-icon";
   @use "../assets/scss/base/breakpoint" as *;
   @use "../assets/scss/base/outline" as *;
 
-  // .responsive-toggle {
-  //   display: none;
-  //   padding: 0;
-  //   margin-top: 6px;
-  //   border: none;
-
-  //   svg {
-  //     width: 30px;
-
-  //     path {
-  //       transition: fill 0.2s ease-in-out;
-  //     }
-  //   }
-
-  //   &:hover {
-  //     svg path {
-  //       fill: var(--primary-400);
-  //     }
-  //   }
-  // }
   .responsive-toggle {
     display: none;
     padding: 0;
