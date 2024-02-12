@@ -14,7 +14,7 @@ const {
   !href ? (
     <div class={`feature  ${featureColor}`}>
       <div class={`content ${contentClasses}`}>
-        <Icon name={icon} />
+        <Icon name={icon} class="text-4xl" />
         <h3>{title}</h3>
       </div>
 
@@ -30,7 +30,7 @@ const {
   ) : (
     <a {href} class="featureLink flex">
       <div class={`feature ${featureColor}`}>
-        <Icon name={icon} />
+        <Icon name={icon} class="text-4xl" />
         <div class={`content ${contentClasses}`}>
           <h3>{title}</h3>
           <div class={`content ${contentClasses}`}>
@@ -88,7 +88,7 @@ const {
   }
 
   :global(.feature [astro-icon]) {
-    width: 4rem;
+    // width: 4rem;
     // color: var(--action-color);
   }
 

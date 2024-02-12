@@ -37,6 +37,7 @@
     "@astrojs/react": "^3.0.10",
     "@astrojs/sitemap": "^3.0.5",
     "@fontsource-variable/open-sans": "^5.0.23",
+    "@iconify-json/carbon": "^1.1.30",
     "@iconify-json/heroicons": "^1.1.19",
     "@iconify-json/ic": "^1.1.17",
     "@iconify-json/mdi": "^1.1.64",
