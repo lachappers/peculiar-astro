@@ -2,29 +2,29 @@
 // | Container
 // | -------------------------------------------------------------
 
-@use "breakpoint" as *;
+// @use "breakpoint" as *;
 
-.container {
-  margin: 0 auto;
-  // padding: 0 calc(2rem / 2);
-  padding-left: calc(2rem / 2);
-  padding-right: calc(2rem / 2);
-  max-width: 100%;
-  // padding-top: 2rem;
-  // padding-bottom: 2rem;
+// .container {
+//   margin: 0 auto;
+//   // padding: 0 calc(2rem / 2);
+//   padding-left: calc(2rem / 2);
+//   padding-right: calc(2rem / 2);
+//   max-width: 100%;
+//   // padding-top: 2rem;
+//   // padding-bottom: 2rem;
 
-  @include breakpoint(medium) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+//   @include breakpoint(medium) {
+//     padding-left: 2rem;
+//     padding-right: 2rem;
+//   }
 
-  @include breakpoint(large) {
-    padding-left: calc(2rem / 2);
-    padding-right: calc(2rem / 2);
-    max-width: 1200px;
-  }
+//   @include breakpoint(large) {
+//     padding-left: calc(2rem / 2);
+//     padding-right: calc(2rem / 2);
+//     max-width: 1200px;
+//   }
 
-  &.stretch {
-    max-width: 100%;
-  }
-}
+//   &.stretch {
+//     max-width: 100%;
+//   }
+// }

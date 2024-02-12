@@ -1,12 +1,15 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { Icon } from "astro-icon/components";
+
 import Hero from "../components/Hero.astro";
 import Heading from "../components/Heading.astro";
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
-import { Icon } from "astro-icon/components";
 import CallToAction from "../components/CallToAction.astro";
+import PricingTable from "@components/PricingTable.astro";
+
 import heroVector from "../assets/img/hero-vector.webp";
 
 const INCLUDEDFEATURES = [
@@ -31,14 +34,19 @@ const INCLUDEDFEATURES = [
 <DefaultLayout title="Pricing">
   <Hero
     title="Tech Essentials from"
-    gradientText="£1,000 upfront"
+    gradientText="£0 upfront"
     learnTarget={`#howItWorks`}
     quoteButton={true}
     learnButton={true}
     imgSrc={heroVector}
   />
-  <section class="px-4 py-8">
-    <div class="container flex flex-col sm:max-w-screen-xl">
+
+  <PricingTable />
+
+  <section
+    class="flex w-full max-w-screen-lg flex-col items-center justify-center px-4 py-8"
+  >
+    <div class="container flex flex-col sm:max-w-screen-lg">
       <h2 class="mb-2 text-lg font-bold">
         <Heading id="howItWorks" text="HOW IT WORKS" />
       </h2>
@@ -86,8 +94,13 @@ const INCLUDEDFEATURES = [
       />
     </div>
   </section>
-  <section class="peach px-4 py-8">
-    <div class="container flex flex-col items-center py-8 sm:max-w-screen-xl">
+
+  <section
+    class="peach flex w-full flex-col items-center justify-center px-4 py-8"
+  >
+    <div
+      class="container flex flex-col items-center px-4 py-8 sm:max-w-screen-xl"
+    >
       <div class="w-full max-w-screen-lg">
         <h2 class="mb-2 w-full text-lg font-bold">
           <Heading
@@ -100,7 +113,7 @@ const INCLUDEDFEATURES = [
         </p>
       </div>
       <div
-        class="grid max-w-screen-lg grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
+        class="grid max-w-screen-lg grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8"
       >
         <Feature
           icon="carbon:screen"
@@ -110,29 +123,29 @@ const INCLUDEDFEATURES = [
         >
           Design or migration, build & optimisation.
         </Feature>
-        <Feature
+        <!-- <Feature
           icon="mdi:email-outline"
           title="Custom Email"
           featureColor=""
           contentClasses="text-center items-center"
         >
           Professional email matching your domain.
-        </Feature>
-        <Feature
+        </Feature> -->
+        <!-- <Feature
           icon="carbon:tool-kit"
           title="Productivity Tools"
           featureColor=""
           contentClasses="text-center items-center"
         >
           Google Workspace and products.
-        </Feature>
+        </Feature> -->
         <Feature
           icon="ph:broadcast"
-          title="Reputation & Reviews"
+          title="Search Setup"
           featureColor=""
           contentClasses="text-center items-center"
         >
-          Search engine & review site registration.
+          Search engine profile registration and config.
         </Feature>
         <Feature
           icon="carbon:chat"
@@ -140,7 +153,7 @@ const INCLUDEDFEATURES = [
           featureColor=""
           contentClasses="text-center items-center"
         >
-          Setup or config of CRM & website.
+          An anti-spam contact form built in to your site.
         </Feature>
         <Feature
           icon="ph:presentation-chart"
@@ -194,7 +207,7 @@ const INCLUDEDFEATURES = [
     </div>
   </section>
 
-  <section class="px-4 py-8">
+  <!-- <section class="px-4 py-8">
     <div
       class="container flex max-w-sm flex-col items-center px-4 py-8 sm:max-w-screen-xl"
     >
@@ -303,13 +316,7 @@ const INCLUDEDFEATURES = [
             <span
               class="relative bottom-1 flex-auto border-b-2 border-dotted border-slate-400"
             ></span>
-            <!-- <p class="monthly flex-none">
-              £5,400 <span class="text-xs font-light">ex.VAT</span>
-            </p>            
-            <p class="upfront flex-none">
-              
-              £4,960 <span class="text-xs font-light">ex.VAT</span>
-            </p> -->
+
             <p class="monthly text-lg font-bold">
               £5,400 <span class="text-sm font-light"> ex.VAT</span>
             </p>
@@ -352,7 +359,8 @@ const INCLUDEDFEATURES = [
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+
   <CallToAction />
 </DefaultLayout>
 
@@ -400,7 +408,7 @@ const INCLUDEDFEATURES = [
     border-radius: 9999px;
   }
 </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   const monthlys = document.querySelectorAll(".monthly");
   const upfronts = document.querySelectorAll(".upfront");
 
@@ -421,4 +429,4 @@ const INCLUDEDFEATURES = [
       });
     }
   });
-</script>
+</script> -->

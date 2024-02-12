@@ -29,13 +29,7 @@ const learnLink = `${learnTarget}`;
           {title}
           <span class="text-gradient">{gradientText}</span>
         </h1>
-        {
-          subtitle && (
-            <p class="max-w-[40ch] text-xl">
-              Web development and technology for small and growing businesses.
-            </p>
-          )
-        }
+        {subtitle && <p class="max-w-[40ch] text-xl md:text-2xl">{subtitle}</p>}
 
         {
           quoteButton || learnButton ? (
@@ -71,10 +65,9 @@ const learnLink = `${learnTarget}`;
       /> -->
       <Image
         src={imgSrc}
-        widths={[0, 640]}
-        sizes={`(max-width:1000px) 0px, 640px`}
-        format="avif"
         alt=""
+        widths={[10, 640, imgSrc.width]}
+        sizes={`(max-width:1000px) 10px, 640px`}
         class="col-start-2 row-start-1 hidden lg:row-end-3 lg:block xl:row-end-4"
         loading="eager"
       />

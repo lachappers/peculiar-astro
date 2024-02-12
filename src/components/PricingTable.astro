@@ -1,0 +1,281 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "@components/Button.astro";
+import Heading from "../components/Heading.astro";
+---
+
+<!-- Pricing -->
+<div
+  class="container my-16 flex max-w-screen-2xl flex-col items-center gap-4 md:my-32 md:gap-8"
+>
+  <!-- Title -->
+  <div class="mb-10 flex w-full flex-col items-center gap-2 lg:mb-14">
+    <h2 class="mb-2 w-full text-lg font-bold">
+      <Heading id="web-pricing" text="Website Development Pricing" />
+    </h2>
+    <p
+      class="mb-8 w-full max-w-[30ch] self-start text-4xl font-bold md:text-6xl"
+    >
+      Transparent pricing,<br />
+      <span class="text-highlight">tailored to you.</span>
+    </p>
+    <p class="w-full max-w-[60ch] self-start text-base md:text-2xl">
+      Whether you want us to handle design, updates and keeping your site
+      performing for you for a fixed price each month, or prefer to pay project
+      by project, we've got you covered.
+    </p>
+  </div>
+  <!-- End Title -->
+
+  <!-- Grid -->
+  <div class="mt-12 grid max-w-screen-md items-center gap-6 sm:grid-cols-2">
+    <!-- Card -->
+    <div
+      class="flex h-full max-w-lg flex-col items-center gap-4 rounded-xl border border-[--font-color] p-8"
+    >
+      <h4 class="w-full text-lg font-medium">All Inclusive</h4>
+      <span class="mt-7 w-full text-5xl font-bold">
+        <span class="-me-2 text-2xl font-bold">£</span>
+        180
+        <span class="text-2xl font-bold"
+          >/ mo <span class="text-xl font-normal">+VAT</span></span
+        >
+      </span>
+      <p class="mt-2 w-full text-sm text-[--font-variant]">
+        Everything you need to get your business up and running or up to date.
+        12 month minimum contract. You always own your domain, content, listings
+        and profiles. Cancel any time with no fees or hassle.
+      </p>
+
+      <ul class="w-full space-y-2.5 text-sm">
+        <li class="flex space-x-2">
+          <Icon name="mdi:tick" />
+          <span class="text-[--font-variant]">Unlimited Edits</span>
+        </li>
+        <li class="flex space-x-2">
+          <Icon name="mdi:tick" />
+          <span class="text-[--font-variant]">Hosting Fees Included</span>
+        </li>
+        <li class="flex space-x-2">
+          <Icon name="mdi:tick" />
+          <span class="text-[--font-variant]">Monthly Performance Reports</span>
+        </li>
+      </ul>
+
+      <Button
+        href="/contact"
+        text="Get a Quote"
+        icon="ph:chat"
+        buttonColor="color-secondary"
+        addClasses="mt-auto"
+      />
+    </div>
+    <!-- End Card -->
+
+    <!-- Card -->
+    <div
+      class="relative flex h-full max-w-lg flex-col items-center gap-4 rounded-xl border-2 border-[--action-color] p-8 shadow-xl"
+    >
+      <p
+        class="absolute -top-4 mb-3 inline-flex w-fit items-center gap-1.5 rounded-lg bg-blue-100 px-3 py-1.5 text-xs font-semibold uppercase text-blue-800 dark:bg-blue-600 dark:text-white"
+      >
+        Most popular
+      </p>
+      <h4 class="w-full text-lg font-medium">Pay As You Go</h4>
+      <div class="mt-7 w-full text-5xl font-bold">
+        <span class="-me-2 text-2xl font-bold">£</span>
+        2,375
+        <span class="text-xl font-normal">+ VAT</span>
+      </div>
+      <!-- <div class="ml-8 w-full text-3xl font-bold">
+        <span class="-me-1 text-lg font-bold"> + hosting @ £</span>
+        28
+        <span class="-me-2 text-lg font-bold"> / mo</span>
+      </div> -->
+      <p class="mt-2 w-full text-sm text-[--font-variant]">
+        A custom hand coded site with the ability to add the extras you want and
+        need. You always own your domain, content, listings and profiles. Cancel
+        any time with no fees or hassle.
+      </p>
+
+      <ul class="w-full space-y-2.5 text-sm">
+        <li class="flex space-x-2">
+          <Icon name="mdi:tick" />
+          <span class="text-[--font-variant]">You Own Your Site's Code</span>
+        </li>
+        <li class="flex space-x-2">
+          <Icon name="mdi:tick" />
+          <span class="text-[--font-variant]"
+            >Hosting for an additional £28/ mo</span
+          >
+        </li>
+        <li class="flex space-x-2">
+          <Icon name="mdi:tick" />
+          <span class="text-[--font-variant]"
+            >Edits and Support Billed Hourly</span
+          >
+        </li>
+      </ul>
+
+      <Button
+        href="/contact"
+        text="Get a Quote"
+        icon="ph:chat"
+        addClasses="mt-auto"
+      />
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Grid -->
+
+  <div class="mt-12 grid w-full max-w-screen-lg grid-cols-3 items-center gap-6">
+    <table class="col-span-full table-fixed text-left text-sm md:text-base">
+      <caption class="mb-8 w-full text-4xl font-bold">Compare Plans</caption>
+      <colgroup>
+        <col class="w-2/5 sm:w-1/4" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="row"></th>
+          <th scope="col">All Inclusive</th>
+          <th scope="col">PAYG</th>
+        </tr>
+      </thead>
+      <tbody class="font-base">
+        <tr>
+          <th colspan="3" scope="row" class="heading-cell">Website</th>
+        </tr>
+        <tr>
+          <th scope="row">5 Page Site</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Anti-Spam Contact Form</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Logo and Brand Colours (New or Transferred)</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Content and Graphics (New or Transferred)</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th colspan="3" scope="row" class="heading-cell"
+            >Digital Reputation</th
+          >
+        </tr>
+        <tr>
+          <th scope="row">Business Registration (Google, Bing, Facebook)</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Google Analytics Setup</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Performance Analytics Reports</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:horizontal-line" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th colspan="3" scope="row" class="heading-cell">Domain & Hosting</th>
+        </tr>
+        <tr>
+          <th scope="row">Domain Registration & Renewal Management</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Website Hosting</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Custom Email Hosting</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:horizontal-line" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th colspan="3" scope="row" class="heading-cell">Ongoing Support</th>
+        </tr>
+        <tr>
+          <th scope="row">Unlimited Website Edits</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:horizontal-line" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">24/7 Customer Service</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:horizontal-line" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Security Updates</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Performance Updates</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:horizontal-line" class="w-full" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Search Engine Updates</th>
+          <td><Icon name="mdi:tick" class="w-full" /></td>
+          <td><Icon name="mdi:horizontal-line" class="w-full" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Pricing -->
+
+<style lang="scss">
+  table {
+    // border-collapse: collapse;
+
+    @apply border border-[--accent-mint-100] p-4;
+  }
+
+  th,
+  td {
+    // border: 1px solid var(--outline);
+    padding: 8px;
+  }
+  thead {
+    text-align: center;
+    @apply uppercase text-[--font-variant];
+  }
+
+  tbody td {
+    text-align: center;
+  }
+  tbody th:not(.heading-cell) {
+    font-weight: 500;
+    /* text-align: center; */
+  }
+  tbody tr:nth-child(odd):not(.heading-cell) {
+    background-color: var(--neutral-background);
+  }
+
+  tbody tr:nth-child(even):not(.heading-cell) {
+    background-color: var(--neutral-background-light);
+  }
+  tbody th:not(.heading-cell) {
+    // background-color: #36c;
+    // color: #fff;
+    text-align: left;
+  }
+
+  .heading-cell {
+    font-weight: 700;
+    @apply bg-[--accent-mint-100] text-lg font-bold;
+  }
+</style>
