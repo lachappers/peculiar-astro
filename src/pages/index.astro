@@ -6,24 +6,25 @@ import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
 import ProcessStep from "../components/ProcessStep.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import ContentMedia from "../components/ContentMedia.astro";
 import Heading from "../components/Heading.astro";
 import CallToAction from "../components/CallToAction.astro";
-import heroVector from "../assets/img/hero-vector.webp";
+import heroVector from "@assets/img/hero-vector.webp";
 
-const optimisedHero = await getImage({
-  src: heroVector,
-  format: "webp",
-  width: 800,
-  loading: "eager",
-});
+console.log(heroVector);
+// const optimisedHero = await getImage({
+//   src: heroVector,
+//   format: "webp",
+//   width: 800,
+//   loading: "eager",
+// });
+// console.log(optimisedHero);
 ---
 
-<Fragment slot="head">
+<!-- <Fragment slot="head">
   <link rel="preload" href={optimisedHero.src} as="image" />
-</Fragment>
-
+</Fragment> -->
 <DefaultLayout title="Home">
   <Hero
     title="Making Technology"
@@ -32,7 +33,7 @@ const optimisedHero = await getImage({
     learnTarget={`#believe`}
     quoteButton={true}
     learnButton={true}
-    imgSrc={optimisedHero}
+    imgSrc={heroVector}
   />
   <section class="">
     <div class="container flex flex-col gap-2">

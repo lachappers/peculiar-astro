@@ -1,7 +1,8 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
 import { Image } from "astro:assets";
+
 const {
   title,
   subtitle,
@@ -61,11 +62,17 @@ const learnLink = `${learnTarget}`;
         }
       </div>
       <slot />
-      <Image
+      <!-- <Image
         src={imgSrc.src}
         height={imgSrc.attributes.height}
         width={imgSrc.attributes.width}
-        loading="eager"
+        alt=""
+        class="col-start-2 row-start-1 hidden lg:row-end-3 lg:block xl:row-end-4"
+      /> -->
+      <Image
+        src={imgSrc}
+        widths={[10, 380, 640]}
+        sizes={`(max-width:1000) 10w, (max-width:1280) 380w, 640w`}
         alt=""
         class="col-start-2 row-start-1 hidden lg:row-end-3 lg:block xl:row-end-4"
       />

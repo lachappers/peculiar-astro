@@ -5,7 +5,7 @@ import Heading from "../components/Heading.astro";
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import CallToAction from "../components/CallToAction.astro";
 import heroVector from "../assets/img/hero-vector.webp";
 ---
@@ -364,7 +364,7 @@ import heroVector from "../assets/img/hero-vector.webp";
             </p>
           </div>
           <div
-            class="flex w-full gap-2 border-b-2 border-solid border-black pb-2 items-end"
+            class="flex w-full items-end gap-2 border-b-2 border-solid border-black pb-2"
           >
             <p class="flex-none font-semibold">TOTAL</p>
             <span
@@ -381,11 +381,12 @@ import heroVector from "../assets/img/hero-vector.webp";
               £5,400 <span class="text-sm font-light"> ex.VAT</span>
             </p>
             <div
-              class="upfront relative flex gap-2 hidden items-end justify-end justify-self-end"
+              class="upfront relative flex hidden items-end justify-end gap-2 justify-self-end"
             >
               <p class="text-sm font-light line-through">£5,400</p>
-              <p class="text-lg font-bold">£4,960 <span class="text-sm font-light"> ex.VAT</span></p>
-
+              <p class="text-lg font-bold">
+                £4,960 <span class="text-sm font-light"> ex.VAT</span>
+              </p>
             </div>
           </div>
           <div

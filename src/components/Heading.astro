@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 const { "aria-label": ariaLabel, id, text } = Astro.props;
 
 const href = `#${id}`;
@@ -8,7 +8,7 @@ const href = `#${id}`;
 <span {id} class="heading uppercase">
   {text}
   <a aria-label={id + " anchor link"} {href}
-    ><span class="anchor-link"><Icon name="heroicons-solid:link" /></span></a
+    ><span class="anchor-link"><Icon name="heroicons:link" /></span></a
   >
 </span>
 
