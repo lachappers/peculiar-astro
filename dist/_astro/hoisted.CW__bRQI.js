@@ -1,1 +1,0 @@
-import"./hoisted.BwlDV7nH.js";import"./cookieconsent.esm.DjwhI96l.js";const e="aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr",c=document.querySelectorAll(".email-link");c.forEach(t=>{t.setAttribute("href","mailto:".concat(atob(e)).concat("?subject=I've got a Peculiar Query"))});
