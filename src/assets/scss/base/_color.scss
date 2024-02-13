@@ -95,6 +95,7 @@ $colors: (
   --font-family-special: "Open Sans", sans-serif;
   --white: var(--n-100);
   --dark: var(--n-10);
+  --gray: var(--neutral-500);
   // light theme
   --font-color: var(--n-10);
   --font-variant: var(--nv-30);
@@ -107,8 +108,8 @@ $colors: (
   --background-alt: var(--surface-dim);
   --primary-background: var(--primary-100);
   --secondary-background: var(--secondary-100);
-  --neutral-background: var(--n-200);
-  --neutral-background-light: var(--n-100);
+  --neutral-background: var(--neutral-200);
+  --neutral-background-light: var(--neutral-100);
   --surface: var(--n-98);
   --surface-bright: var(--n-98);
   --surface-dim: var(--n-87);
@@ -131,9 +132,10 @@ $colors: (
   --primary-background: var(--primary-600);
   --secondary-background: var(--n-10);
   --neutral-background: var(--n-6);
-  --neutral-background-light: var(--nl-10);
+  --neutral-background-light: var(--nv-10);
   --surface: var(--n-6);
   --surface-bright: var(--n-24);
   --surface-dim: var(--n-6);
   --container-lowest: var(--n-4);
+  --gray: var(--neutral-500);
 }

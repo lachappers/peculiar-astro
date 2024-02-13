@@ -41,7 +41,7 @@ const { frontmatter } = Astro.props;
   function insertCookiesBtn() {
     const content = document.querySelector(".policy");
     const b = document.createElement("button");
-    b.setAttribute("data-cc", "c-settings");
+    b.setAttribute("data-cc", "show-preferencesModal");
     b.innerHTML = "Manage Cookie Settings";
     b.classList.add(
       "button",
@@ -50,6 +50,6 @@ const { frontmatter } = Astro.props;
       "max-w-fit",
       "self-center"
     );
-    content.parentNode.insertBefore(b, content);
+    content?.parentNode?.insertBefore(b, content);
   }
 </script>

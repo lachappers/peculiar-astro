@@ -15,7 +15,7 @@ const {
 const learnLink = `${learnTarget}`;
 ---
 
-<section class="hero my-24 flex min-h-[80vh] items-center">
+<section class="hero my-24 flex min-h-[80vh] items-center px-4 lg:px-6">
   <div class="container">
     <div
       class="grid max-w-max auto-rows-min grid-cols-1 grid-rows-1 content-center items-center justify-items-center gap-x-16 lg:grid-cols-2"
@@ -23,10 +23,8 @@ const learnLink = `${learnTarget}`;
       <div
         class="col-start-1 flex flex-col items-center justify-center gap-8 py-4 text-center md:items-start md:text-left"
       >
-        <h1
-          class="z-10 text-center text-6xl font-bold md:text-left lg:text-7xl"
-        >
-          {title}
+        <h1 class="text-center text-6xl font-bold md:text-left lg:text-7xl">
+          {title}<br />
           <span class="text-gradient">{gradientText}</span>
         </h1>
         {subtitle && <p class="max-w-[40ch] text-xl md:text-2xl">{subtitle}</p>}

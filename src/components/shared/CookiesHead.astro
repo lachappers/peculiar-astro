@@ -1,0 +1,84 @@
+<!-- Necessary -->
+<script type="text/plain" data-category="necessary">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    wait_for_update: 500,
+  });
+
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", true);
+</script>
+
+<!-- Google Analytics -->
+<script
+  type="text/plain"
+  data-category="analytics"
+  data-service="Google Analytics 4"
+>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag() {
+  //   dataLayer.push(arguments);
+  // }
+  gtag("js", new Date());
+  gtag("config", "G-J2E7MTN9P5");
+  gtag("consent", "update", {
+    personalization_storage: "granted",
+    functionality_storage: "granted",
+    analytics_storage: "granted",
+  });
+  console.log("gtag: analytics_storage=granted");
+</script>
+<!-- Stop sending events to google analytics on opt-out -->
+<script
+  type="text/plain"
+  data-category="analytics"
+  data-service="!Google Analytics 4"
+>
+  window["ga-disable-G-J2E7MTN9P5"] = true;
+  CookieConsent.eraseCookies(/^(_ga|gid|__utm)/);
+  console.log("gtag: disable tracking");
+</script>
+<!-- Ads --><!-- <script
+    type="text/plain"
+    data-category="ads"
+    data-service="Google Ads">
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'update', {
+        ad_storage: 'granted'
+    });
+
+    console.log("gtag: ad_storage=granted");
+</script> --><!-- Tag Manager -->
+<script
+  type="text/plain"
+  data-category="analytics"
+  data-service="Google Analytics 4"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-J2E7MTN9P5"
+></script>
+
+<!-- Google tag (gtag.js) --><!-- Google Tag Manager --><!-- <script type="text/plain" data-cookiecategory="analytics">
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-TQXQ4HMD");
+</script> --><!-- End Google Tag Manager -->

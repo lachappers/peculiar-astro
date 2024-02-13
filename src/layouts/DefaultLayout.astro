@@ -1,19 +1,22 @@
 ---
 import "../assets/scss/globals.scss";
 import SiteMeta from "../components/SiteMeta.astro";
+import CookiesHead from "@components/shared/CookiesHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Image } from "astro:assets";
-import logo from "../assets/1074x584.png";
-import CookieConsentComponent from "../components/CookieBanner.jsx";
+// import { Image } from "astro:assets";
+// import logo from "../assets/1074x584.png";
+// import CookieConsentComponent from "../components/CookieBanner.jsx";
+import Cookies from "@components/Cookies.astro";
 // import Whatsapp from "../components/Whatsapp.astro";
+import { SITE } from "../config";
 
 const {
-  title = "Peculiar Astro",
-  description = "Making Technology That Works. Designing, building and improving websites, software and strategy for ambitious businesses.",
-  url = "https://www.peculiardynamics.co.uk",
-  // image = "images/1075x584.png",
-  author = "Lucy Chaplin",
+  title = SITE.title,
+  description = SITE.description,
+  url = SITE.website,
+  favicon = SITE.favicon,
+  subtitle = SITE.subtitle,
 } = Astro.props;
 ---
 
@@ -24,7 +27,8 @@ const {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href={favicon} />
+    <!-- <link rel="icon" type="image/png" href='/assets/images/favicon.png"' /> -->
     <!-- sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -35,23 +39,8 @@ const {
         ? `${Astro.site}${title.toLowerCase().replaceAll(" ", "-")}`
         : url}
       image={"1074x584.png"}
-      author={author}
     />
-    <script
-      type="text/plain"
-      data-cookiecategory="analytics"
-      src="https://www.googletagmanager.com/gtag/js?id=G-J2E7MTN9P5"
-    ></script>
-    <script type="text/plain" data-cookiecategory="analytics">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-J2E7MTN9P5");
-    </script>
-
+    <CookiesHead />
     <!-- Whatsapp link redirect -->
 
     <!-- <script
@@ -80,6 +69,7 @@ const {
 </script> -->
     <!-- End Google Tag Manager -->
   </head>
+
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript
@@ -96,7 +86,6 @@ const {
       >Click To Skip To Main Content</a
     >
 
-    <CookieConsentComponent client:load />
     <Header />
 
     <main id="main-content" class="flex flex-col items-center gap-4">
@@ -104,6 +93,8 @@ const {
     </main>
 
     <Footer />
+    <!-- <CookieConsentComponent client:load /> -->
+    <Cookies />
     <!-- <Whatsapp /> -->
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

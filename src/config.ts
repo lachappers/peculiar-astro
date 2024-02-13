@@ -6,6 +6,6 @@ export const SITE = {
   subtitle: "Web Development for Small Ambitous Businesses", //subtitle on seo
   base: "/", // Change this if you need to deploy to Github Pages, for example
   trailingSlash: "ignore", // Generate permalinks with or without "/" at the end
-  favicon: "/assets/images/favicon.svg",
+  favicon: "assets/img/favicon.png",
   encodedEmail: "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr",
 };
