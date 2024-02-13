@@ -3,12 +3,13 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon/components";
 
 import Hero from "../components/Hero.astro";
-import Heading from "../components/Heading.astro";
+import Heading from "@components/shared/Heading.astro";
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
 import CallToAction from "../components/CallToAction.astro";
 import PricingTable from "@components/PricingTable.astro";
+import SectionHeading from "@components/shared/SectionHeading.astro";
 
 import heroVector from "../assets/img/hero-vector.webp";
 
@@ -44,45 +45,40 @@ const INCLUDEDFEATURES = [
   <PricingTable />
 
   <section
-    class="flex w-full max-w-screen-lg flex-col items-center justify-center px-4 py-8"
+    class="container my-16 flex max-w-screen-xl flex-col gap-4 md:my-32 md:gap-8"
   >
     <div class="container flex flex-col sm:max-w-screen-lg">
-      <h2 class="mb-2 text-lg font-bold">
-        <Heading id="howItWorks" text="HOW IT WORKS" />
-      </h2>
-      <p class="mb-16 text-4xl font-bold">
-        Keeping it
-        <span class="text-highlight">simple</span>.
-      </p>
-      <!-- <p class="mb-8 text-2xl">
-          Make the technology and systems that your business relies on:
-        </p> -->
-      <p class="mb-8 max-w-[75ch] text-2xl">
-        We use our intelligent digital tools to quickly shape, reconfigure and
-        build the right technology for you, at the right price, on your
-        schedule.
-      </p>
+      <SectionHeading subtitle="How it works" id="howItWorks">
+        <p slot="title">
+          Keeping it
+          <span class="text-highlight">simple</span>.
+        </p>
+        <p class="">
+          We use our intelligent digital tools to quickly shape, reconfigure and
+          build the right technology for you, at the right price, on your
+          schedule.
+        </p>
+        <p class="">It's as easy as...</p>
+      </SectionHeading>
 
-      <div class="container max-w-screen-xl">
-        <p class="mb-8 text-2xl">It's as easy as...</p>
-
-        <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
-          <CallOut
-            purple="1"
-            point="Quote"
-            subtext="Build a detailed custom quote with our interactive tool."
-          />
-          <CallOut
-            purple="2"
-            point="Design"
-            subtext="Using our intelligent design tool and a 2hr design session."
-          />
-          <CallOut
-            purple="3"
-            point="Relax"
-            subtext="...whilst we build, test and look after your tech!"
-          />
-        </div>
+      <div
+        class="flex w-full flex-wrap justify-center gap-2 md:flex-nowrap md:gap-4"
+      >
+        <CallOut
+          purple="1"
+          point="Quote"
+          subtext="Build a detailed custom quote with our interactive tool."
+        />
+        <CallOut
+          purple="2"
+          point="Design"
+          subtext="Using our intelligent design tool and a 2hr design session."
+        />
+        <CallOut
+          purple="3"
+          point="Relax"
+          subtext="...whilst we build, test and look after your tech!"
+        />
       </div>
     </div>
     <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
@@ -90,28 +86,28 @@ const INCLUDEDFEATURES = [
       <Button
         href="/services/#approach"
         text="Our Approach"
+        icon="mdi:arrow-right"
         buttonColor="color-secondary"
       />
     </div>
   </section>
 
   <section
-    class="peach flex w-full flex-col items-center justify-center px-4 py-8"
+    class="peach my-16 flex w-full flex-col items-center justify-center px-4 py-8 md:my-32"
   >
     <div
-      class="container flex flex-col items-center px-4 py-8 sm:max-w-screen-xl"
+      class="container flex max-w-screen-lg flex-col items-center justify-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
     >
-      <div class="w-full max-w-screen-lg">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading
-            id="included"
-            text="Get your tech up and running, or up to scratch"
-          />
-        </h2>
-        <p class="mb-16 w-full text-4xl font-bold">
+      <SectionHeading id="included" subtitle="Web Development Services">
+        <p slot="title">
           <span class="text-highlight">Always included</span>, as standard:
         </p>
-      </div>
+        <p>
+          Get your technology up and running, or up to scratch, with
+          comprehensive services without extra cost.
+        </p>
+      </SectionHeading>
+
       <div
         class="grid max-w-screen-lg grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8"
       >

@@ -6,63 +6,61 @@ import lightLogo from "@assets/img/350x100.webp";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-  <section class="container px-4 py-4 text-xs lg:px-8">
-    <div class="flex justify-between">
-      <a
-        href="/"
-        class="flex items-center gap-2 !no-underline"
-        aria-label="navigate to home"
-      >
-        <Image
-          src={lightLogo}
-          alt=""
-          width="300"
-          height="100"
-          class="block dark:hidden"
-        />
+<footer class="flex w-full flex-col px-4 py-4 text-xs lg:px-8">
+  <div class="flex justify-between">
+    <a
+      href="/"
+      class="flex items-center gap-2 !no-underline"
+      aria-label="navigate to home"
+    >
+      <Image
+        src={lightLogo}
+        alt=""
+        width="300"
+        height="100"
+        class="block dark:hidden"
+      />
 
-        <Image
-          src={darkLogo}
-          alt=""
-          width="300"
-          height="100"
-          class="hidden dark:block"
-        />
-      </a>
-      <div class="flex flex-col justify-end text-end">
-        <p>
-          &copy; {currentYear} Peculiar Dynamics Ltd.
-        </p>
-        <p>Registered Office: 71-75 Shelton Street, London, WC2H 9JQ</p>
-        <p>Registered in England and Wales (14575056)</p>
-      </div>
-    </div>
-
-    <div class="mt-4 flex items-center justify-between gap-2">
-      <a class="email-link" href="" aria-label="send me an email"
-        ><p>
-          <span class="hidden">ANTISPAM</span
-          >info@<!-- antispam-->peculiardynamics.co.uk
-        </p></a
-      >
-      <ul class="flex flex-wrap justify-end gap-2">
-        <li><a href="../policies/terms">Terms and Conditions</a> |</li>
-        <li><a href="/sitemap-index.xml">Sitemap</a> |</li>
-        <li><a href="../policies/privacy">Privacy Policy</a> |</li>
-        <!-- <li><a href="">Accessibility</a> |</li>
-        <li><a href="">Supplier Code of Conduct</a> |</li> -->
-        <li><a href="../policies/cookies">Cookie Notice</a>&nbsp;&nbsp</li>
-      </ul>
-    </div>
-    <div class="mt-4">
-      <p class="whitespace-nowrap">
-        Another <a href="https://peculiardynamics.co.uk/" target="_blank"
-          >Peculiar</a
-        > Site | Copyright &copy; {currentYear}
+      <Image
+        src={darkLogo}
+        alt=""
+        width="300"
+        height="100"
+        class="hidden dark:block"
+      />
+    </a>
+    <div class="flex flex-col justify-end text-end">
+      <p>
+        &copy; {currentYear} Peculiar Dynamics Ltd.
       </p>
+      <p>Registered Office: 71-75 Shelton Street, London, WC2H 9JQ</p>
+      <p>Registered in England and Wales (14575056)</p>
     </div>
-  </section>
+  </div>
+
+  <div class="mt-4 flex items-center justify-between gap-2">
+    <a class="email-link" href="" aria-label="send me an email"
+      ><p>
+        <span class="hidden">ANTISPAM</span
+        >info@<!-- antispam-->peculiardynamics.co.uk
+      </p></a
+    >
+    <ul class="flex flex-wrap justify-end gap-2">
+      <li><a href="../policies/terms">Terms and Conditions</a> |</li>
+      <li><a href="/sitemap-index.xml">Sitemap</a> |</li>
+      <li><a href="../policies/privacy">Privacy Policy</a> |</li>
+      <!-- <li><a href="">Accessibility</a> |</li>
+        <li><a href="">Supplier Code of Conduct</a> |</li> -->
+      <li><a href="../policies/cookies">Cookie Notice</a>&nbsp;&nbsp</li>
+    </ul>
+  </div>
+  <div class="mt-4">
+    <p class="whitespace-nowrap">
+      Another <a href="https://peculiardynamics.co.uk/" target="_blank"
+        >Peculiar</a
+      > Site | Copyright &copy; {currentYear}
+    </p>
+  </div>
 </footer>
 
 <script>

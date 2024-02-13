@@ -1,28 +1,32 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import Heading from "../components/Heading.astro";
+import Heading from "@components/shared/Heading.astro";
 import { Icon } from "astro-icon/components";
 import ContactForm from "../components/ContactForm.jsx";
+import SectionHeading from "@components/shared/SectionHeading.astro";
 ---
 
 <DefaultLayout title="Contact">
-  <section class="container flex flex-col justify-center">
+  <section
+    class="container my-16 flex w-full flex-col items-center justify-center px-4 py-8 md:my-32"
+  >
     <!-- <div class="container mx-auto"> -->
-    <div>
-      <h1 class="mb-2 text-lg font-bold">
-        <Heading id="contact" text="Contact Us" />
-      </h1>
-      <p class="mb-8 text-4xl font-bold">Want to find out more?</p>
-      <p class="mb-16 text-2xl">
+
+    <SectionHeading
+      id="contact"
+      subtitle="contact us"
+      title="Want to find out more?"
+    >
+      <p class="">
         We’d love to hear from you. Please fill out this form or shoot us an
         email.
       </p>
-    </div>
+    </SectionHeading>
 
     <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div class="contact grid grid-cols-1 content-center gap-12">
         <div class="contact-card neutral">
-          <Icon name="ic:outline-email" />
+          <Icon name="ic:outline-email" class="text-4xl" />
           <h2 class="">Email</h2>
           <p>
             If your message isn't quite right for the contact box here, feel
@@ -34,7 +38,7 @@ import ContactForm from "../components/ContactForm.jsx";
           </a>
         </div>
         <div class="contact-card neutral">
-          <Icon name="ic:outline-whatsapp" />
+          <Icon name="ic:outline-whatsapp" class="text-4xl" />
           <h2 class="mb-2">WhatsApp</h2>
           <a
             class=""

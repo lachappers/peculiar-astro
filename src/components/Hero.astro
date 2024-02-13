@@ -11,6 +11,7 @@ const {
   learnTarget = null,
   quoteButton = false,
   learnButton = false,
+  learnMessage = "Learn More",
 } = Astro.props;
 const learnLink = `${learnTarget}`;
 ---
@@ -23,7 +24,9 @@ const learnLink = `${learnTarget}`;
       <div
         class="col-start-1 flex flex-col items-center justify-center gap-8 py-4 text-center md:items-start md:text-left"
       >
-        <h1 class="text-center text-6xl font-bold md:text-left lg:text-7xl">
+        <h1
+          class="justify-self-end text-center text-6xl font-bold md:text-left lg:text-7xl"
+        >
           {title}<br />
           <span class="text-gradient">{gradientText}</span>
         </h1>
@@ -41,7 +44,7 @@ const learnLink = `${learnTarget}`;
                 <Button
                   buttonColor="color-secondary"
                   href={learnLink}
-                  text="Learn More"
+                  text={learnMessage}
                   icon="mdi:arrow-down"
                 />
               ) : (

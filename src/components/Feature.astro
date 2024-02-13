@@ -7,12 +7,13 @@ const {
   featureColor = "neutral",
   href = null,
   contentClasses = "",
+  featureWidth,
 } = Astro.props;
 ---
 
 {
   !href ? (
-    <div class={`feature  ${featureColor}`}>
+    <div class={`feature ${featureWidth} ${featureColor}`}>
       <div class={`content ${contentClasses}`}>
         <Icon name={icon} class="text-4xl" />
         <h3>{title}</h3>
@@ -28,7 +29,7 @@ const {
       </div>
     </div>
   ) : (
-    <a {href} class="featureLink flex">
+    <a {href} class={`featureLink flex ${featureWidth}`}>
       <div class={`feature ${featureColor}`}>
         <Icon name={icon} class="text-4xl" />
         <div class={`content ${contentClasses}`}>

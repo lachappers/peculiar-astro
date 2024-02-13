@@ -2,7 +2,8 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
-import Heading from "../components/Heading.astro";
+import SectionHeading from "@components/shared/SectionHeading.astro";
+import Heading from "../components/shared/Heading.astro";
 import { Icon } from "astro-icon/components";
 import Feature from "../components/Feature.astro";
 import CallOut from "../components/CallOut.astro";
@@ -15,16 +16,11 @@ import investVector from "../assets/img/invest-vector.png";
     title="Invest in Technology"
     gradientText="That Matters"
     imgSrc={investVector}
+    subtitle={`Unlock the potential of your business with accessible, affordable and
+    understandable technology paired with one-time or ongoing tech support.`}
   >
-    <p
-      class="col-start-1 mb-4 self-start text-center text-xl md:text-left md:text-2xl"
-    >
-      Unlock the potential of your business with accessible, affordable and
-      understandable technology paired with one-time or ongoing tech support.
-    </p>
-
     <div
-      class="row-start-3 mt-4 flex w-full flex-wrap justify-center gap-3 min-[200px]:flex-row md:col-span-full xl:col-span-1"
+      class="row-start-2 mt-4 flex w-full flex-wrap justify-center gap-3 min-[200px]:flex-row md:col-span-full xl:col-span-1"
     >
       <Button
         href="#webDev"
@@ -61,29 +57,29 @@ import investVector from "../assets/img/invest-vector.png";
       />
     </div>
   </Hero>
-  <section class="approach px-4 py-8">
+  <section
+    class="approach my-16 flex w-full flex-col items-center justify-center px-4 py-8 md:my-32"
+  >
     <div
-      class="container flex flex-col items-center rounded-lg py-8 sm:max-w-screen-xl"
+      class="container flex max-w-screen-lg flex-col items-center justify-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
     >
-      <div class="flex max-w-2xl flex-none flex-col items-center">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading id="approach" text="OUR APPROACH" />
-        </h2>
-        <p class="mb-8 w-full text-4xl font-bold">
+      <SectionHeading id="approach" subtitle="Our approach">
+        <p slot="title">
           Technology that
           <span class="text-highlight">connects</span> your business and customers.
         </p>
-        <p class="mb-8 w-full max-w-[75ch] text-xl">
+        <p class="">
           Grow, professionalise and promote your business with custom solutions
           that deliver value; to give you the time to focus on delivering your
           products and services.
         </p>
-        <p class="mb-8 w-full text-xl">Our approach is:</p>
-      </div>
-
+      </SectionHeading>
       <div
-        class="mb-16 grid grid-cols-1 justify-items-center gap-8 md:grid-cols-3"
+        class="grid max-w-screen-md grid-cols-1 justify-items-center gap-8 md:grid-cols-3"
       >
+        <p class="col-span-full w-full max-w-[60ch] text-base lg:text-xl">
+          Our approach is:
+        </p>
         <CallOut
           purple="Tech-Led"
           point="Processes and Service"
@@ -102,34 +98,43 @@ import investVector from "../assets/img/invest-vector.png";
         />
       </div>
       <ul
-        class="flex w-full max-w-2xl flex-none flex-col items-center gap-4 text-xl"
+        class="mt-8 flex w-full max-w-xl flex-col items-center gap-4 text-base lg:text-xl"
       >
-        <p class="w-full max-w-[75ch]">Our tech is:</p>
-        <li class="w-full max-w-[70ch] pl-4">
-          <span class="font-bold">hand-coded</span> i.e. no wordpress or bloated
-          frameworks
-          <span class="font-bold">for speed and performance</span> to optimise your
-          page ranking and SEO - getting you in front of <span
-            class="font-bold"
-          >
-            more eyeballs
-          </span>
+        <p class="my-4 w-full">And our tech is always:</p>
+        <li class="inline-flex w-full max-w-[60ch] gap-4 pl-4">
+          <Icon name="mdi:tick" class="text-6xl" />
+          <p>
+            <span class="font-bold">Coded by hand</span>; i.e. no wordpress or
+            bloated frameworks <span class="font-bold"
+              >for speed and performance</span
+            > to optimise your page ranking and SEO - getting you in front of <span
+              class="font-bold">more eyeballs</span
+            >
+          </p>
         </li>
-        <li class="max-w-[75ch] pl-4">
-          <span class="font-bold">integrated</span> tying together all your online
-          profiles
-          <span class="font-bold">and</span> your core business processes (like customer
-          quotes or your accounting tools) - to <span class="font-bold">
-            save you time and reduce complexity
-          </span>
+        <li class="inline-flex w-full max-w-[60ch] gap-4 pl-4">
+          <Icon name="mdi:tick" class="text-6xl" />
+          <p>
+            <span class="font-bold">Integrated</span>: tying together all your
+            online profiles
+            <span class="font-bold">and</span> your core business processes (like
+            customer quotes or your accounting tools) - to <span
+              class="font-bold"
+            >
+              save you time and reduce complexity
+            </span>
+          </p>
         </li>
-        <li class="max-w-[75ch] pl-4">
-          <span class="font-bold">comprehensively managed</span>; we handle
-          everything behind the scenes so you can <span class="font-bold"
-            >set it and forget it</span
-          > and focus on serving your customers <span class="font-bold"
-            >tech-stress free</span
-          >
+        <li class="inline-flex w-full max-w-[60ch] gap-4 pl-4">
+          <Icon name="mdi:tick" class="text-6xl" />
+          <p>
+            <span class="font-bold">Comprehensively managed</span>; we handle as
+            much as you like behind the scenes so you can <span
+              class="font-bold">set it and forget it</span
+            > and focus on serving your customers <span class="font-bold"
+              >tech-stress free</span
+            >
+          </p>
         </li>
       </ul>
       <div
@@ -146,20 +151,19 @@ import investVector from "../assets/img/invest-vector.png";
     </div>
   </section>
 
-  <section class="webdev blue px-4 py-8">
-    <div class="container flex flex-col items-center py-32 sm:max-w-screen-xl">
-      <div class="max-w-[75ch]">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading id="webDev" text="WEBSITE & APP DEVELOPMENT" />
-        </h2>
-        <p class="mb-8 w-full text-4xl font-bold">
-          Translate ideas into technology.
-        </p>
-        <p class="mb-8 w-full text-xl">
+  <section
+    class="webdev blue my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
+  >
+    <div
+      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
+    >
+      <SectionHeading id="webDev" subtitle="Website & App Development">
+        <p slot="title">Translate ideas into technology.</p>
+        <p class="">
           Got a great idea but can't code? Frustrated by the cost and complexity
           of building and maintaining a website?
         </p>
-      </div>
+      </SectionHeading>
       <div
         class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3"
       >
@@ -192,22 +196,21 @@ import investVector from "../assets/img/invest-vector.png";
     </div>
   </section>
 
-  <section class="ongoing gold px-4 py-8">
-    <div class="container flex flex-col items-center py-32 sm:max-w-screen-xl">
-      <div class="max-w-[75ch]">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading id="ongoing" text="ONGOING SUPPORT" />
-        </h2>
-        <p class="mb-8 w-full text-4xl font-bold">
-          Let us take care of the admin.
-        </p>
-        <p class="mb-8 w-full text-xl">
+  <section
+    class="ongoing gold my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
+  >
+    <div
+      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
+    >
+      <SectionHeading id="ongoing" subtitle="Ongoing Support">
+        <p slot="title">Let us take care of the admin.</p>
+        <p class="">
           Guaranteed, flexible access to expertise, ongoing managed support
           functions or routine maintenance, that already knows your business.
           Let us manage the admin of running your business, so you don't need to
           do it yourself or hire externally.
         </p>
-      </div>
+      </SectionHeading>
       <div
         class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2"
       >
@@ -244,20 +247,19 @@ import investVector from "../assets/img/invest-vector.png";
       />
     </div>
   </section>
-  <section class="systemInt mint px-4 py-8">
-    <div class="container flex flex-col items-center py-32 sm:max-w-screen-xl">
-      <div class="max-w-[75ch]">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading id="systemIntegration" text="SYSTEM INTEGRATION" />
-        </h2>
-        <p class="mb-8 w-full text-4xl font-bold">
-          Reduce the burdon of running your business.
-        </p>
-        <p class="mb-8 w-full text-xl">
+  <section
+    class="systemInt mint my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
+  >
+    <div
+      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
+    >
+      <SectionHeading id="systemIntegration" subtitle="system integration">
+        <p slot="title">Reduce the burdon of running your business.</p>
+        <p class="">
           You should be able to trust technology to reduce the cost and
           complexity of running your business, not increase it.
         </p>
-      </div>
+      </SectionHeading>
 
       <div class="mb-8 flex max-w-md place-self-center">
         <Feature icon="ic:baseline-web" title="Let's get connected">
@@ -282,20 +284,19 @@ import investVector from "../assets/img/invest-vector.png";
     </div>
   </section>
 
-  <section class="business purple px-4 py-8">
-    <div class="container items-center py-32 sm:max-w-screen-xl">
-      <div class="max-w-[75ch]">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading id="businessAnalysis" text="BUSINESS ANALYSIS" />
-        </h2>
-        <p class="mb-8 text-4xl font-bold">
-          Understand the dynamics of your business.
-        </p>
-        <p class="mb-8 text-xl">
+  <section
+    class="business pink my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
+  >
+    <div
+      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
+    >
+      <SectionHeading id="businessAnalysis" subtitle="business analysis">
+        <p slot="title">Understand the dynamics of your business.</p>
+        <p class="">
           Assess performance, manage risk and identify opportunities to improve
           processes and systems.
         </p>
-      </div>
+      </SectionHeading>
       <div class="mb-8 flex max-w-md place-self-center">
         <Feature icon="ic:baseline-web" title="Health Check">
           Understand what's working, what's not and what could be next for your

@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+import Heading from "@components/shared/Heading.astro";
+const { icon, subtitle, subtitleOrder, title, center, id } = Astro.props;
+
+const centering = center
+  ? "items-center justify-center text-center"
+  : "w-full items-center justify-center text-center md:items-start md:text-left";
+---
+
+<div class=`w-full flex flex-col sm:min-w-[20ch] gap-2 ${centering}`>
+  {icon && <Icon name={icon} class="text-4xl text-[--tertiary]" />}
+  {
+    subtitle && (
+      <p
+        aria-roledescription="subtitle"
+        class="text-sm font-semibold uppercase text-[--primary] "
+      >
+        {subtitle}
+      </p>
+    )
+  }
+  <h2
+    class="font-serif-heading max-w-[30ch] text-2xl font-semibold capitalize sm:text-3xl lg:text-5xl"
+  >
+    {
+      title ? (
+        <Heading id={id}>{title}</Heading>
+      ) : (
+        <Heading>
+          <slot name="title" />
+        </Heading>
+      )
+    }
+  </h2>
+  <!-- only for title text not content -->
+  {
+    Astro.slots.has("default") && (
+      <div class="my-4 flex w-full max-w-[60ch] flex-col gap-4 py-4 text-base lg:text-xl">
+        <slot />
+      </div>
+    )
+  }
+</div>

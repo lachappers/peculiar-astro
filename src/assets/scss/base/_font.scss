@@ -151,4 +151,7 @@ body {
       line-height: 1.6875rem;
     }
   }
+  .text-highlight {
+    text-decoration: var(--primary-200) wavy underline;
+  }
 }

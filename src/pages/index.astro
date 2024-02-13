@@ -8,7 +8,8 @@ import Feature from "../components/Feature.astro";
 import ProcessStep from "../components/ProcessStep.astro";
 import { Icon } from "astro-icon/components";
 import ContentMedia from "../components/ContentMedia.astro";
-import Heading from "../components/Heading.astro";
+import Heading from "@components/shared/Heading.astro";
+import SectionHeading from "@components/shared/SectionHeading.astro";
 import CallToAction from "../components/CallToAction.astro";
 import heroVector from "@assets/img/hero-vector.webp";
 import mobile from "@assets/img/share.png";
@@ -38,28 +39,23 @@ import productive from "@assets/img/productivity.png";
     imgSrc={heroVector}
   />
   <section
-    class="container my-16 flex max-w-screen-2xl flex-col gap-4 md:my-32 md:gap-8"
+    class="container my-16 flex max-w-screen-xl flex-col gap-4 md:my-32 md:gap-8"
   >
-    <div class="flex w-full flex-col items-center gap-2">
-      <h2 class="mb-2 w-full text-lg font-bold">
-        <Heading id="whatwedo" text="What we do" />
-      </h2>
-      <p
-        class="mb-8 w-full max-w-[30ch] self-start text-4xl font-bold md:text-6xl"
-      >
+    <SectionHeading subtitle="what we do" id="whatwedo">
+      <p slot="title">
         Getting your business online,
         <span class="text-highlight">without the faff.</span>
       </p>
-      <p class="w-full max-w-[60ch] self-start text-base md:text-2xl">
+      <p class="">
         We specialise in designing and developing websites and technology for
         small and growing businesses across the UK.
       </p>
-      <p class="w-full max-w-[60ch] self-start text-base md:text-2xl">
+      <p class="">
         All of our code is written by hand (no wordpress) to ensure exceptional
         performance, helping you bring in more businesses and waste less time
         wanting to throw your computer out the window.
       </p>
-    </div>
+    </SectionHeading>
     <div
       class="flex w-full flex-wrap justify-center gap-2 md:flex-nowrap md:gap-4"
     >
@@ -103,17 +99,22 @@ import productive from "@assets/img/productivity.png";
     </div>
   </section>
 
-  <section class="container flex flex-col gap-4 md:gap-8">
-    <h2 class="mb-2 text-lg font-bold">
-      <Heading id="believe" text="WE BELIEVE" />
-    </h2>
-    <p class="mb-16 text-4xl font-bold md:text-6xl">
-      Technology should make life
-      <span class="text-highlight">easier</span>, not harder.
-    </p>
-    <p class="mb-8 text-xl md:text-2xl">
-      Make the technology and systems that your business relies on:
-    </p>
+  <section
+    class="container my-16 flex max-w-screen-xl flex-col items-center gap-4 md:my-32 md:gap-8"
+  >
+    <SectionHeading id="believe" subtitle="We believe">
+      <p slot="title">
+        Technology should make life
+        <span class="text-highlight">easier</span>, not harder.
+      </p>
+      <p class="">
+        We know that when you're running business, the last thing you need is to
+        waste time and money on tech that drives you mad.
+      </p>
+      <p class="">
+        We make the technology and systems that your business relies on:
+      </p>
+    </SectionHeading>
 
     <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
       <CallOut
@@ -141,29 +142,31 @@ import productive from "@assets/img/productivity.png";
       <Button
         href="/services/#approach"
         text="About Us"
+        icon="mdi:arrow-right"
         buttonColor="color-secondary"
       />
     </div>
   </section>
 
-  <section class="container flex flex-col gap-4 md:gap-8">
-    <h2 class="mb-2 text-lg font-bold">
-      <Heading id="services" text="OUR SERVICES" />
-    </h2>
-    <p class="md:text-6x mb-8 text-4xl font-bold">
-      Technology should <span class="text-highlight">save</span> you time and money.
-    </p>
-
-    <p class="mb-16 text-xl md:text-2xl">
-      Understand, optimise and connect your business processes and technology to
-      reduce cost, increase security and attract more business.
-    </p>
+  <section
+    class="container my-16 flex max-w-screen-xl flex-col items-center gap-4 md:my-32 md:gap-8"
+  >
+    <SectionHeading id="services" subtitle="Our services">
+      <p class="" slot="title">
+        Technology should <span class="text-highlight">save</span> you time and money.
+      </p>
+      <p class="">
+        Understand, optimise and connect your business processes and technology
+        to reduce cost, increase security and attract more business.
+      </p>
+    </SectionHeading>
     <div class="my-4 grid grid-cols-1 content-stretch gap-6 md:grid-cols-2">
       <Feature
         icon="ic:baseline-web"
         title="Website & App Development"
         featureColor="blue"
         href="/services/#webDev"
+        featureWidth="max-w-md"
       >
         Build or update your website to attract more customers, save you time
         and stand out from the crowd.
@@ -173,6 +176,7 @@ import productive from "@assets/img/productivity.png";
         title="Routine & On Call Support"
         featureColor="gold"
         href="/services/#ongoing"
+        featureWidth="max-w-md"
       >
         Dedicated access to expertise in technology, business operations and
         strategy, when you need it.
@@ -182,6 +186,7 @@ import productive from "@assets/img/productivity.png";
         title="Integration & Automation"
         featureColor="mint"
         href="/services/#systemIntegration"
+        featureWidth="max-w-md"
       >
         Design, integrate and build the right technology, processes and systems
         for your business.
@@ -192,6 +197,7 @@ import productive from "@assets/img/productivity.png";
         title="Business Analytics"
         featureColor="pink"
         href="/services/#businessAnalysis"
+        featureWidth="max-w-md"
       >
         Assess performance, manage risk and identify opportunities to improve
         processes and systems.
