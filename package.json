@@ -1,9 +1,7 @@
 {
   "name": "peculiar-astro",
   "type": "module",
-  "description": "A project inspired by the accessible-astro theme with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.",
   "version": "1.0.0",
-  "author": "Lucy Chaplin",
   "homepage": "https://peculiardynamics.co.uk/",
   "repository": {
     "url": "https://github.com/lachappers/peculiar-astro.git"

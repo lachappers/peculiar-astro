@@ -1,5 +1,6 @@
 ---
 // import "vanilla-cookieconsent/dist/cookieconsent.css";
+
 import "@assets/scss/base/_cookies.scss";
 ---
 
@@ -7,8 +8,16 @@ import "@assets/scss/base/_cookies.scss";
   >Show cookie preferences modal</button
 > -->
 <script>
-  import { run } from "vanilla-cookieconsent";
+  // import { run, show } from "vanilla-cookieconsent";
+  import { run, show } from "vanilla-cookieconsent";
   import { config } from "./CookiesConfig";
 
   run(config);
+  setTimeout(show, 3000);
+
+  // console.log({ CookieConsent });
+  // {
+  //   CookieConsent.run(config);
+  // }
+  // setTimeout(CookieConsent.show, 3000);
 </script>

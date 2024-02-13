@@ -1,0 +1,1 @@
+import"./hoisted.BwlDV7nH.js";import"./cookieconsent.esm.DjwhI96l.js";document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault(),document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"})})});

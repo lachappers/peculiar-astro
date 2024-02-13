@@ -2,7 +2,7 @@ import type { CookieConsentConfig } from "vanilla-cookieconsent";
 
 export const config: CookieConsentConfig = {
   onConsent: function () {},
-  autoShow: true,
+  autoShow: false,
   mode: "opt-in",
   cookie: {
     name: "cc_cookie",
@@ -15,7 +15,7 @@ export const config: CookieConsentConfig = {
   guiOptions: {
     consentModal: {
       layout: "box inline",
-      position: "bottom left",
+      position: "bottom right",
     },
     preferencesModal: {
       layout: "box",
