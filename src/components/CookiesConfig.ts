@@ -1,6 +1,7 @@
 import type { CookieConsentConfig } from "vanilla-cookieconsent";
 
 export const config: CookieConsentConfig = {
+  onConsent: function () {},
   autoShow: true,
   mode: "opt-in",
   cookie: {
@@ -33,7 +34,7 @@ export const config: CookieConsentConfig = {
         //Clear the '_gid' cookie and all the other cookies starting with '_ga' when the user opts-out of the "analytics" category.
         cookies: [
           {
-            name: /^_ga/, // regex: match all cookies starting with '_ga'
+            name: /^_ga/, // regex: match all cookies starting with '_ga' or _gid
           },
           {
             name: "_gid", // string: exact cookie name
@@ -57,9 +58,9 @@ export const config: CookieConsentConfig = {
             },
           ],
         },
-        another: {
-          label: "Another one (dummy)",
-        },
+        // another: {
+        //   label: "Another one (dummy)",
+        // },
       },
     },
     ads: {},
