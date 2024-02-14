@@ -1,7 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import { getImage } from "astro:assets";
-import Hero from "../components/Hero.astro";
+import { Image } from "astro:assets";
+import Hero from "@components/Hero.astro";
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
@@ -15,33 +15,27 @@ import heroVector from "@assets/img/hero-vector.webp";
 import mobile from "@assets/img/share.png";
 import find from "@assets/img/find.png";
 import productive from "@assets/img/productivity.png";
-// console.log(heroVector);
-// const optimisedHero = await getImage({
-//   src: heroVector,
-//   format: "webp",
-//   width: 800,
-//   loading: "eager",
-// });
-// console.log(optimisedHero);
+import headshot from "../assets/img/headshot.jpg";
 ---
 
 <!-- <Fragment slot="head">
   <link rel="preload" href={optimisedHero.src} as="image" />
 </Fragment> -->
-<DefaultLayout title="Home">
+<DefaultLayout
+  title="Making Websites for Ambitious Businesses"
+  description="Affordable, hand-coded websites and technology built in the UK. Grow your ambitious British business, without a Computer Science PhD."
+>
   <Hero
     title="Making Technology"
     gradientText="That Works"
     subtitle="Web development and technology for ambitious small businesses."
-    learnTarget={`#believe`}
+    learnTarget={`#what-we-do`}
     quoteButton={true}
     learnButton={true}
     imgSrc={heroVector}
   />
-  <section
-    class="container my-16 flex max-w-screen-xl flex-col gap-4 md:my-32 md:gap-8"
-  >
-    <SectionHeading subtitle="what we do" id="whatwedo">
+  <section class="container max-w-screen-xl flex-col">
+    <SectionHeading subtitle="what we do" id="what-we-do">
       <p slot="title">
         Getting your business online,
         <span class="text-highlight">without the faff.</span>
@@ -86,71 +80,68 @@ import productive from "@assets/img/productivity.png";
     </div>
     <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
       <Button
-        href="/pricing/#included"
-        icon="mdi:arrow-right"
-        text="Discover Features"
-      />
-      <Button
         href="/pricing/#web-pricing"
         icon="mdi:arrow-right"
         text="See Pricing"
+      />
+      <Button
+        href="/#who-we-are"
+        icon="mdi:arrow-down"
+        text="Who We Are"
         buttonColor="color-secondary"
       />
     </div>
   </section>
 
-  <section
-    class="container my-16 flex max-w-screen-xl flex-col items-center gap-4 md:my-32 md:gap-8"
-  >
-    <SectionHeading id="believe" subtitle="We believe">
+  <section class="container max-w-screen-xl flex-col md:flex-row md:flex-wrap">
+    <SectionHeading
+      subtitle="who we are"
+      id="who-we-are"
+      addClasses="md:max-w-2xl"
+    >
       <p slot="title">
-        Technology should make life
-        <span class="text-highlight">easier</span>, not harder.
+        Hello from
+        <span class="text-highlight">Lucy</span>,<br />Our Peculiar Founder.
       </p>
       <p class="">
-        We know that when you're running business, the last thing you need is to
-        waste time and money on tech that drives you mad.
+        I am an owner of a small ambitious business, like you. I jumped into
+        Entrepreneurship to help small business owners access the data and
+        technology I've seen and built whilst working at Google, Amazon,
+        Health-Tech Startups and consulting for clients ranging from high-street
+        banks to global retailers.
       </p>
       <p class="">
-        We make the technology and systems that your business relies on:
+        I want it to be easier and more affordable for small British businesses
+        to grow and compete with big business, to make the use of technology and
+        AI simple and to build a slick presence on the web without being
+        bamboozled by jargon or extorted by shady technology companies.
       </p>
     </SectionHeading>
-
-    <div class="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3">
-      <CallOut
-        purple="FUNCTION"
-        point="seamlessly"
-        subtext="reducing disruption"
-      />
-      <CallOut
-        purple="USABLE"
-        point="without a PhD"
-        subtext="keeping things simple"
-      />
-
-      <CallOut
-        purple="EFFICIENT"
-        point="clear ROI"
-        subtext="saving you money"
-      />
-    </div>
-
+    <Image
+      src={headshot}
+      alt=""
+      class="aspect-square w-fit max-w-xs flex-initial rounded-full border-4 border-green-300 object-cover"
+    />
     <div
-      class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
+      class="flex w-full flex-col items-center justify-center gap-3 md:flex-row"
     >
-      <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
       <Button
-        href="/services/#approach"
-        text="About Us"
+        href="/about"
         icon="mdi:arrow-right"
+        text="About Us"
+        addClasses="min-w-44"
+      />
+      <Button
+        href="/#services"
+        icon="mdi:arrow-down"
+        text="What We Do"
         buttonColor="color-secondary"
+        addClasses="min-w-44"
       />
     </div>
   </section>
 
-  <section
-    class="container my-16 flex max-w-screen-xl flex-col items-center gap-4 md:my-32 md:gap-8"
-  >
+  <section class="container max-w-screen-xl flex-col">
     <SectionHeading id="services" subtitle="Our services">
       <p class="" slot="title">
         Technology should <span class="text-highlight">save</span> you time and money.
@@ -209,6 +200,7 @@ import productive from "@assets/img/productivity.png";
         href="/services"
         text="Explore Services"
         buttonColor="color-secondary"
+        icon="mdi:arrow-right"
       />
     </div>
   </section>

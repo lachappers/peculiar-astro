@@ -5,9 +5,7 @@ import Heading from "@components/shared/Heading.astro";
 ---
 
 <!-- Pricing -->
-<div
-  class="container my-16 flex max-w-screen-2xl flex-col items-center gap-4 md:my-32 md:gap-8"
->
+<section class="container flex max-w-screen-xl flex-col">
   <!-- Title -->
   <div class="mb-10 flex w-full flex-col items-center gap-2 lg:mb-14">
     <h2 class="mb-2 w-full text-lg font-bold">
@@ -30,9 +28,7 @@ import Heading from "@components/shared/Heading.astro";
   <!-- Grid -->
   <div class="mt-12 grid max-w-screen-md items-center gap-6 sm:grid-cols-2">
     <!-- Card -->
-    <div
-      class="flex h-full max-w-lg flex-col items-center gap-4 rounded-xl border border-[--font-color] p-8"
-    >
+    <div class="card">
       <h4 class="w-full text-lg font-medium">All Inclusive</h4>
       <span class="mt-7 w-full text-5xl font-bold">
         <span class="-me-2 text-2xl font-bold">£</span>
@@ -73,9 +69,7 @@ import Heading from "@components/shared/Heading.astro";
     <!-- End Card -->
 
     <!-- Card -->
-    <div
-      class="relative flex h-full max-w-lg flex-col items-center gap-4 rounded-xl border-2 border-[--action-color] p-8 shadow-xl"
-    >
+    <div class="fave-card">
       <p
         class="absolute -top-4 mb-3 inline-flex w-fit items-center gap-1.5 rounded-lg bg-blue-100 px-3 py-1.5 text-xs font-semibold uppercase text-blue-800 dark:bg-blue-600 dark:text-white"
       >
@@ -128,17 +122,17 @@ import Heading from "@components/shared/Heading.astro";
   </div>
   <!-- End Grid -->
 
-  <div class="mt-12 grid w-full max-w-screen-lg grid-cols-3 items-center gap-6">
+  <div
+    class="table-card mt-12 grid w-full max-w-screen-lg grid-cols-3 items-center gap-6"
+  >
     <table class="col-span-full table-fixed text-left text-sm md:text-base">
       <caption class="mb-8 w-full text-4xl font-bold">Compare Plans</caption>
-      <colgroup>
-        <col class="w-2/5 sm:w-1/4" />
-      </colgroup>
+
       <thead>
         <tr>
-          <th scope="row"></th>
-          <th scope="col">All Inclusive</th>
-          <th scope="col">PAYG</th>
+          <th scope="row" class="w-96"></th>
+          <th scope="col" class="w-64">All Inclusive</th>
+          <th scope="col" class="w-64">PAYG</th>
         </tr>
       </thead>
       <tbody class="font-base">
@@ -156,12 +150,20 @@ import Heading from "@components/shared/Heading.astro";
           <td><Icon name="mdi:tick" class="w-full" /></td>
         </tr>
         <tr>
-          <th scope="row">Logo and Brand Colours (New or Transferred)</th>
+          <th scope="row"
+            >Logo and Brand Colours<br /><span class="text-xs italic"
+              >(New or Transferred)</span
+            ></th
+          >
           <td><Icon name="mdi:tick" class="w-full" /></td>
           <td><Icon name="mdi:tick" class="w-full" /></td>
         </tr>
         <tr>
-          <th scope="row">Content and Graphics (New or Transferred)</th>
+          <th scope="row"
+            >Content and Graphics<br /><span class="text-xs italic"
+              >(New or Transferred)</span
+            ></th
+          >
           <td><Icon name="mdi:tick" class="w-full" /></td>
           <td><Icon name="mdi:tick" class="w-full" /></td>
         </tr>
@@ -171,7 +173,11 @@ import Heading from "@components/shared/Heading.astro";
           >
         </tr>
         <tr>
-          <th scope="row">Business Registration (Google, Bing, Facebook)</th>
+          <th scope="row"
+            >Business Registration<br /><span class="text-xs italic"
+              >(Google, Bing, Facebook)</span
+            ></th
+          >
           <td><Icon name="mdi:tick" class="w-full" /></td>
           <td><Icon name="mdi:tick" class="w-full" /></td>
         </tr>
@@ -234,14 +240,62 @@ import Heading from "@components/shared/Heading.astro";
       </tbody>
     </table>
   </div>
-</div>
+
+  <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
+    <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
+    <Button
+      href="#how-it-works"
+      icon="mdi:arrow-down"
+      text="How it Works"
+      buttonColor="color-secondary"
+    />
+  </div>
+</section>
 <!-- End Pricing -->
 
 <style lang="scss">
+  .card {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.25rem;
+
+    border: 3px solid var(--font-color);
+    box-shadow: 0.0625rem 0.0625rem 0 var(--secondary-100),
+      0.5rem 0.5rem 0 var(--dark-100);
+    border-radius: 0.5rem;
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+    @apply h-full max-w-lg items-center gap-4  p-8;
+  }
+  .fave-card {
+    border-radius: 0.5rem;
+
+    border: 3px solid var(--font-color);
+    box-shadow: 0.0625rem 0.0625rem 0 var(--background),
+      0.5rem 0.5rem 0 var(--font-color);
+    padding: 2rem;
+
+    background-color: var(--accent-mint);
+    @apply relative flex h-full max-w-lg flex-col items-center gap-4 p-8;
+  }
+  .table-card {
+    border: 3px solid var(--font-color);
+    box-shadow: 0.0625rem 0.0625rem 0 var(--secondary-100),
+      0.5rem 0.5rem 0 var(--dark-100);
+    border-radius: 0.5rem;
+    @apply max-w-screen-md py-4 lg:py-8;
+  }
+
   table {
     // border-collapse: collapse;
 
-    @apply border border-[--accent-mint-100] p-4;
+    // @apply border border-[--accent-mint-100] p-4;
   }
 
   th,
@@ -262,20 +316,22 @@ import Heading from "@components/shared/Heading.astro";
     /* text-align: center; */
   }
   tbody tr:nth-child(odd):not(.heading-cell) {
-    background-color: var(--neutral-background);
+    background-color: var(--background);
   }
 
   tbody tr:nth-child(even):not(.heading-cell) {
-    background-color: var(--neutral-background-light);
+    background-color: var(--background-alt);
   }
   tbody th:not(.heading-cell) {
     // background-color: #36c;
     // color: #fff;
     text-align: left;
+    padding-left: 3rem;
   }
 
   .heading-cell {
     font-weight: 700;
-    @apply bg-[--accent-mint-100] text-lg font-bold;
+    padding-left: 2rem;
+    @apply bg-[--accent-mint-100] text-lg font-bold dark:bg-[--secondary-background];
   }
 </style>

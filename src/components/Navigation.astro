@@ -1,142 +1,255 @@
 ---
 import { Image } from "astro:assets";
-import ResponsiveToggle from "./ResponsiveToggle.astro";
-import DarkMode from "./DarkMode.astro";
-import darkLogo from "../assets/img/350x100-alt-dark.webp";
-import lightLogo from "../assets/img/350x100.webp";
+import { Icon } from "astro-icon/components";
+import ResponsiveToggle from "@components/shared/ResponsiveToggle.astro";
+import DarkMode from "@components/shared/DarkMode.astro";
+import { PAGES } from "@config";
+
 ---
 
-<div
-  id="main-navigation"
-  class="is-desktop flex max-h-24 w-full max-w-full py-2"
->
-  <div class="container flex max-h-full w-full max-w-full justify-between">
-    <a href="/" class="min-w-32 flex w-fit flex-auto items-center">
-      <!-- <img
-        class="hidden object-contain dark:block"
-        src={darkLogo.src}
-        alt="Our Logo"
-        width="350"
-        height="100"
-      />
-      <img
-        class="block object-contain dark:hidden"
-        src={lightLogo.src}
-        alt="Our Logo"
-        width="350"
-        height="100"
-      /> -->
-      <Image
-        class="block object-contain dark:hidden"
-        src={lightLogo}
-        alt="Our Logo"
-        width="350"
-        height="100"
-      />
-      <Image
-        class="hidden object-contain dark:block"
-        src={darkLogo}
-        alt="Our Logo"
-        width="350"
-        height="100"
-      />
-    </a>
-    <div class="flex w-full flex-auto items-center justify-end gap-4">
-      <nav
-        id="desktop-menu"
-        class="desktop-menu"
-        aria-label="Main navigation desktop"
-      >
-        <ul class="menu">
-          <slot />
-        </ul>
-      </nav>
-      <DarkMode />
-      <ResponsiveToggle />
-    </div>
-  </div>
+<nav
+id="main-navigation"
+  class="desktop-menu flex items-center justify-end gap-2 w-full"
+  aria-label="Main navigation desktop"
+>        
 
-  <nav
-    id="mobile-menu"
-    class="mobile-menu self-end"
-    aria-label="Main navigation mobile"
-  >
-    <ul class="menu">
-      <slot />
-    </ul>
-  </nav>
-</div>
+  <ul id="nav-expanded" class="hidden h-full relative md:flex items-center gap-4 lg:gap-8 xl:gap-12 md:w-full justify-end text-sm font-medium text-[--on-surface-variant] whitespace-nowrap" aria-expanded="false" tabindex="-1" >
+    {
+      PAGES.map((page) => (
+        <li
+          class:list={[
+            "menu-item relative flex flex-col items-center justify-center",
+            { "has-dropdown": page?.children && page.children.length > 0 },
+          ]}
+          tabindex="-1"
+        >
+
+          {page.children ? (
+            <button
+              class:list={[
+                "nav-button",
+                "flex gap-1 items-center ",
+                { "is-active": Astro.url.pathname === page.url },
+              ]}
+              aria-current={Astro.url.pathname === page.url ? 'page' : null}
+              aria-expanded="false"
+
+              data-dropdown-button
+              aria-controls={`${page.key}_menu`}
+              tabindex="0"
+            >
+              {page.key}
+              <Icon name="mdi:chevron-down" class="flex-none h-4 w-4" aria-hidden="true" />
+            
+            </button>
+
+            <ul id={`${page.key}_menu`} class="nav-drop-ul hidden"  aria-label={`${page.key} menu`} aria-expanded="false" >
+              {page.children.map((child) => (
+                <li class="submenu-item" >
+                  <a href={child.url} class="nav-li-link nav-drop-link" tabindex="0">
+                    {child.key}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <a
+              href={page.url}
+              class:list={[
+                "nav-li-link",
+                { "is-active": Astro.url.pathname === page.url },
+              ]}
+              aria-current={Astro.url.pathname === page.url ? 'page' : null}
+            >
+              {page.key}
+            </a>
+          )
+        }
+        </li>
+      ))
+    }
+    <li class="menu-item flex flex-col items-center justify-center " tabindex="-1">
+      <a
+        href="/quoter"
+        class:list={[
+          "nav-li-link",
+          { "is-active": Astro.url.pathname === "/quoter" },
+        ]}
+        aria-current={Astro.url.pathname === "/quoter" ? 'page' : null}
+      >
+      <span class="sm:sr-only">Get a Quote</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        fill="currentColor"
+        class="hidden sm:nav-icon sm:inline-flex"
+      >
+        <path
+          d="M18.333 17.425a1 1 0 1 0 0-2v2Zm-10.11-1v-1a1 1 0 0 0-.114 1.993l.113-.993Zm3.37-5.362h1-1Zm0-4.596.787.617-.787-.617Zm5.134 1.411a1 1 0 0 0 1.528-1.29l-1.528 1.29Zm-.079 4.95a1 1 0 1 0 0-2v2Zm-8.426-2a1 1 0 1 0 0 2v-2Zm1.445 9.81h1v-1h-1v1Zm6.5 0v-1h-.437l-.297.32.734.68Zm2.166-5.213H8.5v2h9.833v-2Zm-9.833 0h-.278v2H8.5v-2Zm-.278 1c-.113.993-.113.994-.112.994h.002a.317.317 0 0 0 .008 0l.013.002a2.063 2.063 0 0 0 .132.008c.078.002.181.002.304-.006l-.138-1.996c-.05.004-.086.003-.104.003h-.012.016l.002.001h.001l-.112.994Zm.347.997a3.745 3.745 0 0 0 2.521-1.253c.894-.988 1.503-2.59 1.503-5.106h-2c0 2.214-.535 3.266-.985 3.763-.446.492-.94.585-1.177.601l.138 1.995Zm4.024-6.36c0-.775-.132-1.888-.187-2.682a8.394 8.394 0 0 1-.023-1.07c.022-.335.078-.33-.003-.226L10.805 5.85c-.327.417-.394.97-.418 1.327-.027.415-.008.888.024 1.341.068.98.182 1.852.182 2.545h2Zm-.213-3.978c.492-.628.948-.821 1.318-.865.404-.048.858.066 1.335.311.473.243.9.58 1.218.869a6.86 6.86 0 0 1 .454.454l.02.023.003.004v-.001c-.001 0-.001-.001.763-.646s.764-.646.763-.646l-.002-.002a.972.972 0 0 1-.015-.018 3.651 3.651 0 0 0-.169-.186 8.804 8.804 0 0 0-.47-.46 7.82 7.82 0 0 0-1.652-1.17c-.681-.35-1.544-.63-2.483-.518-.972.115-1.886.632-2.657 1.617l1.574 1.234Zm4.268 3.745H8.222v2h8.426v-2ZM3.888 2h20.223V0H3.89v2ZM26 3.805v14.028h2V3.805h-2ZM2 17.833V3.805H0v14.028h2Zm7.667 1.805H3.889v2h5.778v-2Zm14.444 0h-7.944v2h7.944v-2ZM8.667 26.951A1.045 1.045 0 0 0 10 27.96c.234-.063.43-.199.52-.261.236-.165.53-.42.838-.703a63.01 63.01 0 0 0 2.274-2.241 194.676 194.676 0 0 0 3.194-3.358l.055-.06.014-.015a.194.194 0 0 0 .004-.003v-.002h.001l-.733-.68-.734-.68v.002c-.002 0-.003.002-.004.003l-.014.015-.054.058a137.356 137.356 0 0 1-.938 1.001c-.607.645-1.415 1.495-2.222 2.322a61.29 61.29 0 0 1-2.195 2.164 7.463 7.463 0 0 1-.634.54c-.088.061-.032.004.107-.033.05-.013.37-.101.717.104.422.251.47.671.47.817h-2Zm2 0v-6.313h-2v6.313h2ZM0 17.833c0 2.129 1.769 3.805 3.889 3.805v-2C2.818 19.638 2 18.803 2 17.833H0Zm26 0c0 .97-.818 1.805-1.889 1.805v2c2.12 0 3.889-1.676 3.889-3.805h-2ZM24.111 2C25.182 2 26 2.836 26 3.805h2C28 1.676 26.231 0 24.111 0v2ZM3.89 0C1.769 0 0 1.676 0 3.805h2C2 2.835 2.818 2 3.889 2V0Z"
+        ></path>
+      </svg>
+      </a>
+
+    </li>
+
+  </ul>
+  
+  <DarkMode />
+  <ResponsiveToggle />
+</nav>
+
+<!-- <nav
+  id="mobile-menu"
+  class="mobile-menu self-end"
+  aria-label="Main navigation mobile"
+>
+  <ul class="menu">
+    {
+      PAGES.map((page) => (
+        <li
+          class:list={[
+            "menu-item relative flex flex-col items-center justify-center",
+            { "has-dropdown": page?.children && page.children.length > 0 },
+          ]}
+          tabindex="-1"
+        >
+
+          {page.children ? (
+            <button
+              class:list={[
+                "nav-button",
+                "flex gap-1 items-center ",
+                { "is-active": Astro.url.pathname === page.url },
+              ]}
+              aria-current={Astro.url.pathname === page.url ? 'page' : null}
+              aria-expanded="false"
+
+              data-dropdown-button
+              aria-controls={`${page.key}_menu`}
+              tabindex="0"
+            >
+              {page.key}
+              <Icon name="mdi:chevron-down" class="flex-none h-4 w-4" aria-hidden="true" />
+            
+            </button>
+
+            <ul id={`${page.key}_menu`} class="nav-drop-ul hidden"  aria-label={`${page.key} menu`} aria-expanded="false" >
+              {page.children.map((child) => (
+                <li class="submenu-item" >
+                  <a href={child.url} class="nav-li-link nav-drop-link" tabindex="0">
+                    {child.key}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <a
+              href={page.url}
+              class:list={[
+                "nav-li-link",
+                { "is-active": Astro.url.pathname === page.url },
+              ]}
+              aria-current={Astro.url.pathname === page.url ? 'page' : null}
+            >
+              {page.key}
+            </a>
+          )
+        }
+        </li>
+      ))
+    }
+  </ul>
+</nav> -->
 
 <script>
   // variables
   const mainNav = document.querySelector("#main-navigation");
-  const mainMenu = mainNav?.querySelector("ul");
-  const dropdownMenus = [...document.querySelectorAll(".has-dropdown button")];
-
+  const navMenu = document.querySelector("#nav-menu");
+  const hamburger = document.querySelector("[data-hamburger-button]");
+  const mainMenu = document.querySelector("#nav-expanded");
+  const dropdownMenus = document.querySelectorAll("[data-dropdown-button]");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const submenuItems = document.querySelectorAll(".submenu-item");
+  
   // // functions
-  const setActiveMenuItem = () => {
-    const mobileDesktopMenus = mainNav?.querySelectorAll("nav > ul");
-    const currenPathname = window.location.pathname;
 
-    mobileDesktopMenus?.forEach((menu) => {
-      const menuItems = [
-        ...menu.querySelectorAll('a:not([rel*="external"])'),
-      ] as HTMLAnchorElement[];
+  const toggleMainMenu = (e) => {
+    e.stopPropagation();
+    const target = document.querySelector("[data-hamburger-button]");
 
-      menuItems.forEach((menuItem) => {
-        if (
-          currenPathname.includes(menuItem.pathname.replaceAll("/", "")) &&
-          menuItem.textContent !== "Home"
-        ) {
-          menuItem.classList.add("is-active");
-          menuItem.setAttribute("aria-current", "page");
-        } else if (menuItem.textContent === "Home" && currenPathname === "/") {
-          menuItem.classList.add("is-active");
-          menuItem.setAttribute("aria-current", "page");
-        }
-      });
-    });
-  };
-
-  const checkMenuSize = () => {
-    const mainNavWidth = mainNav.getBoundingClientRect().width;
-    const desktopMenuWidth = document
-      .querySelector(".desktop-menu")
-      .getBoundingClientRect().width;
-    const logoWidthBuffer = 350;
-    const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer;
-
-    if (totalMenuWidth >= mainNavWidth) {
-      mainNav.classList.remove("is-desktop");
-      mainNav.classList.add("is-mobile");
-    } else if (totalMenuWidth <= mainNavWidth) {
-      mainNav.classList.add("is-desktop");
-      mainNav.classList.remove("is-mobile");
+    if (target?.getAttribute("aria-expanded") === "false") {
+      mainNav?.classList.remove("desktop-menu");
+      mainNav?.classList.add("mobile-menu");
+      openDropdownMenu(target);
+      hideOnClickOutside(mainMenu);
+    } else {
+      navMenu?.classList.remove("mobile-menu");
+      navMenu?.classList.add("desktop-menu");
+      closeDropdownMenu(target);
     }
   };
 
-  const isOutOfViewport = (element) => {
-    const elementBounds = element.getBoundingClientRect();
-    return (
-      elementBounds.right >
-      (window.innerWidth || document.documentElement.clientWidth)
-    );
-  };
-
-  const openDropdownMenu = (dropdownMenu) => {
-    const dropdownList = dropdownMenu.parentNode.querySelector("ul");
-
-    dropdownMenu.classList.add("show");
-    dropdownMenu.setAttribute("aria-expanded", "true");
-
-    if (isOutOfViewport(dropdownList)) {
-      dropdownList.style.left = "auto";
+  // handle dropdown
+  const toggleDropdownMenu = (event) => {
+    // console.log(event.target)
+    console.log("dd clicked");
+    event.stopPropagation();
+    const target = event.target.closest("[data-dropdown-button]");
+    // console.log(target)
+    if (target.getAttribute("aria-expanded") === "false") {
+      // console.log("toggle dd open")
+      // verify impact of not closing all dropdowns before opening new
+      closeAllDropdownMenus();
+      openDropdownMenu(target);
+      hideOnClickOutside(mainMenu);
+    } else {
+      // console.log("toggle dd close")
+      closeDropdownMenu(target);
     }
   };
 
-  const closeDropdownMenu = (dropdownMenu) => {
-    dropdownMenu.classList.remove("show");
-    dropdownMenu.setAttribute("aria-expanded", "false");
+  const openDropdownMenu = (dropdownBtn) => {
+    console.log("open dd")
+    const dropdownList = dropdownBtn.parentNode.querySelector("ul");
+
+    dropdownList.classList.remove("hidden");
+    dropdownList.classList.add("flex", "dd-container");
+    dropdownList.setAttribute("aria-expanded", "true");
+    dropdownBtn.setAttribute("aria-expanded", "true");
+    dropdownBtn.setAttribute("aria-label", "Close dropdown menu");
+
+    if (dropdownList.classList.contains("nav-drop-ul")) {
+      // console.log("submenu open")
+      const img = dropdownBtn.lastElementChild;
+      img.style.transform = "rotate(180deg)";
+      //  = 'mdi:chevron-up'
+    }
+
+    if (dropdownList === mainMenu && hamburger) {
+      hamburger.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"     class="h-8 w-8"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/></svg>`;
+    }
+  };
+
+  const closeDropdownMenu = (dropdownBtn) => {
+    // console.log(dropdownMenu)
+    const dropdownList = dropdownBtn.parentNode.querySelector("ul");
+
+    dropdownList.classList.add("hidden");
+    dropdownList.classList.remove("flex", "dd-container");
+    dropdownList.setAttribute("aria-expanded", "false");
+    dropdownBtn.setAttribute("aria-expanded", "false");
+    dropdownBtn.setAttribute("aria-label", "Open dropdown menu");
+
+    if (dropdownList.classList.contains("nav-drop-ul")) {
+      // console.log("submenu close")
+      const img = dropdownBtn.lastElementChild;
+      img.style.transform = "rotate(0deg)";
+    }
+
+    if (dropdownList === mainMenu && hamburger) {
+      hamburger.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  ><path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>`;
+    }
   };
 
   const closeAllDropdownMenus = () => {
@@ -145,349 +258,135 @@ import lightLogo from "../assets/img/350x100.webp";
     }
   };
 
-  const toggleDropdownMenu = (event) => {
-    if (event.target.getAttribute("aria-expanded") === "false") {
-      closeAllDropdownMenus();
-      openDropdownMenu(event.target);
-    } else {
-      closeDropdownMenu(event.target);
-    }
-  };
+  // listen for outside click
+  function hideOnClickOutside(element) {
+    // console.log("adding outside listener")
+    // console.log(element)
 
-  // // execution
-  mainMenu &&
-    mainMenu.addEventListener("keydown", (event) => {
-      const element = event.target as Element;
-      const currentMenuItem = element.closest("li");
-      const menuItems = [...mainMenu.querySelectorAll(".menu-item")];
-      const currentDropdownMenu = element.closest(".has-dropdown button");
-      const currentDropdownMenuItem = element.closest(".has-dropdown li");
-      const currentIndex = menuItems.findIndex(
-        (item) => item === currentMenuItem
-      );
-
-      const key = event.key;
-      let targetItem;
-
-      if (key === "ArrowRight") {
-        if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
-          targetItem = menuItems[0];
-        } else {
-          targetItem = menuItems[currentIndex + 1];
-        }
-      }
-
-      if (key === "ArrowLeft") {
-        if (menuItems.indexOf(currentMenuItem) === 0) {
-          targetItem = menuItems[menuItems.length - 1];
-        } else {
-          targetItem = menuItems[currentIndex - 1];
-        }
-      }
-
-      if (key === "Escape") {
-        targetItem = menuItems[0];
-      }
-
-      if (currentDropdownMenu) {
-        const firstDropdownItem =
-          currentDropdownMenu.nextElementSibling.querySelector("li");
-
-        if (key === "ArrowDown") {
-          event.preventDefault();
-          openDropdownMenu(currentDropdownMenu);
-          targetItem = firstDropdownItem;
-        }
-
-        if (key === "Escape") {
-          closeDropdownMenu(currentDropdownMenu);
-        }
-      }
-
-      if (currentDropdownMenuItem) {
-        const currentDropdownList = currentDropdownMenuItem.parentNode;
-        const dropdownMenuItems = [
-          ...currentDropdownList.querySelectorAll("li"),
-        ];
-        const currentIndex = dropdownMenuItems.findIndex(
-          (item) => item === currentDropdownMenuItem
-        );
-
-        if (key === "ArrowDown") {
-          event.preventDefault();
-
-          if (
-            dropdownMenuItems.indexOf(
-              currentDropdownMenuItem as HTMLLIElement
-            ) ===
-            dropdownMenuItems.length - 1
-          ) {
-            targetItem = dropdownMenuItems[0];
-          } else {
-            targetItem = dropdownMenuItems[currentIndex + 1];
-          }
-        }
-
-        if (key === "ArrowUp") {
-          event.preventDefault();
-
-          if (
-            dropdownMenuItems.indexOf(
-              currentDropdownMenuItem as HTMLLIElement
-            ) === 0
-          ) {
-            targetItem = dropdownMenuItems[dropdownMenuItems.length - 1];
-          } else {
-            targetItem = dropdownMenuItems[currentIndex - 1];
-          }
-        }
-
-        if (key === "Escape") {
-          const currentDropdownMenu = (currentDropdownList as Element)
-            .previousElementSibling;
-          targetItem = currentDropdownMenu.parentNode;
+    const outsideCLickListener = (event) => {
+      if (hamburger?.getAttribute("aria-expanded") === "true") {
+        if (
+          !element.contains(event.target) &&
+          mainMenu?.getAttribute("aria-expanded") === "true"
+        ) {
+          // console.log("closing hamburg")
+          // console.log("closing on clickoutside")
           closeAllDropdownMenus();
+          closeDropdownMenu(hamburger);
+          removeClickListener();
         }
+      } else if (
+        !element.contains(event.target) &&
+        mainMenu?.classList.contains("hidden")
+      ) {
+        // console.log("closing hidden")
+        closeAllDropdownMenus();
+        closeDropdownMenu(hamburger);
+        removeClickListener();
+      } else {
+        console.log("click registered - no action");
       }
-
-      if (targetItem) {
-        targetItem.querySelector("a, button, input").focus();
-      }
-    });
-
-  dropdownMenus &&
-    dropdownMenus.forEach((dropdownMenu) => {
-      dropdownMenu.addEventListener("click", toggleDropdownMenu);
-    });
-
-  setActiveMenuItem();
-  checkMenuSize();
-
-  window.addEventListener("resize", checkMenuSize);
-  window.addEventListener("click", (event) => {
-    const element = event.target as Element;
-    if (
-      !element.hasAttribute("aria-haspopup") &&
-      !element.classList.contains("submenu-item")
-    ) {
+    };
+    const resizeListener = () => {
       closeAllDropdownMenus();
-    }
+      closeDropdownMenu(hamburger);
+      removeClickListener();
+    };
+
+    const removeClickListener = () => {
+      // console.log("listner removed")
+      document.removeEventListener("click", outsideCLickListener);
+      window.removeEventListener("resize", resizeListener);
+    };
+    document.addEventListener("click", outsideCLickListener);
+    window.addEventListener("resize", resizeListener);
+    // console.log("listener added")
+  }
+
+  // add event listeners and page load for view transitions
+
+  // dropdownMenus &&
+  document.addEventListener("astro:page-load", (event) => {
+    event.stopPropagation();
+    document
+      .querySelectorAll("[data-dropdown-button]")
+      ?.forEach((dropdownMenu) => {
+        dropdownMenu.addEventListener("click", (e) => {
+          toggleDropdownMenu(e);
+        });
+      });
   });
+
+  document.addEventListener("astro:page-load", (event) => {
+    event.stopPropagation();
+    document
+      .querySelector("[data-hamburger-button]")
+      ?.addEventListener("click", (e) => {
+        toggleMainMenu(e);
+      });
+  });
+  
 </script>
 
 <style lang="scss" is:global>
   @use "../assets/scss/base/breakpoint" as *;
   @use "../assets/scss/base/outline" as *;
 
-  #main-navigation {
-    > .container {
-      // display: flex;
-      // justify-content: space-between;
-      // gap: 1.5rem;
-      // padding: 0rem 2rem;
-      // max-height: 100%;
-      // background-color: aqua;
-    }
-
-    &.is-desktop {
-      .desktop-menu {
-        visibility: visible;
-        position: static;
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      .darkmode-toggle {
-        margin-top: -6px;
-      }
-    }
-
-    &.is-mobile {
-      flex-direction: column;
+  nav {
+    > ul {
       display: flex;
-
-      .mobile-menu {
-        display: none;
-
-        &.show {
-          display: block;
-          position: relative;
-          z-index: 10;
-        }
-      }
-
-      .desktop-menu {
-        // display: none;
-        visibility: hidden;
-        z-index: -99;
-        position: absolute;
-        left: 0;
-      }
-
-      .responsive-toggle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-    .wrapper {
-      // display: flex;
-      // align-items: center;
-      // gap: 0.5rem;
-    }
-
-    nav {
-      > ul {
-        display: flex;
-        column-gap: 1rem;
-        row-gap: 0.5rem;
-        list-style-type: none;
-        align-items: center;
-        justify-content: space-between;
-        text-align: center;
-
-        a,
-        button {
-          text-decoration: none;
-          font-size: 1.125rem;
-          line-height: 1.6875rem;
-          transition: color 0.15s ease-in-out;
-        }
-
-        a:hover,
-        a:focus,
-        .is-active,
-        .has-dropdown > button:hover,
-        .has-dropdown > button:focus {
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          text-decoration-style: wavy;
-          text-underline-offset: 7px;
-        }
-
-        .is-active {
-          font-weight: bold;
-        }
-      }
-    }
-
-    .mobile-menu {
-      // flex-basis: 100%;
-      width: 50%;
-      padding: 1rem 0;
-      background: var(--secondary-background);
-      border: 2px solid var(--font-color);
-      border-radius: 0.5rem;
-      position: relative;
-      z-index: 100;
-
-      > ul {
-        flex-direction: column;
-      }
-
+      column-gap: 1rem;
+      row-gap: 0.5rem;
+      list-style-type: none;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+  
       a,
       button {
-        display: block;
-        // width: 100%;
-        padding: 0.5rem 0;
-      }
-    }
-
-    .has-dropdown {
-      position: relative;
-
-      > button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0;
-        margin-top: -1px;
-        border: none;
-        color: var(--action-color);
-
-        &:hover {
-          color: var(--action-color-state);
-
-          &::after {
-            border-color: var(--action-color-state);
-          }
-        }
-
-        &::after {
-          content: "";
-          width: 0.85rem;
-          height: 0.75em;
-          margin-top: -0.25rem;
-          border-style: solid;
-          border-width: 0.15em 0.15em 0 0;
-          border-color: var(--action-color);
-          transform: rotate(135deg);
-        }
-
-        &.show {
-          &::after {
-            margin-top: 0.25rem;
-            transform: rotate(-45deg);
-          }
-
-          ~ ul {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-          }
-        }
+        text-decoration: none;
+        font-size: 1.125rem;
+        line-height: 1.6875rem;
+        transition: color 0.15s ease-in-out;
       }
 
-      ul {
-        display: none;
-        position: absolute;
-        z-index: 100;
-        min-width: 260px;
-        top: 125%;
-        right: 0;
-        bottom: auto;
-        left: 0;
-        padding: 1rem;
-        font-color: var(--primary-300);
-        background-color: var(--neutral-background);
-        border: 3px solid var(--dark-100);
-        border-radius: 3px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      a:hover,
+      a:focus,
+      .is-active,
+      .has-dropdown > button:hover,
+      .has-dropdown > button:focus {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-style: wavy;
+        text-underline-offset: 7px;
+      }
+
+      .is-active {
+        font-weight: bold;
       }
     }
   }
 
-  .darkmode-toggle {
-    padding: 0;
-    border: none;
 
-    svg {
-      width: 30px;
-      margin-top: 4px;
+
+  .dd-container {
+
+    // @apply absolute right-0 z-20 w-48 py-6 px-4 mt-2 flex flex-col gap-2 origin-top-right bg-[--surface-container-lowest] rounded-md shadow-xl ;
+    @apply   bg-[--secondary-background] bg-opacity-100 origin-top-right;
+    > .nav-button {
+      @apply px-2 py-1 rounded-sm  ;
     }
+    &.nav-drop-ul {
+      @apply sm:absolute flex-col md:top-8 top-12 gap-2 z-40 rounded-md w-40 sm:shadow-xl mt-3 sm:mt-0 sm:p-4;
 
-    svg path {
-      fill: var(--action-color);
-      transition: fill 0.2s ease-in-out;
     }
-
-    &:hover {
-      svg path {
-        fill: var(--action-color-state);
+    &#nav-expanded {
+      @apply  absolute text-center shadow-xl flex-col sm:flex-row h-fit items-center justify-center rounded-md w-[95vw] right-0 left-0 mx-auto top-20 mt-6 py-4 z-30 border-2 border-[--font-color] ;
+      .nav-button {
+        @apply  flex justify-center items-center ;
       }
     }
 
-    &:focus {
-      @include outline;
-
-      &:not(:focus-visible) {
-        outline: none;
-        box-shadow: none;
-      }
     }
-  }
+
 </style>

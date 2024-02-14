@@ -9,7 +9,8 @@ import Footer from "../components/Footer.astro";
 // import CookieConsentComponent from "../components/CookieBanner.jsx";
 import Cookies from "@components/Cookies.astro";
 // import Whatsapp from "../components/Whatsapp.astro";
-import { SITE } from "../config";
+import { ViewTransitions } from "astro:transitions";
+import { SITE } from "@config";
 
 const {
   title = SITE.title,
@@ -17,7 +18,10 @@ const {
   url = SITE.website,
   favicon = SITE.favicon,
   subtitle = SITE.subtitle,
+  author = SITE.author,
 } = Astro.props;
+
+// console.log(title);
 ---
 
 <html lang="en" dir="ltr">
@@ -34,11 +38,13 @@ const {
 
     <SiteMeta
       title={title}
-      description={description.substring(0, 100)}
+      description={description.substring(0, 160)}
       url={Astro.site
         ? `${Astro.site}${title.toLowerCase().replaceAll(" ", "-")}`
         : url}
+      subtitle={title !== subtitle ? subtitle : undefined}
       image={"1074x584.png"}
+      author={author}
     />
     <CookiesHead />
     <!-- Whatsapp link redirect -->
@@ -51,9 +57,12 @@ const {
       data-welcome="Hello there! How can we help you today?"
       data-phone="447405952020"
     ></script> -->
+    <ViewTransitions />
   </head>
 
-  <body>
+  <body
+    class="relative flex w-full max-w-full flex-col items-center justify-center subpixel-antialiased"
+  >
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -65,7 +74,7 @@ const {
     <!-- End Google Tag Manager (noscript) -->
 
     <!--Screen reader skip main nav-->
-    <a class="hidden" aria-label="skip to main content" href="#main-content"
+    <a class="sr-only" aria-label="skip to main content" href="#main-content"
       >Click To Skip To Main Content</a
     >
 
@@ -73,7 +82,7 @@ const {
 
     <main
       id="main-content"
-      class="relative z-0 flex flex-col items-center gap-4"
+      class="relative z-0 mb-4 flex h-full w-full flex-auto flex-col items-center justify-start gap-8 sm:gap-16 md:mb-16 lg:gap-32"
     >
       <slot />
     </main>
@@ -98,14 +107,12 @@ const {
       // theme settings
 
       // sticky footer on low content pages
-      html,
-      body {
-      }
 
-      pre {
-        padding: 1rem;
-        border-radius: 0.35rem;
-        border: 2px solid var(--action-color);
+      body {
+        // max-height: 100vh;
+        // min-height: 100%;
+        color: var(--font-color);
+        background-color: var(--background);
       }
 
       body .pagination a {
@@ -121,92 +128,19 @@ const {
 
       main > section {
         min-height: 70vh;
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: center;
-        // padding: 1rem;
+        @apply my-16  md:my-32;
       }
-      main > .container {
-        padding: 1rem;
+      main > .container,
+      main > section > .container {
+        @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:gap-8 md:p-16;
       }
 
-      .mint {
-        background-color: var(--accent-mint-100);
-        color: var(--dark-100);
-      }
-      .darkmode .mint {
-        background-color: var(--dark-100);
-        color: var(--neutral-100);
-        // color: var(--accent-mint);
-        border: 2px solid var(--accent-mint-100);
-        border-radius: 0.5rem;
-        margin: 1rem;
-      }
-
-      .blue {
-        background-color: var(--accent-blue-100);
-        color: var(--neutral-100);
-      }
-      .darkmode .blue {
-        background-color: var(--dark-100);
-        color: var(--neutral-100);
-        border: 2px solid var(--accent-blue-100);
-        border-radius: 0.5rem;
-        margin: 1rem;
-      }
-
-      .teal {
-        background-color: var(--accent-teal-100);
-        color: var(--neutral-100);
-      }
-      .darkmode .teal {
-        background-color: var(--dark-100);
-        // color: var(--accent-teal);
-
-        border: 2px solid var(--accent-teal-100);
-        border-radius: 0.5rem;
-        margin: 1rem;
-      }
-      .purple {
-        background-color: var(--accent-purple-100);
-        color: var(--neutral-100);
-      }
-      .darkmode .purple {
-        background-color: var(--dark-100);
-
-        // color: var(--accent-purple);
-        border: 2px solid var(--accent-purple-100);
-        border-radius: 0.5rem;
-        margin: 1rem;
-      }
-      .pink {
-        background-color: var(--accent-pink-100);
-        color: var(--neutral-100);
-      }
-      .darkmode .pink {
-        background-color: var(--dark-100);
-
-        // color: var(--accent-purple);
-        border: 2px solid var(--accent-pink-100);
-        border-radius: 0.5rem;
-        margin: 1rem;
-      }
-      .gold {
-        background-color: var(--accent-gold-100);
-        color: var(--dark-100);
-      }
-      .darkmode .gold {
-        background-color: var(--dark-100);
-        // color: var(--accent-gold);
-        border: 2px solid var(--accent-gold-100);
-        color: var(--neutral-100);
-        border-radius: 0.5rem;
-        margin: 1rem;
-      }
-      .neutral {
-        background-color: var(--neutral-background-light);
-        color: var(--font-color);
+      body {
+        main {
+          // height: 100%;
+          // flex: 1 0 auto;
+          // overflow-y: auto;
+        }
       }
     </style>
   </body>

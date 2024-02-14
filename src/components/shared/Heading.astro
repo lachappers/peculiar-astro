@@ -2,14 +2,20 @@
 import { Icon } from "astro-icon/components";
 const { "aria-label": ariaLabel, id, text } = Astro.props;
 
-const href = `#${id}`;
+const href = `/#${id}`;
+
+console.log(Astro.props);
 ---
 
-<span {id} class="heading relative">
+<span id={id} class="heading relative">
   <slot />
-  <a aria-label={id + " anchor link"} {href} class="absolute -left-8"
-    ><span class="anchor-link"><Icon name="mdi:link-variant" /></span></a
+  <a
+    aria-label={id + " anchor link"}
+    {href}
+    class="absolute -left-6 top-3 text-2xl"
   >
+    <span class="anchor-link"><Icon name="mdi:link-variant" /></span>
+  </a>
 </span>
 
 <style lang="css">
@@ -30,11 +36,11 @@ const href = `#${id}`;
     /* text-decoration: none; */
   }
 
-  [astro-icon] {
+  [data-icon] {
     color: var(--action-color);
-    vertical-align: middle;
-    height: 1rem;
-    width: 1rem;
+    /* vertical-align: middle; */
+    /* height: 1rem;
+    width: 1rem; */
   }
 
   .heading:focus .anchor-link,

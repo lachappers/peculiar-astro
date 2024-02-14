@@ -2,97 +2,7 @@
 // | > Reset
 // | -------------------------------------------------------------
 
-html {
-  box-sizing: border-box;
-  // scroll-behavior: smooth;
-  height: 100%;
-
-  @media (prefers-reduced-motion: reduce) {
-    scroll-behavior: auto;
-
-    body * {
-      animation-duration: 0s !important;
-      animation-delay: 0s !important;
-    }
-  }
-}
-// body {
-
-//   // width: 100vw;
-// }
-
-body {
-  // max-height: 100vh;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--font-color);
-  background-color: var(--background);
-
-  // overflow-y: hidden;
-
-  header {
-    // position: fixed;
-    position: sticky;
-    top: 0;
-
-    z-index: 50;
-
-    width: 100%;
-    max-height: 7rem;
-    background-color: var(--background);
-
-    border-bottom: 3px solid var(--font-color);
-    .type-icon a {
-      display: block;
-
-      [astro-icon] {
-        margin-top: -4px;
-        width: 30px;
-
-        path {
-          fill: var(--action-color);
-          transition: fill 0.2s ease-in-out;
-        }
-      }
-      svg {
-        path {
-          fill: var(--action-color);
-          transition: fill 0.2s ease-in-out;
-        }
-      }
-
-      &:hover {
-        [astro-icon] path,
-        svg path {
-          fill: var(--action-color-state);
-        }
-      }
-    }
-  }
-
-  main {
-    // padding: 8rem 0;
-    height: 100%;
-    flex: 1 0 auto;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    scroll-behavior: smooth;
-    gap: 8rem;
-  }
-
-  footer {
-    // height: min-content;
-    // width: 100%;
-    flex-shrink: 0;
-    // position: relative;
-    // position: fixed;
-    // bottom: 0;
-  }
-}
-
+/* Box sizing rules */
 *,
 *::after,
 *::before {
@@ -100,107 +10,91 @@ body {
   // box-sizing: inherit;
 }
 
-blockquote,
-body,
-figure,
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+
+* {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+// ul:where([class]) {
+//   list-style: none;
+// }
+
+/* Set core body defaults with accessible line height and improved text rendering */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Avoid text overflows */
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-hr,
-li,
-ol,
-p,
-pre,
-ul {
-  margin: 0;
-  padding: 0;
+h6 {
+  overflow-wrap: break-word;
 }
 
-ul:where([class]) {
-  list-style: none;
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
 }
 
-button,
-input,
-select,
-textarea {
-  color: inherit;
-  letter-spacing: inherit;
-  font: inherit;
-}
-
-input[type="text"],
-textarea {
-  width: 100%;
-}
-
-fieldset {
-  padding: 0;
-  border: none;
-}
-
-legend {
-  margin-bottom: 0.5rem;
-  max-width: 100%;
-}
-
-button,
-input,
-textarea {
-  border: 1px solid gray;
-}
-
-button {
-  padding: 0.75em 1em;
-  border-radius: 0;
-  background-color: transparent;
-  // background-color: inherit;
-  line-height: 1;
-}
-
-button * {
-  pointer-events: none;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
+/* Make media and images easier to work with */
 embed,
 iframe,
 img,
-object,
-svg,
-video {
-  display: block;
+picture,
+video,
+canvas,
+svg {
   max-width: 100%;
-}
-
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-noscript {
   display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
 }
 
-[tabindex="-1"] {
-  outline: none !important;
-  box-shadow: none !important;
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  // color: inherit;
+  // letter-spacing: inherit;
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
 }

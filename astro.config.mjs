@@ -19,7 +19,9 @@ export default defineConfig({
   integrations: [
     tailwind({ config: { applyBaseStyles: false } }),
     partytown(),
-    sitemap(),
+    sitemap({
+      filter: (page) => page !== "https://peculiardynamics.co.uk/estimate",
+    }),
     icon(),
     react({
       experimentalReactChildren: true,

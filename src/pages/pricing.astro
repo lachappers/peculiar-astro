@@ -36,7 +36,7 @@ const INCLUDEDFEATURES = [
   <Hero
     title="Tech Essentials from"
     gradientText="£0 upfront"
-    learnTarget={`#howItWorks`}
+    learnTarget={`#web-pricing`}
     quoteButton={true}
     learnButton={true}
     imgSrc={heroVector}
@@ -44,49 +44,46 @@ const INCLUDEDFEATURES = [
 
   <PricingTable />
 
-  <section
-    class="container my-16 flex max-w-screen-xl flex-col gap-4 md:my-32 md:gap-8"
-  >
-    <div class="container flex flex-col sm:max-w-screen-lg">
-      <SectionHeading subtitle="How it works" id="howItWorks">
-        <p slot="title">
-          Keeping it
-          <span class="text-highlight">simple</span>.
-        </p>
-        <p class="">
-          We use our intelligent digital tools to quickly shape, reconfigure and
-          build the right technology for you, at the right price, on your
-          schedule.
-        </p>
-        <p class="">It's as easy as...</p>
-      </SectionHeading>
+  <section class="container max-w-screen-xl flex-col">
+    <SectionHeading subtitle="How it works" id="how-it-works">
+      <p slot="title">
+        Keeping it
+        <span class="text-highlight">simple</span>.
+      </p>
+      <p class="">
+        We use our intelligent digital tools to quickly shape, reconfigure and
+        build the right technology for you, at the right price, on your
+        schedule.
+      </p>
+      <p class="">It's as easy as...</p>
+    </SectionHeading>
 
-      <div
-        class="flex w-full flex-wrap justify-center gap-2 md:flex-nowrap md:gap-4"
-      >
-        <CallOut
-          purple="1"
-          point="Quote"
-          subtext="Build a detailed custom quote with our interactive tool."
-        />
-        <CallOut
-          purple="2"
-          point="Design"
-          subtext="Using our intelligent design tool and a 2hr design session."
-        />
-        <CallOut
-          purple="3"
-          point="Relax"
-          subtext="...whilst we build, test and look after your tech!"
-        />
-      </div>
+    <div
+      class="flex w-full max-w-screen-lg flex-wrap justify-center gap-2 md:flex-nowrap md:gap-4"
+    >
+      <CallOut
+        purple="1"
+        point="Quote"
+        subtext="Build a detailed custom quote with our interactive tool."
+      />
+      <CallOut
+        purple="2"
+        point="Design"
+        subtext="Using our intelligent design tool and a 2hr design session."
+      />
+      <CallOut
+        purple="3"
+        point="Relax"
+        subtext="...whilst we build, test and look after your tech!"
+      />
     </div>
-    <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
+
+    <div class="mt-8 flex flex-col justify-center gap-3 min-[500px]:flex-row">
       <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
       <Button
-        href="/services/#approach"
-        text="Our Approach"
-        icon="mdi:arrow-right"
+        href="#included"
+        text="See Features"
+        icon="mdi:arrow-down"
         buttonColor="color-secondary"
       />
     </div>
@@ -95,9 +92,7 @@ const INCLUDEDFEATURES = [
   <section
     class="peach my-16 flex w-full flex-col items-center justify-center px-4 py-8 md:my-32"
   >
-    <div
-      class="container flex max-w-screen-lg flex-col items-center justify-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
-    >
+    <div class="container max-w-screen-lg rounded-lg">
       <SectionHeading id="included" subtitle="Web Development Services">
         <p slot="title">
           <span class="text-highlight">Always included</span>, as standard:
@@ -192,14 +187,8 @@ const INCLUDEDFEATURES = [
         }
       </ul>
     </div>
-    <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
+    <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
       <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
-      <Button
-        href="#example"
-        icon="mdi:arrow-down"
-        text="Pricing Example"
-        buttonColor="color-secondary"
-      />
     </div>
   </section>
 

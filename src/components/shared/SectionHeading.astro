@@ -1,14 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
 import Heading from "@components/shared/Heading.astro";
-const { icon, subtitle, subtitleOrder, title, center, id } = Astro.props;
+const { icon, subtitle, subtitleOrder, title, center, id, addClasses } =
+  Astro.props;
 
 const centering = center
   ? "items-center justify-center text-center"
   : "w-full items-center justify-center text-center md:items-start md:text-left";
 ---
 
-<div class=`w-full flex flex-col sm:min-w-[20ch] gap-2 ${centering}`>
+<div
+  class=`w-full flex flex-col sm:min-w-[20ch] gap-2 ${centering} ${addClasses}`
+>
   {icon && <Icon name={icon} class="text-4xl text-[--tertiary]" />}
   {
     subtitle && (
@@ -27,7 +30,7 @@ const centering = center
       title ? (
         <Heading id={id}>{title}</Heading>
       ) : (
-        <Heading>
+        <Heading id={id}>
           <slot name="title" />
         </Heading>
       )
