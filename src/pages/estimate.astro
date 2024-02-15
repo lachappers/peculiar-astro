@@ -45,450 +45,441 @@ const ref = "TFGQ001";
 const date = new Date();
 ---
 
-<Fragment slot="head">
-  <meta name="”robots”" content="”noindex," nofollow” />
-</Fragment>
-
-<DefaultLayout title="Your Estimate">
-  <section class="my-24 box-border flex flex-col items-center">
+<DefaultLayout title="Your Estimate" />
+<section class="my-24 box-border flex flex-col items-center">
+  <div
+    class="estimater flex w-full max-w-screen-lg flex-col items-center space-y-16 p-8"
+  >
     <div
-      class="estimater flex w-full max-w-screen-lg flex-col items-center space-y-16 p-8"
+      class="flex w-full flex-col items-center justify-between gap-4 md:flex-row"
     >
-      <div
-        class="flex w-full flex-col items-center justify-between gap-4 md:flex-row"
-      >
-        <div class="flex flex-col items-center gap-4 md:w-fit md:items-start">
-          <img
-            class="max-w-md lg:max-w-lg"
-            src={logo.src}
-            alt=""
-            decoding="async"
-          />
+      <div class="flex flex-col items-center gap-4 md:w-fit md:items-start">
+        <img
+          class="max-w-md lg:max-w-lg"
+          src={logo.src}
+          alt=""
+          decoding="async"
+        />
 
-          <h1 class="z-10 text-center text-4xl md:text-left md:text-6xl">
-            Initial Estimate
-          </h1>
-          <p class="text-xl lg:text-2xl">
-            {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}
-          </p>
-        </div>
-        <div
-          class="md:text-md flex flex-none flex-col items-center text-sm md:w-fit md:items-end"
-        >
-          <p>71-75 Shelton Street</p>
-          <p>Covent Garden</p>
-          <p>London</p>
-          <p>WC2H 9JQ</p>
-          <a class="email-link mt-4" href="" aria-label="send me an email">
-            <p class="">
-              <span class="hidden">ANTISPAM</span
-              >accounts@<!-- antispam-->peculiardynamics.co.uk
-            </p>
-          </a>
-          <a href="https://peculiardynamics.co.uk"
-            >https://peculiardynamics.co.uk</a
-          >
-          <p class="mt-2">VAT: 440548112</p>
-        </div>
+        <h1 class="z-10 text-center text-4xl md:text-left md:text-6xl">
+          Initial Estimate
+        </h1>
+        <p class="text-xl lg:text-2xl">
+          {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}
+        </p>
       </div>
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
-      <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
-        <div class="max-w-[50ch]">
-          And we’re off! <br /><br />We’re delighted that you’re considering
-          working with us, and are pleased to present this Initial Quote along
-          with all the information you’ll need to get started today. <br /><br
-          />Once you’ve reviewed this document, you can click the button at the
-          bottom to pay your deposit and get cracking on your brief instantly. <br
-          /><br />No hidden fees, no endless back and forth, no more time
-          wasted. How great is that?!
-        </div>
-        <div class="rounded-md border-2 border-solid border-red-400 p-4">
-          This document is still a WIP so some things might be missing or not
-          quite right. Please refer to the email we've shared along side this
-          with details that you'll need to know.
-        </div>
-        <!-- <ol class="">
+      <div
+        class="md:text-md flex flex-none flex-col items-center text-sm md:w-fit md:items-end"
+      >
+        <p>71-75 Shelton Street</p>
+        <p>Covent Garden</p>
+        <p>London</p>
+        <p>WC2H 9JQ</p>
+        <a class="email-link mt-4" href="" aria-label="send me an email">
+          <p class="">
+            <span class="hidden">ANTISPAM</span
+            >accounts@<!-- antispam-->peculiardynamics.co.uk
+          </p>
+        </a>
+        <a href="https://peculiardynamics.co.uk"
+          >https://peculiardynamics.co.uk</a
+        >
+        <p class="mt-2">VAT: 440548112</p>
+      </div>
+    </div>
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
+    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <div class="max-w-[50ch]">
+        And we’re off! <br /><br />We’re delighted that you’re considering
+        working with us, and are pleased to present this Initial Quote along
+        with all the information you’ll need to get started today. <br /><br
+        />Once you’ve reviewed this document, you can click the button at the
+        bottom to pay your deposit and get cracking on your brief instantly. <br
+        /><br />No hidden fees, no endless back and forth, no more time wasted.
+        How great is that?!
+      </div>
+      <div class="rounded-md border-2 border-solid border-red-400 p-4">
+        This document is still a WIP so some things might be missing or not
+        quite right. Please refer to the email we've shared along side this with
+        details that you'll need to know.
+      </div>
+      <!-- <ol class="">
           <li></li>
         </ol> -->
-      </div>
+    </div>
 
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
+    <div
+      class="prose mt-8 flex w-full flex-col justify-between gap-16 text-base md:flex-row"
+    >
+      <ol class="list max-w-[50ch] list-decimal">
+        <h2 class="mb-4 whitespace-nowrap">Your Challenges</h2>
+        <li class="">
+          <strong>Attracting customers</strong> and standing out from your competition
+        </li>
+        <li class="">
+          <strong>Raising Awareness</strong> of your Business and building your digital
+          reputation
+        </li>
+        <li class="">
+          <strong>Improving profit margin</strong> - through saving yourself time
+          or reducing costs of technology or manual processes
+        </li>
+        <li class="">
+          Streamlining your tech to help you build <strong>
+            effective, efficient, streamlined processes
+          </strong>
+        </li>
+      </ol>
+
+      <ol class="inline max-w-[60ch] list-decimal text-base">
+        <h2 class="mb-4 whitespace-nowrap">How we can help</h2>
+        <li class="">
+          Use of our intelligent design and discovery tools to build your brief
+          on your own schedule and <strong>
+            keep the time you need to invest to a minimum
+          </strong>.
+        </li>
+        <li class="">
+          Fresh new design or migration of your existing site and brand to a
+          <strong
+            >hand coded site, built to improve search rankings and stay secure</strong
+          >.
+        </li>
+        <li class="">
+          <strong>Pay only for what you want and need:</strong> custom-built additional
+          functionality, targeted to work for your industry, meet your customer's
+          needs 24/7, with less hassle for you.
+        </li>
+        <li class="">
+          <strong>Transparent, fixed pricing and timeline</strong> with minimal tech
+          jargon so you know exactly what you're paying for.
+        </li>
+        <li class="">
+          <strong
+            >Domain, professional email and hosting setup and management</strong
+          > to keep your web presence and messaging secure, available and speedy
+        </li>
+        <li class="">
+          Detailed analytics available to you forever with reporting from us to
+          track the changes you're seeing from this investment for the first 6
+          months.
+        </li>
+        <li class="">
+          <strong>A year of our Core Support Package included:</strong>providing
+          access to 24/7 support, our training and reference Library,
+          optimisation and troubleshooting of your site and features and
+          proactive scanning and updates to optimise SEO, performance and
+          security - giving you more time to get back to business.
+        </li>
+      </ol>
+    </div>
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
+
+    <div
+      class="flex max-w-screen-md flex-col items-start justify-between gap-4"
+    >
+      <h2>Why work with us?</h2>
+      <ol class="max-w-[65ch]">
+        <li>
+          <strong>Tech-led</strong> - our automated processes, self-service support
+          and smart tools;
+
+          <ol>
+            <li>
+              Reduce the human hours needed from you and us, to help us deliver
+              exceptional quality, fast, without the premium price tag
+            </li>
+            <li>
+              Allow you to work with us 24/7, on your own schedule, at your own
+              pace, without taking time away from your business
+            </li>
+          </ol>
+        </li>
+        <li>
+          <strong>UK-based…</strong>
+          <ol>
+            <li>
+              … rigorously-vetted experts who understand business and
+              technology, no call centres, crossed wires or mass produced
+              rubbish
+            </li>
+            <li>
+              … suppliers, solutions and tools wherever possible to support
+              other British Businesses like ours.
+            </li>
+          </ol>
+        </li>
+        <li>
+          <strong>Transparent, upfront, flexible</strong> pricing and payment options
+          <ol>
+            <li>
+              Enabling us to pass on discounts for upfront payment, or spread
+              out the cost of your investment
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
+
+    <div
+      class="flex w-full max-w-screen-md flex-col items-start justify-between gap-4 pt-32"
+    >
       <div
-        class="prose mt-8 flex w-full flex-col justify-between gap-16 text-base md:flex-row"
+        class="secondary-bg relative flex w-full max-w-screen-md flex-col items-end self-end rounded-lg border-4 border-black p-4"
       >
-        <ol class="list max-w-[50ch] list-decimal">
-          <h2 class="mb-4 whitespace-nowrap">Your Challenges</h2>
-          <li class="">
-            <strong>Attracting customers</strong> and standing out from your competition
-          </li>
-          <li class="">
-            <strong>Raising Awareness</strong> of your Business and building your
-            digital reputation
-          </li>
-          <li class="">
-            <strong>Improving profit margin</strong> - through saving yourself time
-            or reducing costs of technology or manual processes
-          </li>
-          <li class="">
-            Streamlining your tech to help you build <strong>
-              effective, efficient, streamlined processes
-            </strong>
-          </li>
-        </ol>
-
-        <ol class="inline max-w-[60ch] list-decimal text-base">
-          <h2 class="mb-4 whitespace-nowrap">How we can help</h2>
-          <li class="">
-            Use of our intelligent design and discovery tools to build your
-            brief on your own schedule and <strong>
-              keep the time you need to invest to a minimum
-            </strong>.
-          </li>
-          <li class="">
-            Fresh new design or migration of your existing site and brand to a
-            <strong
-              >hand coded site, built to improve search rankings and stay secure</strong
-            >.
-          </li>
-          <li class="">
-            <strong>Pay only for what you want and need:</strong> custom-built additional
-            functionality, targeted to work for your industry, meet your customer's
-            needs 24/7, with less hassle for you.
-          </li>
-          <li class="">
-            <strong>Transparent, fixed pricing and timeline</strong> with minimal
-            tech jargon so you know exactly what you're paying for.
-          </li>
-          <li class="">
-            <strong
-              >Domain, professional email and hosting setup and management</strong
-            > to keep your web presence and messaging secure, available and speedy
-          </li>
-          <li class="">
-            Detailed analytics available to you forever with reporting from us
-            to track the changes you're seeing from this investment for the
-            first 6 months.
-          </li>
-          <li class="">
-            <strong
-              >A year of our Core Support Package included:
-            </strong>providing access to 24/7 support, our training and
-            reference Library, optimisation and troubleshooting of your site and
-            features and proactive scanning and updates to optimise SEO,
-            performance and security - giving you more time to get back to
-            business.
-          </li>
-        </ol>
-      </div>
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
-
-      <div
-        class="flex max-w-screen-md flex-col items-start justify-between gap-4"
-      >
-        <h2>Why work with us?</h2>
-        <ol class="max-w-[65ch]">
-          <li>
-            <strong>Tech-led</strong> - our automated processes, self-service support
-            and smart tools;
-
-            <ol>
-              <li>
-                Reduce the human hours needed from you and us, to help us
-                deliver exceptional quality, fast, without the premium price tag
-              </li>
-              <li>
-                Allow you to work with us 24/7, on your own schedule, at your
-                own pace, without taking time away from your business
-              </li>
-            </ol>
-          </li>
-          <li>
-            <strong>UK-based…</strong>
-            <ol>
-              <li>
-                … rigorously-vetted experts who understand business and
-                technology, no call centres, crossed wires or mass produced
-                rubbish
-              </li>
-              <li>
-                … suppliers, solutions and tools wherever possible to support
-                other British Businesses like ours.
-              </li>
-            </ol>
-          </li>
-          <li>
-            <strong>Transparent, upfront, flexible</strong> pricing and payment options
-            <ol>
-              <li>
-                Enabling us to pass on discounts for upfront payment, or spread
-                out the cost of your investment
-              </li>
-            </ol>
-          </li>
-        </ol>
-      </div>
-
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
-
-      <div
-        class="flex w-full max-w-screen-md flex-col items-start justify-between gap-4 pt-32"
-      >
-        <div
-          class="secondary-bg relative flex w-full max-w-screen-md flex-col items-end self-end rounded-lg border-4 border-black p-4"
-        >
-          <h2 class="w-full max-w-[75ch] pl-56">
-            A note from Lucy<br />
-          </h2>
-          <p class="mb-4 w-full pl-56 text-xl italic" aria-role="doc-subtitle">
-            Peculiar Founder
-          </p>
-          <img
-            class="absolute -left-24 -top-32 aspect-square max-w-xs self-start rounded-full border-4 border-green-300 object-cover"
-            src={headshot.src}
-            alt=""
-            decoding="async"
-          />
-          <div
-            class="flex w-full max-w-[80ch] flex-col gap-2 rounded-lg border-4 border-black bg-white p-8"
-          >
-            <p class="pl-32">
-              Have you ever noticed that deer-caught-in-the-headlights face that
-              business owners pull when asked about their tech?
-            </p>
-            <p>
-              For those of us who remember floppy disks, a whole lot has changed
-              since they began their demisn - not just in technology, but in
-              business. A kick-ass product and excellent customer service might
-              keep you alive, but alone, that's no longer enough.
-            </p>
-            <p>
-              Accessing affordable technology <em>and</em> understanding how to use
-              it is essential, and it doesn't need to make you feel as if a 1999
-              Ford Fiesta van is about to turn you into roadside venison.
-            </p>
-            <p>
-              I accidentally fell into technology; consulting globally for huge
-              companies, later working for Google and Amazon, gaining an MBA
-              from a world-leading Business School, before landing in Operations
-              leadership accross the London HealthTech scene.
-            </p>
-            <p>
-              I now help small and frowing businesses and Entrepreneurs find and
-              build the technology they need without the smoke and mirrors, to
-              realise the dynamics at play and the harness value technology can
-              bring.
-            </p>
-            <p>
-              I enjoy working as a client-facing technology developer, whilst
-              curating a team of technically excellent and business-savvy humans
-              to help us grow to support even more peculiar businesses.
-            </p>
-            <p>Thank you for considering working with us!</p>
-          </div>
-        </div>
-      </div>
-
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
-
-      <div class="flex w-full flex-col gap-4">
-        <h2>The Quote</h2>
-        <p class="text-right text-lg font-bold">Ref: {ref}</p>
-        <table class="table-fixed">
-          <thead>
-            <tr>
-              <th scope="col">Quantity</th>
-              <th scope="col" class="w-64">Description</th>
-              <th scope="col">Unit Price (£)</th>
-              <th scope="col">VAT</th>
-              <th scope="col">Net Subtotal</th>
-              <th scope="col">Unit Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              contents.map(
-                (item) =>
-                  item.quantity !== 0 && (
-                    <tr>
-                      <td class="text-center">{item.quantity}</td>
-                      <td class="text-left">{item.description}</td>
-                      <td class="text-center">{item.price}</td>
-                      <td class="text-center">{vat}</td>
-                      <td class="tprice text-center font-bold">
-                        {(
-                          (isNaN(item.quantity) ? 1 : item.quantity) *
-                          item.price
-                        ).toFixed(2)}
-                      </td>
-                      <td class="text-center">{item.time}</td>
-                    </tr>
-                  )
-              )
-            }
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Net Total</td>
-              <td id="netTotal"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>VAT</td>
-
-              <td id="totalVAT"></td>
-              <td></td>
-            </tr>
-            <tr class="text-md font-bold">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>GBP Total</td>
-              <td id="totalPrice"></td>
-              <td></td>
-            </tr>
-            <tr class="">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Estimated Duration</td>
-
-              <td></td>
-              <td>{duration}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
-
-      <div class="flex max-w-[75ch] flex-col items-start justify-between gap-4">
-        <h2>The Fine Print</h2>
-        <div>
-          We share all of our Terms and Conditions, along with other important
-          Policies upfront and publicly so that you know right from the offset
-          how we work. <br /><br />An important point to note - paying the
-          deposit does not commit you to accepting The Proposal we will build
-          together. It secures a design session where we will present you with
-          some options and full details of the products and services we
-          recommend. This deposit will then be deducted from the services you
-          choose to purchase. <br /><br />Please take some time to familiarise
-          yourself with these at the following links:
-        </div>
-        <ul>
-          <li>
-            <a
-              href="https://docs.google.com/document/d/1il7DS2pKGMHRHaVLDUJY2EBUj5HYKedvepcAbJ7SCe0/view"
-              >Our Terms and Conditions</a
-            >
-          </li>
-          <li>
-            <a href="https://peculiardynamics.co.uk/policies/privacy/"
-              >Our Privacy Policy</a
-            >
-          </li>
-        </ul>
-      </div>
-      <hr
-        class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
-      />
-
-      <div class="flex max-w-[75ch] flex-col items-center gap-4">
-        <h2 class="w-full">The 'Let's Go' Button</h2>
-        <div>
-          Clicking the button below will redirect you to a secure payment link
-          to pay your deposit of £1,000 +VAT. We’ll then send you a message for
-          you to book a design session and get started on building your brief. <br
-          /><br />
-          Please ensure you have read and understood the Terms and Conditions as
-          referenced in the section above before proceeding.
-        </div>
-        <Button
-          href="https://buy.stripe.com/3cs6q586R8s19TaaEF"
-          text="Let's Go!"
+        <h2 class="w-full max-w-[75ch] pl-56">
+          A note from Lucy<br />
+        </h2>
+        <p class="mb-4 w-full pl-56 text-xl italic" aria-role="doc-subtitle">
+          Peculiar Founder
+        </p>
+        <img
+          class="absolute -left-24 -top-32 aspect-square max-w-xs self-start rounded-full border-4 border-green-300 object-cover"
+          src={headshot.src}
+          alt=""
+          decoding="async"
         />
-        <p>OR</p>
         <div
-          class="max-w-[45ch] rounded-md border-2 border-solid border-blue-400 p-4 text-center"
+          class="flex w-full max-w-[80ch] flex-col gap-2 rounded-lg border-4 border-black bg-white p-8"
         >
-          Pay via BACS using the following information: <br /><br />Peculiar
-          Dynamics Ltd.
-          <br />Bank: Mettle <br />Bank/Sort Code: 040333 <br />Account Number:
-          57536348 <br />Payment Reference: {ref}
+          <p class="pl-32">
+            Have you ever noticed that deer-caught-in-the-headlights face that
+            business owners pull when asked about their tech?
+          </p>
+          <p>
+            For those of us who remember floppy disks, a whole lot has changed
+            since they began their demisn - not just in technology, but in
+            business. A kick-ass product and excellent customer service might
+            keep you alive, but alone, that's no longer enough.
+          </p>
+          <p>
+            Accessing affordable technology <em>and</em> understanding how to use
+            it is essential, and it doesn't need to make you feel as if a 1999 Ford
+            Fiesta van is about to turn you into roadside venison.
+          </p>
+          <p>
+            I accidentally fell into technology; consulting globally for huge
+            companies, later working for Google and Amazon, gaining an MBA from
+            a world-leading Business School, before landing in Operations
+            leadership accross the London HealthTech scene.
+          </p>
+          <p>
+            I now help small and frowing businesses and Entrepreneurs find and
+            build the technology they need without the smoke and mirrors, to
+            realise the dynamics at play and the harness value technology can
+            bring.
+          </p>
+          <p>
+            I enjoy working as a client-facing technology developer, whilst
+            curating a team of technically excellent and business-savvy humans
+            to help us grow to support even more peculiar businesses.
+          </p>
+          <p>Thank you for considering working with us!</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <script>
-    let sum = 0;
-    const prices = [...document.querySelectorAll(".tprice")].map((td) =>
-      isNaN(td.textContent) ? 0 : +td.textContent
-    ); // an array of numbers
-    if (prices.length) sum = prices.reduce((a, b) => a + b); // reduced to a sum
-    document.getElementById("netTotal").innerHTML += "£" + sum.toFixed(2);
-    document.getElementById("totalVAT").innerHTML +=
-      "£" + (sum * 0.2).toFixed(2);
-    document.getElementById("totalPrice").innerHTML +=
-      "£" + (sum * 1.2).toFixed(2);
-  </script>
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
 
-  <style lang="scss">
-    .estimater {
-      //   border: 1px solid brown;
-    }
-    li {
-      display: list-item;
-      list-style-position: outside;
-      margin-left: 2rem;
-    }
-    ol {
-      list-style-type: decimal;
-    }
-    ol li {
-      list-style: decimal;
-    }
-    ul,
-    ol {
-      margin-top: 1rem;
-    }
-    ul li {
-      list-style: disc;
-    }
-    ol li ol li {
-      list-style: lower-latin;
-      margin-left: 2rem;
-    }
-    li:not(:last-child) {
-      margin-bottom: 0.5rem;
-    }
-    // table {
-    //   border-collapse: collapse;
-    //   border: 1px solid black;
+    <div class="flex w-full flex-col gap-4">
+      <h2>The Quote</h2>
+      <p class="text-right text-lg font-bold">Ref: {ref}</p>
+      <table class="table-fixed">
+        <thead>
+          <tr>
+            <th scope="col">Quantity</th>
+            <th scope="col" class="w-64">Description</th>
+            <th scope="col">Unit Price (£)</th>
+            <th scope="col">VAT</th>
+            <th scope="col">Net Subtotal</th>
+            <th scope="col">Unit Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            contents.map(
+              (item) =>
+                item.quantity !== 0 && (
+                  <tr>
+                    <td class="text-center">{item.quantity}</td>
+                    <td class="text-left">{item.description}</td>
+                    <td class="text-center">{item.price}</td>
+                    <td class="text-center">{vat}</td>
+                    <td class="tprice text-center font-bold">
+                      {(
+                        (isNaN(item.quantity) ? 1 : item.quantity) * item.price
+                      ).toFixed(2)}
+                    </td>
+                    <td class="text-center">{item.time}</td>
+                  </tr>
+                )
+            )
+          }
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Net Total</td>
+            <td id="netTotal"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>VAT</td>
+
+            <td id="totalVAT"></td>
+            <td></td>
+          </tr>
+          <tr class="text-md font-bold">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>GBP Total</td>
+            <td id="totalPrice"></td>
+            <td></td>
+          </tr>
+          <tr class="">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Estimated Duration</td>
+
+            <td></td>
+            <td>{duration}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
+
+    <div class="flex max-w-[75ch] flex-col items-start justify-between gap-4">
+      <h2>The Fine Print</h2>
+      <div>
+        We share all of our Terms and Conditions, along with other important
+        Policies upfront and publicly so that you know right from the offset how
+        we work. <br /><br />An important point to note - paying the deposit
+        does not commit you to accepting The Proposal we will build together. It
+        secures a design session where we will present you with some options and
+        full details of the products and services we recommend. This deposit
+        will then be deducted from the services you choose to purchase. <br
+        /><br />Please take some time to familiarise yourself with these at the
+        following links:
+      </div>
+      <ul>
+        <li>
+          <a
+            href="https://docs.google.com/document/d/1il7DS2pKGMHRHaVLDUJY2EBUj5HYKedvepcAbJ7SCe0/view"
+            >Our Terms and Conditions</a
+          >
+        </li>
+        <li>
+          <a href="https://peculiardynamics.co.uk/policies/privacy/"
+            >Our Privacy Policy</a
+          >
+        </li>
+      </ul>
+    </div>
+    <hr
+      class="mb-16 w-full max-w-sm flex-none border-2 border-solid border-indigo-200"
+    />
+
+    <div class="flex max-w-[75ch] flex-col items-center gap-4">
+      <h2 class="w-full">The 'Let's Go' Button</h2>
+      <div>
+        Clicking the button below will redirect you to a secure payment link to
+        pay your deposit of £1,000 +VAT. We’ll then send you a message for you
+        to book a design session and get started on building your brief. <br
+        /><br />
+        Please ensure you have read and understood the Terms and Conditions as referenced
+        in the section above before proceeding.
+      </div>
+      <Button
+        href="https://buy.stripe.com/3cs6q586R8s19TaaEF"
+        text="Let's Go!"
+      />
+      <p>OR</p>
+      <div
+        class="max-w-[45ch] rounded-md border-2 border-solid border-blue-400 p-4 text-center"
+      >
+        Pay via BACS using the following information: <br /><br />Peculiar
+        Dynamics Ltd.
+        <br />Bank: Mettle <br />Bank/Sort Code: 040333 <br />Account Number:
+        57536348 <br />Payment Reference: {ref}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let sum = 0;
+  const prices = [...document.querySelectorAll(".tprice")].map((td) =>
+    isNaN(td.textContent) ? 0 : +td.textContent
+  ); // an array of numbers
+  if (prices.length) sum = prices.reduce((a, b) => a + b); // reduced to a sum
+  document.getElementById("netTotal").innerHTML += "£" + sum.toFixed(2);
+  document.getElementById("totalVAT").innerHTML += "£" + (sum * 0.2).toFixed(2);
+  document.getElementById("totalPrice").innerHTML +=
+    "£" + (sum * 1.2).toFixed(2);
+</script>
+
+<style lang="scss">
+  .estimater {
+    //   border: 1px solid brown;
+  }
+  li {
+    display: list-item;
+    list-style-position: outside;
+    margin-left: 2rem;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ol li {
+    list-style: decimal;
+  }
+  ul,
+  ol {
+    margin-top: 1rem;
+  }
+  ul li {
+    list-style: disc;
+  }
+  ol li ol li {
+    list-style: lower-latin;
+    margin-left: 2rem;
+  }
+  li:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+  // table {
+  //   border-collapse: collapse;
+  //   border: 1px solid black;
+  //   text-align: center;
+  //   vertical-align: middle;
+  // }
+  td {
+    padding: 1rem;
     //   text-align: center;
-    //   vertical-align: middle;
-    // }
-    td {
-      padding: 1rem;
-      //   text-align: center;
-      vertical-align: middle;
-    }
-    .secondary-bg {
-      background-color: var(--secondary-100);
-    }
-  </style>
-</DefaultLayout>
+    vertical-align: middle;
+  }
+  .secondary-bg {
+    background-color: var(--secondary-100);
+  }
+</style>

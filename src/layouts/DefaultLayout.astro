@@ -1,16 +1,12 @@
 ---
 import "../assets/scss/globals.scss";
 import SiteMeta from "../components/SiteMeta.astro";
-import CookiesHead from "@components/shared/CookiesHead.astro";
+import CookiesHead from "../components/shared/CookiesHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-// import { Image } from "astro:assets";
-// import logo from "../assets/1074x584.png";
-// import CookieConsentComponent from "../components/CookieBanner.jsx";
 import Cookies from "@components/Cookies.astro";
-// import Whatsapp from "../components/Whatsapp.astro";
 import { ViewTransitions } from "astro:transitions";
-import { SITE } from "@config";
+import { SITE } from "../config";
 
 const {
   title = SITE.title,
@@ -20,21 +16,11 @@ const {
   subtitle = SITE.subtitle,
   author = SITE.author,
 } = Astro.props;
-
-// console.log(title);
 ---
 
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href={favicon} />
-    <!-- <link rel="icon" type="image/png" href='/assets/images/favicon.png"' /> -->
-    <!-- sitemap -->
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <CookiesHead />
 
     <SiteMeta
       title={title}
@@ -46,7 +32,15 @@ const {
       image={"1074x584.png"}
       author={author}
     />
-    <CookiesHead />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <!-- <link rel="icon" type="image/png" href='/assets/images/favicon.png"' /> -->
+    <!-- sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <slot name="head" />
+
     <!-- Whatsapp link redirect -->
 
     <!-- <script
@@ -88,7 +82,7 @@ const {
     </main>
 
     <Footer />
-    <!-- <CookieConsentComponent client:load /> -->
+
     <Cookies />
     <!-- <Whatsapp /> -->
     <script>
