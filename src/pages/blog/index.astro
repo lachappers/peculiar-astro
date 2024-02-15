@@ -1,0 +1,45 @@
+---
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { getCollection } from "astro:content";
+
+import Card from "@components/common/Card.astro";
+
+// // Filter blog entries with 'draft: false' & date before current date
+// const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+//   return !data.draft && data.publishDate < new Date();
+// });
+
+// // Sort content entries by publication date
+// publishedBlogEntries.sort(function (a, b) {
+//   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+// });
+
+const allBlogPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+// const allBlogs = await Astro.glob('../blog/posts/*.md');
+---
+
+<DefaultLayout title="Blog">
+  {
+    allBlogPosts.length === 0 ? (
+      <h1>No Recent blogs</h1>
+    ) : (
+      <ul class="grid max-w-xs grid-cols-1 place-items-center gap-6 sm:max-w-lg md:max-w-4xl lg:grid-cols-3">
+        {allBlogPosts.map((blog) => (
+          <Card
+            tags={blog.data.tags}
+            title={blog.data.title}
+            cardLink={`/blog/${blog.slug}`}
+            author={blog.data.author}
+            date={blog.data.date}
+            image={blog.data.image}
+            imageAlt={blog.data.imageAlt}
+          >
+            <p class="mt-2 text-ellipsis text-sm">{blog.data.preview}</p>
+          </Card>
+        ))}
+      </ul>
+    )
+  }
+</DefaultLayout>

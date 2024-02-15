@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+publish_mode: editorial_workflow
+media_folder: public/assets/images/uploads
+public_folder: /assets/images/uploads
+site_url: "peculiardynamics.co.uk" # your site name
+display_url: "https://peculiardynamics.co.uk"
+logo_url: /assets/images/1074x584.png
+
+collections:
+  - name: blog
+    label: Blogs
+    label_singular: "Blog Post"
+    folder: src/content/blog
+    create: true
+    delete: true
+    format: frontmatter
+    preview_path: blog/{{slug}}
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Text Preview", name: "preview", widget: "string" }
+      - {
+          label: "Author Name",
+          name: "author",
+          widget: "relation",
+          collection: "team",
+          value_field: name,
+          search_fields: ["name"],
+        }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - {
+          label: "Tags",
+          name: "tags",
+          hint: "Add tags separated by a comma",
+          widget: "list",
+          allow_add: true,
+          allow_delete: true,
+          default: ["blog"],
+        }
+      - {
+          label: "Featured Image",
+          name: "image",
+          widget: "image",
+          allow_multiple: false,
+        }
+      - {
+          label: "Image Caption",
+          name: "imageAlt",
+          widget: "string",
+          required: false,
+          hint: "Add a caption if you need to describe this image to visually impaired users, otherwise, leave blank",
+        }
+      - { name: body, label: Body, widget: markdown }

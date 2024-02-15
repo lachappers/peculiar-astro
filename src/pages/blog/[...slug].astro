@@ -1,0 +1,83 @@
+---
+import { getCollection, getEntry } from "astro:content";
+// import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+import CollectionLayout from "@layouts/CollectionLayout.astro"
+import { Icon } from "astro-icon/components";
+import {formatDate} from "@utils"
+import { Image } from "astro:assets";
+
+// Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogs = await getCollection("blog");
+    return blogs.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+    }
+  ))
+  }
+
+// Get the entry directly from the prop on render
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+---
+
+<CollectionLayout frontmatter={entry.data}>
+  <article class="mx-auto mt-12 max-w-3xl">
+    <header class="not-prose flex flex-col gap-4 items-center w-full py-6 text-[--on-surface-variant]">
+
+        <div class="flex flex-wrap gap-4 items-center w-full">
+          <time datetime={String(entry.data.date)} class="inline-flex items-center gap-2"><Icon name="mdi:clock" class="w-4 h-4 inline-block " />{formatDate(entry.data.date)}</time>
+          {
+            entry.data.author && (
+                <p class="inline-flex items-center gap-2"><Icon name="mdi:user" class="w-4 h-4 inline-block " />{entry.data.author}</p>
+            )
+          }
+          <a class="uppercase hover:underline inline-block font-semibold" href="/blog">
+            Blog
+          </a>
+        </div>
+
+        <h1 class="w-full text-3xl md:text-5xl font-bold font-serif-heading">
+          {entry.data.title}
+        </h1>
+        <p class="w-full text-lg md:text-xl">
+          {entry.data.preview}
+        </p>
+        {
+          entry.data.image ? (
+            <Image
+              src={entry.data.image}
+              class="max-w-full lg:max-w-screen-xl sm:rounded-md"
+              widths={[400, 900]}
+              sizes="(max-width: 900px) 400px, 900px"
+              alt={entry.data?.imageAlt || ''}
+              width={900}
+              height={506}
+              loading="lazy"
+              decoding="async"
+              format="webp"
+            />
+          ) : (
+            <div class="max-w-3xl sm:px-6">
+              <div class="border-t" />
+            </div>
+          )
+        }
+    </header>
+    <div class="prose prose-base dark:prose-invert py-4">
+      <!-- {Content ? <Content /> : <Fragment set:html={entry.content || ''} />} -->
+      <Content />
+    </div>
+
+  </article>
+
+  <div class="text-center mt-8">
+    <a
+      href="/blog"
+      class="bg-[--primary-container] px-5 py-3 rounded-md hover:bg-[--inverse-primary] transition"
+      >← Back to Blog</a
+    >
+  </div>
+
+</CollectionLayout>
