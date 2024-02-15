@@ -3,7 +3,7 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon/components";
 
 import Hero from "../components/Hero.astro";
-import Heading from "@components/shared/Heading.astro";
+
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
@@ -32,7 +32,10 @@ const INCLUDEDFEATURES = [
 ];
 ---
 
-<DefaultLayout title="Pricing">
+<DefaultLayout
+  title="Clear Pricing, Affordable Technology"
+  description="Want to know how much a website costs? Find affordable, effective technology solutions designed for small businesses. Get a tailored quote today!"
+>
   <Hero
     title="Tech Essentials from"
     gradientText="£0 upfront"
@@ -192,160 +195,6 @@ const INCLUDEDFEATURES = [
     </div>
   </section>
 
-  <!-- <section class="px-4 py-8">
-    <div
-      class="container flex max-w-sm flex-col items-center px-4 py-8 sm:max-w-screen-xl"
-    >
-      <div class="max-w-screen-lg">
-        <h2 class="mb-2 w-full text-lg font-bold">
-          <Heading id="example" text="Example pricing" />
-        </h2>
-        <p class="mb-16 w-full text-4xl font-bold">
-          <span class="text-highlight">Transparent</span>, customisable
-          products, services & pricing
-        </p>
-      </div>
-      <div
-        class="flex w-full max-w-screen-lg flex-col items-center justify-between gap-8 p-4 lg:flex-row"
-      >
-        <div class="mb-8 max-w-[40ch] text-2xl">
-          <p class="">
-            We use technology to build custom, detailed quotes that allow you to
-            pick more of what you want, and less of what you don't.
-          </p>
-          <br />
-          <p class="">
-            Our quotes are fixed - preventing any nasty surprises - with any
-            extras priced clearly and comprehensively, so you know what you're
-            signing up for.
-          </p>
-          <br />
-          <p class="">
-            We offer flexible payment options, to suit your business, with
-            discounts for any work paid up front, any follow on work and any
-            successful referrals you make to us.
-          </p>
-        </div>
-        <div class="example peach max-w-md flex-none items-center gap-2 p-4">
-          <p class="text-xl font-bold">EXAMPLE QUOTE</p>
-          <div class="toggle relative flex w-full justify-between px-4 py-8">
-            <p class="w-1/5 font-semibold">PAY MONTHLY</p>
-            <input
-              type="checkbox"
-              id="exampleToggle"
-              class="relative h-10 w-[4.5rem] cursor-pointer appearance-none rounded-full border border-2 border-black bg-gray-100 ring-1 ring-black ring-offset-white transition-colors duration-200 ease-in-out before:inline-block before:h-9 before:w-9 before:translate-x-0 before:transform before:rounded-full before:bg-white before:shadow before:ring-2 before:ring-black before:transition before:duration-200 before:ease-in-out checked:bg-blue-600 checked:bg-none checked:before:translate-x-full checked:before:bg-blue-200 focus:border-blue-600 focus:outline-none focus:ring-blue-600 dark:bg-gray-700 dark:before:bg-gray-400 dark:checked:bg-blue-600 dark:checked:before:bg-blue-200 dark:focus:ring-offset-gray-800"
-            />
-            <label for="exampleToggle" class="sr-only"
-              >toggle cost by payment term</label
-            >
-            <p class="w-1/5 text-right font-semibold">PAY UPFRONT</p>
-            <span
-              class="absolute bottom-2 right-2 rounded-full border-2 border-black bg-blue-800 px-1 text-xs font-light text-blue-50"
-              >Save 10%</span
-            >
-          </div>
-          <div
-            class="grid w-full grid-cols-4 gap-2 rounded-md border-2 border-black p-2"
-          >
-            <div class="col-span-3 text-lg font-bold">DESIGN & BUILD</div>
-            <p class="monthly row-span-2 justify-self-end text-lg font-bold">
-              £4,500
-            </p>
-            <div
-              class="upfront relative row-span-2 flex hidden flex-col justify-self-end"
-            >
-              <p class="text-lg font-light line-through">£4,500</p>
-              <p class="text-lg font-bold">£4,150</p>
-              <span
-                class="absolute bottom-0 w-full rounded-full border-2 border-black bg-blue-800 px-1 text-center text-xs font-light text-blue-50"
-                >-10%</span
-              >
-            </div>
-            <p class="col-span-3">
-              5 page, hand-coded, brochure site. Hosting, email, productivity &
-              web presence tools setup.
-            </p>
-          </div>
-          <div
-            class="grid grid-cols-4 gap-2 rounded-md border-2 border-black p-2"
-          >
-            <div class="col-span-3 text-lg font-bold">
-              MANAGE & SUPPORT <span class="text-sm font-light">
-                (12 months)</span
-              >
-            </div>
-            <p class="monthly row-span-2 justify-self-end text-lg font-bold">
-              £75 <span class="text-sm font-light"> /month</span>
-            </p>
-            <div
-              class="upfront relative row-span-2 flex hidden flex-col items-end justify-self-end"
-            >
-              <p class="text-lg font-light line-through">£75</p>
-              <p class="text-lg font-bold">£67.50</p>
-              <p class="text-sm font-light">/month</p>
-
-              <span
-                class="absolute bottom-0 w-full rounded-full border-2 border-black bg-blue-800 px-1 text-center text-xs font-light text-blue-50"
-                >-10%</span
-              >
-            </div>
-            <p class="col-span-3">
-              Core package incl; domain & email hosting, security & performance
-              updates, Google Workspace (x1).
-            </p>
-          </div>
-          <div
-            class="flex w-full items-end gap-2 border-b-2 border-solid border-black pb-2"
-          >
-            <p class="flex-none font-semibold">TOTAL</p>
-            <span
-              class="relative bottom-1 flex-auto border-b-2 border-dotted border-slate-400"
-            ></span>
-
-            <p class="monthly text-lg font-bold">
-              £5,400 <span class="text-sm font-light"> ex.VAT</span>
-            </p>
-            <div
-              class="upfront relative flex hidden items-end justify-end gap-2 justify-self-end"
-            >
-              <p class="text-sm font-light line-through">£5,400</p>
-              <p class="text-lg font-bold">
-                £4,960 <span class="text-sm font-light"> ex.VAT</span>
-              </p>
-            </div>
-          </div>
-          <div
-            class="neutral flex w-full flex-col items-center rounded-md border-2 border-black p-2"
-          >
-            <div class="flex w-full gap-2">
-              <p class="flex-none text-lg font-semibold">Initial Deposit</p>
-              <span
-                class="relative bottom-1 flex-auto border-b-2 border-dotted border-slate-400"
-              ></span>
-              <p class="flex-none text-lg font-semibold">£1,000</p>
-            </div>
-            <span>+</span>
-            <div class="monthly flex flex-col items-center">
-              <p class="text-4xl font-bold">
-                £366 <span class="text-lg font-semibold">/month</span>
-                <span class="text-xs font-light">(ex.VAT)</span>
-              </p>
-              <p class="text-lg font-semibold">for 12 months</p>
-            </div>
-            <div class="upfront flex hidden flex-col items-center">
-              <p class="text-4xl font-bold">
-                £3960
-                <span class="text-xs font-light">(ex.VAT)</span>
-              </p>
-              <p class="text-lg font-semibold">paid after design is agreed</p>
-            </div>
-          </div>
-          <Button href="/quoter" icon="ph:chat" text="Get Your Quote" />
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <CallToAction />
 </DefaultLayout>
 
@@ -393,25 +242,3 @@ const INCLUDEDFEATURES = [
     border-radius: 9999px;
   }
 </style>
-<!-- <script type="text/javascript">
-  const monthlys = document.querySelectorAll(".monthly");
-  const upfronts = document.querySelectorAll(".upfront");
-
-  document.getElementById("exampleToggle").addEventListener("change", () => {
-    if (document.querySelector("#exampleToggle:checked")) {
-      monthlys.forEach((m) => {
-        m.classList.add("hidden");
-      });
-      upfronts.forEach((u) => {
-        u.classList.remove("hidden");
-      });
-    } else {
-      monthlys.forEach((m) => {
-        m.classList.remove("hidden");
-      });
-      upfronts.forEach((u) => {
-        u.classList.add("hidden");
-      });
-    }
-  });
-</script> -->
