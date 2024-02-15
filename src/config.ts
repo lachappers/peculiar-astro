@@ -27,10 +27,6 @@ export const PAGES = [
     key: "Pricing",
     url: "/pricing/",
   },
-  // {
-  //   key: "Blog",
-  //   url: "/blog/",
-  // },
   {
     key: "Contact",
     url: "/contact/",

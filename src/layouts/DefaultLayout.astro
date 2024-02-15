@@ -1,12 +1,14 @@
 ---
 import "../assets/scss/globals.scss";
 import SiteMeta from "../components/SiteMeta.astro";
-import CookiesHead from "../components/shared/CookiesHead.astro";
+import CookiesHead from "@components/shared/CookiesHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
 import Cookies from "@components/Cookies.astro";
+
 import { ViewTransitions } from "astro:transitions";
-import { SITE } from "../config";
+import { SITE } from "@config";
 
 const {
   title = SITE.title,
@@ -16,11 +18,19 @@ const {
   subtitle = SITE.subtitle,
   author = SITE.author,
 } = Astro.props;
+
+// console.log(title);
 ---
 
 <html lang="en" dir="ltr">
   <head>
-    <CookiesHead />
+
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+
+    <!-- sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <SiteMeta
       title={title}
@@ -32,25 +42,8 @@ const {
       image={"1074x584.png"}
       author={author}
     />
+    <CookiesHead />
 
-    <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href={favicon} />
-    <!-- <link rel="icon" type="image/png" href='/assets/images/favicon.png"' /> -->
-    <!-- sitemap -->
-    <link rel="sitemap" href="/sitemap-index.xml" />
-
-    <slot name="head" />
-
-    <!-- Whatsapp link redirect -->
-
-    <!-- <script
-      src="https://dashboard.chatfuel.com/integration/landing-wa-widget.js"
-      async
-      defer
-      data-prefilled="Hi, I've got a question"
-      data-welcome="Hello there! How can we help you today?"
-      data-phone="447405952020"
-    ></script> -->
     <ViewTransitions />
   </head>
 
@@ -84,7 +77,7 @@ const {
     <Footer />
 
     <Cookies />
-    <!-- <Whatsapp /> -->
+
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {

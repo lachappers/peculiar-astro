@@ -1,6 +1,7 @@
 import type { CookieConsentConfig } from "vanilla-cookieconsent";
 
 export const config: CookieConsentConfig = {
+  onConsent: function () {},
   autoShow: false,
   mode: "opt-in",
   cookie: {

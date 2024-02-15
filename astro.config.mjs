@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-// import compress from "astro-compress";
 import icon from "astro-icon";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
@@ -17,7 +16,7 @@ export default defineConfig({
     contentCollectionCache: true,
   },
   integrations: [
-    tailwind({ config: { applyBaseStyles: false } }),
+    tailwind({ config: { applyBaseStyles: false }, nesting: true }),
     partytown(),
     sitemap({
       filter: (page) => page !== "https://peculiardynamics.co.uk/estimate",

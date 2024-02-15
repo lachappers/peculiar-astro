@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 survey.json
 questions.json
+
+# collections metadata
+.astro

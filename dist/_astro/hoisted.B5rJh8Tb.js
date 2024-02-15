@@ -1,0 +1,1 @@
+import"./hoisted.Otb_Z9Fz.js";document.getElementById("cookies")&&n();function n(){const t=document.querySelector(".policy"),e=document.createElement("button");e.setAttribute("data-cc","show-preferencesModal"),e.innerHTML="Manage Cookie Settings",e.classList.add("button","color-neutral","size-small","max-w-fit","self-center"),t?.parentNode?.insertBefore(e,t)}
