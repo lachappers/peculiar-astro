@@ -17,6 +17,7 @@ const {
   favicon = SITE.favicon,
   subtitle = SITE.subtitle,
   author = SITE.author,
+  type = "website",
 } = Astro.props;
 
 // console.log(title);
@@ -77,15 +78,21 @@ const {
     <Cookies />
 
     <script>
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+      declare global {
+        interface Window {
+          netlifyIdentity: any;
+        }
+      }
 
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user: any) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
         });
-      });
+      }
     </script>
 
     <style lang="scss" is:global>

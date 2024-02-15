@@ -8,7 +8,7 @@ media_folder: public/assets/images/uploads
 public_folder: /assets/images/uploads
 site_url: "peculiardynamics.co.uk" # your site name
 display_url: "https://peculiardynamics.co.uk"
-logo_url: /assets/images/1074x584.png
+logo_url: /assets/images/350x100.webp
 
 collections:
   - name: blog

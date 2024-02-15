@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } = Astro.props;
+const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
+---
+
+<nav aria-label="Blog pages" class="pagination pagination-default flex gap-1">
+    { (firstUrl == currentUrl) ? (
+        <span class="pagination__link disabled">
+            <Icon name="mdi:chevron-double-left">
+
+        </span>
+    ) : (
+        <a href={firstUrl} class="pagination__link">
+            <Icon name="mdi:chevron-double-left">
+
+        </a>
+    )}
+
+    { prevUrl ? (
+        <a href={prevUrl} class="pagination__link">
+            <Icon name="mdi:chevron-left">
+        </a>
+    ) : (
+        <span class="pagination__link disabled">
+            <Icon name="mdi:chevron-left">
+        </span>        
+    )}
+    
+    {
+        paginationList.map((num) => (
+            <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class={`pagination__link ${currentPage == num ? "disabled active" : ""}`}>
+                {num}
+            </a>
+        ))
+    }
+
+    { !nextUrl ? (
+        <span class="pagination__link disabled">
+            <Icon name="mdi:chevron-right">
+        </span>
+    ) : (
+        <a href={nextUrl} class="pagination__link">
+            <Icon name="mdi:chevron-right">
+        </a>
+    )}
+
+    { lastUrl == currentUrl ? (
+        <span class="pagination__link disabled">
+            <Icon name="mdi:chevron-double-right">
+        </span>
+    ) : (
+        <a href={lastUrl} class="pagination__link">
+            <Icon name="mdi:chevron-double-right">
+        </a>
+    )}
+    
+</nav>
+
+<style lang="scss">
+    .pagination__link{
+        @apply inline-flex h-12 text-xl w-12 items-center justify-center rounded border-2 border-[--outline] hover:bg-[--primary-background] hover:text-[--action-color] text-[--font-color] rtl:rotate-180;
+    }    
+    .disabled {
+        @apply cursor-not-allowed bg-[--neutral-background] hover:bg-[--neutral-background] border-[--outline-variant] hover:text-[--outline-variant] text-[--outline-variant];
+    }
+    .active {
+        @apply border-[--action-color-state] bg-[--action-color] hover:bg-[--action-color] text-[--white] hover:text-[--white];
+    }
+
+</style>

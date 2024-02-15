@@ -9,6 +9,7 @@ export const SITE = {
   trailingSlash: "ignore", // Generate permalinks with or without "/" at the end
   favicon: "/assets/images/favicon.svg",
   encodedEmail: "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr",
+  blogPageSize: 6,
 };
 export const PAGES = [
   {

@@ -27,6 +27,10 @@ module.exports = {
           600: "#6d5d54",
         },
       },
+      boxShadow: {
+        postMod:
+          "0.0625rem 0.0625rem 0 var(--background), 0.5rem 0.5rem 0 var(--font-color)",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

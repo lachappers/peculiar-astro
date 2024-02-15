@@ -1,0 +1,105 @@
+---
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { getCollection } from "astro:content";
+import Pagination from "@components/shared/Pagination.astro";
+import Card from "@components/common/Card.astro";
+import { Image } from "astro:assets";
+
+import { SITE } from "@config";
+
+// // Filter blog entries with 'draft: false' & date before current date
+// const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+//   return !data.draft && data.publishDate < new Date();
+// });
+
+// // Sort content entries by publication date
+// publishedBlogEntries.sort(function (a, b) {
+//   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+// });
+
+// const allBlogPosts = (await getCollection("blog")).sort(
+//   (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf()
+// );
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await getCollection("blog");
+
+  if (allPosts) {
+    const formattedPosts = allPosts.sort(
+      (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf()
+    );
+    return paginate(formattedPosts, {
+      pageSize: SITE.blogPageSize,
+    });
+  } else {
+    return [];
+  }
+}
+const { page } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname.split("/");
+const firstPath = pathname[1];
+console.log(page);
+---
+
+<DefaultLayout title="Blog">
+  <section class="mt-24 flex flex-col items-center gap-4 px-4 lg:px-6">
+    <div class="flex w-full flex-col gap-4">
+      <h1
+        class="justify-self-end text-center text-6xl font-bold md:text-left lg:text-7xl"
+      >
+        News, Updates and<br />
+        <span class="text-gradient">Helpful Content</span>
+      </h1>
+      <p class="max-w-[40ch] text-xl md:text-2xl">
+        Dive into our blog; packed with actionable tips, industry trends, and
+        success stories for UK small businesses. Start your journey today
+      </p>
+    </div>
+
+    {
+      page.data.total === 0 ? (
+        <div class="mt-16 flex h-full max-w-screen-xl flex-auto flex-col items-center gap-6">
+          <p class="max-w-[40ch] text-center text-lg md:text-xl">
+            We're working on some fresh content for you - check back soon!
+          </p>
+          <Image
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWp2ZzExNzF1bzNrNDhzcGd6anRzZnhoNHd0OG12bnp3MHl2ajJ6NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wHE6Dd6RCVHQfjK5dy/giphy.gif"
+            alt=""
+            width="100%"
+            height="400px"
+            class="giphy h-96 w-96 rounded-full object-cover"
+          />
+        </div>
+      ) : (
+        <>
+          <ul class="my-8 grid w-full max-w-screen-xl grid-cols-3 justify-items-center gap-6">
+            {page.data.map((blog) => (
+              <Card
+                tags={blog.data.tags}
+                title={blog.data.title}
+                cardLink={`/blog/${blog.slug}`}
+                author={blog.data.author}
+                date={blog.data.date}
+                image={blog.data.image}
+                imageAlt={blog.data.imageAlt}
+              >
+                <p class="mt-2 text-ellipsis text-sm">{blog.data.preview}</p>
+              </Card>
+            ))}
+          </ul>
+          {page.total > SITE.blogPageSize && (
+            <Pagination
+              length={page.lastPage}
+              currentUrl={page.url.current}
+              currentPage={page.currentPage}
+              firstUrl={`/${firstPath}`}
+              prevUrl={page.url.prev}
+              nextUrl={page.url.next}
+              lastUrl={`/${firstPath}/${page.lastPage}`}
+            />
+          )}
+        </>
+      )
+    }
+  </section>
+</DefaultLayout>

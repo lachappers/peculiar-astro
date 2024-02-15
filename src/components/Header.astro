@@ -3,8 +3,8 @@ import Navigation from "../components/Navigation.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
-import darkLogo from "@assets/img/350x100-alt-dark.webp";
-import lightLogo from "@assets/img/350x100.webp";
+import darkLogo from "@assets/images/350x100-alt-dark.webp";
+import lightLogo from "@assets/images/350x100.webp";
 import Button from "@components/Button.astro";
 import { PAGES } from "@config";
 ---
@@ -20,7 +20,7 @@ import { PAGES } from "@config";
         href="/"
         id="nav-logo"
         aria-label="Navigate Home"
-        class="min-w-32 flex h-16 flex-auto items-center"
+        class="flex h-16 min-w-32 flex-auto items-center"
       >
         <Image
           class="block h-full w-fit object-contain dark:hidden"
