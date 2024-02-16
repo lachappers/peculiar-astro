@@ -5,7 +5,7 @@ const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
 const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
 ---
 
-<nav aria-label="Blog pages" class="pagination pagination-default flex gap-1">
+<nav aria-label="pagination" class="pagination pagination-default flex gap-1 w-full justify-center items-center">
     { (firstUrl == currentUrl) ? (
         <span class="pagination__link disabled">
             <Icon name="mdi:chevron-double-left">

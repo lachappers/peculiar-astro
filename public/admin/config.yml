@@ -25,16 +25,29 @@ collections:
       - {
           label: "Author Name",
           name: "author",
-          widget: "relation",
-          collection: "team",
-          value_field: name,
-          search_fields: ["name"],
+          widget: "string",
+          default: "Lucy Chaplin",
         }
       - { label: "Date", name: "date", widget: "datetime" }
       - {
+          label: "Categories",
+          name: "categories",
+          hint: "Add tags separated by a comma",
+          widget: "select",
+          multiple: true,
+          options:
+            [
+              "Building Websites",
+              "Growing Businesses",
+              "Strategy & Success",
+              "Tech & Tools",
+              "Everything Else",
+            ],
+        }
+      - {
           label: "Tags",
           name: "tags",
-          hint: "Add tags separated by a comma",
+          hint: "Add keyword tags separated by a comma",
           widget: "list",
           allow_add: true,
           allow_delete: true,

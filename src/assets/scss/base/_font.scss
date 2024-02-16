@@ -55,7 +55,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
-  a:not(.button, .featureLink, .nav-li-link, .pagination__link) {
+  a:not(
+      .button,
+      .featureLink,
+      .nav-li-link,
+      .pagination__link,
+      .filter-item,
+      .title-link,
+      .pagination-link
+    ) {
     color: var(--action-color);
     text-decoration: underline;
 

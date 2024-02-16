@@ -1,0 +1,67 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
+import BlogCard from "@components/common/BlogCard.astro";
+import Pagination from "@components/shared/Pagination.astro";
+import { getSinglePage } from "@utils/contentParser";
+import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
+import { sortByDate } from "@utils/sortFunctions";
+import { CONTENTSETTINGS } from "@config";
+import { getCollection } from "astro:content";
+import IndexSidebar from "@components/shared/IndexSidebar.astro";
+// console.log(CONTENTSETTINGS);
+
+const blogFolder = "blog";
+const posts = await getCollection("blog", ({ data }) => {
+  //   return data.draft !== true;
+  // Filter out content entries with `draft: true` only when building for production
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+const sortedPosts = sortByDate(posts);
+
+const totalPages: number = Math.ceil(
+  posts.length / CONTENTSETTINGS.indexPagination
+);
+
+const currentPosts = sortedPosts.slice(0, CONTENTSETTINGS.indexPagination);
+const sidebarCountFilters = ["categories"];
+const sidebarFilters = ["tags", "author"];
+---
+
+<DefaultLayout>
+  <PageHeader title="Blog Posts" />
+  <section class="flex w-full flex-col items-center justify-start">
+    <div
+      class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
+    >
+      <!-- blog posts -->
+      <div class="flex min-h-full w-full flex-col lg:w-2/3 lg:basis-auto">
+        <div class="flex flex-wrap items-stretch justify-center">
+          {
+            currentPosts.map((post) => (
+              <div class="mb-14 flex w-full flex-auto  px-4 sm:min-h-full md:w-1/2 md:basis-auto">
+                <BlogCard data={post} />
+              </div>
+            ))
+          }
+        </div>
+        {
+          totalPages > 1 && (
+            <Pagination
+              firstUrl={blogFolder}
+              currentPage={1}
+              length={totalPages}
+            />
+          )
+        }
+      </div>
+
+      <!-- sidebar -->
+      <IndexSidebar
+        collection={blogFolder}
+        sidebarCountFilters={sidebarCountFilters}
+        sidebarFilters={sidebarFilters}
+      />
+    </div>
+  </section>
+</DefaultLayout>

@@ -18,9 +18,8 @@ import productive from "@assets/images/productivity.png";
 import headshot from "../assets/images/headshot.jpg";
 ---
 
-<!-- <Fragment slot="head">
-  <link rel="preload" href={optimisedHero.src} as="image" />
-</Fragment> -->
+<!-- <Fragment slot="head"> --><!-- <link rel="preload" href={optimisedHero.src} as="image" /> --><!-- <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+  ></script> --><!-- </Fragment> -->
 <DefaultLayout
   title="Making Websites for Ambitious Businesses"
   description="Affordable, hand-coded websites and technology built in the UK. Grow your ambitious British business, without a Computer Science PhD. Get a free quote today!"
@@ -37,8 +36,9 @@ import headshot from "../assets/images/headshot.jpg";
   <section class="container max-w-screen-xl flex-col">
     <SectionHeading subtitle="what we do" id="what-we-do">
       <p slot="title">
-        Getting your business online,
-        <span class="text-highlight">without the faff.</span>
+        Getting your business online,<span class="text-highlight"
+          >without the faff.</span
+        >
       </p>
       <p class="">
         We specialise in designing and developing websites and technology for
@@ -72,10 +72,8 @@ import headshot from "../assets/images/headshot.jpg";
     </div>
     <div class="flex flex-col items-center justify-center">
       <p class="my-8 max-w-[60ch] text-center text-2xl font-bold md:text-4xl">
-        Get a shiny new website from
-        <span class="text-highlight">£1,900</span> or <span
-          class="text-highlight">£180</span
-        > per month.
+        Get a shiny new website from<span class="text-highlight">£1,900</span> or
+        <span class="text-highlight">£180</span> per month.
       </p>
     </div>
     <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
@@ -100,8 +98,8 @@ import headshot from "../assets/images/headshot.jpg";
       addClasses="md:max-w-2xl"
     >
       <p slot="title">
-        Hello from
-        <span class="text-highlight">Lucy</span>, <br />Our Peculiar Founder.
+        Hello from<span class="text-highlight">Lucy</span>, <br />Our Peculiar
+        Founder.
       </p>
       <p class="">
         I am an owner of a small ambitious business, like you. I jumped into
@@ -284,14 +282,7 @@ import headshot from "../assets/images/headshot.jpg";
     border: 3px solid var(--accent-mint-100);
   }
 </style>
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
 
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  });
+<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js">
+  console.log("identity");
 </script>

@@ -44,6 +44,10 @@ const {
     <CookiesHead />
 
     <ViewTransitions />
+    <script
+      type="text/javascript"
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
   </head>
 
   <body
@@ -68,7 +72,7 @@ const {
 
     <main
       id="main-content"
-      class="relative z-0 mb-4 flex h-full w-full flex-auto flex-col items-center justify-start gap-8 sm:gap-16 md:mb-16 lg:gap-32"
+      class="relative z-0 mb-4 flex h-full w-full flex-auto flex-col items-center justify-start gap-4 md:mb-16"
     >
       <slot />
     </main>
@@ -78,6 +82,7 @@ const {
     <Cookies />
 
     <script>
+      // console.log(window);
       declare global {
         interface Window {
           netlifyIdentity: any;
@@ -120,7 +125,6 @@ const {
 
       main > section {
         min-height: 70vh;
-        @apply my-16  md:my-32;
       }
       main > .container,
       main > section > .container {

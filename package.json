@@ -45,6 +45,7 @@
     "astro": "^4.3.5",
     "astro-icon": "^1.1.0",
     "google-spreadsheet": "^4.1.1",
+    "micromark": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",

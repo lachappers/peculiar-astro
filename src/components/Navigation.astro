@@ -10,62 +10,60 @@ import { PAGES } from "@config";
 <nav
 id="main-navigation"
   class="desktop-menu flex items-center justify-end gap-2 w-full"
-  aria-label="Main navigation desktop"
+  aria-label="Main navigation"
 >        
 
   <ul id="nav-expanded" class="hidden h-full relative md:flex items-center gap-4 lg:gap-8 xl:gap-12 md:w-full justify-end text-sm font-medium text-[--on-surface-variant] whitespace-nowrap" aria-expanded="false" tabindex="-1" >
     {
       PAGES.map((page) => (
-        <li
-          class:list={[
-            "menu-item relative flex flex-col items-center justify-center",
-            { "has-dropdown": page?.children && page.children.length > 0 },
-          ]}
-          tabindex="-1"
-        >
+          <li
+            class:list={[
+              "menu-item relative flex flex-col items-center justify-center",
+              { "has-dropdown": page?.children && page.children.length > 0 },
+            ]}
+            tabindex="-1">
+            { page.children ? 
+              (
+                <button
+                  class:list={[
+                    "nav-button",
+                    "flex gap-1 items-center ",
+                    { "is-active": Astro.url.pathname === page.url },
+                  ]}
+                  aria-current={Astro.url.pathname === page.url ? 'page' : null}
+                  aria-expanded="false"
 
-          {page.children ? (
-            <button
-              class:list={[
-                "nav-button",
-                "flex gap-1 items-center ",
-                { "is-active": Astro.url.pathname === page.url },
-              ]}
-              aria-current={Astro.url.pathname === page.url ? 'page' : null}
-              aria-expanded="false"
+                  data-dropdown-button
+                  aria-controls={`${page.key}_menu`}
+                  tabindex="0"
+                  >
+                    {page.key}
+                    <Icon name="mdi:chevron-down" class="flex-none h-4 w-4" aria-hidden="true" />
+                </button>
 
-              data-dropdown-button
-              aria-controls={`${page.key}_menu`}
-              tabindex="0"
-            >
-              {page.key}
-              <Icon name="mdi:chevron-down" class="flex-none h-4 w-4" aria-hidden="true" />
-            
-            </button>
-
-            <ul id={`${page.key}_menu`} class="nav-drop-ul hidden"  aria-label={`${page.key} menu`} aria-expanded="false" >
-              {page.children.map((child) => (
-                <li class="submenu-item" >
-                  <a href={child.url} class="nav-li-link nav-drop-link" tabindex="0">
-                    {child.key}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <a
-              href={page.url}
-              class:list={[
-                "nav-li-link",
-                { "is-active": Astro.url.pathname === page.url },
-              ]}
-              aria-current={Astro.url.pathname === page.url ? 'page' : null}
-            >
-              {page.key}
-            </a>
-          )
-        }
-        </li>
+                <ul id={`${page.key}_menu`} class="nav-drop-ul hidden"  aria-label={`${page.key} menu`} aria-expanded="false" >
+                  {page.children.map((child) => (
+                    <li class="submenu-item" >
+                      <a href={child.url} class="nav-li-link nav-drop-link" tabindex="0">
+                        {child.key}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <a
+                  href={page.url}
+                  class:list={[
+                    "nav-li-link",
+                    { "is-active": Astro.url.pathname === page.url },
+                  ]}
+                  aria-current={Astro.url.pathname === page.url ? 'page' : null}
+                  >
+                    {page.key}
+                </a>
+              )
+            }
+          </li>
       ))
     }
     <li class="menu-item flex flex-col items-center justify-center " tabindex="-1">

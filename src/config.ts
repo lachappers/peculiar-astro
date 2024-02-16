@@ -11,7 +11,13 @@ export const SITE = {
   encodedEmail: "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr",
   blogPageSize: 6,
 };
-export const PAGES = [
+
+export interface Page {
+  key: string;
+  url: string;
+  children?: Page[];
+}
+export const PAGES: Page[] = [
   {
     key: "Home",
     url: "/",
@@ -29,7 +35,17 @@ export const PAGES = [
     url: "/pricing/",
   },
   {
-    key: "Contact",
+    key: "Blog",
+    url: "/blog/",
+  },
+  {
+    key: "Contact Us",
     url: "/contact/",
   },
 ];
+
+export const CONTENTSETTINGS = {
+  teaserPagination: 3,
+  indexPagination: 2,
+  previewLength: 200,
+};

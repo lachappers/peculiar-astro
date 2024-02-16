@@ -3,46 +3,80 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import { getCollection } from "astro:content";
 import Pagination from "@components/shared/Pagination.astro";
 import Card from "@components/common/Card.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
+import BlogCard from "@components/common/BlogCard.astro";
 import { Image } from "astro:assets";
+import { getSinglePage } from "@utils/contentParser";
+import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
+import { sortByDate } from "@utils/sortFunctions";
+import { CONTENTSETTINGS } from "@config";
+import IndexSidebar from "@components/shared/IndexSidebar.astro";
 
 import { SITE } from "@config";
 
-// // Filter blog entries with 'draft: false' & date before current date
-// const publishedBlogEntries = await getCollection("blog", ({ data }) => {
-//   return !data.draft && data.publishDate < new Date();
-// });
-
-// // Sort content entries by publication date
-// publishedBlogEntries.sort(function (a, b) {
-//   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
-// });
-
-// const allBlogPosts = (await getCollection("blog")).sort(
-//   (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf()
-// );
-
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await getCollection("blog");
+  const allPosts = await getCollection("blog", ({ data }) => {
+    //   return data.draft !== true;
+    // Filter out content entries with `draft: true` only when building for production
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
 
-  if (allPosts) {
-    const formattedPosts = allPosts.sort(
-      (a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf()
-    );
-    return paginate(formattedPosts, {
-      pageSize: SITE.blogPageSize,
-    });
-  } else {
-    return [];
-  }
+  const formattedPosts = sortByDate(allPosts);
+  return paginate(formattedPosts, {
+    pageSize: CONTENTSETTINGS.indexPagination,
+  });
 }
+
 const { page } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname.split("/");
 const firstPath = pathname[1];
+const sidebarCountFilters = ["categories"];
+const sidebarFilters = ["tags", "author"];
+const blogFolder = "blog";
 console.log(page);
 ---
 
 <DefaultLayout title="Blog">
-  <section class="mt-24 flex flex-col items-center gap-4 px-4 lg:px-6">
+  <PageHeader title="Blog Posts" />
+  <section class="flex w-full flex-col items-center justify-start">
+    <div
+      class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
+    >
+      <!-- blog posts -->
+      <div class="flex min-h-full w-full flex-col lg:w-2/3 lg:basis-auto">
+        <div class="flex flex-wrap items-stretch justify-center">
+          {
+            page.data.map((post) => (
+              <div class="mb-14 flex w-full flex-auto  px-4 sm:min-h-full md:w-1/2 md:basis-auto">
+                <BlogCard data={post} />
+              </div>
+            ))
+          }
+        </div>
+        {
+          page.total > CONTENTSETTINGS.indexPagination && (
+            <Pagination
+              length={page.lastPage}
+              currentUrl={page.url.current}
+              currentPage={page.currentPage}
+              firstUrl={`/${firstPath}`}
+              prevUrl={page.url.prev}
+              nextUrl={page.url.next}
+              lastUrl={`/${firstPath}/${page.lastPage}`}
+            />
+          )
+        }
+      </div>
+
+      <!-- sidebar -->
+      <IndexSidebar
+        collection={blogFolder}
+        sidebarCountFilters={sidebarCountFilters}
+        sidebarFilters={sidebarFilters}
+      />
+    </div>
+  </section>
+  <!-- <section class="mt-24 flex flex-col items-center gap-4 px-4 lg:px-6">
     <div class="flex w-full flex-col gap-4">
       <h1
         class="justify-self-end text-center text-6xl font-bold md:text-left lg:text-7xl"
@@ -65,9 +99,9 @@ console.log(page);
           <Image
             src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWp2ZzExNzF1bzNrNDhzcGd6anRzZnhoNHd0OG12bnp3MHl2ajJ6NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wHE6Dd6RCVHQfjK5dy/giphy.gif"
             alt=""
-            width="100%"
-            height="400px"
-            class="giphy h-96 w-96 rounded-full object-cover"
+            width="400"
+            height="400"
+            class="giphy aspect-square h-96 w-fit rounded-full object-cover"
           />
         </div>
       ) : (
@@ -101,5 +135,5 @@ console.log(page);
         </>
       )
     }
-  </section>
+  </section> -->
 </DefaultLayout>

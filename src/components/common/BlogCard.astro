@@ -1,0 +1,69 @@
+---
+import { CONTENTSETTINGS } from "@config";
+import dateFormat from "@utils/dateFormat";
+import { humanize, plainify, slugify } from "@utils/textConverter";
+import { Icon } from "astro-icon/components";
+import Button from "@components/Button.astro";
+// import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
+import PublicImage from "@components/shared/PublicImage.astro";
+
+const { data } = Astro.props;
+const { title, image, date, author, categories, preview } = data.data;
+---
+
+<div class="flex flex-col">
+  {
+    image && (
+      <PublicImage
+        class="mb-6 max-h-36 w-full rounded object-cover"
+        src={image}
+        alt={title}
+        width={445}
+        height={230}
+        format="webp"
+      />
+    )
+  }
+  <h4 class="mb-3 text-2xl">
+    <a class="title-link" href={`/blog/${data.slug}`}>
+      {title}
+    </a>
+  </h4>
+  <ul class="mb-4">
+    <li class="mr-4 inline-block">
+      <a class="title-link" href={`/authors/${slugify(author)}`}>
+        <Icon
+          name="mdi:account-circle-outline"
+          class="-mt-1 mr-2 inline-block"
+        />
+        {humanize(author)}
+      </a>
+    </li>
+    <li class="mr-4 inline-block">
+      <Icon name="mdi:folder-outline" class="-mt-1 mr-2 inline-block" />
+      {
+        categories.map((category: string, index: number) => (
+          <a class="title-link" href={`/categories/${slugify(category)}`}>
+            {humanize(category)}
+            {index !== categories.length - 1 && "|"}
+          </a>
+        ))
+      }
+    </li>
+    {date && <li class="inline-block">{dateFormat(date)}</li>}
+  </ul>
+  <p class="mb-6">
+    {
+      preview
+        ? preview
+        : plainify(data.body?.slice(0, Number(CONTENTSETTINGS.previewLength)))
+    }
+    <!-- {plainify(data.body?.slice(0, Number(CONTENTSETTINGS.previewLength)))} -->
+  </p>
+  <Button
+    href={`/blogs/${data.slug}`}
+    text="Read More"
+    icon="mdi:arrow-right"
+    addClasses="size-small last:mt-auto w-fit"
+  />
+</div>
