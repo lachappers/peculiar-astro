@@ -22,7 +22,7 @@ export const getTaxonomy = async (collection: any, name: string) => {
   const taxonomies: string[] = [
     ...new Set(allItems.map((item: any) => item.data[name]).flat()),
   ];
-  console.log(taxonomies);
+  // console.log(taxonomies);
   return taxonomies;
 };
 

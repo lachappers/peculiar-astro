@@ -1,0 +1,106 @@
+---
+import type { GetStaticPaths } from "astro";
+import { CONTENTSETTINGS } from "@config";
+import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
+import { slugify } from "@utils/textConverter";
+import { CollectionEntry, getCollection } from "astro:content";
+import { getCollectionFilter } from "@utils/contentParser";
+
+// components
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import Pagination from "@components/shared/Pagination.astro";
+import PaginationMinimal from "@components/unused/PaginationMinimal.astro";
+import Card from "@components/common/Card.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
+import BlogCard from "@components/common/BlogCard.astro";
+import IndexSidebar from "@components/shared/IndexSidebar.astro";
+import Page from "../../[page].astro";
+
+interface Route {
+  params: {
+    filter: string;
+    entry: string;
+  };
+  props: {
+    title: string;
+  };
+}
+
+interface Pagination {
+  data: any[]; // replace any with the actual type of the data
+}
+
+export async function getStaticPaths({ paginate }) {
+  const filters: string[] = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
+    CONTENTSETTINGS.blog.sidebarFilters
+  );
+  const blogs = await getCollection("blog");
+  // for (const filter of filters) {
+  return filters.flatMap((filter) => {
+    const entries = [...new Set(blogs.map((blog) => blog.data[filter]).flat())];
+
+    return entries.flatMap((entry) => {
+      const filteredBlogs: string[] = blogs.filter((blog: any) =>
+        blog.data[filter].includes(entry)
+      );
+
+      return paginate(filteredBlogs, {
+        params: { filter: filter, entry: slugify(entry) },
+        props: { title: entry },
+        pageSize: 2,
+      });
+    });
+  });
+}
+
+const { filter, entry }: { filter: string; entry: string } = Astro.params;
+const { page } = Astro.props;
+const sidebarFilters: string[] =
+  CONTENTSETTINGS.blog.sidebarCountFilters.concat(
+    CONTENTSETTINGS.blog.sidebarFilters
+  );
+const blogFolder: string = "blog";
+const pathname = new URL(Astro.request.url).pathname.split("/");
+const firstPath = pathname[1];
+// const filteredBlogs = pagination.data; // replace any with the actual type of the data
+---
+
+<!-- <p>Hello {filter}</p> --><!-- <p>{filterProp}</p> -->
+<p>Yay {entry}</p>
+<DefaultLayout title="Blog">
+  <PageHeader title="Blog Posts" />
+  <section class="flex w-full flex-col items-center justify-start">
+    <div
+      class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
+    >
+      <!-- blog posts -->
+      <div class="flex min-h-full w-full flex-col lg:w-2/3 lg:basis-auto">
+        <div class="flex flex-wrap items-stretch justify-center">
+          {
+            page.data.map((post) => (
+              <div class="mb-14 flex w-full flex-auto  px-4 sm:min-h-full md:w-1/2 md:basis-auto">
+                <BlogCard data={post} />
+              </div>
+            ))
+          }
+        </div>
+        {
+          page.total > CONTENTSETTINGS.indexPagination && (
+            <PaginationMinimal
+              length={page.lastPage}
+              currentUrl={page.url.current}
+              currentPage={page.currentPage}
+              firstUrl={`/${firstPath}`}
+              prevUrl={page.url.prev}
+              nextUrl={page.url.next}
+              lastUrl={`/${firstPath}/${page.lastPage}`}
+            />
+          )
+        }
+      </div>
+
+      <!-- sidebar -->
+      <!-- <IndexSidebar collection={blogFolder} sidebarFilters={sidebarFilters} /> -->
+    </div>
+  </section>
+</DefaultLayout>

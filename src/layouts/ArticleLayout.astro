@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <DefaultLayout title={frontmatter.title} type="article">
-  <section class="by-16 container p-4 sm:p-8">
+  <section class="my-16 flex h-full flex-auto flex-col p-4 sm:p-8">
     <slot />
   </section>
 </DefaultLayout>

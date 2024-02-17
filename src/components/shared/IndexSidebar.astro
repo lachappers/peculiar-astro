@@ -1,13 +1,12 @@
 ---
 import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
-import { humanize } from "@utils/textConverter";
+import { humanize, slugify } from "@utils/textConverter";
 
 const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
 
 const sidebarCountTaxonomies = await Promise.all(
   sidebarCountFilters.map(async (filter: any) => {
     const categories = await getAllTaxonomy(collection, filter);
-    // console.log(taxonomy);
     return categories;
   })
 );
@@ -15,7 +14,6 @@ const sidebarCountTaxonomies = await Promise.all(
 const sidebarTaxonomies = await Promise.all(
   sidebarFilters.map(async (filter: any) => {
     const categories = await getTaxonomy(collection, filter);
-    // console.log(taxonomy);
     return categories;
   })
 );
@@ -27,56 +25,58 @@ const sidebarTaxonomies = await Promise.all(
 <div class="w-full px-4 lg:w-1/3 lg:basis-auto">
   <!-- sidebarCountFilters -->
   {
-    sidebarCountFilters.map(async (filter: any) => {
-      const categories = await getAllTaxonomy(collection, filter);
-      const entries = Object.entries(categories);
-      console.log(entries);
-      return (
-        <div class="mb-8">
-          <h5 class="mb-6 text-xl capitalize">{filter}</h5>
-          <div class="rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-8">
-            <ul class="space-y-4">
-              {entries.map(([k, v]) => (
-                <li class="">
-                  <a
-                    class="filter-item primary-button hover:text-primary dark:hover:text-darkmode-primary flex justify-between"
-                    href={`/categories/${k}`}
-                  >
-                    {humanize(k)} <span>({v})</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+    sidebarCountFilters &&
+      sidebarCountFilters.map(async (filter: any) => {
+        const categories = await getAllTaxonomy(collection, filter);
+        const entries = Object.entries(categories);
+        // console.log(entries);
+        return (
+          <div class="mb-8">
+            <h5 class="mb-6 text-xl capitalize">{filter}</h5>
+            <div class="rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-8">
+              <ul class="space-y-4">
+                {entries.map(([k, v]) => (
+                  <li class="">
+                    <a
+                      class="filter-item primary-button hover:text-primary dark:hover:text-darkmode-primary flex justify-between"
+                      href={`/blog/${slugify(filter)}/${slugify(k)}`}
+                    >
+                      {humanize(k)} <span>({v})</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      );
-    })
+        );
+      })
   }
 
   {
-    sidebarFilters.map(async (filter: any) => {
-      const categories = await getTaxonomy(collection, filter);
-      return (
-        <div class="mb-8">
-          <h5 class="mb-6 text-xl capitalize">{filter}</h5>
-          <div class="rounded border-[3px] border-[--font-color]  bg-[--secondary-background] p-6">
-            <ul>
-              {categories.map((tag: any) => {
-                return (
-                  <li class="inline-block">
-                    <a
-                      class="filter-item   m-1 block rounded bg-[--neutral-background] px-3 py-1 hover:bg-[--primary-background] "
-                      href={`/tags/${tag}`}
-                    >
-                      {humanize(tag)}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+    sidebarFilters &&
+      sidebarFilters.map(async (filter: any) => {
+        const categories = await getTaxonomy(collection, filter);
+        return (
+          <div class="mb-8">
+            <h5 class="mb-6 text-xl capitalize">{filter}</h5>
+            <div class="rounded border-[3px] border-[--font-color]  bg-[--secondary-background] p-6">
+              <ul>
+                {categories.map((tag: any) => {
+                  return (
+                    <li class="inline-block">
+                      <a
+                        class="filter-item   m-1 block rounded bg-[--neutral-background] px-3 py-1 hover:bg-[--primary-background] "
+                        href={`/blog/${slugify(filter)}/${slugify(tag)}`}
+                      >
+                        {humanize(tag)}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
-      );
-    })
+        );
+      })
   }
 </div>

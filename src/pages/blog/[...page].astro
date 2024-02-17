@@ -1,20 +1,24 @@
 ---
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+// utils
 import { getCollection } from "astro:content";
-import Pagination from "@components/shared/Pagination.astro";
-import Card from "@components/common/Card.astro";
-import PageHeader from "@components/shared/PageHeader.astro";
-import BlogCard from "@components/common/BlogCard.astro";
+import type { GetStaticPaths } from "astro";
 import { Image } from "astro:assets";
 import { getSinglePage } from "@utils/contentParser";
 import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
 import { sortByDate } from "@utils/sortFunctions";
 import { CONTENTSETTINGS } from "@config";
+
+// components
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Pagination from "@components/shared/Pagination.astro";
+import PaginationMinimal from "@components/unused/PaginationMinimal.astro";
+import Card from "@components/common/Card.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
+import BlogCard from "@components/common/BlogCard.astro";
+
 import IndexSidebar from "@components/shared/IndexSidebar.astro";
 
-import { SITE } from "@config";
-
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection("blog", ({ data }) => {
     //   return data.draft !== true;
     // Filter out content entries with `draft: true` only when building for production
@@ -25,15 +29,15 @@ export async function getStaticPaths({ paginate }) {
   return paginate(formattedPosts, {
     pageSize: CONTENTSETTINGS.indexPagination,
   });
-}
+}) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname.split("/");
 const firstPath = pathname[1];
-const sidebarCountFilters = ["categories"];
-const sidebarFilters = ["tags", "author"];
+const sidebarCountFilters = CONTENTSETTINGS.blog.sidebarCountFilters;
+const sidebarFilters = CONTENTSETTINGS.blog.sidebarFilters;
 const blogFolder = "blog";
-console.log(page);
+// console.log(page);
 ---
 
 <DefaultLayout title="Blog">
@@ -55,7 +59,7 @@ console.log(page);
         </div>
         {
           page.total > CONTENTSETTINGS.indexPagination && (
-            <Pagination
+            <PaginationMinimal
               length={page.lastPage}
               currentUrl={page.url.current}
               currentPage={page.currentPage}

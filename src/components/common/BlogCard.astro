@@ -1,6 +1,6 @@
 ---
 import { CONTENTSETTINGS } from "@config";
-import dateFormat from "@utils/dateFormat";
+import { formatDate } from "@utils/dateFormat";
 import { humanize, plainify, slugify } from "@utils/textConverter";
 import { Icon } from "astro-icon/components";
 import Button from "@components/Button.astro";
@@ -50,7 +50,7 @@ const { title, image, date, author, categories, preview } = data.data;
         ))
       }
     </li>
-    {date && <li class="inline-block">{dateFormat(date)}</li>}
+    {date && <li class="inline-block">{formatDate(date)}</li>}
   </ul>
   <p class="mb-6">
     {
@@ -61,7 +61,7 @@ const { title, image, date, author, categories, preview } = data.data;
     <!-- {plainify(data.body?.slice(0, Number(CONTENTSETTINGS.previewLength)))} -->
   </p>
   <Button
-    href={`/blogs/${data.slug}`}
+    href={`/blog/${data.slug}`}
     text="Read More"
     icon="mdi:arrow-right"
     addClasses="size-small last:mt-auto w-fit"

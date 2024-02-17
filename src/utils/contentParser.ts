@@ -7,3 +7,38 @@ export const getSinglePage = async (collection: any) => {
   const removeDrafts = removeIndex.filter((item: any) => !item.data.draft);
   return removeDrafts;
 };
+
+/**
+ * Returns collection entries matching a value for a given field
+ * @param {string} type - The type of collection such as "blog"
+ * @param {string} term - The field to search on such as "tags" or "author"
+ * @param {string} value - The value to match such as "Popular"
+ * @param {boolean} reverse - Sort with oldest posts first
+ * @returns {Array<Object>}
+ */
+export const getCollectionFilter = async (
+  type,
+  term,
+  value,
+  reverse = false
+) => {
+  // Call our custom getCollection() function from src/content/utils.js
+  const items = await getCollection(type, true, reverse);
+
+  // Since value might be the human label, or from a URL, we will normalize it to a slug
+  const slug = slugify(value);
+
+  // Start filtering the content collection
+  return items.filter((item) => {
+    // See the comments in the getTaxonomy() function
+    const values = [];
+    if (Array.isArray(item.data[term])) {
+      values.push(...item.data[term]);
+    } else if (item.data[term]?.slug) {
+      values.push(item.data[term].slug);
+    }
+
+    // Does this collection entry contain the value we're looking for?
+    return values.map((value) => slugify(value)).includes(slug);
+  });
+};

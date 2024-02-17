@@ -1,6 +1,5 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-// import MarkdownLayout from "@layouts/MarkdownLayout.astro";
 import ArticleLayout from "@layouts/ArticleLayout.astro";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateFormat";
@@ -9,23 +8,20 @@ import { Image } from "astro:assets";
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
   const blogs = await getCollection("blog");
-  if (blogs) {
-    return blogs.map((entry) => ({
-      params: { slug: entry.slug },
-      props: { entry },
-    }));
-  } else {
-    return [];
-  }
+  return blogs.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
 // Get the entry directly from the prop on render
 const { entry } = Astro.props;
+// pull out the content from the collection
 const { Content } = await entry.render();
 ---
 
 <ArticleLayout frontmatter={entry.data}>
-  <article class="mx-auto mt-12 max-w-3xl">
+  <article class="flex max-w-3xl flex-col items-center justify-center">
     <header
       class="not-prose flex w-full flex-col items-center gap-4 py-6 text-[--on-surface-variant]"
     >
@@ -80,7 +76,7 @@ const { Content } = await entry.render();
         )
       }
     </header>
-    <div class="prose prose-base dark:prose-invert py-4">
+    <div class="prose prose-base py-4 dark:prose-invert">
       <!-- {Content ? <Content /> : <Fragment set:html={entry.content || ''} />} -->
       <Content />
     </div>
