@@ -9,12 +9,15 @@ export function getStaticPaths() {
   const allCats = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
     CONTENTSETTINGS.blog.sidebarFilters
   );
-  return allCats.map((cat: string) => {
+  const cats= allCats.map((cat: string) => {
     return {
       params: { filter: cat },
       props: { filterProp: cat },
     };
   });
+  const entries = allCats.map( async (cat: string) =>{
+    const entries = 
+  })
 }
 
 const { filter } = Astro.params;

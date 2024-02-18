@@ -10,8 +10,8 @@ import { CONTENTSETTINGS } from "@config";
 
 // components
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
-import Pagination from "@components/shared/Pagination.astro";
-import PaginationMinimal from "@components/unused/PaginationMinimal.astro";
+import Pagination from "@components/unused/Pagination.astro";
+import PaginationMinimal from "@components/shared/PaginationMinimal.astro";
 import Card from "@components/common/Card.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
 import BlogCard from "@components/common/BlogCard.astro";
@@ -32,8 +32,10 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-const pathname = new URL(Astro.request.url).pathname.split("/");
-const firstPath = pathname[1];
+const pathname = new URL(Astro.request.url).pathname;
+const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
+  ? pathname
+  : pathname.split("/").slice(0, -1).join("/");
 const sidebarCountFilters = CONTENTSETTINGS.blog.sidebarCountFilters;
 const sidebarFilters = CONTENTSETTINGS.blog.sidebarFilters;
 const blogFolder = "blog";
@@ -44,14 +46,14 @@ const blogFolder = "blog";
   <PageHeader title="Blog Posts" />
   <section class="flex w-full flex-col items-center justify-start">
     <div
-      class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
+      class="flex w-full max-w-screen-2xl flex-auto flex-wrap items-start justify-center"
     >
       <!-- blog posts -->
       <div class="flex min-h-full w-full flex-col lg:w-2/3 lg:basis-auto">
         <div class="flex flex-wrap items-stretch justify-center">
           {
             page.data.map((post) => (
-              <div class="mb-14 flex w-full flex-auto  px-4 sm:min-h-full md:w-1/2 md:basis-auto">
+              <div class="mb-14 flex w-full max-w-sm flex-auto  px-4 sm:min-h-full md:w-1/2 md:basis-auto">
                 <BlogCard data={post} />
               </div>
             ))
@@ -59,15 +61,7 @@ const blogFolder = "blog";
         </div>
         {
           page.total > CONTENTSETTINGS.indexPagination && (
-            <PaginationMinimal
-              length={page.lastPage}
-              currentUrl={page.url.current}
-              currentPage={page.currentPage}
-              firstUrl={`/${firstPath}`}
-              prevUrl={page.url.prev}
-              nextUrl={page.url.next}
-              lastUrl={`/${firstPath}/${page.lastPage}`}
-            />
+            <PaginationMinimal section="blog" page={page} baseUrl={firstPath} />
           )
         }
       </div>

@@ -10,11 +10,7 @@ export const getSinglePage = async (collection: any) => {
 
 /**
  * Returns collection entries matching a value for a given field
- * @param {string} type - The type of collection such as "blog"
- * @param {string} term - The field to search on such as "tags" or "author"
- * @param {string} value - The value to match such as "Popular"
- * @param {boolean} reverse - Sort with oldest posts first
- * @returns {Array<Object>}
+
  */
 export const getCollectionFilter = async (
   type,

@@ -8,8 +8,8 @@ import { getCollectionFilter } from "@utils/contentParser";
 
 // components
 import DefaultLayout from "@layouts/DefaultLayout.astro";
-import Pagination from "@components/shared/Pagination.astro";
-import PaginationMinimal from "@components/unused/PaginationMinimal.astro";
+import Pagination from "@components/unused/Pagination.astro";
+import PaginationMinimal from "@components/shared/PaginationMinimal.astro";
 import Card from "@components/common/Card.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
 import BlogCard from "@components/common/BlogCard.astro";
@@ -59,14 +59,13 @@ const sidebarFilters: string[] =
   CONTENTSETTINGS.blog.sidebarCountFilters.concat(
     CONTENTSETTINGS.blog.sidebarFilters
   );
-const blogFolder: string = "blog";
-const pathname = new URL(Astro.request.url).pathname.split("/");
-const firstPath = pathname[1];
-// const filteredBlogs = pagination.data; // replace any with the actual type of the data
+
+const pathname = new URL(Astro.request.url).pathname;
+const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
+  ? pathname
+  : pathname.split("/").slice(0, -1).join("/");
 ---
 
-<!-- <p>Hello {filter}</p> --><!-- <p>{filterProp}</p> -->
-<p>Yay {entry}</p>
 <DefaultLayout title="Blog">
   <PageHeader title="Blog Posts" />
   <section class="flex w-full flex-col items-center justify-start">
@@ -78,7 +77,7 @@ const firstPath = pathname[1];
         <div class="flex flex-wrap items-stretch justify-center">
           {
             page.data.map((post) => (
-              <div class="mb-14 flex w-full flex-auto  px-4 sm:min-h-full md:w-1/2 md:basis-auto">
+              <div class="mb-14 flex w-full max-w-sm  flex-auto px-4 sm:min-h-full md:w-1/2 md:basis-auto">
                 <BlogCard data={post} />
               </div>
             ))
@@ -86,15 +85,7 @@ const firstPath = pathname[1];
         </div>
         {
           page.total > CONTENTSETTINGS.indexPagination && (
-            <PaginationMinimal
-              length={page.lastPage}
-              currentUrl={page.url.current}
-              currentPage={page.currentPage}
-              firstUrl={`/${firstPath}`}
-              prevUrl={page.url.prev}
-              nextUrl={page.url.next}
-              lastUrl={`/${firstPath}/${page.lastPage}`}
-            />
+            <PaginationMinimal page={page} baseUrl={firstPath} />
           )
         }
       </div>
