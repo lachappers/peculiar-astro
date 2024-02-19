@@ -4,6 +4,7 @@ import ArticleLayout from "@layouts/ArticleLayout.astro";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateFormat";
 import { Image } from "astro:assets";
+import { humanize, plainify, slugify } from "@utils/textConverter";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -18,6 +19,8 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 // pull out the content from the collection
 const { Content } = await entry.render();
+// console.log(entry.data.categories);
+// console.log(entry.data.categories);
 ---
 
 <ArticleLayout frontmatter={entry.data}>
@@ -41,12 +44,24 @@ const { Content } = await entry.render();
             </p>
           )
         }
-        <a
-          class="inline-block font-semibold uppercase hover:underline"
-          href="/blog"
-        >
-          Blog
-        </a>
+        {
+          entry.data.categories && (
+            <ul class="mr-4 inline-flex  items-center justify-center gap-2">
+              <Icon name="mdi:folder-outline" class="-mt-1 mr-2 inline-block" />
+              {entry.data.categories.map((category: string, index: number) => (
+                <li>
+                  <a
+                    class="title-link inline-block  uppercase hover:underline"
+                    href={`/categories/${slugify(category)}`}
+                  >
+                    {humanize(category)}
+                    {index !== entry.data.categories.length - 1 && "|"}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
       </div>
 
       <h1 class="font-serif-heading w-full text-3xl font-bold md:text-5xl">
@@ -82,11 +97,11 @@ const { Content } = await entry.render();
     </div>
   </article>
 
-  <div class="mt-8 text-center">
+  <nav class="mt-8 text-center">
     <a
       href="/blog"
       class="rounded-md bg-[--primary-container] px-5 py-3 transition hover:bg-[--inverse-primary]"
       >← Back to Blog</a
     >
-  </div>
+  </nav>
 </ArticleLayout>

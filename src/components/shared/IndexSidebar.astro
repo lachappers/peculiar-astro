@@ -22,7 +22,7 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
 // console.log(sidebarTaxonomies);
 ---
 
-<div class="w-full px-4 lg:w-1/3 lg:basis-auto">
+<aside class="w-full px-4 lg:w-1/3 lg:basis-auto" aria-label="">
   <!-- sidebarCountFilters -->
   {
     sidebarCountFilters &&
@@ -31,10 +31,10 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
         const entries = Object.entries(categories);
         // console.log(entries);
         return (
-          <div class="mb-8">
-            <h5 class="mb-6 text-xl capitalize">
+          <section class="mb-8">
+            <h2 class="mb-6 text-xl capitalize">
               {pluralize(entries.length, filter)}
-            </h5>
+            </h2>
             <ul class="flex flex-col gap-2 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-8 text-lg">
               {entries.map(([k, v]) => (
                 <li class="">
@@ -50,7 +50,7 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
         );
       })
   }
@@ -60,10 +60,10 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
       sidebarFilters.map(async (filter: any) => {
         const entries = await getTaxonomy(collection, filter);
         return (
-          <div class="mb-8">
-            <h5 class="mb-6 text-xl capitalize">
+          <section class="mb-8">
+            <h2 class="mb-6 text-xl capitalize">
               {pluralize(entries.length, filter)}
-            </h5>
+            </h2>
             <ul class="flex flex-wrap gap-2  rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 text-lg">
               {entries.map((tag: any) => {
                 return (
@@ -78,8 +78,8 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
                 );
               })}
             </ul>
-          </div>
+          </section>
         );
       })
   }
-</div>
+</aside>

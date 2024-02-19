@@ -75,7 +75,9 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
       class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
     >
       <!-- blog posts -->
-      <div class="flex min-h-full w-full flex-col lg:w-2/3 lg:basis-auto">
+      <div
+        class="flex min-h-full w-full flex-col items-center lg:w-2/3 lg:basis-auto"
+      >
         <div class="flex flex-wrap items-stretch justify-center">
           {
             page.data.map((post) => (
@@ -96,10 +98,10 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
       <!-- sidebar -->
       <!-- <IndexSidebar collection={blogFolder} sidebarFilters={sidebarFilters} /> -->
       <!-- other filter entries -->
-      <div class="w-full">
-        <h5 class="mb-6 text-xl capitalize">
+      <aside class="w-full">
+        <h3 class="mb-6 text-xl capitalize">
           All {pluralize(entries.length, humanize(filter))}
-        </h5>
+        </h3>
 
         <ul
           class="flex flex-wrap gap-2 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 text-lg"
@@ -119,7 +121,7 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
             })
           }
         </ul>
-      </div>
+      </aside>
 
       <div class="mt-8 text-center">
         <a

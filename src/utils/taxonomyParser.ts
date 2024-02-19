@@ -44,11 +44,7 @@ export const getAllTaxonomy = async (collection: any, name: string) => {
   const taxonomyArray: string[] = allItems
     .map((item: any) => item.data[name])
     .flat();
-  // const dedupedTaxonomy = taxonomyArray.reduce(
-  //   (accumulator, count) =>
-  //     accumulator.set(count, (accumulator.get(count) || 0) + 1),
-  //   new Map()
-  // );
+
   const dedupedTaxonomy: { [Identifier: string]: number } =
     taxonomyArray.reduce((accumulator, currentItem) => {
       accumulator[currentItem] = (accumulator[currentItem] || 0) + 1;

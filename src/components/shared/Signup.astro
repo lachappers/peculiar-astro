@@ -1,0 +1,43 @@
+---
+import SectionHeading from "@components/shared/SectionHeading.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<aside
+  class="flex max-h-fit w-full max-w-screen-lg flex-col items-center gap-8 p-4 sm:p-6 md:flex-row"
+>
+  <SectionHeading subtitle="subscribe" title="Sign up for our newsletter">
+    Stay up to date with our latest news, announcements and products.
+  </SectionHeading>
+  <form method="post" class="w-full md:max-w-lg" data-netlify="true">
+    <div class="flex w-full flex-col gap-2 sm:flex-row sm:gap-3">
+      <div class="relative w-full">
+        <label for="signup-email" class="sr-only">Email Address</label>
+        <Icon
+          name="mdi:email"
+          class="pointer-events-none absolute inset-y-0 left-0 flex h-full w-fit items-center p-4 pl-3 text-[--outline-variant]"
+        />
+        <input
+          type="email"
+          id="signup-email"
+          name="signup-input"
+          required
+          class="block w-full rounded-lg border-[--outline] bg-[--surface-container-lowest] px-4 py-3 pl-10 text-sm disabled:pointer-events-none disabled:opacity-50"
+          placeholder="Email Address"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="button min-h-full bg-[--primary-300] text-[--neutral-100]"
+      >
+        Subscribe</button
+      >
+    </div>
+    <p class="mt-3 text-sm text-[--on-surface-variant]">
+      No spam, unsubscribe at any time. <a href="/privacy" class="font-semibold"
+        >Read our Privacy Policy</a
+      >.
+    </p>
+  </form>
+</aside>

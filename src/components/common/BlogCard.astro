@@ -8,7 +8,7 @@ import Button from "@components/Button.astro";
 import PublicImage from "@components/shared/PublicImage.astro";
 
 const { data } = Astro.props;
-const { title, image, date, author, categories, preview } = data.data;
+const { title, image, date, author, categories, preview, tags } = data.data;
 ---
 
 <div
@@ -26,25 +26,27 @@ const { title, image, date, author, categories, preview } = data.data;
       />
     )
   }
-  <h4 class="mb-3 w-full text-2xl">
+  <h2 class="mb-3 w-full text-2xl">
     <a class="title-link" href={`/blog/${data.slug}`}>
       {title}
     </a>
-  </h4>
+  </h2>
+
   <ul
     class="mb-2 flex w-full flex-col flex-wrap items-center justify-center gap-2 whitespace-nowrap sm:flex-row sm:justify-start"
   >
     {
-      categories && (
-        <li class="mr-4 inline-block w-full">
-          <Icon name="mdi:folder-outline" class="-mt-1 mr-2 inline-block" />
-          {categories.map((category: string, index: number) => (
-            <a class="title-link" href={`/categories/${slugify(category)}`}>
-              {humanize(category)}
-              {index !== categories.length - 1 && "|"}
-            </a>
+      tags && (
+        <ul class="w-full " aria-label="tags">
+          {tags.map((category: string, index: number) => (
+            <li class="w-fit rounded-full bg-[--primary-background] px-2 py-1 text-xs lowercase">
+              <a class="title-link" href={`/categories/${slugify(category)}`}>
+                #{humanize(category)}
+                {index !== tags.length - 1 && "|"}
+              </a>
+            </li>
           ))}
-        </li>
+        </ul>
       )
     }
     <li class="flex flex-auto gap-2 sm:w-1/3">
@@ -52,14 +54,18 @@ const { title, image, date, author, categories, preview } = data.data;
         class="title-link inline-flex items-center justify-center gap-2"
         href={`/authors/${slugify(author)}`}
       >
-        <Icon name="mdi:account-circle-outline" class="block" />
+        <Icon
+          name="mdi:account-circle-outline"
+          class="block"
+          aria-label="author"
+        />
         {humanize(author)}
       </a>
     </li>
     {
       date && (
         <li class="flex flex-auto items-center gap-2 sm:w-1/3">
-          <Icon name="mdi:clock-outline" class="block " />
+          <Icon name="mdi:clock-outline" class="block " aria-label="date" />
           {formatDate(date)}
         </li>
       )
@@ -75,8 +81,27 @@ const { title, image, date, author, categories, preview } = data.data;
   </p>
   <Button
     href={`/blog/${data.slug}`}
-    text="Read More"
+    text="Read Post"
     icon="mdi:arrow-right"
     addClasses="size-small last:mt-auto w-fit"
   />
+
+  {
+    categories && (
+      <ul
+        class="order-first mb-2 flex w-full items-center gap-2"
+        aria-label="categories"
+      >
+        <Icon name="mdi:folder-outline" class=" inline-block" />
+        {categories.map((category: string, index: number) => (
+          <li class=" text-xs uppercase">
+            <a class="title-link" href={`/categories/${slugify(category)}`}>
+              {humanize(category)}
+              {index !== categories.length - 1 && "|"}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 </div>

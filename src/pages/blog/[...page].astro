@@ -17,6 +17,7 @@ import PageHeader from "@components/shared/PageHeader.astro";
 import BlogCard from "@components/common/BlogCard.astro";
 
 import IndexSidebar from "@components/shared/IndexSidebar.astro";
+import Signup from "@components/shared/Signup.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection("blog", ({ data }) => {
@@ -74,6 +75,7 @@ const blogFolder = "blog";
       />
     </div>
   </section>
+  <Signup />
   <!-- <section class="mt-24 flex flex-col items-center gap-4 px-4 lg:px-6">
     <div class="flex w-full flex-col gap-4">
       <h1

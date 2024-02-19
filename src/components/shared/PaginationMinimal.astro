@@ -3,10 +3,12 @@ import { Icon } from "astro-icon/components";
 import { onPageLoad } from "astro/virtual-modules/transitions-events.js";
 
 const { page, baseUrl } = Astro.props;
-const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1).slice(page.currentPage> 3? page.currentPage-3 :0, page.currentPage > page.lastPage -2 ? -1 : page.currentPage +2);
+const paginationStart = Math.max(Math.min(page.currentPage-3, page.lastPage-5), 0)
+const paginationEnd = Math.min(paginationStart + 5, page.lastPage)
+const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1).slice(paginationStart, paginationEnd );
 
-console.log(page)
-console.log(paginationList)
+// console.log(page)
+// await console.log(paginationList)
 ---
 
 <nav aria-label="pagination" class="pagination pagination-default flex flex-col sm:flex-row gap-4 sm:gap-1 w-fit justify-center items-center mb-8 self-center">
@@ -16,21 +18,19 @@ console.log(paginationList)
                 <Icon name="mdi:chevron-double-left">
         
             </span>
-            <span class="pagination__link disabled">
+            <span class="pagination__link disabled" aria-hidden="true">
                 <Icon name="mdi:chevron-left">
             </span>
         ) : (
-            <a href={baseUrl} class="pagination__link">
+            <a href={baseUrl} class="pagination__link" aria-label="First page">
                 <Icon name="mdi:chevron-double-left" class="text-2xl mx-1">
-                    <span class="sr-only">First Page</span>
             </a>
-            <a href={page.url.prev} class="pagination__link">
+            <a href={page.url.prev} class="pagination__link" aria-label="Previous page">
                 <Icon name="mdi:chevron-left" class=" text-2xl mx-1">
-                <span class="sr-only">Previous</span>
             </a>
         )}
         {
-            paginationList[0] !== 1 ? <p class="text-xs sm:text-base">...</p> : null
+            paginationList[0] !== 1 ? <p class="text-xs sm:text-base" aria-hidden="true">...</p> : null
         }
     </div>
     
@@ -45,16 +45,15 @@ console.log(paginationList)
     </div>
     <div class="flex justify-center items-center gap-1 flex-none">
         {
-            paginationList[-1] !== page.lastPage ? <p class="text-xs sm:text-base">...</p> : null
+            !paginationList.includes(page.lastPage) ? <p class="text-xs sm:text-base" aria-hidden="true">...</p> : null
         }
         { page.url.next ? (
-            <a href={page.url.next} class="pagination__link">
+            <a href={page.url.next} class="pagination__link" aria-label="Next page">
                 <Icon name="mdi:chevron-right" class="text-2xl mx-1">
-                <span class="sr-only">Next</span>
+
             </a>
-            <a href={`${baseUrl}/${page.lastPage}`} class="pagination__link">
+            <a href={`${baseUrl}/${page.lastPage}`} class="pagination__link" aria-label="Last page">
                 <Icon name="mdi:chevron-double-right" class="text-2xl mx-1">
-                    <span class="sr-only">Last Page</span>
             </a>
             ) : (
             <span class="pagination__link disabled" aria-hidden="true">
