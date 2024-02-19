@@ -49,7 +49,7 @@ export default function ContactForm() {
       method="post"
       ref={formRef}
       onSubmit={submitData}
-      className="contactForm shadow-postMod"
+      className="contactForm flex w-full flex-col justify-center shadow-postMod"
     >
       {loading && (
         <div

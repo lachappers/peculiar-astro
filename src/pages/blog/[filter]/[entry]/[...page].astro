@@ -5,6 +5,7 @@ import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
 import { slugify, humanize, pluralize } from "@utils/textConverter";
 import { CollectionEntry, getCollection } from "astro:content";
 import { getCollectionFilter } from "@utils/contentParser";
+import { Icon } from "astro-icon/components";
 
 // components
 import DefaultLayout from "@layouts/DefaultLayout.astro";
@@ -69,8 +70,42 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
 ---
 
 <DefaultLayout title=`${humanize(entry)} Blogs`>
-  <PageHeader title=`${humanize(entry)}` />
-  <section class="flex w-full flex-col items-center justify-start p-4 md:p-16">
+  <PageHeader title={humanize(entry)} breadcrumbs />
+  <!-- other filter entries -->
+  <aside
+    class="flex w-full max-w-screen-md items-center gap-4 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6"
+  >
+    <h3 class="text-lg uppercase">
+      All {pluralize(entries.length, humanize(filter))}
+    </h3>
+
+    <ul class="flex flex-wrap items-center justify-center gap-2 text-lg">
+      {
+        entries.map((tag: any) => {
+          return (
+            <li class="inline-block">
+              <a
+                class="filter-item   m-1 block rounded bg-[--neutral-background] px-3 py-1 hover:bg-[--primary-background] "
+                href={`/blog/${slugify(filter)}/${slugify(tag)}`}
+              >
+                {humanize(tag)}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </aside>
+  <a
+    href="/blog"
+    class="flex items-center gap-2 rounded-md bg-[--primary-container] px-5 transition hover:bg-[--inverse-primary]"
+  >
+    <Icon name="mdi:arrow-left" />
+    Back to Blog
+  </a>
+  <section
+    class="flex w-full flex-col items-center justify-start px-4 md:px-16"
+  >
     <div
       class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
     >
@@ -78,10 +113,12 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
       <div
         class="flex min-h-full w-full flex-col items-center lg:w-2/3 lg:basis-auto"
       >
-        <div class="flex flex-wrap items-stretch justify-center">
+        <div
+          class="mb-14 flex h-full min-h-full flex-wrap items-stretch justify-center"
+        >
           {
             page.data.map((post) => (
-              <div class="mb-14 flex w-full max-w-sm  flex-auto sm:min-h-full sm:px-4 md:w-1/2 md:basis-auto">
+              <div class=" max-w-sm flex-auto grow sm:min-h-full sm:px-4 md:w-1/2 md:basis-auto">
                 <BlogCard data={post} />
               </div>
             ))
@@ -97,39 +134,8 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
 
       <!-- sidebar -->
       <!-- <IndexSidebar collection={blogFolder} sidebarFilters={sidebarFilters} /> -->
-      <!-- other filter entries -->
-      <aside class="w-full">
-        <h3 class="mb-6 text-xl capitalize">
-          All {pluralize(entries.length, humanize(filter))}
-        </h3>
 
-        <ul
-          class="flex flex-wrap gap-2 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 text-lg"
-        >
-          {
-            entries.map((tag: any) => {
-              return (
-                <li class="inline-block">
-                  <a
-                    class="filter-item   m-1 block rounded bg-[--neutral-background] px-3 py-1 hover:bg-[--primary-background] "
-                    href={`/blog/${slugify(filter)}/${slugify(tag)}`}
-                  >
-                    {humanize(tag)}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </aside>
-
-      <div class="mt-8 text-center">
-        <a
-          href="/blog"
-          class="rounded-md bg-[--primary-container] px-5 py-3 transition hover:bg-[--inverse-primary]"
-          >← Back to Blog</a
-        >
-      </div>
+      <div class="mt-8 text-center"></div>
     </div>
   </section>
 </DefaultLayout>

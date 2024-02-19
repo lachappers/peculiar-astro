@@ -72,7 +72,7 @@ import headshot from "../assets/images/headshot.jpg";
     </div>
     <div class="flex flex-col items-center justify-center">
       <p class="my-8 max-w-[60ch] text-center text-2xl font-bold md:text-4xl">
-        Get a shiny new website from<span class="text-highlight">£1,900</span> or
+        Get a shiny new website from<span class="text-highlight"> £1,900</span> or
         <span class="text-highlight">£180</span> per month.
       </p>
     </div>
@@ -98,7 +98,7 @@ import headshot from "../assets/images/headshot.jpg";
       addClasses="md:max-w-2xl"
     >
       <p slot="title">
-        Hello from<span class="text-highlight">Lucy</span>, <br />Our Peculiar
+        Hello from<span class="text-highlight"> Lucy</span>, <br />Our Peculiar
         Founder.
       </p>
       <p class="">
@@ -280,6 +280,14 @@ import headshot from "../assets/images/headshot.jpg";
   }
   .darkmode .mint {
     border: 3px solid var(--accent-mint-100);
+  }
+
+  section {
+    min-height: 70vh;
+  }
+  .container,
+  section > .container {
+    @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:gap-8 md:p-16;
   }
 </style>
 

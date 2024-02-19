@@ -5,25 +5,12 @@ import { CollectionEntry, getCollection } from "astro:content";
 import { CONTENTSETTINGS } from "@config";
 import { getAllTaxonomy } from "@utils/taxonomyParser";
 import { slugify, humanize, pluralize } from "@utils/textConverter";
+import { Icon } from "astro-icon/components";
 
 // components
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
-// export async function getStaticPaths() {
-//   const allFilters = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
-//     CONTENTSETTINGS.blog.sidebarFilters
-//   );
-//   // const blogs = await getCollection("blog");
-//   return allFilters.flatMap(async (filter: any) => {
-//     // const entries = [...new Set(blogs.map((blog) => blog.data[filter]).flat())];
-//     const categories = await getAllTaxonomy("blog", filter);
-//     const entries = Object.entries(categories);
-//     return {
-//       params: { filter: filter },
-//       props: { filterProp: entries },
-//     };
-//   });
-// }
+
 export function getStaticPaths() {
   const filters: string[] = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
     CONTENTSETTINGS.blog.sidebarFilters
@@ -71,8 +58,10 @@ const entries = Object.entries(categories);
       <a
         href="/blog"
         class="mt-8 rounded-md bg-[--primary-container] px-5 py-3 text-center transition hover:bg-[--inverse-primary]"
-        >← Back to Blog</a
       >
+        <Icon name="mdi:arrow-right" />
+        Back to Blog
+      </a>
     </div>
   </section>
 </DefaultLayout>

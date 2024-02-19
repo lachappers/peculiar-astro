@@ -11,52 +11,51 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
   description="Get in touch with us today to get started on your new website, discuss a project or to arrange a chat about how we can help your business."
 >
   <section
-    class="container my-16 flex w-full flex-col items-center justify-center px-4 py-8 md:my-32"
+    class="flex min-h-full w-full max-w-screen-xl grow flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row"
   >
-    <!-- <div class="container mx-auto"> -->
-
-    <SectionHeading
-      id="contact"
-      subtitle="contact us"
-      title="Want to find out more?"
+    <div
+      class="contact flex w-full max-w-lg flex-auto flex-col items-end gap-4 md:gap-8"
     >
-      <p class="">
-        We’d love to hear from you. Please fill out this form or shoot us an
-        email.
-      </p>
-    </SectionHeading>
+      <SectionHeading
+        id="contact"
+        subtitle="contact us"
+        title="Want to find out more?"
+      >
+        <p class="">
+          We’d love to hear from you. Please fill out the form on this page. You
+          can also ping us an email or chat to us on WhatsApp now.
+        </p>
+      </SectionHeading>
 
-    <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
-      <div class="contact grid grid-cols-1 content-center gap-12">
-        <div class="contact-card neutral">
-          <Icon name="ic:outline-email" class="text-4xl" />
-          <h2 class="">Email</h2>
-          <p>
-            If your message isn't quite right for the contact box here, feel
-            free to email us directly on:
-          </p>
-          <a class="email-link pt-4" href="" aria-label="send me an email">
-            <span class="hidden">ANTISPAM</span
-            >info@<!-- antispam-->peculiardynamics.co.uk
-          </a>
-        </div>
-        <div class="contact-card neutral">
-          <Icon name="ic:outline-whatsapp" class="text-4xl" />
-          <h2 class="mb-2">WhatsApp</h2>
-          <a
-            class=""
-            rel="noreferrer"
-            target="_blank"
-            href="https://wa.me/447405952020"
-            aria-label="whatsapp us"
-          >
-            Click here to chat now on WhatsApp
-          </a>
-        </div>
+      <div class="contact-card neutral w-full">
+        <Icon name="ic:outline-email" class="text-4xl" />
+        <h2 class="">Email</h2>
+        <p>
+          If your message isn't quite right for the contact box here, feel free
+          to email us directly on:
+        </p>
+        <a class="email-link pt-4" href="" aria-label="send me an email">
+          <span class="hidden">ANTISPAM</span
+          >info@<!-- antispam-->peculiardynamics.co.uk
+        </a>
       </div>
+      <div class="contact-card neutral w-full">
+        <Icon name="ic:outline-whatsapp" class="text-4xl" />
+        <h2 class="mb-2">WhatsApp</h2>
+        <a
+          class=""
+          rel="noreferrer"
+          target="_blank"
+          href="https://wa.me/447405952020"
+          aria-label="whatsapp us"
+        >
+          Click here to chat now on WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="flex min-h-full w-full max-w-xl justify-center">
       <ContactForm client:load />
     </div>
-    <!-- </div> -->
   </section>
 </DefaultLayout>
 
@@ -75,35 +74,35 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
 </script>
 
 <style>
-  form {
+  #contactForm {
     padding: 2rem;
     border: 3px solid var(--font-color);
     border-radius: 0.5rem;
     background: var(--accent-purple);
     font-weight: 700;
   }
-  form label {
+  #contactForm label {
     margin-bottom: 0.25rem;
     font-size: 1rem;
     line-height: 1.25rem;
     color: var(--font-color);
   }
-  form input,
-  form textarea {
+  #contactForm input,
+  #contactForm textarea {
     padding: 0.625rem 1.25rem;
   }
 
-  form input::placeholder,
-  form textarea::placeholder {
+  #contactForm input::placeholder,
+  #contactForm textarea::placeholder {
     color: var(--neutral-500);
   }
 
-  form textarea {
+  #contactForm textarea {
     height: 8rem;
   }
 
   .contact-card,
-  .contactForm {
+  #contactForm {
     border-radius: 0.5rem;
 
     border: 3px solid var(--font-color);

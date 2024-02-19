@@ -7,6 +7,10 @@ tags:
   - blog
 categories:
   - test
+  - beans
+  - toast
+  - Making a difference in Business
+  - Full English Breakfast
 image: /assets/images/uploads/1b.jpg
 imageAlt: Tiger crossing road
 ---

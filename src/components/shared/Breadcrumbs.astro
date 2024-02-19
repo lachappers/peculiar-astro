@@ -27,7 +27,10 @@ paths.forEach((label: string, i: number) => {
   <ol class="inline-flex" role="list">
     {
       parts.map(({ label, ...attrs }, index) => (
-        <li class="mx-1 capitalize" role="listitem">
+        <li
+          class="mx-1 text-lg font-semibold uppercase text-[--primary]"
+          role="listitem"
+        >
           {index > 0 && <span class="inlin-block mr-1">/</span>}
           {index !== parts.length - 1 ? (
             <a class="pagination-link" {...attrs}>
