@@ -3,19 +3,17 @@ import type { GetStaticPaths } from "astro";
 import { CONTENTSETTINGS } from "@config";
 import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
 import { slugify, humanize, pluralize } from "@utils/textConverter";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import { getCollectionFilter } from "@utils/contentParser";
 import { Icon } from "astro-icon/components";
 
 // components
 import DefaultLayout from "@layouts/DefaultLayout.astro";
-import Pagination from "@components/unused/Pagination.astro";
+// import Pagination from "@components/unused/Pagination.astro";
 import PaginationMinimal from "@components/shared/PaginationMinimal.astro";
-import Card from "@components/common/Card.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
 import BlogCard from "@components/common/BlogCard.astro";
-import IndexSidebar from "@components/shared/IndexSidebar.astro";
-import Page from "../../[page].astro";
+// import IndexSidebar from "@components/shared/IndexSidebar.astro";
 
 interface Route {
   params: {
@@ -41,7 +39,7 @@ export async function getStaticPaths({ paginate }) {
     const entries = [...new Set(blogs.map((blog) => blog.data[filter]).flat())];
 
     return entries.flatMap((entry) => {
-      const filteredBlogs: string[] = blogs.filter((blog: any) =>
+      const filteredBlogs = blogs.filter((blog: any) =>
         blog.data[filter].includes(entry)
       );
 
@@ -56,10 +54,6 @@ export async function getStaticPaths({ paginate }) {
 
 const { filter, entry }: { filter: string; entry: string } = Astro.params;
 const { page, entries } = Astro.props;
-const sidebarFilters: string[] =
-  CONTENTSETTINGS.blog.sidebarCountFilters.concat(
-    CONTENTSETTINGS.blog.sidebarFilters
-  );
 
 const pathname = new URL(Astro.request.url).pathname;
 const firstPath = isNaN(Number(pathname.split("/").slice(-1)))

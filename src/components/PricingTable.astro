@@ -1,40 +1,40 @@
 ---
 import { Icon } from "astro-icon/components";
 import Button from "@components/Button.astro";
-import Heading from "@components/shared/Heading.astro";
+import SectionHeading from "@components/shared/SectionHeading.astro";
 ---
 
 <!-- Pricing -->
-<section class="container flex max-w-screen-xl flex-col">
+<section
+  class="container my-16 flex w-full max-w-screen-xl flex-col items-center justify-center gap-4 px-4 py-8 md:my-32"
+>
   <!-- Title -->
-  <div class="mb-10 flex w-full flex-col items-center gap-2 lg:mb-14">
-    <h2 class="mb-2 w-full text-lg font-bold">
-      <Heading id="web-pricing" text="Website Development Pricing" />
-    </h2>
-    <p
-      class="mb-8 w-full max-w-[30ch] self-start text-4xl font-bold md:text-6xl"
-    >
+  <!-- <div class="mb-10 flex w-full flex-col items-center gap-2 lg:mb-14"> -->
+  <SectionHeading id="web-pricing" subtitle="Website Development Pricing">
+    <p slot="title">
       Transparent pricing,<br />
       <span class="text-highlight">tailored to you.</span>
     </p>
-    <p class="w-full max-w-[60ch] self-start text-base md:text-2xl">
+    <p class="">
       Whether you want us to handle design, updates and keeping your site
       performing for you for a fixed price each month, or prefer to pay project
       by project, we've got you covered.
     </p>
-  </div>
+  </SectionHeading>
+
+  <!-- </div> -->
   <!-- End Title -->
 
   <!-- Grid -->
   <div class="mt-12 grid max-w-screen-md items-center gap-6 sm:grid-cols-2">
     <!-- Card -->
     <div class="card">
-      <h4 class="w-full text-lg font-medium">All Inclusive</h4>
+      <h4 class="w-full text-lg font-medium uppercase">All Inclusive</h4>
       <span class="mt-7 w-full text-5xl font-bold">
         <span class="-me-2 text-2xl font-bold">£</span>
         180
         <span class="text-2xl font-bold"
-          >/ mo <span class="text-xl font-normal">+VAT</span></span
+          >/ mo <span class="text-xl font-normal">+ VAT</span></span
         >
       </span>
       <p class="mt-2 w-full text-sm text-[--font-variant]">
@@ -75,7 +75,7 @@ import Heading from "@components/shared/Heading.astro";
       >
         Most popular
       </p>
-      <h4 class="w-full text-lg font-medium">Pay As You Go</h4>
+      <h4 class="w-full text-lg font-medium uppercase">Pay As You Go</h4>
       <div class="mt-7 w-full text-5xl font-bold">
         <span class="-me-2 text-2xl font-bold">£</span>
         2,375

@@ -44,7 +44,7 @@
   };
 
   document.addEventListener("astro:page-load", () => {
-    console.log("load");
+    // console.log("load");
     let darkMode = localStorage.getItem("darkMode");
     const darkModeToggle = document.querySelector(".darkmode-toggle");
     // execution
@@ -61,7 +61,7 @@
   });
 
   document.addEventListener("astro:after-swap", () => {
-    console.log("swap");
+    // console.log("swap");
     let darkMode = localStorage.getItem("darkMode");
     const darkModeToggle = document.querySelector(".darkmode-toggle");
     if (darkMode === "enabled") enableDarkMode(darkModeToggle);

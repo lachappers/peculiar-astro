@@ -50,7 +50,7 @@ const blogFolder = "blog";
   <PageHeader title="Our Peculiar Blog" breadcrumbs>
     Jargon-free technology tips, trends and strategies to improve your business.
   </PageHeader>
-  <section class="flex w-full flex-col items-center justify-start p-4 md:p-16">
+  <section class="flex w-full flex-col items-center justify-start p-4 md:px-8">
     <div
       class="flex w-full max-w-screen-2xl flex-auto flex-wrap items-start justify-center"
     >
@@ -80,65 +80,9 @@ const blogFolder = "blog";
       />
     </div>
   </section>
-  <Signup />
-  <!-- <section class="mt-24 flex flex-col items-center gap-4 px-4 lg:px-6">
-    <div class="flex w-full flex-col gap-4">
-      <h1
-        class="justify-self-end text-center text-6xl font-bold md:text-left lg:text-7xl"
-      >
-        News, Updates and<br />
-        <span class="text-gradient">Helpful Content</span>
-      </h1>
-      <p class="max-w-[40ch] text-xl md:text-2xl">
-        Dive into our blog; packed with actionable tips, industry trends, and
-        success stories for UK small businesses. Start your journey today
-      </p>
-    </div>
-
-    {
-      page.data.total === 0 ? (
-        <div class="mt-16 flex h-full max-w-screen-xl flex-auto flex-col items-center gap-6">
-          <p class="max-w-[40ch] text-center text-lg md:text-xl">
-            We're working on some fresh content for you - check back soon!
-          </p>
-          <Image
-            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWp2ZzExNzF1bzNrNDhzcGd6anRzZnhoNHd0OG12bnp3MHl2ajJ6NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wHE6Dd6RCVHQfjK5dy/giphy.gif"
-            alt=""
-            width="400"
-            height="400"
-            class="giphy aspect-square h-96 w-fit rounded-full object-cover"
-          />
-        </div>
-      ) : (
-        <>
-          <ul class="my-8 grid w-full max-w-screen-xl grid-cols-3 justify-items-center gap-6">
-            {page.data.map((blog) => (
-              <Card
-                tags={blog.data.tags}
-                title={blog.data.title}
-                cardLink={`/blog/${blog.slug}`}
-                author={blog.data.author}
-                date={blog.data.date}
-                image={blog.data.image}
-                imageAlt={blog.data.imageAlt}
-              >
-                <p class="mt-2 text-ellipsis text-sm">{blog.data.preview}</p>
-              </Card>
-            ))}
-          </ul>
-          {page.total > SITE.blogPageSize && (
-            <Pagination
-              length={page.lastPage}
-              currentUrl={page.url.current}
-              currentPage={page.currentPage}
-              firstUrl={`/${firstPath}`}
-              prevUrl={page.url.prev}
-              nextUrl={page.url.next}
-              lastUrl={`/${firstPath}/${page.lastPage}`}
-            />
-          )}
-        </>
-      )
-    }
-  </section> -->
+  <div
+    class="border-md mx-8 rounded-md border-[3px] border-[--font-color] shadow-postMod"
+  >
+    <Signup />
+  </div>
 </DefaultLayout>

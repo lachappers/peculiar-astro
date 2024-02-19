@@ -102,7 +102,7 @@ id="main-navigation"
   // handle dropdown
   const toggleDropdownMenu = (event) => {
     // console.log(event.target)
-    console.log("dd clicked");
+    // console.log("dd clicked");
     event.stopPropagation();
     const target = event.target.closest("[data-dropdown-button]");
     // console.log(target)
@@ -193,7 +193,8 @@ id="main-navigation"
         closeDropdownMenu(hamburger);
         removeClickListener();
       } else {
-        console.log("click registered - no action");
+        // console.log("click registered - no action");
+        return
       }
     };
     const resizeListener = () => {

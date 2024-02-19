@@ -12,7 +12,7 @@ const { title, image, date, author, categories, preview, tags } = data.data;
 ---
 
 <div
-  class="flex h-full w-full flex-auto grow flex-col items-center gap-3 text-center sm:items-start sm:text-left"
+  class="flex h-full w-full flex-auto grow flex-col items-center gap-3 rounded-md border-[3px] border-[--font-color] p-2 text-center shadow-postMod sm:items-start sm:text-left"
 >
   {
     image && (
@@ -37,12 +37,11 @@ const { title, image, date, author, categories, preview, tags } = data.data;
   >
     {
       tags && (
-        <ul class="w-full " aria-label="tags">
+        <ul class="flex w-full gap-1" aria-label="tags">
           {tags.map((category: string, index: number) => (
             <li class="w-fit rounded-full bg-[--primary-background] px-2 py-1 text-xs lowercase">
               <a class="title-link" href={`/categories/${slugify(category)}`}>
                 #{humanize(category)}
-                {index !== tags.length - 1 && "|"}
               </a>
             </li>
           ))}

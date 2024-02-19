@@ -1,7 +1,5 @@
 ---
-import type { GetStaticPaths } from "astro";
-import type { GetStaticPaths } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import { CONTENTSETTINGS } from "@config";
 import { getAllTaxonomy } from "@utils/taxonomyParser";
 import { slugify, humanize, pluralize } from "@utils/textConverter";
@@ -57,9 +55,9 @@ const entries = Object.entries(categories);
 
       <a
         href="/blog"
-        class="mt-8 rounded-md bg-[--primary-container] px-5 py-3 text-center transition hover:bg-[--inverse-primary]"
+        class="mt-8 flex items-center justify-center gap-2 rounded-md bg-[--primary-container] px-5 py-3 text-center transition hover:bg-[--inverse-primary]"
       >
-        <Icon name="mdi:arrow-right" />
+        <Icon name="mdi:arrow-left" />
         Back to Blog
       </a>
     </div>
