@@ -1,0 +1,78 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import { CONTENTSETTINGS } from "@config";
+import { getAllTaxonomy } from "@utils/taxonomyParser";
+import { slugify, humanize, pluralize } from "@utils/textConverter";
+
+// components
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
+// export async function getStaticPaths() {
+//   const allFilters = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
+//     CONTENTSETTINGS.blog.sidebarFilters
+//   );
+//   // const blogs = await getCollection("blog");
+//   return allFilters.flatMap(async (filter: any) => {
+//     // const entries = [...new Set(blogs.map((blog) => blog.data[filter]).flat())];
+//     const categories = await getAllTaxonomy("blog", filter);
+//     const entries = Object.entries(categories);
+//     return {
+//       params: { filter: filter },
+//       props: { filterProp: entries },
+//     };
+//   });
+// }
+export function getStaticPaths() {
+  const filters: string[] = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
+    CONTENTSETTINGS.blog.sidebarFilters
+  );
+  return filters.flatMap((filter) => {
+    return [{ params: { filter: filter } }];
+  });
+}
+console.log(Astro.params);
+const { filter } = Astro.params;
+const { filterProp } = Astro.props;
+
+const categories = await getAllTaxonomy("blog", filter);
+const entries = Object.entries(categories);
+---
+
+<DefaultLayout title=`Blog ${pluralize(entries.length, filter)}`>
+  <PageHeader title=`${pluralize(entries.length, filter)}` />
+  <section class="flex w-full flex-col items-center justify-start">
+    <div
+      class="max-w-screen-3xl flex w-full flex-auto flex-col items-center justify-start p-4 md:p-16"
+    >
+      <!-- other filter entries -->
+
+      <ul
+        class="flex flex-wrap gap-2 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 text-lg"
+      >
+        {
+          entries.map(([k, v]) => (
+            <li class="">
+              <a
+                class="filter-item filter-item hover:bg-[--primary-background m-1 flex items-center justify-between gap-2 rounded bg-[--neutral-background] px-3 py-1"
+                href={`/blog/${slugify(filter)}/${slugify(k)}`}
+              >
+                {humanize(k)}{" "}
+                <span class="rounded bg-[--neutral-background] p-1 px-2">
+                  {v}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <a
+        href="/blog"
+        class="mt-8 rounded-md bg-[--primary-container] px-5 py-3 text-center transition hover:bg-[--inverse-primary]"
+        >← Back to Blog</a
+      >
+    </div>
+  </section>
+</DefaultLayout>

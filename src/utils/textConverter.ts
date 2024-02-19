@@ -72,3 +72,36 @@ const htmlEntityDecoder = (htmlWithEntities: string) => {
   );
   return htmlWithoutEntities;
 };
+
+// pluralize
+
+// export const pluralize = (val, word, plural = word + "s") => {
+//   if word
+//   const _pluralize = (num, word, plural = word + "s") =>
+//     [1, -1].includes(Number(num)) ? word : plural;
+//   if (typeof val === "object")
+//     return (num, word) => _pluralize(num, word, val[word]);
+//   return _pluralize(val, word, plural);
+// };
+
+export const pluralize = (count, str, suffix = "s", includeCount = false) => {
+  if (str.slice(-1) !== "s") {
+    let res = `${str}${count > 1 ? suffix : ""}`;
+    if (includeCount == true) return `${count} ${res}`;
+    return res;
+  } else {
+    if (includeCount == true) return `${count} ${str}`;
+    return str;
+  }
+};
+// pluralize(0, 'apple'); // 'apples'
+// pluralize(1, 'apple'); // 'apple'
+// pluralize(2, 'apple'); // 'apples'
+// pluralize(2, 'person', 'people'); // 'people'
+
+// const PLURALS = {
+//   person: 'people',
+//   radius: 'radii'
+// };
+// const autoPluralize = pluralize(PLURALS);
+// console.log(autoPluralize(2, 'person')); // 'people'

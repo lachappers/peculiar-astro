@@ -32,7 +32,7 @@ const { title, image, date, author, categories, preview } = data.data;
     </a>
   </h4>
   <ul
-    class="mb-2 flex w-full flex-wrap justify-center whitespace-nowrap sm:justify-start"
+    class="mb-2 flex w-full flex-col flex-wrap items-center justify-center gap-2 whitespace-nowrap sm:flex-row sm:justify-start"
   >
     {
       categories && (
@@ -47,20 +47,19 @@ const { title, image, date, author, categories, preview } = data.data;
         </li>
       )
     }
-    <li class="mr-4 inline-block w-1/3">
-      <a class="title-link" href={`/authors/${slugify(author)}`}>
-        <Icon
-          name="mdi:account-circle-outline"
-          class="-mt-1 mr-2 inline-block"
-        />
+    <li class="flex flex-auto gap-2 sm:w-1/3">
+      <a
+        class="title-link inline-flex items-center justify-center gap-2"
+        href={`/authors/${slugify(author)}`}
+      >
+        <Icon name="mdi:account-circle-outline" class="block" />
         {humanize(author)}
       </a>
     </li>
     {
       date && (
-        <li class="inline-block w-1/3">
-          {" "}
-          <Icon name="mdi:clock-outline" class="-mt-1 mr-2 inline-block" />
+        <li class="flex flex-auto items-center gap-2 sm:w-1/3">
+          <Icon name="mdi:clock-outline" class="block " />
           {formatDate(date)}
         </li>
       )

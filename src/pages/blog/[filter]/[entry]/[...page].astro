@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { CONTENTSETTINGS } from "@config";
 import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
-import { slugify } from "@utils/textConverter";
+import { slugify, humanize, pluralize } from "@utils/textConverter";
 import { CollectionEntry, getCollection } from "astro:content";
 import { getCollectionFilter } from "@utils/contentParser";
 
@@ -46,7 +46,7 @@ export async function getStaticPaths({ paginate }) {
 
       return paginate(filteredBlogs, {
         params: { filter: filter, entry: slugify(entry) },
-        props: { title: entry },
+        props: { title: entry, entries: entries },
         pageSize: 2,
       });
     });
@@ -54,7 +54,7 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { filter, entry }: { filter: string; entry: string } = Astro.params;
-const { page } = Astro.props;
+const { page, entries } = Astro.props;
 const sidebarFilters: string[] =
   CONTENTSETTINGS.blog.sidebarCountFilters.concat(
     CONTENTSETTINGS.blog.sidebarFilters
@@ -64,11 +64,13 @@ const pathname = new URL(Astro.request.url).pathname;
 const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
   ? pathname
   : pathname.split("/").slice(0, -1).join("/");
+
+// console.log(entry);
 ---
 
-<DefaultLayout title="Blog">
-  <PageHeader title="Blog Posts" />
-  <section class="flex w-full flex-col items-center justify-start">
+<DefaultLayout title=`${humanize(entry)} Blogs`>
+  <PageHeader title=`${humanize(entry)}` />
+  <section class="flex w-full flex-col items-center justify-start p-4 md:p-16">
     <div
       class="max-w-screen-3xl flex w-full flex-auto flex-wrap items-start justify-center p-4 md:p-16"
     >
@@ -77,12 +79,13 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
         <div class="flex flex-wrap items-stretch justify-center">
           {
             page.data.map((post) => (
-              <div class="mb-14 flex w-full max-w-sm  flex-auto px-4 sm:min-h-full md:w-1/2 md:basis-auto">
+              <div class="mb-14 flex w-full max-w-sm  flex-auto sm:min-h-full sm:px-4 md:w-1/2 md:basis-auto">
                 <BlogCard data={post} />
               </div>
             ))
           }
         </div>
+        <!-- pagination -->
         {
           page.total > CONTENTSETTINGS.indexPagination && (
             <PaginationMinimal page={page} baseUrl={firstPath} />
@@ -92,6 +95,39 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
 
       <!-- sidebar -->
       <!-- <IndexSidebar collection={blogFolder} sidebarFilters={sidebarFilters} /> -->
+      <!-- other filter entries -->
+      <div class="w-full">
+        <h5 class="mb-6 text-xl capitalize">
+          All {pluralize(entries.length, humanize(filter))}
+        </h5>
+
+        <ul
+          class="flex flex-wrap gap-2 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 text-lg"
+        >
+          {
+            entries.map((tag: any) => {
+              return (
+                <li class="inline-block">
+                  <a
+                    class="filter-item   m-1 block rounded bg-[--neutral-background] px-3 py-1 hover:bg-[--primary-background] "
+                    href={`/blog/${slugify(filter)}/${slugify(tag)}`}
+                  >
+                    {humanize(tag)}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="/blog"
+          class="rounded-md bg-[--primary-container] px-5 py-3 transition hover:bg-[--inverse-primary]"
+          >← Back to Blog</a
+        >
+      </div>
     </div>
   </section>
 </DefaultLayout>
