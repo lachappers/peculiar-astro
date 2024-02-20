@@ -12,12 +12,12 @@ const { title, image, date, author, categories, preview, tags } = data.data;
 ---
 
 <div
-  class="flex h-full w-full flex-auto grow flex-col items-center gap-3 rounded-md border-[3px] border-[--font-color] p-2 text-center shadow-postMod sm:items-start sm:text-left"
+  class="flex h-full max-h-96 max-w-full flex-auto flex-col items-center overflow-clip rounded-md border-[3px] border-[--font-color] pb-2 text-center shadow-postMod sm:h-96 sm:items-start sm:text-left"
 >
   {
     image && (
       <PublicImage
-        class="max-h-36 w-full rounded object-cover"
+        class="h-1/3 max-h-36 w-full flex-initial  object-cover object-center"
         src={image}
         alt={title}
         width={445}
@@ -26,31 +26,42 @@ const { title, image, date, author, categories, preview, tags } = data.data;
       />
     )
   }
-  <h2 class="w-full text-2xl">
+  <h2 class="mt-1 w-full px-2 text-2xl">
     <a class="title-link" href={`/blog/${data.slug}`}>
       {title}
     </a>
   </h2>
 
   <ul
-    class="mb-2 flex w-full flex-col flex-wrap items-center justify-center gap-2 whitespace-nowrap sm:flex-row sm:justify-start"
+    class="mb-1 flex w-full flex-col flex-wrap items-center justify-center gap-1 whitespace-nowrap px-2 sm:flex-row sm:justify-start"
   >
     {
-      tags && (
-        <ul class="flex w-full gap-1" aria-label="tags">
-          {tags.map((category: string, index: number) => (
-            <li class="w-fit rounded-full bg-[--primary-background] px-2 py-1 text-xs lowercase">
-              <a class="title-link" href={`/categories/${slugify(category)}`}>
-                #{humanize(category)}
+      categories && (
+        <ul
+          class=" line-clamp-2 inline-flex max-w-full flex-wrap items-center text-ellipsis text-center text-[--font-variant] sm:w-full"
+          aria-label="categories"
+        >
+          <Icon name="mdi:folder-outline" class="inline-block flex-none" />
+          {categories.map((category: string, index: number) => (
+            <li class=" mx-1 inline-block text-xs uppercase">
+              <a
+                class="title-link inline-block text-ellipsis text-center"
+                href={`/blog/categories/${slugify(category)}`}
+              >
+                {humanize(category)}
               </a>
+              {index !== categories.length - 1 && (
+                <span aria-hidden="true">|</span>
+              )}
             </li>
           ))}
         </ul>
       )
     }
+
     <li class="flex flex-auto gap-2 text-sm sm:w-1/3">
       <a
-        class="title-link inline-flex items-center justify-center gap-2"
+        class="title-link inline-flex items-center justify-center gap-2 text-[--font-variant]"
         href={`/authors/${slugify(author)}`}
       >
         <Icon
@@ -63,7 +74,7 @@ const { title, image, date, author, categories, preview, tags } = data.data;
     </li>
     {
       date && (
-        <li class="flex flex-auto items-center gap-2 text-sm sm:w-1/3">
+        <li class="flex flex-auto items-center gap-2 text-sm text-[--font-variant] sm:w-1/3">
           <Icon
             name="mdi:clock-outline"
             class="block flex-none"
@@ -75,33 +86,25 @@ const { title, image, date, author, categories, preview, tags } = data.data;
     }
   </ul>
 
-  <p class="line-clamp-4 grow overflow-hidden text-base">
-    {
-      preview
-        ? preview
-        : plainify(data.body?.slice(0, Number(CONTENTSETTINGS.previewLength)))
-    }
+  <div class="m-2 flex h-full text-base">
+    <p class="line-clamp-3 h-fit text-ellipsis">
+      {preview ? preview : plainify(data.body)}
+    </p>
     <!-- {plainify(data.body?.slice(0, Number(CONTENTSETTINGS.previewLength)))} -->
-  </p>
+  </div>
   <Button
     href={`/blog/${data.slug}`}
     text="Read Post"
     icon="mdi:arrow-right"
-    addClasses="size-small last:mt-auto w-fit"
+    addClasses="size-small last:mt-auto w-fit mx-2"
   />
-
   {
-    categories && (
-      <ul
-        class="order-first -mb-6 flex w-full  items-center gap-2 overflow-x-scroll whitespace-nowrap rounded-t-md"
-        aria-label="categories"
-      >
-        <Icon name="mdi:folder-outline" class="inline-block flex-none" />
-        {categories.map((category: string, index: number) => (
-          <li class=" text-xs uppercase">
-            <a class="title-link" href={`/categories/${slugify(category)}`}>
-              {humanize(category)}
-              {index !== categories.length - 1 && "|"}
+    tags && (
+      <ul class="mt-1 flex w-full gap-1 px-2" aria-label="tags">
+        {tags.map((category: string, index: number) => (
+          <li class="w-fit rounded bg-[--primary-background] px-2 py-1 text-xs lowercase">
+            <a class="title-link" href={`/blog/tags/${slugify(category)}`}>
+              #{humanize(category)}
             </a>
           </li>
         ))}

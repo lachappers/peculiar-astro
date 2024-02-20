@@ -47,7 +47,7 @@ export const PAGES: Page[] = [
 export const CONTENTSETTINGS = {
   teaserPagination: 3,
   indexPagination: 2,
-  previewLength: 200,
+  previewLength: 160,
   blog: {
     sidebarCountFilters: ["categories"],
     sidebarFilters: ["tags", "author"],

@@ -11,8 +11,8 @@ const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1).sl
 // await console.log(paginationList)
 ---
 
-<nav aria-label="pagination" class="pagination pagination-default flex flex-col sm:flex-row gap-4 sm:gap-1 w-fit justify-center items-center mb-8 self-center">
-    <div class="flex justify-center items-center flex-none gap-1">
+<nav aria-label="pagination" class="pagination pagination-default flex flex-col sm:flex-row gap-4 sm:gap-1 w-full max-w-md justify-center items-center mb-8 self-center">
+    <div class="flex justify-around items-center flex-none gap-1 w-1/5">
         { (page.currentPage === 1) ? (
             <span class="pagination__link disabled" aria-hidden="true">
                 <Icon name="mdi:chevron-double-left">
@@ -29,31 +29,36 @@ const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1).sl
                 <Icon name="mdi:chevron-left" class=" text-2xl mx-1">
             </a>
         )}
-        {
-            paginationList[0] !== 1 ? <p class="text-xs sm:text-base" aria-hidden="true">...</p> : null
-        }
+
     </div>
-    
-    <div class="flex gap-1">
+    <span class="text-xs h-full flex-none sm:text-base w-4" aria-hidden="true">{paginationList[0] !== 1 ? "...": ""}</span>
+    <div class="flex flex-initial items-center justify-between gap-1 w-3/5 whitespace-nowrap">
+        {
+            // paginationList[0] !== 1 ? <p class="text-xs sm:text-base " aria-hidden="true">...</p> : null
+
+        }
         {
             paginationList.map((num) => (
-                <a href={`${baseUrl}${num == 1 ? "" : '/'+(num)}`} class={`pagination__link p-4  ${page.currentPage == num ? "disabled active" : ""}`}>
+                <a href={`${baseUrl}${num == 1 ? "" : '/'+(num)}`} class={`pagination__link  ${page.currentPage == num ? "disabled active" : ""}`}>
                     {num}
                 </a>
             ))
         }
-    </div>
-    <div class="flex justify-center items-center gap-1 flex-none">
         {
-            !paginationList.includes(page.lastPage) ? <p class="text-xs sm:text-base" aria-hidden="true">...</p> : null
+            // <span class={`text-xs h-full flex-none sm:text-base ${paginationList.includes(page.lastPage) ? "disabled": ""}`} aria-hidden="true">...</span>
+
         }
+    </div>
+    <span class="text-xs w-4 h-full flex-none sm:text-base" aria-hidden="true">{paginationList.includes(page.lastPage) ? "": "..."}</span>
+    <div class="flex justify-around items-center gap-1 flex-none w-1/5">
+
         { page.url.next ? (
             <a href={page.url.next} class="pagination__link" aria-label="Next page">
-                <Icon name="mdi:chevron-right" class="text-2xl mx-1">
+                <Icon name="mdi:chevron-right" class="text-2xl ">
 
             </a>
             <a href={`${baseUrl}/${page.lastPage}`} class="pagination__link" aria-label="Last page">
-                <Icon name="mdi:chevron-double-right" class="text-2xl mx-1">
+                <Icon name="mdi:chevron-double-right" class="text-2xl ">
             </a>
             ) : (
             <span class="pagination__link disabled" aria-hidden="true">
@@ -71,7 +76,7 @@ const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1).sl
 
 <style lang="scss">
     .pagination__link{
-        @apply inline-flex py-2 text-xl items-center justify-center rounded  hover:bg-[--primary-background] hover:text-[--action-color] text-[--font-color] rtl:rotate-180  hover:font-semibold;
+        @apply inline-flex py-2 text-xl w-12 items-center justify-center rounded  hover:bg-[--primary-background] hover:text-[--action-color] text-[--font-color] rtl:rotate-180  hover:font-semibold;
     }    
     .disabled {
         @apply cursor-default hover:text-[--outline-variant] text-[--outline-variant] hover:bg-transparent hover:font-light ;
