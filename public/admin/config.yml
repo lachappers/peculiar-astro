@@ -51,7 +51,9 @@ collections:
           widget: "list",
           allow_add: true,
           allow_delete: true,
-          default: ["blog"],
+          summary: "{{fields.tag}}",
+          field:
+            { label: "Tag", name: "tag", widget: "string", default: ["blog"] },
         }
       - {
           label: "Featured Image",
