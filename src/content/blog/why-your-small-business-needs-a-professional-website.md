@@ -17,7 +17,7 @@ tags:
   - facebook business
   - google business
   - local business
-image: /assets/images/uploads/placeholder.jpeg
+image: /assets/images/uploads/placeholder.jpg
 ---
 **Level Up Your Business: Why a Professional Website is Your Secret Weapon**
 
