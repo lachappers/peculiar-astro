@@ -31,10 +31,12 @@ import headshot from "../assets/images/headshot.jpg";
     learnButton={true}
     imgSrc={heroVector}
   />
-  <section class="container max-w-screen-xl flex-col">
+  <section
+    class="flex min-h-[70vh] w-full max-w-full flex-col px-4 py-8 sm:max-w-screen-xl"
+  >
     <SectionHeading subtitle="what we do" id="what-we-do">
       <p slot="title">
-        Getting your business online,<span class="text-highlight"
+        Getting your business online,<br /><span class="text-highlight"
           >without the faff.</span
         >
       </p>
@@ -74,7 +76,9 @@ import headshot from "../assets/images/headshot.jpg";
         <span class="text-highlight">£180</span> per month.
       </p>
     </div>
-    <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
+    <div
+      class="flex flex-col items-center justify-center gap-3 min-[500px]:flex-row"
+    >
       <Button
         href="/pricing/#web-pricing"
         icon="mdi:arrow-right"
@@ -89,14 +93,16 @@ import headshot from "../assets/images/headshot.jpg";
     </div>
   </section>
 
-  <section class="container max-w-screen-xl flex-col md:flex-row md:flex-wrap">
+  <section
+    class="my-16 flex w-full max-w-full flex-initial flex-col items-center justify-center gap-0 px-4 sm:max-w-screen-xl md:my-32 md:flex-row md:flex-wrap md:px-16"
+  >
     <SectionHeading
       subtitle="who we are"
       id="who-we-are"
-      addClasses="md:max-w-2xl"
+      addClasses="md:max-w-2xl w-2/3"
     >
       <p slot="title">
-        Hello from<span class="text-highlight"> Lucy</span>, <br />Our Peculiar
+        Hello from<span class="text-highlight"> Lucy</span>, <br />Peculiar
         Founder.
       </p>
       <p class="">
@@ -116,10 +122,10 @@ import headshot from "../assets/images/headshot.jpg";
     <Image
       src={headshot}
       alt=""
-      class="aspect-square w-fit max-w-xs flex-initial rounded-full border-4 border-green-300 object-cover"
+      class="mb-4 aspect-square w-fit max-w-60 flex-initial rounded-full border-4 border-green-300 object-cover sm:mb-0 sm:w-1/4 sm:max-w-xs"
     />
     <div
-      class="flex w-full flex-col items-center justify-center gap-3 md:flex-row"
+      class="flex h-fit w-full flex-col items-center justify-center gap-3 md:flex-row"
     >
       <Button
         href="/about"
@@ -137,7 +143,9 @@ import headshot from "../assets/images/headshot.jpg";
     </div>
   </section>
 
-  <section class="container max-w-screen-xl flex-col">
+  <section
+    class="my-16 flex min-h-[70vh] max-w-screen-xl flex-col items-center justify-center p-4 md:my-32 md:p-16"
+  >
     <SectionHeading id="services" subtitle="Our services">
       <p class="" slot="title">
         Technology should <span class="text-highlight">save</span> you time and money.
@@ -147,7 +155,9 @@ import headshot from "../assets/images/headshot.jpg";
         to reduce cost, increase security and attract more business.
       </p>
     </SectionHeading>
-    <div class="my-4 grid grid-cols-1 content-stretch gap-6 md:grid-cols-2">
+    <div
+      class="my-4 grid grid-cols-1 content-stretch gap-2 sm:gap-6 md:grid-cols-2"
+    >
       <Feature
         icon="ic:baseline-web"
         title="Website & App Development"
@@ -190,7 +200,7 @@ import headshot from "../assets/images/headshot.jpg";
         processes and systems.
       </Feature>
     </div>
-    <div class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row">
+    <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
       <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
       <Button
         href="/services"
@@ -285,6 +295,6 @@ import headshot from "../assets/images/headshot.jpg";
   }
   main > .container,
   main > section > .container {
-    @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:gap-8 md:p-16;
+    // @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:gap-8 md:p-16;
   }
 </style>
