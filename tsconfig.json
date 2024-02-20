@@ -5,17 +5,15 @@
     "jsxImportSource": "react",
     "strictNullChecks": true,
     "allowJs": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@config": ["config.ts"],
-      "@utils": ["utils.ts"],
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
-      "@utils/*": ["utils/*"]
+      "@config": ["src/config.ts"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "**/*.jsx"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "**/*.jsx"]
 }
