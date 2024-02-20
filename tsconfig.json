@@ -15,5 +15,5 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "**/*.jsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "**/*.jsx", "**/*.js"]
 }
