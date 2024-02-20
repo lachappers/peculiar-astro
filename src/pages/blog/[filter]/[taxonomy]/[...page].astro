@@ -1,10 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { CONTENTSETTINGS } from "@config";
-import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
 import { slugify, humanize, pluralize } from "@utils/textConverter";
 import { getCollection } from "astro:content";
-import { getCollectionFilter } from "@utils/contentParser";
 import { Icon } from "astro-icon/components";
 
 // components
@@ -18,7 +16,7 @@ import BlogCard from "@components/common/BlogCard.astro";
 interface Route {
   params: {
     filter: string;
-    entry: string;
+    taxonomy: string;
   };
   props: {
     title: string;
@@ -33,27 +31,36 @@ export async function getStaticPaths({ paginate }) {
   const filters: string[] = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
     CONTENTSETTINGS.blog.sidebarFilters
   );
-  const blogs = await getCollection("blog");
+  // const blogs = await getCollection("blog");
+  const allPosts = await getCollection("blog", ({ data }) => {
+    // return data.draft !== true;
+    // Filter out content entries with `draft: true` only when building for production
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
   // for (const filter of filters) {
-  return filters.flatMap((filter) => {
-    const entries = [...new Set(blogs.map((blog) => blog.data[filter]).flat())];
+  const paths = filters.flatMap((filter) => {
+    const taxonomies = [
+      ...new Set(allPosts.map((blog) => blog.data[filter]).flat()),
+    ];
 
-    return entries.flatMap((entry) => {
-      const filteredBlogs = blogs.filter((blog: any) =>
-        blog.data[filter].includes(entry)
+    return taxonomies.flatMap((taxonomy) => {
+      const filteredBlogs = allPosts.filter((blog: any) =>
+        blog.data[filter].includes(taxonomy)
       );
 
       return paginate(filteredBlogs, {
-        params: { filter: filter, entry: slugify(entry) },
-        props: { title: entry, entries: entries },
+        params: { filter: filter, taxonomy: slugify(taxonomy) },
+        props: { title: taxonomy, taxonomies: taxonomies },
         pageSize: 2,
       });
     });
   });
+  console.log(paths);
+  return paths;
 }
 
-const { filter, entry }: { filter: string; entry: string } = Astro.params;
-const { page, entries } = Astro.props;
+const { filter, taxonomy }: { filter: string; taxonomy: string } = Astro.params;
+const { page, taxonomies } = Astro.props;
 
 const pathname = new URL(Astro.request.url).pathname;
 const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
@@ -61,23 +68,29 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
   : pathname.split("/").slice(0, -1).join("/");
 
 // console.log(entry);
+// console.log(filter);
+
+// console.log(page.data.map((blog) => blog.data[filter].flat()));
+
+// console.log(Astro.props);
+// console.log(Astro.params);
 ---
 
-<DefaultLayout title=`${humanize(entry)} Blogs`>
-  <PageHeader title={humanize(entry)} breadcrumbs />
+<DefaultLayout title=`${humanize(taxonomy)} Blogs`>
+  <PageHeader title={humanize(taxonomy)} breadcrumbs />
   <!-- other filter entries -->
   <aside
     class="mx-4 flex max-w-full flex-col items-center gap-1 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 sm:max-w-screen-md sm:flex-row md:gap-4"
   >
     <h3 class="text-lg uppercase">
-      All {pluralize(entries.length, humanize(filter))}
+      All {pluralize(taxonomies.length, humanize(filter))}
     </h3>
 
     <ul
       class="flex flex-wrap items-center justify-center text-base sm:gap-2 sm:text-lg"
     >
       {
-        entries.map((tag: any) => {
+        taxonomies.map((tag: any) => {
           return (
             <li class="inline-block">
               <a

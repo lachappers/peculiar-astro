@@ -18,7 +18,12 @@ import { getCollection } from "astro:content";
 // };
 
 export const getTaxonomy = async (collection: any, name: string) => {
-  const allItems = await getCollection(collection);
+  const allItems = await getCollection("blog", ({ data }) => {
+    // return data.draft !== true;
+    // Filter out content entries with `draft: true` only when building for production
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+
   const taxonomies: string[] = [
     ...new Set(allItems.map((item: any) => item.data[name]).flat()),
   ];
@@ -40,7 +45,11 @@ export const getTaxonomy = async (collection: any, name: string) => {
 //   return taxonomies;
 // };
 export const getAllTaxonomy = async (collection: any, name: string) => {
-  const allItems = await getCollection(collection);
+  const allItems = await getCollection("blog", ({ data }) => {
+    // return data.draft !== true;
+    // Filter out content entries with `draft: true` only when building for production
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
   const taxonomyArray: string[] = allItems
     .map((item: any) => item.data[name])
     .flat();

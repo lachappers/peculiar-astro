@@ -5,6 +5,10 @@ import ResponsiveToggle from "@components/shared/ResponsiveToggle.astro";
 import DarkMode from "@components/shared/DarkMode.astro";
 import { PAGES } from "@config";
 
+const pathname = Astro.url;
+console.log(pathname)
+// console.log(page.url)
+
 ---
 
 <nav
@@ -13,7 +17,7 @@ id="main-navigation"
   aria-label="Main"
 >        
 
-  <ul id="nav-expanded" class="hidden h-full relative md:flex items-center gap-6 lg:gap-8 xl:gap-12 md:w-full justify-end text-base lg:text-lg font-medium text-[--on-surface-variant] whitespace-nowrap" aria-expanded="false" tabindex="-1" transition:persist>
+  <ul id="nav-expanded" class="hidden h-full relative md:flex items-center gap-6 lg:gap-8 xl:gap-12 md:w-full justify-end text-base lg:text-lg font-medium text-[--on-surface-variant] whitespace-nowrap" aria-expanded="false" tabindex="-1" >
     {
       PAGES.map((page) => (
           <li
@@ -28,7 +32,7 @@ id="main-navigation"
                   class:list={[
                     "nav-button",
                     "flex gap-1 items-center ",
-                    { "is-active": Astro.url.pathname === page.url },
+                    { "is-active": (Astro.url.pathname === "/" && page.key === "Home") || (Astro.url.pathname.includes(page.url) && page.key !== "Home" )},
                   ]}
                   aria-current={Astro.url.pathname === page.url ? 'page' : null}
                   aria-expanded="false"
@@ -55,7 +59,7 @@ id="main-navigation"
                   href={page.url}
                   class:list={[
                     "nav-li-link",
-                    { "is-active": Astro.url.pathname === page.url },
+                    { "is-active": (Astro.url.pathname === "/" && page.key === "Home") || (Astro.url.pathname.includes(page.url) && page.key !== "Home" )},
                   ]}
                   aria-current={Astro.url.pathname === page.url ? 'page' : null}
                   >

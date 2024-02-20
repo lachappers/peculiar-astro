@@ -24,23 +24,23 @@ export const PAGES: Page[] = [
   },
   {
     key: "About Us",
-    url: "/about/",
+    url: "/about",
   },
   {
     key: "Services",
-    url: "/services/",
+    url: "/services",
   },
   {
     key: "Pricing",
-    url: "/pricing/",
+    url: "/pricing",
   },
   {
     key: "Blog",
-    url: "/blog/",
+    url: "/blog",
   },
   {
     key: "Contact Us",
-    url: "/contact/",
+    url: "/contact",
   },
 ];
 

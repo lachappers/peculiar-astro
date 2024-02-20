@@ -7,12 +7,17 @@ import { micromark } from "micromark";
 //   return slug(content);
 // };
 
+// https://byby.dev/js-slugify-string
 export const slugify = (text: string): string => {
   return text
     .toString()
-    .replace(/\s+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
 };
 
 export const deslugify = (text: string): string => {
