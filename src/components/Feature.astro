@@ -13,33 +13,31 @@ const {
 
 {
   !href ? (
-    <div class={`feature ${featureWidth} ${featureColor}`}>
-      <div class={`flex flex-col gap-2 ${contentClasses}`}>
+    <div
+      class={`feature flex flex-col gap-1 p-2 sm:gap-3 sm:p-4 ${featureWidth} ${featureColor}`}
+    >
+      <div class={`flex flex-col sm:gap-2 ${contentClasses}`}>
         <Icon name={icon} class="text-4xl" />
-        <h3>{title}</h3>
+        <h3 class="text-base sm:text-lg">{title}</h3>
       </div>
 
-      <div class={`content max-w-[60ch] ${contentClasses}`}>
-        <slot>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic,
-            corporis.
-          </p>
-        </slot>
+      <div
+        class={`content max-w-[60ch] text-sm sm:text-base ${contentClasses}`}
+      >
+        <slot />
       </div>
     </div>
   ) : (
-    <a {href} class={`featureLink flex ${featureWidth}`}>
-      <div class={`feature ${featureColor}`}>
+    <a {href} class={`featureLink flex  ${featureWidth}`}>
+      <div
+        class={`feature flex flex-col gap-1 p-2 sm:gap-3 sm:p-4 ${featureColor}`}
+      >
         <div class={`flex flex-col gap-2 ${contentClasses}`}>
           <Icon name={icon} class="text-4xl" />
           <h3>{title}</h3>
         </div>
         <div class={`content max-w-[60ch] ${contentClasses}`}>
-          <slot>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic,
-            corporis.
-          </slot>
+          <slot />
         </div>
       </div>
     </a>
@@ -51,11 +49,11 @@ const {
 
   .feature {
     position: relative;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+
+    // display: flex;
+    // flex-direction: column;
     // justify-content: space-between;
-    gap: 0.75rem;
+    // gap: 0.75rem;
     height: 100%;
 
     border: 3px solid var(--neutral-900);
