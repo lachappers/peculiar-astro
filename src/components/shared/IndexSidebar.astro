@@ -26,7 +26,7 @@ console.log(sidebarFilters);
               {entries.map(([k, v]) => (
                 <li class="">
                   <a
-                    class="filter-item flex items-center justify-between rounded-md p-1 hover:bg-[--primary-background]"
+                    class="filter-item flex items-center justify-between rounded-md p-1 capitalize hover:bg-[--primary-background]"
                     href={`/blog/${slugify(filter)}/${slugify(k)}`}
                   >
                     {humanize(k)}{" "}
