@@ -1,5 +1,6 @@
 ---
 import Button from "@components/Button.astro";
+
 // interface Props {
 //   header: string
 //   children: any
@@ -15,21 +16,21 @@ const { accordianItems } = Astro.props;
   accordianItems &&
     accordianItems.map((section) => (
       <div class="accordion">
-        <h3 class="my-2 uppercase">{section.section}</h3>
+        <h3 class="my-2 text-base uppercase sm:text-xl">{section.section}</h3>
         <ul class="accordion__wrapper">
-          {section.questions.map((item) => (
+          {section.questions.map((item, index) => (
             <li class="accordion__item">
               <h4>
                 <button
-                  id="accordion-header-1"
+                  id={`accordion-header-${index}`}
                   class="accordion__header"
                   aria-expanded="false"
-                  aria-controls="accordion-panel-1"
+                  aria-controls={`accordion-panel-${index}`}
                   onclick="toggleAccordionItem()"
                 >
                   {item.question}
                   <svg
-                    class="header__toggle-indicator"
+                    class="header__toggle-indicator nav-icon flex-none"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 448 512"
@@ -42,12 +43,12 @@ const { accordianItems } = Astro.props;
                 </button>
               </h4>
               <div
-                id="accordion-panel-1"
+                id={`accordion-panel-${index}`}
                 role="region"
                 class="accordion__panel"
-                aria-labelledby="accordion-header-1"
+                aria-labelledby={`accordion-header-${index}`}
               >
-                <div class="panel__inner">
+                <div class="panel__inner max-w-[75ch]">
                   {item.answer}
                   {item.cta && (
                     <Button
@@ -132,19 +133,19 @@ const { accordianItems } = Astro.props;
   }
 
   // execution
-  accordionItems.forEach((item, index) => {
-    const accordionItemHeader = item.querySelector(".accordion__header");
-    const accordionItemPanel = item.querySelector(".accordion__panel");
+  // accordionItems.forEach((item, index) => {
+  //   const accordionItemHeader = item.querySelector(".accordion__header");
+  //   const accordionItemPanel = item.querySelector(".accordion__panel");
 
-    accordionItemHeader.setAttribute("id", `accordion-item${index + 1}`);
-    accordionItemPanel.setAttribute("id", `item${index + 1}`);
+  //   accordionItemHeader.setAttribute("id", `accordion-item${index + 1}`);
+  //   accordionItemPanel.setAttribute("id", `item${index + 1}`);
 
-    accordionItemHeader.setAttribute("aria-controls", `item${index + 1}`);
-    accordionItemPanel.setAttribute(
-      "aria-labelledby",
-      `accordion-item${index + 1}`
-    );
-  });
+  //   accordionItemHeader.setAttribute("aria-controls", `item${index + 1}`);
+  //   accordionItemPanel.setAttribute(
+  //     "aria-labelledby",
+  //     `accordion-item${index + 1}`
+  //   );
+  // });
 
   document.addEventListener("keydown", (event) => {
     const accordionItem = event.target.closest(".accordion__item");
@@ -204,8 +205,11 @@ const { accordianItems } = Astro.props;
   .accordion__header {
     display: flex;
     justify-content: space-between;
-    border: 2px solid #202020;
+    gap: 1rem;
+    border: 2px solid var(--outline);
     padding: 1rem;
+  }
+  .accodrian__header > svg {
   }
 
   .accordion__item .accordion__header {
@@ -214,17 +218,17 @@ const { accordianItems } = Astro.props;
 
   .accordion__item .accordion__header:focus {
     outline-offset: -6px;
-    box-shadow: inset 0 0 0 2px white;
+    box-shadow: inset 0 0 0 2px var(--action-color);
   }
 
   .accordion__item:only-of-type .accordion__header,
   .accordion__item:last-of-type .accordion__header {
-    border: 2px solid #202020;
+    border: 2px solid var(--outline);
   }
 
   .accordion__item:only-of-type .accordion__panel,
   .accordion__item:last-of-type .accordion__panel {
-    border-bottom: 2px solid #202020;
+    border-bottom: 2px solid var(--outline);
   }
 
   .header__toggle-indicator {
@@ -235,8 +239,8 @@ const { accordianItems } = Astro.props;
     visibility: hidden;
     overflow: hidden;
     height: 0;
-    border-left: 2px solid #202020;
-    border-right: 2px solid #202020;
+    border-left: 2px solid var(--outline);
+    border-right: 2px solid var(--outline);
     transition: height 0.3s ease-in-out, visibility 0s 0.3s;
   }
 
@@ -245,7 +249,7 @@ const { accordianItems } = Astro.props;
   }
 
   .is-active .accordion__header {
-    border: 2px solid #202020;
+    border: 2px solid var(--outline);
   }
 
   .is-active .accordion__panel {

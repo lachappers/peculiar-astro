@@ -92,10 +92,18 @@
         "answer": "Yes, we offer various website maintenance plans to ensure your website stays up-to-date, secure, and performing optimally. Choose a plan that best fits your needs and budget."
       },
       {
+        "question": "Can you provide a professional email address for me?",
+        "answer": "If we provide or can access your domain management, we can provide you with an email account that matches your domain. Say goodbye to @hotmail.com!"
+      },
+      {
         "question": "Can I see examples of websites you've built for small businesses like mine?",
         "answer": "Sure! We've previously worked on confidential projects, but we're working on building the case studies we share on this site. Check out our portfolio showcasing diverse projects across various industries - or get in touch to become our next case study! We are confident we can deliver similar results for you.",
         "cta": "About Us",
         "ctalink": "/about/#portfolio"
+      },
+      {
+        "question": "What locations do you cover?",
+        "answer": "We work with clients across the UK and beyond! Many of our clients are local or regional businesses, serving British customers. All of our work is completed by our UK-based team."
       }
     ]
   }

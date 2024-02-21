@@ -6,24 +6,23 @@ import Button from "@components/Button.astro";
 
 import faq from "@data/faq.json";
 
-console.log(faq);
+// console.log(faq);
 ---
 
 <DefaultLayout
   title="Got Questions? See Our Most FAQs"
   description="Don't let website questions hold you back! Find expert answers to common inquiries about website design, development, pricing, and support at Peculiar Dynamics. Get your project rolling today!"
 >
-  <PageHeader title="FAQs">
+  <PageHeader title="FAQs" subtitle="All the answers">
     We've collected a selection of the most frequently asked questions by our
     clients. Still not what you're looking for?
-    <div class="w-fit">
-      <Button
-        href="/contact"
-        icon="mdi:arrow-right"
-        text="Get in Touch"
-        addClasses=" w-fit "
-      />
-    </div>
+
+    <Button
+      href="/contact"
+      icon="mdi:arrow-right"
+      text="Get in Touch"
+      addClasses=" w-fit "
+    />
   </PageHeader>
 
   <section

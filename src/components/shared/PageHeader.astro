@@ -2,7 +2,7 @@
 import Breadcrumbs from "@components/shared/Breadcrumbs.astro";
 import { humanize } from "@utils/textConverter";
 
-const { title = "", breadcrumbs, center } = Astro.props;
+const { title = "", breadcrumbs, center, subtitle, addClasses } = Astro.props;
 const centering = center
   ? "items-center justify-center text-center"
   : "w-full items-center justify-center text-center md:items-start md:text-left";
@@ -10,23 +10,41 @@ const centering = center
 ---
 
 <div
-  class=`container flex w-full max-w-screen-xl flex-auto flex-col items-center justify-center gap-4 p-4 sm:p-8 md:px-16 ${centering}`
+  class=`container flex w-full max-w-screen-xl flex-auto flex-col items-center justify-center gap-2 p-4 sm:p-8 md:px-16 ${centering} ${addClasses}`
 >
   <!-- <div
     class="w-full flex-auto rounded-2xl border-[3px] border-[--neutral-900] bg-gradient-to-b from-[--secondary-200] to-[--primary-100] px-8 py-14 text-[--dark]"
   > -->
-  <h1 class="max-w-[20ch] text-6xl capitalize lg:text-7xl">
+
+  <h1 class="order-2 max-w-[20ch] text-6xl capitalize lg:text-7xl">
     {title ? title : <slot name="title" />}
   </h1>
 
   {
+    subtitle && (
+      <p
+        aria-roledescription="subtitle"
+        class="order-1 font-semibold uppercase text-[--primary] before:text-sm"
+      >
+        {subtitle}
+      </p>
+    )
+  }
+
+  {
     breadcrumbs && (
-      <Breadcrumbs className="order-first mt-6 uppercase text-[--dark]" />
+      <Breadcrumbs
+        className={`${
+          subtitle ? "order-3" : "order-1"
+        } mt-6 uppercase text-[--dark]`}
+      />
     )
   }
   {
     Astro.slots.has("default") && (
-      <div class="flex w-full max-w-[50ch] flex-col gap-4 py-4 text-xl md:text-2xl">
+      <div
+        class={`${centering} order-last flex w-full max-w-[50ch] flex-col gap-4 py-4 text-xl md:text-2xl`}
+      >
         <slot />
       </div>
     )
