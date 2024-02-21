@@ -4,7 +4,11 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<DefaultLayout title={frontmatter.title} type="article">
+<DefaultLayout
+  title={frontmatter.title}
+  description={frontmatter.preview}
+  type="article"
+>
   <section class="container my-16 flex h-full flex-auto flex-col p-4 sm:p-8">
     <slot />
   </section>
