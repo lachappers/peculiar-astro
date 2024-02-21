@@ -18,7 +18,7 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
         const entries = Object.entries(categories);
         // console.log(entries);
         return (
-          <section class=" rounded border-[3px] border-[--font-color] bg-[--secondary-background]  p-4">
+          <section class="max-h-64 rounded border-[3px] border-[--font-color] bg-[--secondary-background]  p-4">
             <h2 class="mb-2 text-xl uppercase">
               {pluralize(entries.length, filter)}
             </h2>
@@ -47,21 +47,21 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
       sidebarFilters.map(async (filter: any) => {
         const entries = await getTaxonomy(collection, filter);
         return (
-          <section class="rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-4  ">
+          <section class="max-h-48 overflow-y-scroll rounded border-[3px] border-[--font-color]  bg-[--secondary-background] p-4">
             <h2 class=" mb-2 text-xl uppercase">
               {pluralize(entries.length, filter)}
             </h2>
-            <ul class="flex flex-wrap gap-2  px-4 text-base">
+            <ul class="flex flex-wrap gap-2 text-xs lg:text-sm">
               {entries.map((tag: any) => {
                 return (
                   <li class="inline-block">
                     <a
-                      class={`filter-item   m-1 block rounded bg-[--neutral-background] px-3 py-1 hover:bg-[--primary-background] ${
+                      class={`filter-item block rounded bg-[--neutral-background] px-2 py-1 hover:bg-[--primary-background] ${
                         filter === "tags" ? "lowercase" : "capitalize"
                       }`}
                       href={`/blog/${slugify(filter)}/${slugify(tag)}`}
                     >
-                      {`${filter === "tags" ? "#" : ""}${humanize(tag)}`}
+                      {filter === "tags" ? `#${slugify(tag)}` : humanize(tag)}
                     </a>
                   </li>
                 );

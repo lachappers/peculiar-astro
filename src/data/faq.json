@@ -1,0 +1,102 @@
+[
+  {
+    "section": "Websites",
+    "questions": [
+      {
+        "question": "How much does a website cost?",
+        "answer": "Website design and development starts at £1,900 + VAT for a 5 page site. Extras can be added when you need them, upon request. Check out our pricing page for more information or get in touch.",
+        "cta": "Visit Pricing",
+        "ctalink": "/pricing"
+      },
+      {
+        "question": "Do you build websites for my industry?",
+        "answer": "Yes! We are experts in small business and are happy to work in any industry. We have experience across a huge range of industries including retail, automotive, freelancers, all types of trades (including electricians, plumbers, roofers, joiners and builders) and service businesses (hairdressers, beauty, fitness, finance, tourism, consultancy, mechanics, engineering and more). We'll gladly work with businesses and sole traders, tailoring your website to your brand, niche and type of business."
+      },
+      {
+        "question": "What services do you include in your website packages?",
+        "answer": "Our packages range from basic design to comprehensive solutions. Each includes responsive design, SEO optimisation, and security measures as well as a whole tonne more. Check out our pricing page for a full list of the features we offer as well as some of our most popular plans.",
+        "cta": "See Pricing",
+        "ctalink": "/pricing/#included"
+      },
+      {
+        "question": "Can I manage my website after you build it?",
+        "answer": "Absolutely! We provide user-friendly platforms and offer training if needed. We also offer ongoing maintenance and support plans just in case you'd rather we take care of the updates."
+      },
+      {
+        "question": "How long does it take to build a website?",
+        "answer": "Our 5 page sites can be live in as little as 2 weeks from kick off. Timeframes will vary based on complexity. We work closely with you to set realistic expectations and deliver on schedule."
+      },
+      {
+        "question": "Will I have any input on the design and development process?",
+        "answer": "As much or as little as you like! We are comfortable with collaborative partnerships through to taking the reins - we will always ensure your website is designed to meet your goals and reflects your vision and brand identity."
+      },
+      {
+        "question": "Do you offer mobile friendly websites?",
+        "answer": "100%! All our websites are responsive and optimized for mobile devices, ensuring a seamless experience for users on any platform."
+      }
+    ]
+  },
+  {
+    "section": "Small Businesses & Sole Traders",
+    "questions": [
+      {
+        "question": "How can a website help my small business grow?",
+        "answer": "A website offers 24/7 online presence, attracting new customers, showcasing your brand, and boosting credibility. See our 'Why a Website' section for more!",
+        "cta": "Why a Website?",
+        "ctalink": "/#why-a-website"
+      },
+      {
+        "question": "Do you offer affordable website solutions for sole traders?",
+        "answer": "Definitely! We understand the needs of single-person businesses and offer budget-friendly plans with the essentials you need."
+      },
+
+      {
+        "question": "Can you help me with local SEO to reach customers in my area?",
+        "answer": "We'd love to! We optimise your website and online presence for local search, attracting customers searching for your services nearby."
+      },
+      {
+        "question": "What makes Peculiar Dynamics different from other web design companies?",
+        "answer": "We focus on value for money and making impact for your business. That means understanding your unique business goals, providing personal attention and regular updates, and offering transparent pricing. See our 'About Us' page to learn more!",
+        "cta": "The Peculiar Difference",
+        "ctalink": "/about/believe"
+      },
+      {
+        "question": "Can I see examples of websites you've built for small businesses like mine?",
+        "answer": "Sure! We've previously worked on confidential projects, but we're working on building the case studies we share on this site. Check out our portfolio showcasing diverse projects across various industries - or get in touch to become our next case study! We are confident we can deliver similar results for you.",
+        "cta": "About Us",
+        "ctalink": "/about/#portfolio"
+      }
+    ]
+  },
+  {
+    "section": "Other Services",
+    "questions": [
+      {
+        "question": "What services do you offer for small businesses/sole traders?",
+        "answer": "We offer a comprehensive range of services, including bespoke technology building, system integration, setting up features like live chat or helping you streamline your finance systems and automate processes. We also offer website design, development, SEO optimisation, mobile optimisation, content management system setup, and ongoing website maintenance.",
+        "cta": "See Services",
+        "ctalink": "/services"
+      },
+      {
+        "question": "What services do you offer for larger businesses?",
+        "answer": "We can help you with anything your business needs related to technology - whether that's helping you build a proof of concept for your next big idea, developing an automated quoting tool to respond to customers faster, or helping you outsource your payroll."
+      },
+      {
+        "question": "The service I'm looking for isn't listed. Can you help?",
+        "answer": "Absolutely! We love taking on new challenges and have worked on a huge range of businesses and technology challenges - too many to fit on a website! With over a decade of consultancy in London, even if we can't fix a problem ourselves, we tend to know someone who can. Get in touch with us to discuss your project and how we can help.",
+        "cta": "Get in touch",
+        "ctalink": "/contact"
+      },
+      {
+        "question": "Do you offer website maintenance services?",
+        "answer": "Yes, we offer various website maintenance plans to ensure your website stays up-to-date, secure, and performing optimally. Choose a plan that best fits your needs and budget."
+      },
+      {
+        "question": "Can I see examples of websites you've built for small businesses like mine?",
+        "answer": "Sure! We've previously worked on confidential projects, but we're working on building the case studies we share on this site. Check out our portfolio showcasing diverse projects across various industries - or get in touch to become our next case study! We are confident we can deliver similar results for you.",
+        "cta": "About Us",
+        "ctalink": "/about/#portfolio"
+      }
+    ]
+  }
+]

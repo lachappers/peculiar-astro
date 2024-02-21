@@ -1,7 +1,7 @@
 export const formatDate = (date: Date): string => {
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
   };
   return new Date(date).toLocaleDateString(undefined, options);

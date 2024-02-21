@@ -3,7 +3,8 @@ import "@assets/scss/globals.scss";
 import SiteMeta from "@components/SiteMeta.astro";
 import CookiesHead from "@components/shared/CookiesHead.astro";
 import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+
+import FooterSlim from "@components/common/FooterSlim.astro";
 
 import Cookies from "@components/Cookies.astro";
 
@@ -82,7 +83,24 @@ const {
       <slot />
     </main>
 
-    <Footer />
+    <FooterSlim>
+      <div
+        class="container flex w-full flex-wrap justify-between gap-2 px-2 py-2 text-center text-xs text-[--font-variant] sm:flex-nowrap sm:text-left"
+        slot="legals"
+      >
+        <p class="flex w-full flex-col items-center gap-x-2 md:flex-row">
+          VAT: 440548112
+          <span aria-hidden="true" class="hidden md:block">|</span>
+          <span>Registered in England and Wales (14575056)</span>
+        </p>
+
+        <p
+          class="flex w-full flex-col items-center justify-center gap-x-2 sm:justify-end md:flex-row"
+        >
+          Registered Office: <span>71-75 Shelton Street, London, WC2H 9JQ</span>
+        </p>
+      </div>
+    </FooterSlim>
 
     <Cookies />
 

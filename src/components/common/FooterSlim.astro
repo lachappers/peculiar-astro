@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import darkLogo from "@assets/images/350x100-alt-dark.webp";
+import lightLogo from "@assets/images/350x100.webp";
+import Socials from "@components/shared/Socials.astro";
+import { PAGES } from "@config";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="flex w-full flex-col items-center bg-[--surface-dim] p-4">
+  <div
+    class="container flex flex-col flex-wrap items-center justify-between gap-4 md:flex-row md:flex-nowrap md:gap-8"
+  >
+    <!-- Logo Group -->
+    <!-- <section class="flex w-full flex-col items-center md:w-1/5 md:items-start"> -->
+    <a
+      href="/"
+      class="relative flex h-16 max-h-full w-fit max-w-48 flex-auto items-center md:w-1/5 md:items-start"
+      aria-label="navigate home"
+    >
+      <Image
+        src={lightLogo}
+        alt=""
+        width="350"
+        height="100"
+        class="block h-full w-fit object-contain dark:hidden"
+      />
+      <Image
+        src={darkLogo}
+        alt=""
+        width="350"
+        height="100"
+        class="absolute z-0 hidden h-full w-fit object-contain dark:relative dark:z-50 dark:block"
+      />
+    </a>
+
+    <!-- </section> -->
+    <!-- Links -->
+    <nav
+      id="footer-nav"
+      aria-label="Site Pages"
+      class="w-full text-sm sm:w-1/2 md:w-3/5"
+    >
+      <ul
+        class="flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 whitespace-nowrap text-center text-[--font-variant] sm:flex-nowrap md:mt-0 lg:gap-6"
+      >
+        {
+          PAGES.map((page) => (
+            <li>
+              <a class="footer-link" href={page.url}>
+                {page.key}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <section
+      class="flex h-full w-full flex-col items-center justify-between gap-2 md:w-1/5 md:items-end"
+    >
+      <!-- socials -->
+      <Socials
+        textSize="text-3xl"
+        addClass="flex min-w-fit gap-2 px-2 text-[--font-variant]"
+      />
+      <a
+        class="email-link order-first px-2 text-xs md:order-last"
+        href=""
+        aria-label="send me an email"
+        ><p>
+          <span class="hidden">ANTISPAM</span
+          >info@<!-- antispam-->peculiardynamics.co.uk
+        </p></a
+      >
+    </section>
+  </div>
+
+  <hr class="my-2 w-full border-[--outline-variant] sm:mx-auto" />
+
+  <div
+    class="container flex w-full flex-col items-center justify-center gap-y-2 text-xs text-[--font-variant] md:flex-row"
+  >
+    <p class="whitespace-nowrap px-2">
+      <a
+        class="footer-link"
+        href="https://peculiardynamics.co.uk/"
+        target="_blank"
+        >Another Peculiar Site
+      </a> | Copyright &copy; {currentYear}
+    </p>
+    <ul class="flex w-full flex-wrap justify-center gap-2 p-2 md:justify-end">
+      <li class="whitespace-nowrap">
+        <a class="footer-link" href="/policies/terms">Terms and Conditions</a>
+      </li>
+      <span aria-hidden="true">|</span>
+      <li class="whitespace-nowrap">
+        <a class="footer-link" href="/policies/privacy">Privacy Policy</a>
+      </li>
+      <span aria-hidden="true">|</span>
+      <li class="whitespace-nowrap">
+        <a class="footer-link" href="/policies/cookies">Cookie Notice</a>
+      </li>
+      <span aria-hidden="true">|</span>
+      <li>
+        <a class="footer-link" href="/sitemap-index.xml">Sitemap</a>
+      </li>
+    </ul>
+  </div>
+  <slot name="legals" />
+</footer>
+<style lang="scss">
+  #footer-nav {
+    > ul {
+      //   display: flex;
+      //   column-gap: 1rem;
+      //   row-gap: 0.5rem;
+      //   list-style-type: none;
+      //   align-items: center;
+      //   justify-content: space-between;
+      //   text-align: center;
+
+      a,
+      button {
+        text-decoration: none;
+        // font-size: 1.125rem;
+        // line-height: 1.6875rem;
+        transition: color 0.15s ease-in-out;
+      }
+
+      a:hover,
+      a:focus,
+      .is-active,
+      .has-dropdown > button:hover,
+      .has-dropdown > button:focus {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-style: wavy;
+        text-underline-offset: 7px;
+      }
+    }
+  }
+</style>
+<script>
+  const encodedEmail = "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr";
+  const emails = document.querySelectorAll(".email-link");
+
+  emails.forEach((e) => {
+    e.setAttribute(
+      "href",
+      "mailto:"
+        .concat(atob(encodedEmail))
+        .concat("?subject=I've got a Peculiar Query")
+    );
+  });
+</script>

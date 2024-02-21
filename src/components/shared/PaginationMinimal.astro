@@ -32,7 +32,7 @@ const paginationList = Array.from({ length: page.lastPage }, (_, i) => i + 1).sl
 
     </div>
     <span class="text-xs h-full flex-none sm:text-base w-4" aria-hidden="true">{paginationList[0] !== 1 ? "...": ""}</span>
-    <div class="flex flex-initial items-center justify-between gap-1 w-3/5 whitespace-nowrap">
+    <div class="flex flex-initial items-center justify-between gap-1 min-w-3/5 whitespace-nowrap">
         {
             // paginationList[0] !== 1 ? <p class="text-xs sm:text-base " aria-hidden="true">...</p> : null
 

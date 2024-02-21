@@ -11,7 +11,7 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
   description="Get in touch with us today to get started on your new website, discuss a project or to arrange a chat about how we can help your business."
 >
   <section
-    class="flex min-h-full w-full max-w-screen-xl grow flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row"
+    class="flex min-h-full w-full max-w-screen-xl grow flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row md:p-16"
   >
     <div
       class="contact flex w-full max-w-lg flex-auto flex-col items-end gap-4 md:gap-8"
@@ -63,13 +63,17 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
   const encodedEmail = "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr";
   const emails = document.querySelectorAll(".email-link");
 
-  emails.forEach((e) => {
-    e.setAttribute(
-      "href",
-      "mailto:"
-        .concat(atob(encodedEmail))
-        .concat("?subject=I've got a Peculiar Query")
-    );
+  document.addEventListener("astro:after-swap", () => {
+    // console.log("swap");
+    const emails = document.querySelectorAll(".email-link");
+    emails.forEach((e) => {
+      e.setAttribute(
+        "href",
+        "mailto:"
+          .concat(atob(encodedEmail))
+          .concat("?subject=I've got a Peculiar Query")
+      );
+    });
   });
 </script>
 

@@ -1,0 +1,26 @@
+---
+import {Icon} from "astro-icon/components"
+import { SOCIALS } from "@config"
+const { background, textSize= "text-4xl", addClass } = Astro.props
+const activeSocials = SOCIALS.filter(social => social.active)
+---
+
+<!-- socials -->
+
+<div class:list={["flex ", `${addClass}`]}>
+    {
+        activeSocials?.map(
+            social => (
+            <a href={social.href}
+            class:list={[
+                "social-icon flex items-center justify-center w-fit min-w-fit text-inherit transition-colors duration-300 hover:text-[--action-color-state] rounded-full",
+                `${background}`,
+                `${textSize}`
+            ]}
+            aria-label={`link to ${social.name}`}>
+                <Icon name={social.icon} class=" flex items-center justify-center  rounded-full p-1">
+            </a>
+            )
+        )
+    }
+</div>

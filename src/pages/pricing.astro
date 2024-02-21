@@ -52,7 +52,9 @@ const INCLUDEDFEATURES = [
 
   <PricingTable />
 
-  <section class="container max-w-screen-xl flex-col">
+  <section
+    class="container my-16 flex w-full max-w-screen-xl flex-col items-center justify-center px-4 py-8 md:my-3 md:p-16"
+  >
     <SectionHeading subtitle="How it works" id="how-it-works">
       <p slot="title">
         Keeping it
@@ -100,7 +102,7 @@ const INCLUDEDFEATURES = [
   <section
     class="peach my-16 flex w-full flex-col items-center justify-center px-4 py-8 md:my-32"
   >
-    <div class="container max-w-screen-lg rounded-lg">
+    <div class="container flex max-w-screen-lg flex-col rounded-lg">
       <SectionHeading id="included" subtitle="Web Development Services">
         <p slot="title">
           <span class="text-highlight">Always included</span>, as standard:
@@ -112,7 +114,7 @@ const INCLUDEDFEATURES = [
       </SectionHeading>
 
       <div
-        class="grid max-w-screen-lg grid-cols-1 gap-2 sm:grid-cols-3 md:gap-8"
+        class="grid max-w-screen-lg grid-cols-1 gap-2 sm:grid-cols-3 md:gap-4"
       >
         <Feature
           icon="carbon:screen"
@@ -185,7 +187,7 @@ const INCLUDEDFEATURES = [
         <div class="flex-auto border-b-2 border-solid border-indigo-600"></div>
       </div>
       <ul
-        class="grid grid-cols-1 content-center gap-1 text-xs sm:grid-cols-2 sm:gap-4 sm:text-sm md:grid-cols-3 md:gap-8"
+        class="grid grid-cols-1 content-center gap-1 text-xs sm:grid-cols-2 sm:gap-2 sm:text-sm md:grid-cols-3 md:gap-4"
       >
         {
           INCLUDEDFEATURES.map((feature) => (
@@ -251,6 +253,6 @@ const INCLUDEDFEATURES = [
 
   .container,
   section > .container {
-    @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:gap-8 md:p-16;
+    @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:p-16;
   }
 </style>

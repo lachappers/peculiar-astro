@@ -23,7 +23,7 @@ export const PAGES: Page[] = [
     url: "/",
   },
   {
-    key: "About Us",
+    key: "About",
     url: "/about",
   },
   {
@@ -39,7 +39,11 @@ export const PAGES: Page[] = [
     url: "/blog",
   },
   {
-    key: "Contact Us",
+    key: "FAQ",
+    url: "/faq",
+  },
+  {
+    key: "Contact",
     url: "/contact",
   },
 ];
@@ -53,3 +57,51 @@ export const CONTENTSETTINGS = {
     sidebarFilters: ["tags", "author"],
   },
 };
+
+export const SOCIALS = [
+  //update
+
+  {
+    name: "Google",
+    href: "https://g.co/kgs/kax7P26",
+    linkTitle: `${SITE.title} on Google Business`,
+    icon: "mdi:instagram",
+    active: false,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/peculiar-dynamics/",
+    linkTitle: `${SITE.title} on LinkedIn`,
+    icon: "mdi:linkedin",
+    active: true,
+  },
+  {
+    name: "Mail",
+    href: "",
+    linkTitle: `Send an email to <span class="hidden">ANTISPAM</span>info@<!-- antispam-->}glosfarm.co.uk`,
+    icon: "mdi:email-outline",
+    active: false,
+    classes: "email-link",
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/447405952020",
+    linkTitle: `${SITE.title} on WhatsApp`,
+    icon: "mdi:whatsapp",
+    active: true,
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/peculiardynamics",
+    linkTitle: `${SITE.title} on Facebook`,
+    icon: "mdi:facebook",
+    active: true,
+  },
+  {
+    name: "Instagram",
+    href: "https://github.com/satnaing/astro-paper",
+    linkTitle: `${SITE.title} on Instagram`,
+    icon: "mdi:instagram",
+    active: false,
+  },
+];

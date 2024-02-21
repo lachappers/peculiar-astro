@@ -1,16 +1,21 @@
 ---
+// config
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+// components
 import Hero from "@components/Hero.astro";
 import Button from "../components/Button.astro";
 import CallOut from "../components/CallOut.astro";
 import Feature from "../components/Feature.astro";
 import ProcessStep from "../components/ProcessStep.astro";
-import { Icon } from "astro-icon/components";
+import BlogGrid from "@components/shared/BlogGrid.astro";
 import ContentMedia from "../components/ContentMedia.astro";
 import Heading from "@components/shared/Heading.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
 import CallToAction from "../components/CallToAction.astro";
+
+// content
 import heroVector from "@assets/images/hero-vector.webp";
 import mobile from "@assets/images/share.png";
 import find from "@assets/images/find.png";
@@ -32,7 +37,7 @@ import headshot from "../assets/images/headshot.jpg";
     imgSrc={heroVector}
   />
   <section
-    class="flex min-h-[70vh] w-full max-w-full flex-col px-4 py-8 sm:max-w-screen-xl"
+    class="flex min-h-[70vh] w-full max-w-full flex-col px-4 py-8 sm:max-w-screen-xl md:px-16"
   >
     <SectionHeading subtitle="what we do" id="what-we-do">
       <p slot="title">
@@ -210,6 +215,33 @@ import headshot from "../assets/images/headshot.jpg";
       />
     </div>
   </section>
+  <section
+    class="sm:max-w-screen-3xl flex w-full max-w-full flex-col items-center justify-center bg-[--surface-dim] px-4 py-8 md:px-8"
+  >
+    <BlogGrid title="Our latest blog posts" subtitle="recent" id="index-blogs">
+      We believe in making access to technology simple, clear and affordable.
+      That's why we share
+    </BlogGrid>
+  </section>
+
+  <!-- <section>
+    <SectionHeading subtitle="why a website" id="why-a-website">
+      <p slot="title">
+        Getting your business online,<br /><span class="text-highlight"
+          >without the faff.</span
+        >
+      </p>
+      <p class="">
+        We specialise in designing and developing websites and technology for
+        small and growing businesses across the UK.
+      </p>
+      <p class="">
+        All of our code is written by hand (no wordpress) to ensure exceptional
+        performance, helping you bring in more businesses and waste less time
+        wanting to throw your computer out the window.
+      </p>
+    </SectionHeading>
+  </section> -->
 
   <!-- <section class="">
     <div class="container mb-8">

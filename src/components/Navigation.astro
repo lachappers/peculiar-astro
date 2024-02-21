@@ -12,12 +12,12 @@ console.log(pathname)
 ---
 
 <nav
-id="main-navigation"
+  id="main-navigation"
   class="desktop-menu flex items-center justify-end gap-2 md:w-full md:order-2 order-last w-fit"
   aria-label="Main"
 >        
 
-  <ul id="nav-expanded" class="hidden h-full relative md:flex items-center gap-6 lg:gap-8 xl:gap-12 md:w-full justify-end text-base lg:text-lg font-medium text-[--on-surface-variant] whitespace-nowrap" aria-expanded="false" tabindex="-1" >
+  <ul id="nav-expanded" class="hidden h-full relative md:flex items-center gap-4 lg:gap-8 xl:gap-12 md:w-full justify-around md:justify-end text-base lg:text-lg font-medium text-[--on-surface-variant] whitespace-nowrap" aria-expanded="false" tabindex="-1" >
     {
       PAGES.map((page) => (
           <li
@@ -246,15 +246,15 @@ id="main-navigation"
   @use "../assets/scss/base/breakpoint" as *;
   @use "../assets/scss/base/outline" as *;
 
-  nav {
+  #main-navigation {
     > ul {
-      display: flex;
-      column-gap: 1rem;
-      row-gap: 0.5rem;
-      list-style-type: none;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
+      // display: flex;
+      // column-gap: 1rem;
+      // row-gap: 0.5rem;
+      // list-style-type: none;
+      // align-items: center;
+      // justify-content: space-between;
+      // text-align: center;
   
       a,
       button {
