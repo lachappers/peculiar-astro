@@ -9,7 +9,12 @@ import Button from "@components/Button.astro";
 
 const { subtitle, title, id } = Astro.props;
 
-const recentBlogPosts = (await getCollection("blog"))
+const recentBlogPosts = (
+  await getCollection("blog", ({ data }) => {
+    // return data.draft !== true;
+    return import.meta.env.PROD ? data.draft !== true : true;
+  })
+)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 ---
