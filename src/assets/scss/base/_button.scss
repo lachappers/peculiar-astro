@@ -52,6 +52,12 @@ button:hover {
   &:visited {
     // color: var(--neutral-200);
   }
+  &.color-primary {
+    color: var(--neutral-100);
+    background-color: var(--primary-300);
+
+    // border-color: (var(--secondary-100));
+  }
 
   &.color-secondary {
     background-color: var(--accent-purple-100);
@@ -92,8 +98,9 @@ button:hover {
   }
 
   &.color-success {
-    background-color: var(--green-300);
-    border-color: (var(--font-color));
+    background-color: var(--success);
+    border-color: (var(--success));
+    color: var(--on-success);
 
     &:hover,
     &:focus {
@@ -172,11 +179,18 @@ button:hover {
       width: 30px;
     }
   }
+  &:disabled,
+  &[disabled] {
+    text-decoration: none;
+    background-color: var(--nv-background);
+    color: var(--on-nv-background);
+    border-color: var(--outline-variant);
+  }
 }
 
 .darkmode .button {
   // border: 3px solid var(--neutral-700);
-  box-shadow: var(--shadow-dark);
+  // box-shadow: var(--shadow-dark);
 }
 .darkmode .button.type-secondary {
   // color: var(--neutral-100);

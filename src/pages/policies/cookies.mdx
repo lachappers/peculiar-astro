@@ -4,9 +4,13 @@ title: Cookie Notice
 link: cookies
 ---
 
+import { SITE } from "@config";
+import InlineEmail from "@components/common/InlineEmail.astro";
+export const email = SITE.email;
+
 This Cookie Notice has been developed to explain how Cookies are used on this website and demonstrate commitment to the privacy of the personal information you may share with us.
 
-Please note that the use of any personal information that is collected is subject to our [Privacy Policy](./privacy).
+Please note that the use of any personal information that is collected is subject to our [Privacy Policy](../policies/privacy).
 
 ## What Are Cookies
 
@@ -36,4 +40,4 @@ This site uses Google Analytics which is one of the most widespread and trusted 
 
 Hopefully this notice has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site.
 
-If you are still looking for more information then you can contact us via email: info@peculiardynamics.co.uk
+If you are still looking for more information then you can contact us via email: <InlineEmail email={email} subject="I've got a Cookie Query!" />.

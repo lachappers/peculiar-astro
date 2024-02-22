@@ -1,14 +1,18 @@
 export const SITE = {
   website: "https://peculiardynamics.co.uk", // replace this with your deployed domain
+  domain: "peculiardynamics.co.uk",
   description:
     "Making Technology That Works. Designing, building and improving websites, software and strategy for ambitious businesses.", // replace
   title: "Peculiar Dynamics", //business name
   subtitle: "Peculiar Dynamics", //subtitle on seo
   author: "Peculiar Dynamics Ltd",
+  business: "Peculiar Dynamics Ltd",
   base: "/", // Change this if you need to deploy to Github Pages, for example
   trailingSlash: "ignore", // Generate permalinks with or without "/" at the end
   favicon: "/assets/images/favicon.svg",
+  email: "info@peculiardynamics.co.uk",
   encodedEmail: "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr",
+  defaultEmailSubject: "I've got a Peculiar Query!",
   blogPageSize: 6,
 };
 

@@ -1,9 +1,13 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
-import Heading from "@components/shared/Heading.astro";
 import { Icon } from "astro-icon/components";
-import ContactForm from "../components/ContactForm.jsx";
+import { SITE } from "@config";
+
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
+import InlineEmail from "@components/common/InlineEmail.astro";
+
+import ContactForm from "../components/ContactForm.jsx";
+import ContactMessage from "@components/forms/ContactMessage.jsx";
 ---
 
 <DefaultLayout
@@ -11,10 +15,10 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
   description="Get in touch with us today to get started on your new website, discuss a project or to arrange a chat about how we can help your business."
 >
   <section
-    class="flex min-h-full w-full max-w-screen-xl grow flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row md:p-16"
+    class="my-auto flex w-full max-w-screen-xl grow flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row md:p-16"
   >
     <div
-      class="contact flex w-full max-w-lg flex-auto flex-col items-end gap-4 md:gap-8"
+      class="contact flex w-full max-w-lg flex-auto flex-col items-end gap-4 self-center md:gap-8"
     >
       <SectionHeading
         id="contact"
@@ -34,10 +38,10 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
           If your message isn't quite right for the contact box here, feel free
           to email us directly on:
         </p>
-        <a class="email-link pt-4" href="" aria-label="send me an email">
-          <span class="hidden">ANTISPAM</span
-          >info@<!-- antispam-->peculiardynamics.co.uk
-        </a>
+        <InlineEmail
+          email={SITE.email}
+          addClasses="pt-4 text-lg text-[--action-color]"
+        />
       </div>
       <div class="contact-card neutral w-full">
         <Icon name="ic:outline-whatsapp" class="text-4xl" />
@@ -53,13 +57,15 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
         </a>
       </div>
     </div>
-    <div class="flex min-h-full w-full max-w-xl justify-center">
-      <ContactForm client:load />
+    <div class="flex min-h-full w-full max-w-xl grow justify-center">
+      <!-- <ContactForm client:only="react" /> -->
+      <ContactMessage client:load transition:persist />
+      <!-- <ContactForm client:load transition:persist /> -->
     </div>
   </section>
 </DefaultLayout>
 
-<script>
+<!-- <script>
   const encodedEmail = "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr";
   const emails = document.querySelectorAll(".email-link");
 
@@ -75,16 +81,18 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
       );
     });
   });
-</script>
+</script> -->
 
-<style>
+<style lang="scss">
+  // see _form for form styles
   #contactForm {
-    padding: 2rem;
-    border: 3px solid var(--font-color);
-    border-radius: 0.5rem;
-    background: var(--accent-purple);
-    font-weight: 700;
+    // padding: 2rem;
+    // border: 3px solid var(--font-color);
+    // border-radius: 0.5rem;
+    // // background: var(--accent-purple);
+    // font-weight: 700;
   }
+
   #contactForm label {
     margin-bottom: 0.25rem;
     font-size: 1rem;
@@ -105,8 +113,7 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
     height: 8rem;
   }
 
-  .contact-card,
-  #contactForm {
+  .contact-card {
     border-radius: 0.5rem;
 
     border: 3px solid var(--font-color);
@@ -128,12 +135,6 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
     margin-top: 0.25rem;
     font-size: 1.125rem;
     line-height: 1.25rem;
-  }
-  .contact a {
-    padding-top: 0.5rem;
-    font-size: 1.125rem;
-    line-height: 1.25rem;
-    color: salmon;
   }
 
   [astro-icon] {

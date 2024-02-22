@@ -1,17 +1,25 @@
 import React, { useEffect, useState, useRef } from "react";
 
+function checkNameValidation() {}
+
 export default function ContactForm() {
   const formRef = useRef(null);
   const [responseMessage, setResponseMessage] = useState("");
   const [responseBackground, setResponseBackground] =
     useState("bg-secondary-100");
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   function submitData(e) {
     e.preventDefault();
+    if (e.target.classList.contains("submitted"))
+      return console.log("already submitted");
     console.log("submitting");
     const formData = new FormData(formRef.current);
+    console.log("formdata", formData);
     setLoading(true);
+    e.target.classList.add("submitted");
+    console.log("event", e);
 
     fetch(
       "https://script.google.com/macros/s/AKfycbxsNrMMVOqB6N6B7ocFwkKdbPIk3lQ_u4X8jZj_PF62bnguR-ZD4a6I_U6mhQ4Uy_-OdQ/exec",
@@ -23,7 +31,7 @@ export default function ContactForm() {
     )
       .then((res) => {
         const result = res;
-        console.log(res);
+        console.log("res", res);
 
         // console.log(JSON.parse(res));
         console.log("submitted");
@@ -49,19 +57,9 @@ export default function ContactForm() {
       method="post"
       ref={formRef}
       onSubmit={submitData}
-      className="contactForm flex w-full flex-col justify-center shadow-postMod"
+      className="contactForm relative z-10 flex w-full flex-col justify-center shadow-postMod"
     >
-      {loading && (
-        <div
-          className={`mt-4 flex w-full items-center justify-center rounded p-4 font-medium ${responseBackground}`}
-        >
-          {responseMessage ? (
-            <p>{responseMessage}</p>
-          ) : (
-            <p>Sending message... </p>
-          )}
-        </div>
-      )}
+      {/* <span className="absolute left-0 right-0 z-20 h-full w-full rounded bg-[--gray] opacity-30"></span> */}
 
       <div className="mt-4">
         <label className="mb-2">Name</label>
@@ -72,6 +70,11 @@ export default function ContactForm() {
           className="form-input rounded border-2 border-[--font-color] bg-inherit"
           required
         />
+        <p
+          aria-live="assertive"
+          id="nameError"
+          className="fieldError js-nameError"
+        ></p>
       </div>
 
       <div className="mt-4">
@@ -98,9 +101,29 @@ export default function ContactForm() {
       </div>
 
       <button type="submit" className="button mt-4 w-full">
-        {" "}
-        Send message
+        {/* {" "}
+        Send message */}
+        <span className="btnSubmit-text">Send Message</span>
+        <span
+          className="js-loadingMsg sr-only"
+          aria-live="assertive"
+          data-loading-msg="Adding to cart, wait..."
+        ></span>
       </button>
+
+      {loading && (
+        <div
+          role="status"
+          live="assertive"
+          className={`mt-4 flex w-full items-center justify-center rounded p-4 font-medium ${responseBackground}`}
+        >
+          {responseMessage ? (
+            <p>{responseMessage}</p>
+          ) : (
+            <p>Sending message... </p>
+          )}
+        </div>
+      )}
     </form>
   );
 }

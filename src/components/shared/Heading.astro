@@ -8,7 +8,7 @@ const href = `${path}/#${id}`;
 ---
 
 <span id={id} class="heading relative">
-  <slot />
+  {text ? text : <slot />}
   <a
     aria-label={id + " anchor link"}
     {href}

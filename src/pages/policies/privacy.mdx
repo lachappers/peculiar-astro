@@ -4,6 +4,10 @@ title: Privacy Policy
 link: privacy
 ---
 
+import { SITE } from "@config";
+import InlineEmail from "@components/common/InlineEmail.astro";
+export const email = SITE.email;
+
 ## What information do we collect and how?
 
 We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.
@@ -22,7 +26,7 @@ We do not process any sensitive information.
 
 We automatically collect certain information when you visit, use or navigate our Services. This information does not reveal your specific identity (like your name or contact information) but may include the following:
 
-- **Technical data:** IP address used to connect your device to the internet, browser type and version, operating system, language preferences, browsing actions and patterns using [cookies](./cookies).
+- **Technical data:** IP address used to connect your device to the internet, browser type and version, operating system, language preferences, browsing actions and patterns using [cookies](../policies/cookies).
 
 We do not collect sensitive data about you without your express consent.
 
@@ -62,12 +66,12 @@ Under certain circumstances, you have the following rights regarding your person
 
 - **Data portability** - You have the right to ask that we transfer the personal information you gave us to another organisation, or to you, in certain circumstances.
 
-- **Withdrawing your consent** where we are relying on consent to process your data by emailing info@peculiardynamics.co.uk
+- **Withdrawing your consent** where we are relying on consent to process your data by emailing <InlineEmail email={email} />.
 
 You are not required to pay any charge for exercising your rights. If you make a request, we have one month to respond to you.
 
 ## Contact us
 
-If you have any questions about privacy, this policy, wish to exercise your rights in relation to your personal data or to make a complaint about our use of your data, contact us via email at info@peculiardynamics.co.uk.
+If you have any questions about privacy, this policy, wish to exercise your rights in relation to your personal data or to make a complaint about our use of your data, contact us via email at <InlineEmail email={email} />.
 
 Should you feel that your queries and concerns have not been appropriately addressed by us, you can also contact the Information Commissioners' Office (ICO), the UK supervisory authority for data protection issues (www.ico.org.uk).

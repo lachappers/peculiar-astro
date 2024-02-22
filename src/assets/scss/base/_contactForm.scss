@@ -1,0 +1,56 @@
+#contactForm {
+  padding: 2rem;
+  border: 3px solid var(--font-color);
+  border-radius: 0.5rem;
+  background: var(--accent-purple);
+  font-weight: 700;
+}
+#contactForm label {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: var(--font-color);
+}
+#contactForm input,
+#contactForm textarea {
+  padding: 0.625rem 1.25rem;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: var(--neutral-500);
+}
+
+#contactForm textarea {
+  height: 8rem;
+}
+
+.contact-card,
+#contactForm {
+  border-radius: 0.5rem;
+
+  border: 3px solid var(--font-color);
+  box-shadow: 0.0625rem 0.0625rem 0 var(--background),
+    0.5rem 0.5rem 0 var(--font-color);
+  padding: 2rem;
+
+  background-color: var(--accent-mint);
+}
+
+.contact h2 {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+.contact p {
+  margin-top: 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+}
+
+[astro-icon] {
+  height: 2rem;
+  width: 2rem;
+}

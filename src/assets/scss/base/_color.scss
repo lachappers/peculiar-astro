@@ -96,6 +96,7 @@ $colors: (
   --white: var(--n-100);
   --dark: var(--n-10);
   --gray: var(--neutral-500);
+
   // light theme
   --font-color: var(--n-10);
   --font-variant: var(--nv-30);
@@ -104,12 +105,20 @@ $colors: (
   --action-color: var(--primary-300);
   --action-color-state: var(--primary-600);
 
+  --error: var(--red-300);
+  --on-error: var(--white);
+  --success: var(--green-300);
+  --on-success: var(--white);
+  --warning: var(--yellow-300);
+
   --background: var(--surface);
   --background-alt: var(--surface-dim);
   --primary-background: var(--primary-100);
   --secondary-background: var(--secondary-100);
   --neutral-background: var(--neutral-200);
   --neutral-background-light: var(--neutral-100);
+  --nv-background: var(--nv-80);
+  --on-nv-background: var(--nv-30);
   --surface: var(--n-98);
   --surface-bright: var(--n-98);
   --surface-dim: var(--n-87);
@@ -133,11 +142,18 @@ $colors: (
   --secondary-background: var(--n-10);
   --neutral-background: var(--n-6);
   --neutral-background-light: var(--nv-10);
+  --nv-background: var(--nv-30);
+  --on-nv-background: var(--nv-80);
   --surface: var(--n-6);
   --surface-bright: var(--n-24);
   --surface-dim: var(--n-6);
   --container-lowest: var(--n-4);
   --gray: var(--neutral-500);
+  --error: var(--red-100);
+  --on-error: var(--red-400);
+  --success: var(--green-100);
+  --on-success: var(--green-400);
+  --warning: var(--yellow-300);
 }
 
 .mint {

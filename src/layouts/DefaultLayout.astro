@@ -1,5 +1,5 @@
 ---
-import "@assets/scss/globals.scss";
+import "../assets/scss/globals.scss";
 import SiteMeta from "@components/SiteMeta.astro";
 import CookiesHead from "@components/shared/CookiesHead.astro";
 import Header from "@components/Header.astro";
@@ -44,7 +44,7 @@ const {
     />
     <CookiesHead />
 
-    <ViewTransitions />
+    <ViewTransitions fallback="none" />
     {
       Astro.url.pathname === "/" && (
         <script

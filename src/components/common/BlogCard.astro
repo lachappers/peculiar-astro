@@ -11,7 +11,7 @@ const { data } = Astro.props;
 const { title, image, date, author, categories, preview, tags } = data.data;
 ---
 
-<article
+<li
   class="sm:min-w-md flex h-full min-h-full max-w-full flex-col items-center overflow-clip rounded-md border-[3px] border-[--font-color] bg-[--surface] pb-2 text-center shadow-postMod sm:h-full sm:max-w-lg sm:items-start sm:text-left"
 >
   <div class="flex w-full grow flex-col px-2 py-1">
@@ -94,4 +94,4 @@ const { title, image, date, author, categories, preview, tags } = data.data;
       />
     )
   }
-</article>
+</li>

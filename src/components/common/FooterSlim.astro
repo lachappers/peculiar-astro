@@ -1,9 +1,14 @@
 ---
 import { Image } from "astro:assets";
+
+import { PAGES } from "@config";
+import { SITE } from "@config";
+
 import darkLogo from "@assets/images/350x100-alt-dark.webp";
 import lightLogo from "@assets/images/350x100.webp";
 import Socials from "@components/shared/Socials.astro";
-import { PAGES } from "@config";
+import InlineEmail from "@components/common/InlineEmail.astro";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -63,15 +68,11 @@ const currentYear = new Date().getFullYear();
         textSize="text-3xl"
         addClass="flex min-w-fit gap-2 px-2 text-[--font-variant]"
       />
-      <a
-        class="email-link order-first px-2 text-xs md:order-last"
-        href=""
-        aria-label="send me an email"
-        ><p>
-          <span class="hidden">ANTISPAM</span
-          >info@<!-- antispam-->peculiardynamics.co.uk
-        </p></a
-      >
+
+      <InlineEmail
+        email={SITE.email}
+        addClasses="order-first px-2 text-xs md:order-last"
+      />
     </section>
   </div>
 
