@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 
-function checkNameValidation() {}
-
 export default function ContactForm() {
   const formRef = useRef(null);
   const [responseMessage, setResponseMessage] = useState("");

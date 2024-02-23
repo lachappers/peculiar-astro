@@ -23,9 +23,11 @@ import PageHeader from "@components/shared/PageHeader.astro";
   </PageHeader>
 
   <section
-    class="md:p-x-16 p-x-4 mb-16 flex w-full max-w-screen-lg flex-col items-center justify-center gap-4 md:flex-row md:flex-wrap md:items-start"
+    class="mb-16 flex w-full max-w-screen-lg flex-col items-center justify-center gap-4 px-4 md:flex-row md:flex-wrap md:items-start md:px-16"
   >
-    <div class="prose max-w-[50ch] text-lg md:text-xl">
+    <div
+      class="prose max-w-[50ch] text-center text-base md:text-left md:text-xl"
+    >
       <strong>
         Have you ever given that "deer-in-the-headlights" look when asked about
         your tech?
@@ -47,7 +49,7 @@ import PageHeader from "@components/shared/PageHeader.astro";
       alt=""
       class="aspect-square h-full w-64 flex-initial rounded-full border-4 border-green-300 object-cover sm:w-1/4 md:max-w-xs md:rounded-md lg:max-w-xl"
     />
-    <div class="flex w-full flex-col justify-center gap-3 min-[500px]:flex-row">
+    <div class="flex w-fit flex-col justify-center gap-3 sm:flex-row">
       <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
       <Button
         href="#believe"
@@ -98,9 +100,7 @@ import PageHeader from "@components/shared/PageHeader.astro";
         subtext="saving you money"
       />
     </div>
-    <div
-      class="container mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
-    >
+    <div class="mt-16 flex w-fit flex-col justify-center gap-3 sm:flex-row">
       <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
       <Button
         href="/servicese"

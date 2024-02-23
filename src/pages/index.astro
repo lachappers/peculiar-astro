@@ -5,15 +5,16 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 // components
 import Hero from "@components/Hero.astro";
-import Button from "../components/Button.astro";
-import CallOut from "../components/CallOut.astro";
-import Feature from "../components/Feature.astro";
-import ProcessStep from "../components/ProcessStep.astro";
+import Button from "@components/Button.astro";
+import CallOut from "@components/CallOut.astro";
+import Feature from "@components/Feature.astro";
+import ProcessStep from "@components/ProcessStep.astro";
 import BlogGrid from "@components/shared/BlogGrid.astro";
-import ContentMedia from "../components/ContentMedia.astro";
+import ContentMedia from "@components/ContentMedia.astro";
 import Heading from "@components/shared/Heading.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
-import CallToAction from "../components/CallToAction.astro";
+import CallToAction from "@components/CallToAction.astro";
+import Signup from "@components/shared/Signup.astro";
 
 // content
 import heroVector from "@assets/images/hero-vector.webp";
@@ -30,14 +31,14 @@ import headshot from "../assets/images/headshot.jpg";
   <Hero
     title="Making Technology"
     gradientText="That Works"
-    subtitle="Web development and technology for ambitious small businesses."
+    subtitle="Websites and technology for ambitious businesses and entrepreneurs."
     learnTarget={`#what-we-do`}
-    quoteButton={true}
     learnButton={true}
+    quoteButton={true}
     imgSrc={heroVector}
   />
   <section
-    class="flex min-h-[70vh] w-full max-w-full flex-col px-4 py-8 sm:max-w-screen-xl md:px-16"
+    class="flex min-h-[70vh] w-full max-w-full flex-col items-center justify-center px-4 py-8 sm:max-w-screen-lg md:px-16"
   >
     <SectionHeading subtitle="what we do" id="what-we-do">
       <p slot="title">
@@ -56,27 +57,30 @@ import headshot from "../assets/images/headshot.jpg";
       </p>
     </SectionHeading>
     <div
-      class="flex w-full flex-wrap justify-center gap-2 md:flex-nowrap md:gap-4"
+      class="flex w-full max-w-screen-md flex-wrap justify-center gap-2 sm:flex-nowrap md:gap-4"
     >
       <!-- Images https://www.freepik.com/search?author=12980021&format=author&icon_color=multicolor&last_filter=page&last_value=7&page=7&shape=lineal-color&type=icon#uuid=eda1eb07-b0e7-43ca-a9c0-f7634e953972 -->
       <CallOut
         img={mobile}
         purple="Do Business Anywhere"
-        subtext="Our sites and systems are designed to work when you and your customers are on the go - including beautiful websites from your phone to your desktop."
+        point="Mobile to Desktop"
+        subtext="Beautiful websites and tech that work for you and your customers, anytime, anywhere."
       />
       <CallOut
         img={find}
         purple="Get Found Faster"
-        subtext="Sites built to help you rank and support with your business profiles on Google, Bing and/or Facebook to help customers find you."
+        point="Connect Customers"
+        subtext="Sites made for search engines with managed online profiles on Google, Bing & Facebook."
       />
       <CallOut
         img={productive}
-        purple="Save Time and Money"
-        subtext="We help you find the right solutions, at the right price, without confusing jargon or unexpected add-ons."
+        purple="Save Time & Money"
+        point="Simplified"
+        subtext="No jargon, no surprises, no waste. Just the right tech solutions at the right price."
       />
     </div>
     <div class="flex flex-col items-center justify-center">
-      <p class="my-8 max-w-[60ch] text-center text-2xl font-bold md:text-4xl">
+      <p class="my-8 max-w-[40ch] text-center text-2xl font-bold md:text-4xl">
         Get a shiny new website from<span class="text-highlight"> £1,900</span> or
         <span class="text-highlight">£180</span> per month.
       </p>
@@ -85,65 +89,68 @@ import headshot from "../assets/images/headshot.jpg";
       class="flex flex-col items-center justify-center gap-3 min-[500px]:flex-row"
     >
       <Button
-        href="/pricing/#web-pricing"
-        icon="mdi:arrow-right"
-        text="See Pricing"
-      />
-      <Button
         href="/#who-we-are"
         icon="mdi:arrow-down"
         text="Who We Are"
         buttonColor="color-secondary"
       />
+      <Button
+        href="/pricing/#web-pricing"
+        icon="mdi:arrow-right"
+        text="See Pricing"
+      />
     </div>
   </section>
 
   <section
-    class="my-16 flex w-full max-w-full flex-initial flex-col items-center justify-center gap-0 px-4 sm:max-w-screen-xl md:my-32 md:flex-row md:flex-wrap md:px-16"
+    class="flex min-h-[70vh] w-full flex-col items-center justify-center px-4 md:px-16"
   >
-    <SectionHeading
-      subtitle="who we are"
-      id="who-we-are"
-      addClasses="md:max-w-2xl w-full md:w-2/3"
-    >
-      <p slot="title">
-        Hello from<span class="text-highlight"> Lucy</span>, <br />Peculiar
-        Founder.
-      </p>
-      <p class="">
-        I am an owner of a small ambitious business, like you. I jumped into
-        Entrepreneurship to help small business owners access the data and
-        technology I've seen and built whilst working at Google, Amazon,
-        Health-Tech Startups and consulting for clients ranging from high-street
-        banks to global retailers.
-      </p>
-      <p class="">
-        I want it to be easier and more affordable for small British businesses
-        to grow and compete with big business, to make the use of technology and
-        AI simple and to build a slick presence on the web without being
-        bamboozled by jargon or extorted by shady technology companies.
-      </p>
-    </SectionHeading>
-    <Image
-      src={headshot}
-      alt=""
-      class="mb-4 aspect-square w-fit max-w-60 flex-initial rounded-full border-4 border-green-300 object-cover sm:mb-0 sm:w-1/4 sm:max-w-xs"
-    />
     <div
-      class="flex h-fit w-full flex-col items-center justify-center gap-3 md:flex-row"
+      class="flex w-full flex-col items-center justify-center gap-2 sm:max-w-screen-xl sm:flex-row sm:flex-wrap sm:gap-0"
     >
-      <Button
-        href="/about"
-        icon="mdi:arrow-right"
-        text="About Us"
-        addClasses="min-w-44"
+      <SectionHeading
+        subtitle="who we are"
+        id="who-we-are"
+        center
+        addClasses="sm:items-start sm:text-left md:max-w-2xl w-full sm:w-fit sm:max-w-2/3"
+      >
+        <p slot="title">
+          Hello, I'm <span class="text-highlight">Lucy</span>!
+        </p>
+        <p>
+          As a fellow small business owner, I've seen the struggle firsthand.
+          After working at giants like Google and Amazon, I built tech solutions
+          for startups and consulted for everyone from global banks to
+          retailers.
+        </p>
+        <p>Now, I'm on a mission: make tech accessible, useful & affordable.</p>
+        <p class="">
+          From ambitious tradespeople and freelancers to established small
+          businesses and exciting early-stage startups, everyone deserves access
+          to technology that works.
+        </p>
+      </SectionHeading>
+      <Image
+        src={headshot}
+        alt=""
+        class="mb-4 aspect-square w-fit max-w-60 flex-initial rounded-full border-4 border-green-300 object-cover sm:mb-0 sm:w-1/4 sm:max-w-xs"
       />
+    </div>
+    <div
+      class="flex w-fit flex-col items-center justify-center gap-3 sm:mt-4 sm:flex-row"
+    >
       <Button
         href="/#services"
         icon="mdi:arrow-down"
         text="What We Do"
         buttonColor="color-secondary"
-        addClasses="min-w-44"
+        addClasses="w-full"
+      />
+      <Button
+        href="/about"
+        icon="mdi:arrow-right"
+        text="More About Us"
+        addClasses="w-full"
       />
     </div>
   </section>
@@ -161,7 +168,7 @@ import headshot from "../assets/images/headshot.jpg";
       </p>
     </SectionHeading>
     <div
-      class="my-4 grid grid-cols-1 content-stretch gap-2 sm:gap-6 md:grid-cols-2"
+      class="my-4 grid grid-cols-1 content-stretch gap-2 sm:grid-cols-2 md:gap-6"
     >
       <Feature
         icon="ic:baseline-web"
@@ -206,21 +213,32 @@ import headshot from "../assets/images/headshot.jpg";
       </Feature>
     </div>
     <div class="flex flex-col justify-center gap-3 min-[500px]:flex-row">
-      <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
+      <Button
+        href="/#index-blogs"
+        text="Latest News"
+        buttonColor="color-secondary"
+        icon="mdi:arrow-down"
+        addClasses="w-full"
+      />
       <Button
         href="/services"
         text="Explore Services"
-        buttonColor="color-secondary"
         icon="mdi:arrow-right"
+        addClasses="w-full"
       />
     </div>
   </section>
   <section
     class="sm:max-w-screen-3xl flex w-full max-w-full flex-col items-center justify-center bg-[--surface-dim] px-4 py-8 md:px-8"
   >
-    <BlogGrid title="Our latest blog posts" subtitle="recent" id="index-blogs">
-      We believe in making access to technology simple, clear and affordable.
-      That's why we share
+    <BlogGrid
+      title="Our Latest News, Tips and Offers"
+      subtitle="resources"
+      id="index-blogs"
+    >
+      We believe in making access to technology simple, clear and affordable. So
+      we share tech tips, industry insights, case studies and exclusive offers
+      to help your business thrive.
     </BlogGrid>
   </section>
 
@@ -330,3 +348,22 @@ import headshot from "../assets/images/headshot.jpg";
     // @apply my-16 flex items-center justify-center gap-4 p-4 md:my-32 md:gap-8 md:p-16;
   }
 </style>
+
+<script defer async>
+  // if (window.location.hash.includes('_token=')) {
+  // 	console.log(window.location.hash)
+  // //   window.location.replace('/admin/account/' + window.location.hash)
+  // }
+  // console.log("howdy")
+  document.addEventListener("astro:page-load", () => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  });
+</script>

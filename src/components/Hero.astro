@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import Button from "./Button.astro";
+import Button from "@components/Button.astro";
 import { Image } from "astro:assets";
 
 const {
@@ -16,7 +16,7 @@ const {
 const learnLink = `${learnTarget}`;
 ---
 
-<section class="hero my-24 flex min-h-[80vh] items-center px-4 lg:px-6">
+<section class="hero my-24 flex min-h-[80vh] items-center px-4 lg:px-16">
   <div class="container">
     <div
       class="grid max-w-max auto-rows-min grid-cols-1 grid-rows-1 content-center items-center justify-items-center gap-x-16 lg:grid-cols-2"
@@ -34,18 +34,24 @@ const learnLink = `${learnTarget}`;
 
         {
           quoteButton || learnButton ? (
-            <div class="flex flex-col gap-3 min-[500px]:flex-row">
-              {quoteButton ? (
-                <Button text="Get a Quote" href="/quoter" icon="ph:chat" />
-              ) : (
-                ""
-              )}
+            <div class="flex w-fit flex-col gap-3 sm:flex-row">
               {learnButton ? (
                 <Button
                   buttonColor="color-secondary"
                   href={learnLink}
                   text={learnMessage}
                   icon="mdi:arrow-down"
+                  addClasses="w-full"
+                />
+              ) : (
+                ""
+              )}
+              {quoteButton ? (
+                <Button
+                  text="Get a Quote"
+                  href="/quoter"
+                  icon="ph:chat"
+                  addClasses="w-full"
                 />
               ) : (
                 ""

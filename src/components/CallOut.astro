@@ -3,11 +3,24 @@ import { Image } from "astro:assets";
 const { img, purple, point, subtext } = Astro.props;
 ---
 
-<div class="animate flex flex-col items-center text-center">
-  {img && <Image src={img} alt="" width="128" class="" />}
-  <p class="text-2xl font-bold text-[--action-color] md:text-2xl">{purple}</p>
-  <p class="text-lg font-semibold md:text-xl">{point}</p>
-  <p class="max-w-[45ch] text-base md:text-lg">{subtext}</p>
+<div class="animate flex w-fit flex-col items-center text-center">
+  {
+    img && (
+      <Image
+        src={img}
+        alt=""
+        width="128"
+        class=" max-w-16  md:max-w-20 lg:max-w-32"
+      />
+    )
+  }
+  <div class="flex flex-col items-center text-center">
+    <p class="text-lg font-bold text-[--action-color] lg:text-xl">{purple}</p>
+    <p class="text-base font-semibold md:text-lg">{point}</p>
+    <p class="max-w-[45ch] text-sm text-[--font-variant] lg:text-base">
+      {subtext}
+    </p>
+  </div>
 </div>
 
 <style lang="scss">

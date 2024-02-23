@@ -1,5 +1,5 @@
 ---
-import Button from "./Button.astro";
+import Button from "@components/Button.astro";
 ---
 
 <section
@@ -10,7 +10,12 @@ import Button from "./Button.astro";
   >
     <h2 class="text-center text-3xl md:text-5xl">Ready to get started?</h2>
 
-    <Button href="/quoter" icon="mdi:message-outline" text="Get a Quote" />
+    <Button
+      href="/quoter"
+      addClasses="w-fit"
+      icon="mdi:message-outline"
+      text="Get a Quote"
+    />
   </div>
 </section>
 

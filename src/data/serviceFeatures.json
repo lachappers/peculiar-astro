@@ -1,0 +1,121 @@
+[
+  {
+    "id": "webDev",
+    "color": "blue",
+    "subtitle": "Website & App Development",
+    "title": "Translate Ideas into Technology",
+    "description": "Got a great idea but can't code? Frustrated by the cost and complexity of building and maintaining a website?",
+    "sectionButton": "Support Services",
+    "sectionButtonLink": "/#ongoing",
+    "sectionButtonIcon": "mdi:arrow-down",
+    "features": [
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "e-Commerce & Digital Stores",
+        "featureDescription": "Your digital shopfront, products and payment with Shopify or custom solution.",
+        "href": "/pricing",
+        "buttonText": "Get Booked In",
+        "buttonIcon": "mdi:arrow-right",
+        "preCost": "From £",
+        "cost": "4,500",
+        "postCost": "+ VAT"
+      },
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "Website Build or Refresh",
+        "featureDescription": "Valuable, secure and modern custom-coded business websites built for performance and SEO.",
+        "href": "/pricing",
+        "buttonText": "Get Booked In",
+        "buttonIcon": "mdi:arrow-right",
+        "preCost": "From £",
+        "cost": "1,900",
+        "postCost": "+ VAT"
+      },
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "Business Apps & Prototypes",
+        "featureDescription": "Validate your ideas before investing big, with stunning prototypes that impress.",
+        "href": "/pricing",
+        "buttonText": "Get Booked In",
+        "buttonIcon": "mdi:arrow-right",
+        "preCost": "From £",
+        "cost": "6,000",
+        "postCost": "+ VAT"
+      }
+    ]
+  },
+  {
+    "id": "ongoing",
+    "color": "gold",
+    "subtitle": "Ongoing Support",
+    "title": "Let us take care of the admin",
+    "description": "Guaranteed, flexible access to expertise, ongoing managed support functions or routine maintenance, that already knows your business. Let us manage the admin of running your business, so you don't need to do it yourself or hire externally.",
+    "sectionButton": "System Integration",
+    "sectionButtonLink": "/#systemIntegration",
+    "sectionButtonIcon": "mdi:arrow-down",
+    "features": [
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "Web Hosting & Domain Maintenance",
+        "featureDescription": "Let us cover the basics of keeping your website up and running.",
+        "href": "/pricing",
+        "buttonText": "Get Booked In",
+        "buttonIcon": "mdi:arrow-right",
+        "preCost": "From £",
+        "cost": "25",
+        "postCost": "/ mo + VAT"
+      },
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "Business Technology Essentials",
+        "featureDescription": "Everything you need for a professional, secure web presence and customer experience.",
+        "href": "/pricing",
+        "buttonText": "Get Booked In",
+        "buttonIcon": "mdi:arrow-right",
+        "preCost": "From £",
+        "cost": "100",
+        "postCost": "/ mo + VAT"
+      }
+    ]
+  },
+  {
+    "id": "systemIntegration",
+    "color": "mint",
+    "subtitle": "System Integration",
+    "title": "Reduce the burdon of running your business",
+    "description": "You should be able to trust technology to reduce the cost and complexity of running your business, not increase it.",
+    "sectionButton": "Data Insights",
+    "sectionButtonLink": "/#businessAnalysis",
+    "sectionButtonIcon": "mdi:arrow-down",
+    "features": [
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "Let's get connected",
+        "featureDescription": "Automate, streamline or reconfigure your processes and systems to simplify, secure or fix ineffective tech.",
+        "href": "/contact",
+        "buttonText": "Enquire",
+        "buttonIcon": "mdi:comment-question-outline",
+        "preCost": "Priced by project"
+      }
+    ]
+  },
+  {
+    "id": "businessAnalysis",
+    "color": "pink",
+    "subtitle": "Business Analysis",
+    "title": "Understand the dynamics of your business",
+    "description": "Assess performance, manage risk and identify opportunities to improve processes and systems.",
+
+    "features": [
+      {
+        "icon": "ic:baseline-web",
+        "featureTitle": "Health Check",
+        "featureDescription": "Understand what's working, what's not and what could be next for your business.",
+        "href": "/contact",
+        "buttonText": "Enquire",
+        "buttonIcon": "mdi:comment-question-outline",
+        "preCost": "Priced by project"
+      }
+    ]
+  }
+]

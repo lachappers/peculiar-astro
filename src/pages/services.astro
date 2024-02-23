@@ -1,14 +1,17 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
-import Hero from "../components/Hero.astro";
-import Button from "../components/Button.astro";
-import SectionHeading from "@components/shared/SectionHeading.astro";
-import Heading from "../components/shared/Heading.astro";
 import { Icon } from "astro-icon/components";
-import Feature from "../components/Feature.astro";
-import CallOut from "../components/CallOut.astro";
-import CallToAction from "../components/CallToAction.astro";
-import investVector from "../assets/images/invest-vector.png";
+
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Hero from "@components/Hero.astro";
+import Button from "@components/Button.astro";
+import SectionHeading from "@components/shared/SectionHeading.astro";
+import Feature from "@components/Feature.astro";
+import CallOut from "@components/CallOut.astro";
+import CallToAction from "@components/CallToAction.astro";
+
+import investVector from "@assets/images/invest-vector.png";
+
+import serviceFeatures from "@data/serviceFeatures.json";
 ---
 
 <DefaultLayout
@@ -24,13 +27,14 @@ import investVector from "../assets/images/invest-vector.png";
     understandable technology paired with one-time or ongoing tech support.`}
   >
     <div
-      class="row-start-2 mt-4 flex w-full max-w-screen-md flex-wrap justify-center gap-3 min-[200px]:flex-row md:col-span-full xl:col-span-1"
+      class="row-start-2 mt-4 flex w-fit max-w-screen-md flex-wrap justify-center gap-3 sm:flex-row md:col-span-full xl:col-span-1"
     >
       <Button
         href="#webDev"
         icon="mdi:arrow-right"
         text="Website & App Development"
         buttonColor="blue"
+        addClasses="w-fit"
       />
 
       <Button
@@ -38,21 +42,24 @@ import investVector from "../assets/images/invest-vector.png";
         icon="mdi:arrow-right"
         text="Ongoing Support"
         buttonColor="gold"
+        addClasses="w-fit"
       />
       <Button
         href="#systemIntegration"
         icon="mdi:arrow-right"
         text="System Integration"
         buttonColor="mint"
+        addClasses="w-fit"
       />
       <Button
         href="#businessAnalysis"
         icon="mdi:arrow-right"
         text="Business Analytics"
         buttonColor="pink"
+        addClasses="w-fit"
       />
     </div>
-    <div class="col-span-full mt-16 flex w-full justify-center">
+    <div class="col-span-full mt-16 flex w-fit justify-center">
       <Button
         buttonColor="color-secondary"
         href="#approach"
@@ -61,6 +68,7 @@ import investVector from "../assets/images/invest-vector.png";
       />
     </div>
   </Hero>
+
   <section
     class="approach flex w-full flex-col items-center justify-center px-4 py-8"
   >
@@ -141,213 +149,74 @@ import investVector from "../assets/images/invest-vector.png";
           </p>
         </li>
       </ul>
-      <div
-        class="mt-16 flex flex-col justify-center gap-3 min-[500px]:flex-row"
-      >
-        <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
+      <div class="mt-16 flex w-fit flex-col justify-center gap-3 sm:flex-row">
         <Button
           href="#webDev"
           icon="mdi:arrow-down"
           text="How We Can Help"
           buttonColor="color-secondary"
         />
+        <Button href="/quoter" icon="ph:chat" text="Get a Quote" />
       </div>
     </div>
   </section>
-
-  <section
-    class="webdev blue my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
-  >
-    <div
-      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
-    >
-      <SectionHeading id="webDev" subtitle="Website & App Development">
-        <p slot="title">Translate ideas into technology.</p>
-        <p class="">
-          Got a great idea but can't code? Frustrated by the cost and complexity
-          of building and maintaining a website?
-        </p>
-      </SectionHeading>
-      <div
-        class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3"
-      >
-        <Feature icon="ic:baseline-web" title="eCommerce & Digital Stores">
-          Your digital shopfront, products and payment with Shopify
-          <p
-            class="mt-auto inline-flex w-full items-end gap-2 text-base font-bold"
-          >
-            From £
-            <span class="-ms-1 text-3xl font-bold">4,500</span>
-            + VAT
-          </p>
-          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
-        </Feature>
-        <Feature icon="ic:baseline-web" title="Website Build or Refresh">
-          Valuable, secure and modern custom-coded business websites
-          <p
-            class="mt-auto inline-flex w-full items-end gap-2 text-base font-bold"
-          >
-            From £
-            <span class="-ms-1 text-3xl font-bold">1,900</span>
-            + VAT
-          </p>
-          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
-        </Feature>
-
-        <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
-          Bespoke interal apps, customer dashboards or a mock up of your next
-          venture for a pitch or research
-          <p
-            class="mt-auto inline-flex w-full items-end gap-2 text-base font-bold"
-          >
-            From £
-            <span class="-ms-1 text-3xl font-bold">6,000</span>
-            + VAT
-          </p>
-
-          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
-        </Feature>
-      </div>
-
-      <Button
-        icon="mdi:arrow-down"
-        href="#ongoing"
-        text="Support Services"
-        buttonColor="color-secondary"
-      />
-    </div>
-  </section>
-
-  <section
-    class="ongoing gold my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
-  >
-    <div
-      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
-    >
-      <SectionHeading id="ongoing" subtitle="Ongoing Support">
-        <p slot="title">Let us take care of the admin.</p>
-        <p class="">
-          Guaranteed, flexible access to expertise, ongoing managed support
-          functions or routine maintenance, that already knows your business.
-          Let us manage the admin of running your business, so you don't need to
-          do it yourself or hire externally.
-        </p>
-      </SectionHeading>
-      <div
-        class="mb-8 grid max-w-sm grid-cols-1 content-center gap-6 sm:max-w-screen-lg sm:grid-cols-2"
-      >
-        <Feature
-          icon="ic:baseline-web"
-          title="Web Hosting & Domain Maintenance"
+  {
+    serviceFeatures &&
+      serviceFeatures.map((service) => (
+        <section
+          class={`${service.id.toLowerCase()} ${
+            service.color
+          } my-16 flex w-full items-center justify-center px-4 py-8 md:my-32`}
         >
-          Let us cover the basics of keeping your website up and running;
-          <p class="inline-flex w-full items-end gap-2 text-base font-bold">
-            From £
-            <span class="-ms-1 text-3xl font-bold">25</span>
-            / mo + VAT
-          </p>
-
-          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
-        </Feature>
-        <Feature icon="ic:baseline-web" title="Business Technology Essentials">
-          Everything you need for a professional, secure web presence and
-          customer experience;
-
-          <p class="inline-flex w-full items-end gap-2 text-base font-bold">
-            From £
-            <span class="-ms-1 text-3xl font-bold">100</span>
-            / mo + VAT
-          </p>
-          <Button icon="mdi:arrow-right" href="/pricing" text="Get Booked In" />
-        </Feature>
-
-        <!-- <Feature icon="ic:baseline-web" title="Business Apps & Prototypes">
-          from £5,000 (ex.VAT).
-          <Button
-            icon="mdi:arrow-right"
-            href="/"
-            text="Get Booked In"
-            buttonColor="color-secondary"
-          />
-        </Feature> -->
-      </div>
-      <Button
-        icon="mdi:arrow-down"
-        href="#systemIntegration"
-        text="Connecting Tech"
-        buttonColor="color-secondary"
-      />
-    </div>
-  </section>
-  <section
-    class="systemInt mint my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
-  >
-    <div
-      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
-    >
-      <SectionHeading id="systemIntegration" subtitle="system integration">
-        <p slot="title">Reduce the burdon of running your business.</p>
-        <p class="">
-          You should be able to trust technology to reduce the cost and
-          complexity of running your business, not increase it.
-        </p>
-      </SectionHeading>
-
-      <div class="mb-8 flex max-w-md place-self-center">
-        <Feature icon="ic:baseline-web" title="Let's get connected">
-          Automate, streamline or reconfigure your processes and systems to
-          simplify, secure or fix ineffective tech.
-          <span class="font-bold">Priced case-by-case</span>
-
-          <Button
-            icon="mdi:comment-question-outline"
-            href="/contact"
-            text="Enquire"
-          />
-        </Feature>
-      </div>
-      <Button
-        icon="mdi:arrow-down"
-        href="#businessAnalysis"
-        text="Data Insights"
-        buttonColor="color-secondary"
-      />
-    </div>
-  </section>
-
-  <section
-    class="business pink my-16 flex w-full items-center justify-center px-4 py-8 md:my-32"
-  >
-    <div
-      class="container flex max-w-screen-lg flex-col items-center gap-4 rounded-lg p-4 md:gap-8 md:p-8"
-    >
-      <SectionHeading id="businessAnalysis" subtitle="business analysis">
-        <p slot="title">Understand the dynamics of your business.</p>
-        <p class="">
-          Assess performance, manage risk and identify opportunities to improve
-          processes and systems.
-        </p>
-      </SectionHeading>
-      <div class="mb-8 flex max-w-md place-self-center">
-        <Feature icon="ic:baseline-web" title="Health Check">
-          Understand what's working, what's not and what could be next for your
-          business.
-          <span class="font-bold">Priced case-by-case</span>
-          <Button
-            icon="mdi:comment-question-outline"
-            href="/contact"
-            text="Enquire"
-          />
-        </Feature>
-      </div>
-      <Button
-        icon="mdi:arrow-right"
-        href="/pricing"
-        text="Our Pricing"
-        buttonColor="color-secondary"
-      />
-    </div>
-  </section>
+          <div class="container flex max-w-screen-lg flex-col items-center justify-center gap-4 rounded-lg p-4 md:gap-8 md:p-8">
+            <SectionHeading
+              id={service.id}
+              subtitle={service.subtitle}
+              title={service.title}
+            >
+              {service.description}
+            </SectionHeading>
+            <div class=" mb-8 flex max-w-sm flex-col gap-6 sm:max-w-screen-lg md:flex-row md:flex-wrap">
+              {service.features.map((feature) => {
+                return (
+                  <Feature
+                    icon={feature.icon}
+                    title={feature.featureTitle}
+                    buttonIcon={feature.buttonIcon}
+                    href={feature.href}
+                    buttonText={feature.buttonText}
+                  >
+                    <Fragment>
+                      {feature.featureDescription}
+                      <p class="mt-auto inline-flex w-full items-end justify-center gap-2 text-base font-bold md:justify-start">
+                        {feature.preCost}
+                        {feature.cost && (
+                          <>
+                            <span class="-ms-1 text-3xl font-bold">
+                              {feature.cost}
+                            </span>
+                            {feature.postCost}
+                          </>
+                        )}
+                      </p>
+                    </Fragment>
+                  </Feature>
+                );
+              })}
+            </div>
+            {service.sectionButton && (
+              <Button
+                icon={service.sectionButtonIcon}
+                href={service.sectionButtonLink}
+                text={service.sectionButton}
+                buttonColor="color-secondary"
+                addClasses="w-fit"
+              />
+            )}
+          </div>
+        </section>
+      ))
+  }
   <CallToAction />
 </DefaultLayout>
 

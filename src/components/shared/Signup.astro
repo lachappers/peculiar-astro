@@ -1,7 +1,13 @@
 ---
-import SectionHeading from "@components/shared/SectionHeading.astro";
 import { Icon } from "astro-icon/components";
+
 import InlineEmail from "@components/forms/InlineEmail.tsx";
+import SectionHeading from "@components/shared/SectionHeading.astro";
+
+const {
+  cta,
+  message = "Stay up to date with our latest news, products and promotions.",
+} = Astro.props;
 ---
 
 <aside
@@ -9,10 +15,10 @@ import InlineEmail from "@components/forms/InlineEmail.tsx";
 >
   <SectionHeading
     subtitle="subscribe"
-    title="Sign up for our newsletter"
+    title={cta}
     addClasses="flex-1 w-full min-w-60"
   >
-    Stay up to date with our latest news, announcements and products.
+    {message}
   </SectionHeading>
 
   <InlineEmail client:load />

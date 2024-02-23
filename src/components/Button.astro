@@ -6,19 +6,25 @@ const {
   text = "Text",
   href,
   buttonColor = "text-[--neutral-100] bg-[--primary-300] ",
-  addClasses = "",
+  addClasses = "w-full",
 } = Astro.props;
 ---
 
 {
   !icon ? (
-    <a class={`button text-lg ${buttonColor} ${addClasses}`} {href}>
+    <a
+      class={`button whitespace-nowrap text-lg ${buttonColor} ${addClasses}`}
+      {href}
+    >
       {text}
     </a>
   ) : (
-    <a class={`button has-icon text-lg ${buttonColor} ${addClasses}`} {href}>
+    <a
+      class={`button has-icon whitespace-nowrap text-lg ${buttonColor} ${addClasses}`}
+      {href}
+    >
       {text}
-      <Icon name={icon} class="text-xl" />
+      <Icon name={icon} class="flex-none text-xl" />
     </a>
   )
 }

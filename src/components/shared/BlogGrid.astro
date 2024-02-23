@@ -31,7 +31,7 @@ const recentBlogPosts = (
       <h2>No Recent Posts - Yet!</h2>
     ) : (
       //   <ul class="grid max-w-xs grid-cols-1 place-items-center gap-6 sm:max-w-lg md:max-w-4xl lg:grid-cols-3">
-      <ul class="flex w-full flex-col items-center justify-center gap-4 lg:flex-row">
+      <ul class="flex w-full flex-wrap items-center justify-center lg:flex-nowrap">
         {recentBlogPosts.map((blog) => (
           <BlogCard data={blog} />
         ))}
@@ -43,7 +43,7 @@ const recentBlogPosts = (
       href="/blog"
       icon="mdi:arrow-right"
       text="Read More Posts"
-      buttonColor="color-secondary"
+      addClasses="w-fit"
     />
   </div>
 </div>
