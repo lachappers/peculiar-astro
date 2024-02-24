@@ -1,62 +1,76 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useForm, Form } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-type FormData = {
+type Inputs = {
   email: string;
 };
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 export default function InlineEmail() {
+  const [loading, setLoading] = useState(false);
   const {
-    control,
     register,
+    handleSubmit,
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<FormData>({
+  } = useForm<Inputs>({
+    mode: "OnChange",
     defaultValues: {
       email: "",
     },
   });
 
-  const onSubmit = async ({ formData, data, formDataJson, event }) => {
-    // google sheet
-    // https://react-hook-form.com/docs/useform/form
+  const [state, setState] = React.useState({});
+  const handleChange = (e) =>
+    setState({ ...state, [e.target.name]: e.target.value });
 
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbxE0CUcrR6pKlyJGs4R4UPc8eLWCudhkbSPxfxlXPgXADL_NBSHlZAZtDynL44jR8YJSw/exec",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
-      .then((res) => {
-        const result = res;
-        console.log(res);
-        console.log("submitted");
-        // reset();
+  const onSubmit = (data: Inputs, e) => {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "signup-form",
+        ...data,
+      }),
+    })
+      .then((response) => {
+        // console.log("success!");
+        reset();
+        navigate(form.getAttribute("action"));
+        console.log(response);
       })
-      .catch((err) => {
-        console.log(err);
-        console.log("there was an error");
-        reset(undefined, { keepDirtyValues: true });
+      .catch((error) => {
+        console.log(error);
       });
   };
 
+  // console.log("errors", errors);
+
   return (
-    <Form
-      id="signupForm"
-      name="signupForm"
-      method="post"
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form
+      method="POST"
       className="w-full md:max-w-lg"
-      control={control}
-      onSubmit={onSubmit}
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      id="signup-form"
+      name="signup-form"
+      onSubmit={handleSubmit(onSubmit)}
     >
-      {/* <p className="hidden">
+      <p className="hidden">
         <label>
           Don’t fill this out if you’re human: <input name="bot-field" />
         </label>
-      </p> */}
-      <div className="flex h-fit w-full flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
-        <div className="relative inline-flex w-full items-center sm:w-2/3">
+      </p>
+      <div className="flex h-fit w-full flex-col items-center gap-2 sm:flex-row sm:gap-3">
+        <div className="relative inline-flex w-full items-center ">
           <label htmlFor="signup-email" className="sr-only">
             Email Address
           </label>
@@ -86,12 +100,11 @@ export default function InlineEmail() {
             autoComplete="email"
             disabled={isSubmitting || isSubmitSuccessful}
             id="signup-email"
-            type="email"
           />
         </div>
         <p
           aria-live="assertive"
-          className="mt-0.5 w-full text-sm font-medium text-[--error] sm:order-last"
+          className="mt-0.5 w-full text-sm font-medium text-[--error]"
         >
           {errors.email?.message}
         </p>
@@ -101,7 +114,7 @@ export default function InlineEmail() {
             isSubmitSuccessful ? "color-success" : "color-primary"
           } size-small `}
           aria-live="assertive"
-          disabled={isSubmitting || isSubmitSuccessful}
+          disabled={isSubmitting}
         >
           {isSubmitting ? (
             <span
@@ -141,6 +154,6 @@ export default function InlineEmail() {
           Read our Privacy Policy.
         </a>
       </p>
-    </Form>
+    </form>
   );
 }

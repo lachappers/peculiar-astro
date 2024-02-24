@@ -1,20 +1,28 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useForm, Form } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-type FormData = {
+type Inputs = {
   name: string;
   email: string;
   message: string;
 };
 
-export default function ContactMessage() {
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
+export default function ContactMessageNetlify() {
+  const [loading, setLoading] = useState(false);
   const {
     register,
+    handleSubmit,
     watch,
     reset,
-    control,
     formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<FormData>({
+  } = useForm<Inputs>({
+    mode: "OnChange",
     defaultValues: {
       name: "",
       email: "",
@@ -22,25 +30,29 @@ export default function ContactMessage() {
     },
   });
 
-  const onSubmit = async ({ formData, data, formDataJson, event }) => {
-    await fetch(
-      "https://script.google.com/macros/s/AKfycbxsNrMMVOqB6N6B7ocFwkKdbPIk3lQ_u4X8jZj_PF62bnguR-ZD4a6I_U6mhQ4Uy_-OdQ/exec",
-      {
-        method: "POST",
-        body: formData,
-        // mode: "cors",
-      }
-    )
-      .then((res) => {
-        const result = res;
-        // console.log(res);
-        console.log("submitted");
+  const [state, setState] = React.useState({});
+  const handleChange = (e) =>
+    setState({ ...state, [e.target.name]: e.target.value });
+  const onSubmit = (data: Inputs, e) => {
+    // netlify
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contactForm",
+        ...data,
+      }),
+    })
+      .then((response) => {
+        // console.log("success!");
         // reset();
+        navigate(form.getAttribute("action"));
+        console.log(response);
       })
-      .catch((err) => {
-        console.log(err);
-        console.log("there was an error");
-        reset(undefined, { keepDirtyValues: true });
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -49,14 +61,21 @@ export default function ContactMessage() {
   // console.log("errors", errors);
 
   return (
-    <Form
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form
       id="contactForm"
       name="contactForm"
-      method="post"
-      onSubmit={onSubmit}
-      control={control}
+      onSubmit={handleSubmit(onSubmit)}
       className="contactForm relative z-10 flex w-full flex-col items-center justify-center gap-4 shadow-postMod"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      method="POST"
     >
+      <p className="hidden">
+        <label>
+          Don’t fill this out if you’re human: <input name="bot-field" />
+        </label>
+      </p>
       <div className="w-full">
         <label className="mb-2">Name</label>
         <input
@@ -68,8 +87,6 @@ export default function ContactMessage() {
           placeholder={"Ada Lovelace"}
           className="form-input rounded border-2 border-[--font-color] bg-inherit"
           autoComplete="name"
-          name="name"
-          type="text"
           disabled={isSubmitting || isSubmitSuccessful}
         />
         <p className="text-sm font-medium text-[--error]">
@@ -91,8 +108,6 @@ export default function ContactMessage() {
           placeholder="adalovelace@example.com"
           className="form-input rounded border-2 border-[--font-color] bg-inherit"
           autoComplete="email"
-          name="email"
-          type="email"
           disabled={isSubmitting || isSubmitSuccessful}
         />
         <p className="text-sm font-medium text-[--error]">
@@ -114,7 +129,6 @@ export default function ContactMessage() {
               message: "Please enter a message less than 1500 characters",
             },
           })}
-          name="message"
           aria-invalid={errors.message ? "true" : "false"}
           placeholder="Let us know how we can help!"
           className="form-textarea rounded border-2 border-[--font-color] bg-inherit md:h-56"
@@ -187,6 +201,6 @@ export default function ContactMessage() {
           </button>
         </>
       )}
-    </Form>
+    </form>
   );
 }

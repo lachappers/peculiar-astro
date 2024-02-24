@@ -9,6 +9,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   function submitData(e) {
+    console.log("event", e);
     e.preventDefault();
     if (e.target.classList.contains("submitted"))
       return console.log("already submitted");

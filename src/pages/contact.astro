@@ -6,7 +6,8 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
 import InlineEmail from "@components/common/InlineEmail.astro";
 
-import ContactForm from "../components/ContactForm.jsx";
+import ContactMessageNetlify from "@components/forms/ContactMessageNetlify.tsx";
+import ContactForm from "@components/forms/ContactForm.jsx";
 import ContactMessage from "@components/forms/ContactMessage.tsx";
 ---
 
@@ -58,9 +59,7 @@ import ContactMessage from "@components/forms/ContactMessage.tsx";
       </div>
     </div>
     <div class="flex min-h-full w-full max-w-xl grow justify-center">
-      <!-- <ContactForm client:only="react" /> -->
-      <ContactMessage client:load transition:persist />
-      <!-- <ContactForm client:load transition:persist /> -->
+      <ContactMessageNetlify client:load transition:persist />
     </div>
   </section>
 </DefaultLayout>
