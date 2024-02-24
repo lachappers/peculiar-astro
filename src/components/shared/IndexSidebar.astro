@@ -24,12 +24,7 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
             <h2 class="mb-2 text-xl uppercase">
               {pluralize(filter, entries.length)}
             </h2>
-            <LabelCloud
-              {entries}
-              path={`/blog/${slugify(filter)}`}
-              showCount
-              short
-            />
+            <LabelCloud {entries} path={`/blog/${slugify(filter)}`} showCount />
           </section>
         );
       })
