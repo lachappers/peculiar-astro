@@ -2,6 +2,8 @@
 import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
 import { humanize, slugify, pluralize } from "@utils/textConverter";
 
+import LabelCloud from "@components/common/LabelCloud.astro";
+
 const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
 // console.log(sidebarFilters);
 ---
@@ -20,23 +22,14 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
         return (
           <section class="max-h-64 rounded border-[3px] border-[--font-color] bg-[--secondary-background]  p-4">
             <h2 class="mb-2 text-xl uppercase">
-              {pluralize(entries.length, filter)}
+              {pluralize(filter, entries.length)}
             </h2>
-            <ul class="flex flex-col  text-base">
-              {entries.map(([k, v]) => (
-                <li class="">
-                  <a
-                    class="filter-item flex items-center justify-between rounded-md p-1 capitalize hover:bg-[--primary-background]"
-                    href={`/blog/${slugify(filter)}/${slugify(k)}`}
-                  >
-                    {humanize(k)}{" "}
-                    <span class="rounded bg-[--neutral-background] p-1 px-2">
-                      {v}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <LabelCloud
+              {entries}
+              path={`/blog/${slugify(filter)}`}
+              showCount
+              short
+            />
           </section>
         );
       })
@@ -49,7 +42,7 @@ const { sidebarCountFilters, sidebarFilters, collection } = Astro.props;
         return (
           <section class="max-h-48 overflow-y-scroll rounded border-[3px] border-[--font-color]  bg-[--secondary-background] p-4">
             <h2 class=" mb-2 text-xl uppercase">
-              {pluralize(entries.length, filter)}
+              {pluralize(filter, entries.length)}
             </h2>
             <ul class="flex flex-wrap gap-2 text-xs lg:text-sm">
               {entries.map((tag: any) => {

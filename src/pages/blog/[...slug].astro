@@ -1,10 +1,14 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import ArticleLayout from "@layouts/ArticleLayout.astro";
 import { Icon } from "astro-icon/components";
+
+import ArticleLayout from "@layouts/ArticleLayout.astro";
+
 import { formatDate } from "@utils/dateFormat";
-import { Image } from "astro:assets";
 import { humanize, plainify, slugify } from "@utils/textConverter";
+
+import PageHeader from "@components/blog/PostHeader.astro";
+import Button from "@components/Button.astro";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -19,91 +23,22 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 // pull out the content from the collection
 const { Content } = await entry.render();
-// console.log(entry.data.categories);
-// console.log(entry.data.categories);
-// console.log(entry);
-// console.log("using slug");
 ---
 
 <ArticleLayout frontmatter={entry.data}>
   <article class="flex max-w-3xl flex-col items-center justify-center">
-    <header
-      class="not-prose flex w-full flex-col items-center gap-4 py-6 text-[--on-surface-variant]"
-    >
-      <div class="flex w-full flex-wrap items-center gap-4">
-        <time
-          datetime={String(entry.data.date)}
-          class="inline-flex items-center gap-2"
-          ><Icon name="mdi:clock" class="inline-block h-4 w-4" />{
-            formatDate(entry.data.date)
-          }</time
-        >
-        {
-          entry.data.author && (
-            <p class="inline-flex items-center gap-2">
-              <Icon name="mdi:user" class="inline-block h-4 w-4 " />
-              {entry.data.author}
-            </p>
-          )
-        }
-        {
-          entry.data.categories && (
-            <ul class="mr-4 inline-flex  items-center justify-center gap-2">
-              <Icon name="mdi:folder-outline" class="-mt-1 mr-2 inline-block" />
-              {entry.data.categories.map((category: string, index: number) => (
-                <li>
-                  <a
-                    class="title-link inline-block  uppercase hover:underline"
-                    href={`/categories/${slugify(category)}`}
-                  >
-                    {humanize(category)}
-                    {index !== entry.data.categories.length - 1 && "|"}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-      </div>
-
-      <h1 class="font-serif-heading w-full text-3xl font-bold md:text-5xl">
-        {entry.data.title}
-      </h1>
-      <p class="w-full text-lg md:text-xl">
-        {entry.data.preview}
-      </p>
-      {
-        entry.data.image ? (
-          <Image
-            src={entry.data.image}
-            class="max-w-full sm:rounded-md lg:max-w-screen-xl"
-            widths={[400, 900]}
-            sizes="(max-width: 900px) 400px, 900px"
-            alt={entry.data?.imageAlt || ""}
-            width={900}
-            height={506}
-            loading="lazy"
-            decoding="async"
-            format="webp"
-          />
-        ) : (
-          <div class="max-w-3xl sm:px-6">
-            <div class="border-t" />
-          </div>
-        )
-      }
-    </header>
+    <PageHeader entry={entry} />
     <div class="prose prose-base py-4 dark:prose-invert">
       <!-- {Content ? <Content /> : <Fragment set:html={entry.content || ''} />} -->
       <Content />
     </div>
   </article>
 
-  <nav class="mt-8 text-center">
-    <a
-      href="/blog"
-      class="rounded-md bg-[--primary-container] px-5 py-3 transition hover:bg-[--inverse-primary]"
-      >← Back to Blog</a
-    >
-  </nav>
+  <Button
+    href="/blog"
+    text="Back to Blog"
+    icon="mdi:arrow-left"
+    buttonColor="color-primary "
+    addClasses="size-small w-fit mt-8"
+  />
 </ArticleLayout>

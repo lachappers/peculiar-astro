@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { formatDate } from "@utils/dateFormat";
+import { humanize, plainify, slugify } from "@utils/textConverter";
+
+const { entry } = Astro.props;
+---
+
+<header
+  class="not-prose flex w-full flex-col items-center gap-4 py-6 text-[--on-surface-variant]"
+>
+  <div class="flex w-full flex-wrap items-center gap-4">
+    <time
+      datetime={String(entry.data.date)}
+      class="inline-flex items-center gap-2"
+      ><Icon name="mdi:clock" class="inline-block h-4 w-4" />{
+        formatDate(entry.data.date)
+      }</time
+    >
+    {
+      entry.data.author && (
+        <p class="inline-flex items-center gap-2">
+          <Icon name="mdi:user" class="inline-block h-4 w-4 " />
+          {entry.data.author}
+        </p>
+      )
+    }
+    {
+      entry.data.categories && (
+        <ul class="mr-4 inline-flex  items-center justify-center gap-2">
+          <Icon name="mdi:folder-outline" class="-mt-1 mr-2 inline-block" />
+          {entry.data.categories.map((category: string, index: number) => (
+            <li>
+              <a
+                class="title-link inline-block  uppercase hover:underline"
+                href={`/categories/${slugify(category)}`}
+              >
+                {humanize(category)}
+                {index !== entry.data.categories.length - 1 && "|"}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+
+  <h1 class="font-serif-heading w-full text-3xl font-bold md:text-5xl">
+    {entry.data.title}
+  </h1>
+  <p class="w-full text-lg md:text-xl">
+    {entry.data.preview}
+  </p>
+  {
+    entry.data.image ? (
+      <Image
+        src={entry.data.image}
+        class="max-w-full object-cover object-center sm:rounded-md lg:max-w-screen-xl"
+        widths={[400, 900]}
+        sizes="(max-width: 900px) 400px, 900px"
+        alt={entry.data?.imageAlt || ""}
+        width={900}
+        height={506}
+        loading="lazy"
+        decoding="async"
+        format="avif"
+      />
+    ) : (
+      <div class="max-w-3xl sm:px-6">
+        <div class="border-t" />
+      </div>
+    )
+  }
+</header>

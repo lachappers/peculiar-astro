@@ -1,0 +1,25 @@
+---
+import { humanize, slugify, pluralize } from "@utils/textConverter";
+
+const { entries, path, showCount, short } = Astro.props;
+
+const shortStyle = "rounded bg-[--neutral-background] p-1 px-2 w-fit gap-2";
+---
+
+<ul class={`flex gap-1 text-base ${short ? "flex-row" : "flex-col"}`}>
+  {
+    entries.map(([k, v]) => (
+      <li class="">
+        <a
+          class={`filter-item flex items-center justify-between rounded-md p-1 capitalize hover:bg-[--primary-background] ${
+            short && shortStyle
+          }`}
+          href={`${path}/${slugify(k)}`}
+        >
+          {humanize(k)}
+          {showCount && <span class={`${!short && shortStyle}`}>({v})</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>

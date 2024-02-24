@@ -30,6 +30,7 @@ export default function InlineEmail() {
     setState({ ...state, [e.target.name]: e.target.value });
 
   const onSubmit = (data: Inputs, e) => {
+    // netlify
     e.preventDefault();
     const form = e.target;
     fetch("/", {
@@ -114,7 +115,7 @@ export default function InlineEmail() {
             isSubmitSuccessful ? "color-success" : "color-primary"
           } size-small `}
           aria-live="assertive"
-          disabled={isSubmitting}
+          disabled={isSubmitting || isSubmitSuccessful}
         >
           {isSubmitting ? (
             <span

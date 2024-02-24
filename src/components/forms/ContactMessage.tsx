@@ -72,7 +72,7 @@ export default function ContactMessage() {
           type="text"
           disabled={isSubmitting || isSubmitSuccessful}
         />
-        <p className="text-sm font-medium text-[--error]">
+        <p aria-live="assertive" className="text-sm font-medium text-[--error]">
           {errors.name?.message}
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function ContactMessage() {
           type="email"
           disabled={isSubmitting || isSubmitSuccessful}
         />
-        <p className="text-sm font-medium text-[--error]">
+        <p aria-live="assertive" className="text-sm font-medium text-[--error]">
           {errors.email?.message}
         </p>
       </div>
@@ -125,6 +125,7 @@ export default function ContactMessage() {
             {errors.message?.message}
           </p>
           <p
+            aria-live="assertive"
             className={`w-fit text-right font-medium ${
               characterCount > 1500 && "text-[--error]"
             }`}

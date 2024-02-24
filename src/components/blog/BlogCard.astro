@@ -3,56 +3,38 @@ import { CONTENTSETTINGS } from "@config";
 import { formatDate } from "@utils/dateFormat";
 import { humanize, plainify, slugify } from "@utils/textConverter";
 import { Icon } from "astro-icon/components";
+
 import Button from "@components/Button.astro";
-// import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import PublicImage from "@components/shared/PublicImage.astro";
 
 const { data } = Astro.props;
 const { title, image, date, author, categories, preview, tags } = data.data;
+const interactive = data.slug ? "interactive" : "";
 ---
 
 <li
-  class="m-2 flex h-full min-h-full w-full max-w-sm flex-col items-center overflow-clip rounded-md border-[3px] border-[--font-color] bg-[--surface] pb-2 text-center shadow-postMod sm:h-full sm:items-start sm:text-left"
+  class={`blog-card m-2 flex h-full min-h-full w-full max-w-sm flex-col items-center overflow-clip rounded-md border-[3px] border-[--font-color] bg-[--surface] pb-2 text-center shadow-postMod sm:h-full sm:items-start sm:text-left ${interactive}`}
 >
-  <div class="flex w-full grow flex-col items-center px-2 py-1">
-    <h2
+  <div class="order-2 flex w-full grow flex-col items-center px-2 py-1">
+    <h3
       class="order-2 mt-1 flex h-1/5 min-h-max w-full flex-auto items-center px-2 py-2 text-base xl:text-lg"
     >
       <a class="title-link" href={`/blog/${data.slug}`}>
         {title}
       </a>
-    </h2>
+    </h3>
     <div class="order-3 flex h-max min-h-max max-w-[70ch] px-1 py-2 text-sm">
       <p class="line-clamp-4 h-fit text-ellipsis">
         {preview ? preview : plainify(data.body)}
       </p>
       <!-- {plainify(data.body?.slice(0, Number(CONTENTSETTINGS.previewLength)))} -->
     </div>
-    <!-- categories -->
-    {
-      categories && (
-        <ul
-          class="order-1 hidden w-full max-w-full items-center overflow-hidden text-ellipsis  text-center text-[--font-variant] sm:inline-block sm:w-full sm:text-left"
-          aria-label="categories"
-        >
-          {categories.map((category: string, index: number) => (
-            <li class="mr-1 inline-block text-xs uppercase">
-              <a
-                class="title-link inline-block w-fit text-ellipsis rounded bg-[--primary-background] px-1 py-0.5 text-center text-xs"
-                href={`/blog/categories/${slugify(category)}`}
-              >
-                {humanize(category)}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )
-    }
+
     <div
       class="order-last flex w-full flex-wrap items-center justify-center gap-2 last:mt-auto sm:justify-between"
     >
       <a
-        href={`/blog/authors/${slugify(author)}`}
+        href={`/blog/author/${slugify(author)}`}
         class="title-link hidden grid-cols-5 content-center gap-x-1 rounded-sm p-1 hover:bg-[--secondary-background] sm:grid"
       >
         <Icon
@@ -82,10 +64,30 @@ const { title, image, date, author, categories, preview, tags } = data.data;
     </div>
   </div>
 
+  <!-- categories -->
+  {
+    categories && (
+      <ul
+        class="order-first hidden w-full max-w-full items-center overflow-hidden text-ellipsis  p-2 text-center text-[--font-variant] sm:inline-block sm:w-full sm:text-left"
+        aria-label="categories"
+      >
+        {categories.map((category: string, index: number) => (
+          <li class="mr-1 inline-block text-xs uppercase">
+            <a
+              class="secondary title-link inline-block w-fit text-ellipsis  px-1 py-0.5 text-center text-xs"
+              href={`/blog/categories/${slugify(category)}`}
+            >
+              {humanize(category)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
   {
     image && (
       <PublicImage
-        class="max-h-1/4 order-first hidden h-32 min-h-16 w-full flex-auto object-cover object-center sm:block"
+        class="max-h-1/4 order-1 hidden h-32 min-h-16 w-full flex-auto object-cover object-center sm:block"
         src={image}
         alt={title}
         width={445}
@@ -95,3 +97,37 @@ const { title, image, date, author, categories, preview, tags } = data.data;
     )
   }
 </li>
+<style>
+  .interactive {
+    cursor: pointer;
+  }
+  .blog-card a:focus {
+    text-decoration: underline;
+  }
+  .interactive:hover {
+    box-shadow: 0 0 0 0.25rem;
+  }
+
+  .interactive:focus-within {
+    box-shadow: 0 0 0 0.25rem;
+  }
+
+  .interactive:focus-within a:focus {
+    text-decoration: none;
+  }
+</style>
+<script>
+  const cards = document.querySelectorAll(".blog-card");
+  Array.prototype.forEach.call(cards, (card) => {
+    let down,
+      up,
+      link = card.querySelector("h3 a");
+    card.onmousedown = () => (down = +new Date());
+    card.onmouseup = () => {
+      up = +new Date();
+      if (up - down < 200) {
+        link.click();
+      }
+    };
+  });
+</script>

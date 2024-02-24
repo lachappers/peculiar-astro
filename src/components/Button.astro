@@ -24,7 +24,12 @@ const {
       {href}
     >
       {text}
-      <Icon name={icon} class="flex-none text-xl" />
+      <Icon
+        name={icon}
+        class={`flex-none text-xl ${
+          icon === "mdi:arrow-left" && "order-first"
+        }`}
+      />
     </a>
   )
 }

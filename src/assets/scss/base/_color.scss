@@ -124,7 +124,7 @@ $colors: (
   --surface-dim: var(--n-87);
   --container-lowest: var(--n-100);
 
-  --shadow-light: 1px 1px 0 var(--secondary-100), 5px 5px 0 var(--dark-100);
+  --shadow-light: 1px 1px 0 var(--secondary-100), 5px 5px 0 var(--dark);
   --shadow-dark: 1px 1px 0 var(--n-10), 5px 5px 0 var(--secondary-100);
 }
 
@@ -158,10 +158,10 @@ $colors: (
 
 .mint {
   background-color: var(--accent-mint-100);
-  color: var(--dark-100);
+  color: var(--dark);
 }
 .darkmode .mint {
-  background-color: var(--dark-100);
+  background-color: var(--dark);
   color: var(--neutral-100);
   // color: var(--accent-mint);
   border: 2px solid var(--accent-mint-100);
@@ -169,12 +169,22 @@ $colors: (
   margin: 1rem;
 }
 
+.secondary {
+  background-color: var(--secondary-400);
+  color: var(--neutral-100);
+}
+
+.darkmode .secondary {
+  background-color: var(--secondary-200);
+  color: var(--dark);
+}
+
 .blue {
   background-color: var(--accent-blue-100);
   color: var(--neutral-100);
 }
 .darkmode .blue {
-  background-color: var(--dark-100);
+  background-color: var(--dark);
   color: var(--neutral-100);
   border: 2px solid var(--accent-blue-100);
   border-radius: 0.5rem;
@@ -186,7 +196,7 @@ $colors: (
   color: var(--neutral-100);
 }
 .darkmode .teal {
-  background-color: var(--dark-100);
+  background-color: var(--dark);
   // color: var(--accent-teal);
 
   border: 2px solid var(--accent-teal-100);
@@ -198,7 +208,7 @@ $colors: (
   color: var(--neutral-100);
 }
 .darkmode .purple {
-  background-color: var(--dark-100);
+  background-color: var(--dark);
 
   // color: var(--accent-purple);
   border: 2px solid var(--accent-purple-100);
@@ -210,7 +220,7 @@ $colors: (
   color: var(--neutral-100);
 }
 .darkmode .pink {
-  background-color: var(--dark-100);
+  background-color: var(--dark);
 
   // color: var(--accent-purple);
   border: 2px solid var(--accent-pink-100);
@@ -219,10 +229,10 @@ $colors: (
 }
 .gold {
   background-color: var(--accent-gold-100);
-  color: var(--dark-100);
+  color: var(--dark);
 }
 .darkmode .gold {
-  background-color: var(--dark-100);
+  background-color: var(--dark);
   // color: var(--accent-gold);
   border: 2px solid var(--accent-gold-100);
   color: var(--neutral-100);

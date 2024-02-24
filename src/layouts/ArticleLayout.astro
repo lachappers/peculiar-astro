@@ -9,7 +9,9 @@ const { frontmatter } = Astro.props;
   description={frontmatter.preview}
   type="article"
 >
-  <section class="container my-16 flex h-full flex-auto flex-col p-4 sm:p-8">
+  <section
+    class="container my-16 flex h-full flex-auto flex-col items-center justify-center p-4 sm:p-8"
+  >
     <slot />
   </section>
 </DefaultLayout>

@@ -7,10 +7,10 @@ import { Icon } from "astro-icon/components";
 
 // components
 import DefaultLayout from "@layouts/DefaultLayout.astro";
-// import Pagination from "@components/unused/Pagination.astro";
 import PaginationMinimal from "@components/shared/PaginationMinimal.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
-import BlogCard from "@components/common/BlogCard.astro";
+import BlogCard from "@components/blog/BlogCard.astro";
+import Button from "@components/Button.astro";
 // import IndexSidebar from "@components/shared/IndexSidebar.astro";
 
 interface Route {
@@ -20,6 +20,7 @@ interface Route {
   };
   props: {
     title: string;
+    taxonomies: string[];
   };
 }
 
@@ -49,8 +50,8 @@ export async function getStaticPaths({ paginate }) {
       );
 
       return paginate(filteredBlogs, {
-        params: { filter: filter, taxonomy: slugify(taxonomy) },
-        props: { title: taxonomy, taxonomies: taxonomies },
+        params: { filter: slugify(filter), taxonomy: slugify(taxonomy) },
+        props: { title: slugify(taxonomy), taxonomies: taxonomies },
         pageSize: 2,
       });
     });
@@ -66,8 +67,8 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
   ? pathname
   : pathname.split("/").slice(0, -1).join("/");
 
-// console.log(entry);
-// console.log(filter);
+console.log(taxonomy);
+console.log(filter);
 
 // console.log(page.data.map((blog) => blog.data[filter].flat()));
 
@@ -75,14 +76,14 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
 // console.log(Astro.params);
 ---
 
-<DefaultLayout title=`${humanize(taxonomy)} Blogs`>
+<DefaultLayout title=`Blogs by ${humanize(taxonomy)} `>
   <PageHeader title={humanize(taxonomy)} breadcrumbs />
   <!-- other filter entries -->
   <aside
     class="mx-4 flex max-w-full flex-col items-center gap-1 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 sm:max-w-screen-md sm:flex-row md:gap-4"
   >
     <h3 class="text-lg uppercase">
-      All {pluralize(taxonomies.length, humanize(filter))}
+      All {pluralize(humanize(filter))}
     </h3>
 
     <ul
@@ -104,13 +105,13 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
       }
     </ul>
   </aside>
-  <a
+  <Button
     href="/blog"
-    class="flex items-center gap-2 rounded-md bg-[--primary-container] px-5 transition hover:bg-[--inverse-primary]"
-  >
-    <Icon name="mdi:arrow-left" />
-    Back to Blog
-  </a>
+    text="Back to Blog"
+    icon="mdi:arrow-left"
+    buttonColor="color-primary "
+    addClasses="size-small w-fit mt-8"
+  />
   <section
     class="flex w-full flex-col items-center justify-start px-4 md:px-16"
   >
@@ -126,7 +127,7 @@ const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
         >
           {
             page.data.map((post) => (
-              <div class="w-full min-w-96 max-w-lg flex-auto grow sm:min-h-full sm:w-1/3 md:basis-auto">
+              <div class="flex w-full max-w-full flex-auto grow items-center justify-center sm:min-h-full sm:w-1/3 sm:max-w-sm md:basis-auto">
                 <BlogCard data={post} />
               </div>
             ))

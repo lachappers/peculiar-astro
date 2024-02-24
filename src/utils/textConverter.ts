@@ -89,7 +89,12 @@ const htmlEntityDecoder = (htmlWithEntities: string) => {
 //   return _pluralize(val, word, plural);
 // };
 
-export const pluralize = (count, str, suffix = "s", includeCount = false) => {
+export const pluralize = (
+  str,
+  count = 2,
+  suffix = "s",
+  includeCount = false
+) => {
   if (str.slice(-1) !== "s") {
     let res = `${str}${count > 1 ? suffix : ""}`;
     if (includeCount == true) return `${count} ${res}`;
