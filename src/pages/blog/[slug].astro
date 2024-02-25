@@ -1,11 +1,7 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
 
 import ArticleLayout from "@layouts/ArticleLayout.astro";
-
-import { formatDate } from "@utils/dateFormat";
-import { humanize, plainify, slugify } from "@utils/textConverter";
 
 import PageHeader from "@components/blog/PostHeader.astro";
 import Button from "@components/common/Button.astro";
