@@ -11,6 +11,7 @@ const { email, subject = SITE.defaultEmailSubject, addClasses } = Astro.props;
 const emailSplit = email.split("@");
 const encoded = btoa(email);
 // console.log(emailSplit);
+// console.log("encoded", encoded);
 ---
 
 <a
@@ -28,17 +29,15 @@ const encoded = btoa(email);
   //   const encodedEmail = "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr";
   //   const emails = document.querySelectorAll(".email-link");
   //   document.addEventListener("astro:after-swap", () => {
-  document.addEventListener("astro:page-load", () => {
-    // console.log("swap");
+  // document.addEventListener("astro:page-load", () => {
+  // console.log("swap");
 
-    const emails = document.querySelectorAll(".email-link");
-    emails.forEach((e) => {
-      e.setAttribute(
-        "href",
-        "mailto:"
-          .concat(atob(e.dataset.encoded))
-          .concat(`?subject=${e.dataset.subject}`)
-      );
-    });
+  const emails: NodeListOf<HTMLLinkElement> =
+    document.querySelectorAll(".email-link");
+  emails.forEach((e: HTMLLinkElement) => {
+    const encoded: string | undefined = e.dataset.encoded;
+    const subject: string | undefined = e.dataset.subject;
+    e.setAttribute("href", `mailto:${atob(encoded)}?subject=${subject}`);
   });
+  // });
 </script>

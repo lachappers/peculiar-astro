@@ -1,9 +1,6 @@
 ---
-import type { GetStaticPaths } from "astro";
 import { CONTENTSETTINGS } from "@config";
-
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
 
 // utils
 import { formatCollection } from "@utils/contentParser";
@@ -38,7 +35,7 @@ export async function getStaticPaths({ paginate }) {
   const filters: string[] = CONTENTSETTINGS.blog.blogFilters.map(
     (filter) => filter.name
   );
-  console.log("filters", filters);
+
   const allPosts = await getCollection("blog");
   const filteredPosts = formatCollection(allPosts);
 

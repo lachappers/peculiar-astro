@@ -7,8 +7,6 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
 import InlineEmail from "@components/common/InlineEmail.astro";
 
 import ContactMessageNetlify from "@components/forms/ContactMessageNetlify.tsx";
-import ContactForm from "@components/forms/ContactForm.jsx";
-import ContactMessage from "@components/forms/ContactMessage.tsx";
 ---
 
 <DefaultLayout
@@ -63,24 +61,6 @@ import ContactMessage from "@components/forms/ContactMessage.tsx";
     </div>
   </section>
 </DefaultLayout>
-
-<!-- <script>
-  const encodedEmail = "aW5mb0BwZWN1bGlhcmR5bmFtaWNzLmNvLnVr";
-  const emails = document.querySelectorAll(".email-link");
-
-  document.addEventListener("astro:after-swap", () => {
-    // console.log("swap");
-    const emails = document.querySelectorAll(".email-link");
-    emails.forEach((e) => {
-      e.setAttribute(
-        "href",
-        "mailto:"
-          .concat(atob(encodedEmail))
-          .concat("?subject=I've got a Peculiar Query")
-      );
-    });
-  });
-</script> -->
 
 <style lang="scss">
   // see _form for form styles
