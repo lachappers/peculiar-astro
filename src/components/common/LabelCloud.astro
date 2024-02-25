@@ -1,23 +1,52 @@
 ---
 import { humanize, slugify, pluralize } from "@utils/textConverter";
 
-const { entries, path, showCount, short } = Astro.props;
+const {
+  entries,
+  path,
+  showCount,
+  short,
+  slug,
+  small,
+  color = "neutral",
+} = Astro.props;
 
-const shortStyle = "rounded bg-[--neutral-background] p-1 px-2 w-fit gap-2";
+const shortStyle = " rounded bg-[--neutral-background] p-1 px-2 w-fit gap-4";
+const size = small
+  ? "px-2 py-1 text-xs lg:text-sm gap-1 "
+  : "px-4 py-2 gap-2 text-sm lg:text-base";
+
+// console.log(Astro.props);
 ---
 
-<ul class={`flex gap-1 text-base ${short ? "flex-row" : "flex-col"}`}>
+<ul
+  class={`flex flex-auto gap-1 h-full overflow-y-auto ${
+    short
+      ? "flex-row w-full justify-center flex-wrap"
+      : "flex-col w-full items-center"
+  }`}
+>
   {
     entries.map(([k, v]) => (
-      <li class="">
+      <li class={`h-fit  ${!short && "w-full max-w-xs "}`}>
         <a
-          class={`filter-item flex items-center justify-between rounded-md p-1 capitalize hover:bg-[--primary-background] ${
-            short && shortStyle
+          class={`filter-item flex items-center justify-between rounded border-2 hover:bg-[--primary-background] ${size} ${
+            short ? shortStyle : "w-full max-w-xs"
+          }  ${
+            !short
+              ? "w-full max-w-xs border-transparent"
+              : `border-[--accent-${color}-100]`
           }`}
           href={`${path}/${slugify(k)}`}
         >
-          {humanize(k)}
-          {showCount && <span class={`${!short && shortStyle}`}>({v})</span>}
+          {slug ? `#${slugify(k)}` : humanize(k)}
+          {showCount && (
+            <p
+              class={`${color} w-fit gap-2 whitespace-nowrap rounded p-1 px-2 font-semibold `}
+            >
+              {v}
+            </p>
+          )}
         </a>
       </li>
     ))

@@ -8,6 +8,11 @@ export const sortByDate = (array: any[]) => {
   return sortedArray;
 };
 
+// sort random
+export const randomSort = (array: any[]) => {
+  return array.sort(() => Math.random() - 0.5);
+};
+
 // sort product by weight
 export const sortByWeight = (array: any[]) => {
   const withWeight = array.filter(

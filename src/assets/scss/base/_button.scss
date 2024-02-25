@@ -83,6 +83,7 @@ button:hover {
     &:focus {
       background-color: var(--neutral-background-light);
       border-color: var(--neutral-400);
+      color: var(--action-color);
     }
   }
 

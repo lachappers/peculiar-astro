@@ -4,7 +4,7 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 import { Image } from "astro:assets";
 import SectionHeading from "@components/shared/SectionHeading.astro";
 import CallOut from "@components/CallOut.astro";
-import Button from "@components/Button.astro";
+import Button from "@components/common/Button.astro";
 import headshot from "../assets/images/headshot.jpg";
 import PageHeader from "@components/shared/PageHeader.astro";
 ---
@@ -25,9 +25,7 @@ import PageHeader from "@components/shared/PageHeader.astro";
   <section
     class="mb-16 flex w-full max-w-screen-lg flex-col items-center justify-center gap-4 px-4 md:flex-row md:flex-wrap md:items-start md:px-16"
   >
-    <div
-      class="prose max-w-[50ch] text-center text-base md:text-left md:text-xl"
-    >
+    <div class="max-w-[50ch] text-center text-base md:text-left md:text-xl">
       <strong>
         Have you ever given that "deer-in-the-headlights" look when asked about
         your tech?

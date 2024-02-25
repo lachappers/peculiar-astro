@@ -52,13 +52,55 @@ export const PAGES: Page[] = [
   },
 ];
 
+export interface Filter {
+  name: string;
+  count: boolean;
+  short: boolean;
+  slug: boolean;
+  small: boolean;
+  plural?: string;
+}
+
+export interface BlogSettings {
+  filters: Filter[];
+}
+
+export interface ContentSettings {
+  teaserPagination: number;
+  indexPagination: number;
+  previewLength: number;
+  blog: BlogSettings;
+}
+
 export const CONTENTSETTINGS = {
   teaserPagination: 3,
   indexPagination: 2,
   previewLength: 160,
   blog: {
-    sidebarCountFilters: ["categories"],
-    sidebarFilters: ["tags", "author"],
+    blogFilters: [
+      {
+        name: "categories",
+        count: true,
+        short: false,
+        slug: false,
+        small: false,
+      },
+      {
+        name: "tags",
+        count: false,
+        short: true,
+        slug: true,
+        small: true,
+      },
+      {
+        name: "author",
+        count: false,
+        short: true,
+        slug: false,
+        small: true,
+        plural: "authors",
+      },
+    ],
   },
 };
 

@@ -160,13 +160,14 @@ $colors: (
   background-color: var(--accent-mint-100);
   color: var(--dark);
 }
+
 .darkmode .mint {
   background-color: var(--dark);
   color: var(--neutral-100);
   // color: var(--accent-mint);
   border: 2px solid var(--accent-mint-100);
   border-radius: 0.5rem;
-  margin: 1rem;
+  // margin: 1rem;
 }
 
 .secondary {
@@ -188,7 +189,7 @@ $colors: (
   color: var(--neutral-100);
   border: 2px solid var(--accent-blue-100);
   border-radius: 0.5rem;
-  margin: 1rem;
+  // margin: 1rem;
 }
 
 .teal {
@@ -201,7 +202,7 @@ $colors: (
 
   border: 2px solid var(--accent-teal-100);
   border-radius: 0.5rem;
-  margin: 1rem;
+  // margin: 1rem;
 }
 .purple {
   background-color: var(--accent-purple-100);
@@ -213,7 +214,7 @@ $colors: (
   // color: var(--accent-purple);
   border: 2px solid var(--accent-purple-100);
   border-radius: 0.5rem;
-  margin: 1rem;
+  // margin: 1rem;
 }
 .pink {
   background-color: var(--accent-pink-100);
@@ -225,7 +226,7 @@ $colors: (
   // color: var(--accent-purple);
   border: 2px solid var(--accent-pink-100);
   border-radius: 0.5rem;
-  margin: 1rem;
+  // margin: 1rem;
 }
 .gold {
   background-color: var(--accent-gold-100);
@@ -237,9 +238,9 @@ $colors: (
   border: 2px solid var(--accent-gold-100);
   color: var(--neutral-100);
   border-radius: 0.5rem;
-  margin: 1rem;
+  // margin: 1rem;
 }
 .neutral {
-  background-color: var(--neutral-background-light);
-  color: var(--font-color);
+  background-color: var(--nv-background);
+  color: var(--on-nv-background);
 }

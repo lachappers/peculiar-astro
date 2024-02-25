@@ -5,18 +5,9 @@ import { getCollection } from "astro:content";
 
 import BlogCard from "@components/blog/BlogCard.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
-import Button from "@components/Button.astro";
+import Button from "@components/common/Button.astro";
 
-const { subtitle, title, id } = Astro.props;
-
-const recentBlogPosts = (
-  await getCollection("blog", ({ data }) => {
-    // return data.draft !== true;
-    return import.meta.env.PROD ? data.draft !== true : true;
-  })
-)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+const { subtitle, title, id, posts } = Astro.props;
 ---
 
 <div
@@ -27,12 +18,12 @@ const recentBlogPosts = (
   </SectionHeading>
 
   {
-    recentBlogPosts.length === 0 ? (
-      <h2>No Recent Posts - Yet!</h2>
+    posts.length === 0 ? (
+      <h2>No Posts - Yet!</h2>
     ) : (
       //   <ul class="grid max-w-xs grid-cols-1 place-items-center gap-6 sm:max-w-lg md:max-w-4xl lg:grid-cols-3">
       <ul class="flex w-full flex-wrap items-center justify-center lg:flex-nowrap">
-        {recentBlogPosts.map((blog) => (
+        {posts.map((blog) => (
           <BlogCard data={blog} />
         ))}
       </ul>

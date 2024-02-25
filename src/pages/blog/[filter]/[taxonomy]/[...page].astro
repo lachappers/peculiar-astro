@@ -1,16 +1,22 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { CONTENTSETTINGS } from "@config";
-import { slugify, humanize, pluralize } from "@utils/textConverter";
+
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
+
+// utils
+import { formatCollection } from "@utils/contentParser";
+import { slugify, humanize, pluralize } from "@utils/textConverter";
+import { getAllTaxonomy } from "@utils/taxonomyParser";
 
 // components
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import PaginationMinimal from "@components/shared/PaginationMinimal.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
 import BlogCard from "@components/blog/BlogCard.astro";
-import Button from "@components/Button.astro";
+import Button from "@components/common/Button.astro";
+import LabelCloud from "@components/common/LabelCloud.astro";
 // import IndexSidebar from "@components/shared/IndexSidebar.astro";
 
 interface Route {
@@ -29,29 +35,31 @@ interface Pagination {
 }
 
 export async function getStaticPaths({ paginate }) {
-  const filters: string[] = CONTENTSETTINGS.blog.sidebarCountFilters.concat(
-    CONTENTSETTINGS.blog.sidebarFilters
+  const filters: string[] = CONTENTSETTINGS.blog.blogFilters.map(
+    (filter) => filter.name
   );
-  // const blogs = await getCollection("blog");
-  const allPosts = await getCollection("blog", ({ data }) => {
-    // return data.draft !== true;
-    // Filter out content entries with `draft: true` only when building for production
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
-  // for (const filter of filters) {
+  console.log("filters", filters);
+  const allPosts = await getCollection("blog");
+  const filteredPosts = formatCollection(allPosts);
+
   const paths = filters.flatMap((filter) => {
     const taxonomies = [
       ...new Set(allPosts.map((blog) => blog.data[filter]).flat()),
     ];
 
     return taxonomies.flatMap((taxonomy) => {
-      const filteredBlogs = allPosts.filter((blog: any) =>
+      const taxonomyPosts = filteredPosts.filter((blog: any) =>
         blog.data[filter].includes(taxonomy)
       );
 
-      return paginate(filteredBlogs, {
+      return paginate(taxonomyPosts, {
         params: { filter: slugify(filter), taxonomy: slugify(taxonomy) },
-        props: { title: slugify(taxonomy), taxonomies: taxonomies },
+        props: {
+          filterName: filter,
+          taxonomyName: taxonomy,
+          taxonomies: taxonomies,
+        },
+        // props: { title: taxonomy, taxonomies: taxonomies },
         pageSize: 2,
       });
     });
@@ -60,33 +68,41 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { filter, taxonomy }: { filter: string; taxonomy: string } = Astro.params;
-const { page, taxonomies } = Astro.props;
+const { page, filterName, taxonomyName, taxonomies } = Astro.props;
 
-const pathname = new URL(Astro.request.url).pathname;
-const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
-  ? pathname
-  : pathname.split("/").slice(0, -1).join("/");
+// const pathname = new URL(Astro.request.url).pathname;
+// const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
+//   ? pathname
+//   : pathname.split("/").slice(0, -1).join("/");
+const path = `/blog/${filter}/${taxonomy}`;
+const filterPath = `/blog/${filter}`;
 
-console.log(taxonomy);
-console.log(filter);
+const categories = await getAllTaxonomy("blog", filter);
+const entries = Object.entries(categories);
+const filterConfig = CONTENTSETTINGS.blog.blogFilters.find(
+  (f) => f.name == filterName
+);
 
-// console.log(page.data.map((blog) => blog.data[filter].flat()));
-
-// console.log(Astro.props);
-// console.log(Astro.params);
+// console.log(taxonomies);
 ---
 
 <DefaultLayout title=`Blogs by ${humanize(taxonomy)} `>
   <PageHeader title={humanize(taxonomy)} breadcrumbs />
   <!-- other filter entries -->
   <aside
-    class="mx-4 flex max-w-full flex-col items-center gap-1 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 sm:max-w-screen-md sm:flex-row md:gap-4"
+    class="mx-4 flex w-full flex-col items-center gap-1 rounded border-[3px] border-[--font-color] bg-[--secondary-background] p-6 sm:max-w-screen-md sm:flex-row md:gap-4"
   >
-    <h3 class="text-lg uppercase">
-      All {pluralize(humanize(filter))}
+    <h3 class="w-fit min-w-32 text-lg uppercase">
+      All {pluralize(filterName)}
     </h3>
-
-    <ul
+    <LabelCloud
+      entries={entries}
+      path={filterPath}
+      showCount={filterConfig?.count}
+      short={filterConfig?.short}
+      slug={filterConfig?.slug}
+    />
+    <!-- <ul
       class="flex flex-wrap items-center justify-center text-base sm:gap-2 sm:text-lg"
     >
       {
@@ -103,7 +119,7 @@ console.log(filter);
           );
         })
       }
-    </ul>
+    </ul> -->
   </aside>
   <Button
     href="/blog"
@@ -136,7 +152,7 @@ console.log(filter);
         <!-- pagination -->
         {
           page.total > CONTENTSETTINGS.indexPagination && (
-            <PaginationMinimal page={page} baseUrl={firstPath} />
+            <PaginationMinimal page={page} baseUrl={path} />
           )
         }
       </div>

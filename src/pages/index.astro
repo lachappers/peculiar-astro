@@ -2,16 +2,16 @@
 // config
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+// utils
+import { formatCollection } from "@utils/contentParser";
+
 // components
 import Hero from "@components/Hero.astro";
-import Button from "@components/Button.astro";
+import Button from "@components/common/Button.astro";
 import CallOut from "@components/CallOut.astro";
 import Feature from "@components/Feature.astro";
-import ProcessStep from "@components/ProcessStep.astro";
 import BlogGrid from "@components/blog/BlogGrid.astro";
-import ContentMedia from "@components/ContentMedia.astro";
-import Heading from "@components/shared/Heading.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
 import CallToAction from "@components/CallToAction.astro";
 import Signup from "@components/shared/Signup.astro";
@@ -22,6 +22,14 @@ import mobile from "@assets/images/share.png";
 import find from "@assets/images/find.png";
 import productive from "@assets/images/productivity.png";
 import headshot from "../assets/images/headshot.jpg";
+
+const posts = formatCollection(
+  await getCollection("blog", ({ data }) => {
+    // add any filters
+    return data;
+  }),
+  { limit: 3 }
+);
 ---
 
 <DefaultLayout
@@ -59,7 +67,6 @@ import headshot from "../assets/images/headshot.jpg";
     <div
       class="flex w-full max-w-screen-md flex-wrap justify-center gap-2 sm:flex-nowrap md:gap-4"
     >
-      <!-- Images https://www.freepik.com/search?author=12980021&format=author&icon_color=multicolor&last_filter=page&last_value=7&page=7&shape=lineal-color&type=icon#uuid=eda1eb07-b0e7-43ca-a9c0-f7634e953972 -->
       <CallOut
         img={mobile}
         purple="Do Business Anywhere"
@@ -235,6 +242,7 @@ import headshot from "../assets/images/headshot.jpg";
       title="Our Latest News, Tips and Offers"
       subtitle="resources"
       id="index-blogs"
+      {posts}
     >
       We believe in making access to technology simple, clear and affordable. So
       we share tech tips, industry insights, case studies and exclusive offers

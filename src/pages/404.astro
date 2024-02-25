@@ -1,16 +1,28 @@
 ---
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon/components";
+import Button from "@components/common/Button.astro";
 ---
 
-<DefaultLayout title="404 - Page Not Found">
+<DefaultLayout title="Page Not Found">
   <section
     class="flex min-h-full grow flex-col items-center justify-center gap-4"
   >
     <Icon name="mdi:error" class="text-6xl text-[--red-300]" />
-    <h1 class="text-6xl font-black">404</h1>
-    <p class="text-2xl font-bold tracking-tight sm:text-4xl">Uh-oh!</p>
-    <p class="0">Page not found.</p>
-    <a class="button" href="/">Let's get you home Explorer 🚀</a>
+    <h1 class="text-6xl font-black">How Peculiar!</h1>
+    <p class="text-2xl font-bold tracking-tight sm:text-4xl">
+      404 - Page not found
+    </p>
+    <p class="text-center">
+      The page you are looking for might have been removed, had its name
+      changed, or is temporarily unavailable.
+    </p>
+
+    <Button
+      href="/"
+      text="Let's get you home 🚀"
+      buttonColor="color-neutral "
+      addClasses="w-fit mt-8"
+    />
   </section>
 </DefaultLayout>

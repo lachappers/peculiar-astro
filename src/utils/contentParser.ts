@@ -1,5 +1,6 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { slugify, deslugify } from "./textConverter";
+import { sortByDate, randomSort } from "./sortFunctions";
 
 export const getSinglePage = async (collection: any) => {
   const allPages = await getCollection(collection);
@@ -38,3 +39,49 @@ export const getSinglePage = async (collection: any) => {
 //     return values.map((value) => slugify(value)).includes(slug);
 //   });
 // };
+
+export function formatCollection(
+  collection,
+  {
+    filterOutDrafts = true,
+    filterOutFutureEntries = true,
+    sortDate = true, // newest first
+    limit = undefined,
+  }: {
+    filterOutDrafts?: boolean;
+    filterOutFutureEntries?: boolean;
+    sortDate?: boolean;
+    limit?: number | undefined;
+  } = {}
+): any[] {
+  const filteredCollection = collection.reduce((acc, entry) => {
+    // console.log("frontmatter", entry.frontmatter);
+    // console.log("data", entry.data);
+    const { date, draft } = entry.data;
+    // filterOutDrafts if true
+    if (filterOutDrafts && draft) return acc;
+    // always filter drafts in prod
+    if (import.meta.env.Prod && draft) return acc;
+
+    // filterOutFutureEntries
+    if (filterOutFutureEntries && new Date(date) > new Date()) return acc;
+
+    // add entry to acc
+    acc.push(entry);
+
+    return acc;
+  }, []);
+
+  // sortByDateDesc is true, else random
+  if (sortDate) {
+    sortByDate(filteredCollection);
+  } else {
+    randomSort(filteredCollection);
+  }
+
+  // limit if number passed
+  if (typeof limit === "number") {
+    return filteredCollection.slice(0, limit);
+  }
+  return filteredCollection;
+}

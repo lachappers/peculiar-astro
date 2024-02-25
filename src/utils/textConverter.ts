@@ -11,10 +11,11 @@ import { micromark } from "micromark";
 export const slugify = (text: string): string => {
   return text
     .toString()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim()
+
+    .trim() // remove leading and trailing whitespace
     .toLowerCase() // convert to lowercase
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "") //remove accent characters
     .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
     .replace(/\s+/g, "-") // replace spaces with hyphens
     .replace(/-+/g, "-"); // remove consecutive hyphens

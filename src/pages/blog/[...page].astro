@@ -2,17 +2,13 @@
 // utils
 import { getCollection } from "astro:content";
 import type { GetStaticPaths } from "astro";
-import { Image } from "astro:assets";
-import { getSinglePage } from "@utils/contentParser";
-import { getAllTaxonomy, getTaxonomy } from "@utils/taxonomyParser";
-import { sortByDate } from "@utils/sortFunctions";
+
 import { CONTENTSETTINGS } from "@config";
+import { formatCollection } from "@utils/contentParser";
 
 // components
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
-import Pagination from "@components/unused/Pagination.astro";
 import PaginationMinimal from "@components/shared/PaginationMinimal.astro";
-import Card from "@components/common/Card.astro";
 import PageHeader from "@components/shared/PageHeader.astro";
 import BlogCard from "@components/blog/BlogCard.astro";
 
@@ -20,13 +16,8 @@ import IndexSidebar from "@components/shared/IndexSidebar.astro";
 import Signup from "@components/shared/Signup.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const allPosts = await getCollection("blog", ({ data }) => {
-    // return data.draft !== false;
-    // Filter out content entries with `draft: true` only when building for production
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
-
-  const formattedPosts = sortByDate(allPosts);
+  const allPosts = await getCollection("blog");
+  const formattedPosts = formatCollection(allPosts);
   return paginate(formattedPosts, {
     pageSize: CONTENTSETTINGS.indexPagination,
   });
@@ -34,13 +25,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 
+// console.log("page", page.url.current);
+// console.log("path", `/blog`);
 const filteredPosts = page.data;
-const pathname = new URL(Astro.request.url).pathname;
-const firstPath = isNaN(Number(pathname.split("/").slice(-1)))
-  ? pathname
-  : pathname.split("/").slice(0, -1).join("/");
-const sidebarCountFilters = CONTENTSETTINGS.blog.sidebarCountFilters;
-const sidebarFilters = CONTENTSETTINGS.blog.sidebarFilters;
+
+const firstPath = "/blog";
+
+const sidebarFilters = CONTENTSETTINGS.blog.blogFilters;
 const blogFolder = "blog";
 
 // console.log("using blog page");
@@ -75,7 +66,6 @@ const blogFolder = "blog";
 
           <IndexSidebar
             collection={blogFolder}
-            sidebarCountFilters={sidebarCountFilters}
             sidebarFilters={sidebarFilters}
           />
         </div>
