@@ -7,6 +7,7 @@ import SectionHeading from "@components/shared/SectionHeading.astro";
 import InlineEmail from "@components/common/InlineEmail.astro";
 
 import ContactMessageNetlify from "@components/forms/ContactMessageNetlify.tsx";
+import BookAppointment from "@components/shared/BookAppointment.astro";
 ---
 
 <DefaultLayout
@@ -31,32 +32,47 @@ import ContactMessageNetlify from "@components/forms/ContactMessageNetlify.tsx";
       </SectionHeading>
 
       <div class="contact-card neutral w-full">
-        <Icon name="ic:outline-email" class="text-4xl" />
-        <h2 class="">Email</h2>
-        <p>
+        <h2 class="flex items-center justify-center gap-2">
+          <Icon name="ph:coffee" class="text-4xl" />Book an Intro
+        </h2>
+        <BookAppointment />
+      </div>
+
+      <div class="contact-card neutral w-full">
+        <h2 class="flex items-center justify-center gap-2">
+          <Icon name="ic:outline-email" class="text-4xl" />Email Us At
+        </h2>
+        <!-- <p>
           If your message isn't quite right for the contact box here, feel free
           to email us directly on:
-        </p>
+        </p> -->
         <InlineEmail
           email={SITE.email}
-          addClasses="pt-4 text-lg text-[--action-color]"
+          addClasses="w-full justify-center inline-flex text-lg text-[--action-color] button"
         />
       </div>
       <div class="contact-card neutral w-full">
-        <Icon name="ic:outline-whatsapp" class="text-4xl" />
-        <h2 class="mb-2">WhatsApp</h2>
+        <h2 class="flex items-center justify-center gap-2">
+          <Icon name="ic:outline-whatsapp" class="text-4xl" />Chat via WhatsApp
+        </h2>
         <a
-          class=""
+          class="button"
           rel="noreferrer"
           target="_blank"
           href="https://wa.me/447405952020"
           aria-label="whatsapp us"
         >
-          Click here to chat now on WhatsApp
+          Launch Chat
         </a>
       </div>
     </div>
-    <div class="flex min-h-full w-full max-w-xl grow justify-center">
+    <div
+      class="contactForm contact flex min-h-full w-full max-w-xl grow flex-col items-center justify-center gap-4 shadow-postMod"
+    >
+      <h2 class="flex items-center justify-center gap-2">
+        <Icon name="mdi:message-text-fast-outline" class="text-4xl" />Submit a
+        Query
+      </h2>
       <ContactMessageNetlify client:load transition:persist />
     </div>
   </section>
@@ -93,6 +109,9 @@ import ContactMessageNetlify from "@components/forms/ContactMessageNetlify.tsx";
   }
 
   .contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     border-radius: 0.5rem;
 
     border: 3px solid var(--font-color);

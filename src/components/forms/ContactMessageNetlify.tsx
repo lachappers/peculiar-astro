@@ -66,7 +66,7 @@ export default function ContactMessageNetlify() {
       id="contactForm"
       name="contactForm"
       onSubmit={handleSubmit(onSubmit)}
-      className="contactForm relative z-10 flex w-full flex-col items-center justify-center gap-4 shadow-postMod"
+      className=" relative z-10 flex w-full flex-col items-center justify-center "
       data-netlify="true"
       netlify-honeypot="bot-field"
       method="POST"
