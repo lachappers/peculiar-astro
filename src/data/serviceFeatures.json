@@ -89,7 +89,7 @@
     "sectionButtonIcon": "mdi:arrow-down",
     "features": [
       {
-        "icon": "ic:baseline-web",
+        "icon": "carbon:connect",
         "featureTitle": "Let's get connected",
         "featureDescription": "Automate, streamline or reconfigure your processes and systems to simplify, secure or fix ineffective tech.",
         "href": "/contact",
@@ -108,13 +108,26 @@
 
     "features": [
       {
-        "icon": "ic:baseline-web",
-        "featureTitle": "Health Check",
-        "featureDescription": "Understand what's working, what's not and what could be next for your business.",
+        "icon": "mdi:fuel",
+        "featureTitle": "The Performance Pitstop",
+        "featureDescription": "We test your website and online presence to let you know how you're doing, where your risks are and if there are any opportunities for improvement.",
+        "href": "/contact",
+        "buttonText": "Book Now",
+        "buttonIcon": "mdi:arrow-right",
+        "preCost": "£",
+        "cost": "100",
+        "postCost": " + VAT"
+      },
+      {
+        "icon": "carbon:report-data",
+        "featureTitle": "The Full Service",
+        "featureDescription": "A deep dive into your business to understand what's working, what's not and what could be next. We use a comprehensive assessment to build a report to help you hit goals like cutting costs or increasing sales.",
         "href": "/contact",
         "buttonText": "Enquire",
         "buttonIcon": "mdi:comment-question-outline",
-        "preCost": "Priced by project"
+        "preCost": "From £",
+        "cost": "2,500",
+        "postCost": " + VAT"
       }
     ]
   }

@@ -22,7 +22,7 @@ export default function ContactMessageNetlify() {
     reset,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<Inputs>({
-    mode: "OnChange",
+    mode: "onChange",
     defaultValues: {
       name: "",
       email: "",
@@ -66,7 +66,7 @@ export default function ContactMessageNetlify() {
       id="contactForm"
       name="contactForm"
       onSubmit={handleSubmit(onSubmit)}
-      className=" relative z-10 flex w-full flex-col items-center justify-center "
+      className=" relative z-10 flex h-auto w-full grow flex-col items-center justify-center gap-4 "
       data-netlify="true"
       netlify-honeypot="bot-field"
       method="POST"
@@ -150,7 +150,7 @@ export default function ContactMessageNetlify() {
 
       <button
         type="submit"
-        className="button color-primary mt-4 w-full"
+        className="button color-primary w-full"
         aria-live="assertive"
         disabled={isSubmitting || isSubmitSuccessful}
       >

@@ -1,0 +1,89 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import { Icon } from "astro-icon/components";
+import Button from "@components/common/Button.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
+import SectionHeading from "@components/shared/SectionHeading.astro";
+import PitstopPromo from "@components/forms/PitstopPromo.tsx";
+---
+
+<DefaultLayout title="A Little Thank You from Us">
+  <section
+    class="flex w-full max-w-screen-lg grow flex-col items-center justify-center gap-4 gap-x-16 px-4 py-8 md:flex-row md:p-16"
+  >
+    <!-- <PageHeader id="pitstop-promo" subtitle="A little thank you">
+      <Fragment slot="title">
+        The Performance Pitstop,
+        <span class="text-highlight"><br />on us</span>.
+      </Fragment>
+      We'll test your website and review your online presence to let you know how
+      you're doing, where your risks are and if there are any opportunities for improvement.
+    </PageHeader> -->
+    <SectionHeading id="pitstop-promo" subtitle="A little thank you">
+      <p slot="title">
+        A Performance Pitstop,
+        <span class="text-highlight">on us</span>.
+      </p>
+      <p>
+        We're offering a <strong>free</strong> Performance Pitstop <strong
+          >worth £120</strong
+        > to our first 50 sign ups.
+      </p>
+      <p class="">
+        We'll test your website and review your online presence to let you know
+        how you're doing, where your risks are and if there are any
+        opportunities for improvement.
+      </p>
+    </SectionHeading>
+    <PitstopPromo client:load />
+  </section>
+  <Button
+    href="/"
+    text="Go back home 🚀"
+    buttonColor="color-secondary "
+    addClasses="w-fit my-8"
+  />
+</DefaultLayout>
+
+<!-- <style>
+  #promoForm {
+    padding: 2rem;
+    border: 3px solid var(--font-color);
+    border-radius: 0.5rem;
+
+    font-weight: 700;
+  }
+  #promoForm label {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: var(--font-color);
+  }
+  #contactForm input,
+  #contactForm textarea {
+    padding: 0.625rem 1.25rem;
+  }
+
+  #contactForm input::placeholder,
+  #contactForm textarea::placeholder {
+    color: var(--neutral-500);
+  }
+
+  #contactForm textarea {
+    height: 8rem;
+  }
+
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+
+    border: 3px solid var(--font-color);
+    box-shadow: 0.0625rem 0.0625rem 0 var(--background),
+      0.5rem 0.5rem 0 var(--font-color);
+    padding: 2rem;
+
+    background-color: var(--accent-mint);
+  }
+</style> -->

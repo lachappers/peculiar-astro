@@ -2,83 +2,84 @@ import React, { useEffect, useState, useRef } from "react";
 import { useForm, Form } from "react-hook-form";
 
 type FormData = {
-  name: string;
+  customer: string;
   email: string;
-  message: string;
+  company: string;
+  website: string;
 };
 
-export default function ContactMessage() {
+export default function PitstopPromo() {
   const {
     register,
-    watch,
     reset,
     control,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<FormData>({
     defaultValues: {
-      name: "",
+      customer: "",
       email: "",
-      message: "",
+      company: "",
+      website: "",
     },
   });
 
   const onSubmit = async ({ formData, data, formDataJson, event }) => {
     await fetch(
-      "https://script.google.com/macros/s/AKfycbxsNrMMVOqB6N6B7ocFwkKdbPIk3lQ_u4X8jZj_PF62bnguR-ZD4a6I_U6mhQ4Uy_-OdQ/exec",
+      "https://script.google.com/macros/s/AKfycbyF8V4Jy4h5uRlnlxqDkJNHpYIyEe648mJ9dMvObzieE30fd0usFvjM_xn31tvFxpxGag/exec",
       {
+        redirect: "follow",
         method: "POST",
         body: formData,
-        // mode: "cors",
       }
     )
       .then((res) => {
+        // const result = res;
         const result = res;
-        // console.log(res);
+        console.log("result", result);
         console.log("submitted");
         // reset();
       })
       .catch((err) => {
-        console.log(err);
+        console.log("successSubmit", isSubmitSuccessful);
+        // console.log(err);
         console.log("there was an error");
         reset(undefined, { keepDirtyValues: true });
       });
   };
 
-  const characterCount = watch("message")?.length;
-
   // console.log("errors", errors);
 
   return (
     <Form
-      id="contactForm"
-      name="contactForm"
+      id="promoForm"
+      name="promoForm"
       method="post"
       onSubmit={onSubmit}
       control={control}
-      className="contactForm relative z-10 flex w-full flex-col items-center justify-center gap-4 shadow-postMod"
+      className=" relative z-10 flex w-full flex-col items-center justify-center gap-4 rounded-lg border-[3px] border-[--font-color] p-8 text-base shadow-postMod"
     >
       <div className="w-full">
-        <label className="mb-2">Name</label>
+        <label className="mb-2 font-bold">Name</label>
         <input
-          {...register("name", {
+          {...register("customer", {
             required: "Your Name is required",
             maxLength: { value: 60, message: "Your name is too long!" },
           })}
-          aria-invalid={errors.name ? "true" : "false"}
-          placeholder={"Ada Lovelace"}
+          aria-invalid={errors.customer ? "true" : "false"}
+          placeholder={"Homer Simpson"}
           className="form-input rounded border-2 border-[--font-color] bg-inherit"
           autoComplete="name"
-          name="name"
+          name="customer"
           type="text"
           disabled={isSubmitting || isSubmitSuccessful}
         />
         <p aria-live="assertive" className="text-sm font-medium text-[--error]">
-          {errors.name?.message}
+          {errors.customer?.message}
         </p>
       </div>
 
       <div className="w-full">
-        <label className="mb-2">Email Address</label>
+        <label className="mb-2 font-bold">Email Address</label>
         <input
           {...register("email", {
             required: "Email Address is required",
@@ -88,7 +89,7 @@ export default function ContactMessage() {
             },
           })}
           aria-invalid={errors.email ? "true" : "false"}
-          placeholder="adalovelace@example.com"
+          placeholder="homer@example.com"
           className="form-input rounded border-2 border-[--font-color] bg-inherit"
           autoComplete="email"
           name="email"
@@ -100,39 +101,43 @@ export default function ContactMessage() {
         </p>
       </div>
 
-      <div className=" w-full">
-        <label className="mb-2">Message</label>
-        <textarea
-          {...register("message", {
-            required: "A Message is required",
-            minLength: {
-              value: 20,
-              message: "Please enter a message more than 20 characters",
-            },
-            maxLength: {
-              value: 1500,
-              message: "Please enter a message less than 1500 characters",
-            },
-          })}
-          name="message"
-          aria-invalid={errors.message ? "true" : "false"}
-          placeholder="Let us know how we can help!"
-          className="form-textarea rounded border-2 border-[--font-color] bg-inherit md:h-56"
+      <div className="w-full">
+        <label className="mb-2 font-bold">Company Name</label>
+        <input
+          {...register("company")}
+          aria-invalid={errors.company ? "true" : "false"}
+          className="form-input rounded border-2 border-[--font-color] bg-inherit"
+          name="company"
+          type="text"
+          placeholder="Compu-Global-Hyper-Mega-Net"
           disabled={isSubmitting || isSubmitSuccessful}
         />
-        <div className="flex w-full items-start justify-between gap-2">
-          <p className="w-full text-sm font-medium text-[--error]">
-            {errors.message?.message}
-          </p>
-          <p
-            aria-live="assertive"
-            className={`w-fit text-right font-medium ${
-              characterCount > 1500 && "text-[--error]"
-            }`}
-          >
-            {characterCount || 0}/1500
-          </p>
-        </div>
+        <p aria-live="assertive" className="text-sm font-medium text-[--error]">
+          {errors.company?.message}
+        </p>
+      </div>
+
+      <div className="w-full">
+        <label className="mb-2 font-bold">Company Website</label>
+        <input
+          {...register("website", {
+            required: "Website is required",
+            pattern: {
+              value:
+                /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+              message: "Enter a valid URL",
+            },
+          })}
+          aria-invalid={errors.website ? "true" : "false"}
+          className="form-input rounded border-2 border-[--font-color] bg-inherit"
+          name="website"
+          placeholder="https://Compu-Global-Hyper-Mega-Net.com"
+          type="url"
+          disabled={isSubmitting || isSubmitSuccessful}
+        />
+        <p aria-live="assertive" className="text-sm font-medium text-[--error]">
+          {errors.website?.message}
+        </p>
       </div>
 
       <button
@@ -144,7 +149,7 @@ export default function ContactMessage() {
         {isSubmitting ? (
           <span
             className="btnSubmit-text inline-flex w-full items-center justify-center gap-2"
-            aria-label="Sending message, please wait..."
+            aria-label="Sending registration, please wait..."
           >
             <svg
               className="mr-3 h-5 w-5 animate-spin"
@@ -162,27 +167,29 @@ export default function ContactMessage() {
             Sending
           </span>
         ) : isSubmitSuccessful ? (
-          <span className="btnSubmit-text">Message Sent</span>
+          <span className="btnSubmit-text">Registration Sent</span>
         ) : (
-          <span className="btnSubmit-text">Send Message</span>
+          <span className="btnSubmit-text">Register</span>
         )}
 
         <span
           className="js-loadingMsg sr-only"
-          data-loading-msg="Sending message, wait..."
+          data-loading-msg="Sending registration, wait..."
         ></span>
       </button>
       {isSubmitSuccessful && (
         <>
           <p className="w-full rounded border border-[--success] bg-[--success] p-2 text-center font-normal text-[--on-success]">
-            Message received - We'll be in touch ASAP.
+            Registration received - We'll share your report in 5-10 working
+            days.
           </p>
-          <input
+
+          {/* <input
             type="button"
             onClick={() => reset()}
             value="Clear Form"
             className="button size-small color-secondary w-fit"
-          />
+          /> */}
         </>
       )}
     </Form>

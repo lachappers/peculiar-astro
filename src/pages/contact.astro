@@ -5,6 +5,7 @@ import { SITE } from "@config";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
 import InlineEmail from "@components/common/InlineEmail.astro";
+import PageHeader from "@components/shared/PageHeader.astro";
 
 import ContactMessageNetlify from "@components/forms/ContactMessageNetlify.tsx";
 import BookAppointment from "@components/shared/BookAppointment.astro";
@@ -14,62 +15,67 @@ import BookAppointment from "@components/shared/BookAppointment.astro";
   title="Let's Talk Tech!"
   description="Get in touch with us today to get started on your new website, discuss a project or to arrange a chat about how we can help your business."
 >
-  <section
-    class="my-auto flex w-full max-w-screen-xl grow flex-col items-center justify-between gap-8 px-4 py-8 md:flex-row md:p-16"
+  <!-- <SectionHeading
+    id="contact"
+    subtitle="contact us"
+    title="Want to find out more?"
   >
+    <p class="">
+      We’d love to hear from you. Please fill out the form on this page. You can
+      also ping us an email or chat to us on WhatsApp now.
+    </p>
+  </SectionHeading> -->
+  <PageHeader id="contact" subtitle="contact us" title="Want to find out more?">
+    <p class="">We’d love to hear from you!</p>
+  </PageHeader>
+  <section
+    class="mb-16 flex h-full w-full max-w-screen-xl flex-col items-center justify-between gap-x-8 gap-y-4 self-center px-4 md:flex-row md:items-stretch md:px-16"
+  >
+    <!-- <div
+      class="contact flex h-full min-h-full w-full max-w-lg flex-auto flex-col items-start justify-between gap-4 md:gap-8"
+    > -->
     <div
-      class="contact flex w-full max-w-lg flex-auto flex-col items-end gap-4 self-center md:gap-8"
+      class="flex h-auto min-h-full w-full grow flex-col justify-between gap-4"
     >
-      <SectionHeading
-        id="contact"
-        subtitle="contact us"
-        title="Want to find out more?"
-      >
-        <p class="">
-          We’d love to hear from you. Please fill out the form on this page. You
-          can also ping us an email or chat to us on WhatsApp now.
-        </p>
-      </SectionHeading>
-
-      <div class="contact-card neutral w-full">
-        <h2 class="flex items-center justify-center gap-2">
-          <Icon name="ph:coffee" class="text-4xl" />Book an Intro
-        </h2>
-        <BookAppointment />
-      </div>
-
-      <div class="contact-card neutral w-full">
-        <h2 class="flex items-center justify-center gap-2">
-          <Icon name="ic:outline-email" class="text-4xl" />Email Us At
-        </h2>
-        <!-- <p>
-          If your message isn't quite right for the contact box here, feel free
-          to email us directly on:
-        </p> -->
-        <InlineEmail
-          email={SITE.email}
-          addClasses="w-full justify-center inline-flex text-lg text-[--action-color] button"
-        />
-      </div>
-      <div class="contact-card neutral w-full">
-        <h2 class="flex items-center justify-center gap-2">
+      <div class="contact-card">
+        <h2 class="contact-head">
           <Icon name="ic:outline-whatsapp" class="text-4xl" />Chat via WhatsApp
         </h2>
+        <p>Message us directly, click the button below to launch WhatsApp.</p>
         <a
           class="button"
           rel="noreferrer"
           target="_blank"
           href="https://wa.me/447405952020"
-          aria-label="whatsapp us"
         >
           Launch Chat
+          <Icon name="mdi:arrow-right" class="pl-2 text-2xl" />
         </a>
+      </div>
+      <div class="contact-card">
+        <h2 class="contact-head">
+          <Icon name="mdi:play-outline" class="text-4xl" />Schedule an Intro
+        </h2>
+        <p>Ready to Talk? Click the button below to book a virtual meeting.</p>
+        <BookAppointment cta="Book Now" icon="ph:coffee" />
+      </div>
+      <div class="contact-card">
+        <h2 class="contact-head">
+          <Icon name="ic:outline-email" class="text-4xl" />Email Us
+        </h2>
+        <p class="w-full">
+          If you need to email us directly, you'll reach us at:
+        </p>
+        <InlineEmail
+          email={SITE.email}
+          addClasses="w-fit justify-center inline-flex text-lg text-[--action-color] "
+        />
       </div>
     </div>
     <div
-      class="contactForm contact flex min-h-full w-full max-w-xl grow flex-col items-center justify-center gap-4 shadow-postMod"
+      class="contactForm contact flex h-auto w-full max-w-xl grow flex-col items-center justify-center gap-4 shadow-postMod"
     >
-      <h2 class="flex items-center justify-center gap-2">
+      <h2 class="contact-head">
         <Icon name="mdi:message-text-fast-outline" class="text-4xl" />Submit a
         Query
       </h2>
@@ -80,63 +86,66 @@ import BookAppointment from "@components/shared/BookAppointment.astro";
 
 <style lang="scss">
   // see _form for form styles
-  #contactForm {
-    // padding: 2rem;
-    // border: 3px solid var(--font-color);
-    // border-radius: 0.5rem;
-    // // background: var(--accent-purple);
-    // font-weight: 700;
-  }
+  // #contactForm {
+  //   // padding: 2rem;
+  //   // border: 3px solid var(--font-color);
+  //   // border-radius: 0.5rem;
+  //   // // background: var(--accent-purple);
+  //   // font-weight: 700;
+  // }
 
-  #contactForm label {
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-    line-height: 1.25rem;
-    color: var(--font-color);
-  }
-  #contactForm input,
-  #contactForm textarea {
-    padding: 0.625rem 1.25rem;
-  }
+  // #contactForm label {
+  //   margin-bottom: 0.25rem;
+  //   font-size: 1rem;
+  //   line-height: 1.25rem;
+  //   color: var(--font-color);
+  // }
+  // #contactForm input,
+  // #contactForm textarea {
+  //   padding: 0.625rem 1.25rem;
+  // }
 
-  #contactForm input::placeholder,
-  #contactForm textarea::placeholder {
-    color: var(--neutral-500);
-  }
+  // #contactForm input::placeholder,
+  // #contactForm textarea::placeholder {
+  //   color: var(--neutral-500);
+  // }
 
-  #contactForm textarea {
-    height: 8rem;
-  }
+  // #contactForm textarea {
+  //   height: 8rem;
+  // }
 
   .contact-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    border-radius: 0.5rem;
+    // display: flex;
+    // flex-direction: column;
+    // border-radius: 0.5rem;
 
-    border: 3px solid var(--font-color);
-    box-shadow: 0.0625rem 0.0625rem 0 var(--background),
-      0.5rem 0.5rem 0 var(--font-color);
-    padding: 2rem;
+    // border: 3px solid var(--font-color);
+    // box-shadow: 0.0625rem 0.0625rem 0 var(--background),
+    //   0.5rem 0.5rem 0 var(--font-color);
 
-    background-color: var(--accent-mint);
+    // background-color: var(--accent-mint);
+    @apply flex w-full max-w-xl flex-col items-center gap-2 rounded-lg border-[3px] border-[--font-color] p-4 text-center shadow-postMod md:px-8 md:text-left;
   }
 
   .contact h2 {
-    margin-top: 0.5rem;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    font-weight: 600;
+    // font-size: 1.5rem;
+    // line-height: 1.5rem;
+    // font-weight: 600;
+  }
+  .contact-head {
+    @apply flex w-full items-center justify-center gap-2 text-lg md:justify-start md:text-2xl;
   }
 
   .contact p {
-    margin-top: 0.25rem;
-    font-size: 1.125rem;
-    line-height: 1.25rem;
+    @apply text-base md:text-lg;
+    width: 100%;
   }
 
   [astro-icon] {
     height: 2rem;
     width: 2rem;
+  }
+  h2 [data-icon] {
+    @apply w-6 text-4xl;
   }
 </style>

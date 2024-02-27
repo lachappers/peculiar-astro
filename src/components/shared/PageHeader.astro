@@ -16,7 +16,7 @@ const centering = center
     class="w-full flex-auto rounded-2xl border-[3px] border-[--neutral-900] bg-gradient-to-b from-[--secondary-200] to-[--primary-100] px-8 py-14 text-[--dark]"
   > -->
 
-  <h1 class="order-2 max-w-[20ch] text-5xl capitalize lg:text-6xl">
+  <h1 class="order-2 max-w-[20ch] text-3xl capitalize md:text-5xl lg:text-6xl">
     {title ? title : <slot name="title" />}
   </h1>
 
@@ -43,7 +43,7 @@ const centering = center
   {
     Astro.slots.has("default") && (
       <div
-        class={`${centering} order-last flex w-full max-w-[50ch] flex-col gap-4 py-4 text-xl md:text-2xl`}
+        class={`${centering} order-last flex w-full max-w-[50ch] flex-col gap-4 py-4 text-lg md:text-2xl`}
       >
         <slot />
       </div>

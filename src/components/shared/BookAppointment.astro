@@ -1,8 +1,16 @@
 ---
 import Modal from "@components/common/Modal.astro";
+import { Icon } from "astro-icon/components";
+const { cta = "find a time", icon } = Astro.props;
 ---
 
-<button id="modal2-trigger" class="button">Find a Time</button>
+<button
+  id="modal2-trigger"
+  class="button inline-flex items-center justify-center gap-2 capitalize"
+>
+  {icon && <Icon name={icon} class="text-2xl" />}
+  {cta}
+</button>
 
 <Modal triggerId="modal2-trigger" title="Book an Intro" closeText="Cancel">
   <p>

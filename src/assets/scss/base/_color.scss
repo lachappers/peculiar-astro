@@ -241,6 +241,10 @@ $colors: (
   // margin: 1rem;
 }
 .neutral {
+  background-color: var(--neutral-background);
+  color: var(--on-nv-background);
+}
+.grey {
   background-color: var(--nv-background);
   color: var(--on-nv-background);
 }

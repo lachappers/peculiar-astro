@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
 import Hero from "@components/Hero.astro";
 import Button from "@components/common/Button.astro";
 import SectionHeading from "@components/shared/SectionHeading.astro";
@@ -176,7 +176,7 @@ import serviceFeatures from "@data/serviceFeatures.json";
             >
               {service.description}
             </SectionHeading>
-            <div class=" mb-8 flex max-w-sm flex-col gap-6 sm:max-w-screen-lg md:flex-row md:flex-wrap">
+            <div class=" mb-8 flex max-w-sm flex-col justify-center gap-6 sm:max-w-screen-lg md:flex-row md:flex-wrap">
               {service.features.map((feature) => {
                 return (
                   <Feature
@@ -189,13 +189,13 @@ import serviceFeatures from "@data/serviceFeatures.json";
                     <Fragment>
                       {feature.featureDescription}
                       <p class="mt-auto inline-flex w-full items-end justify-center gap-2 text-base font-bold md:justify-start">
-                        {feature.preCost}
+                        <span>{feature.preCost.trim()}</span>
                         {feature.cost && (
                           <>
-                            <span class="-ms-1 text-3xl font-bold">
-                              {feature.cost}
+                            <span class="-mb-0.5 -ml-1 text-3xl font-bold">
+                              {feature.cost.trim()}
                             </span>
-                            {feature.postCost}
+                            <span>{feature.postCost.trim()}</span>
                           </>
                         )}
                       </p>
