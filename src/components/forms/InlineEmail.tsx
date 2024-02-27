@@ -57,8 +57,8 @@ export default function InlineEmail() {
           Don’t fill this out if you’re human: <input name="bot-field" />
         </label>
       </p> */}
-      <div className="flex h-fit w-full flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
-        <div className="relative inline-flex w-full items-center sm:w-2/3">
+      <div className="flex h-fit w-full flex-col items-center justify-center gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
+        <div className="relative inline-flex w-full grow items-center sm:w-2/3">
           <label htmlFor="signup-email" className="sr-only">
             Email Address
           </label>
@@ -91,15 +91,10 @@ export default function InlineEmail() {
             type="email"
           />
         </div>
-        <p
-          aria-live="assertive"
-          className="mt-0.5 w-full text-sm font-medium text-[--error] sm:order-last"
-        >
-          {errors.email?.message}
-        </p>
+
         <button
           type="submit"
-          className={`button ${
+          className={`button order-last mb-1 sm:order-none sm:mb-0 ${
             isSubmitSuccessful ? "color-success" : "color-primary"
           } size-small `}
           aria-live="assertive"
@@ -135,9 +130,15 @@ export default function InlineEmail() {
             data-loading-msg="Sending message, wait..."
           ></span>
         </button>
+        <p
+          aria-live="assertive"
+          className="mt-0.5 w-full text-center text-sm font-medium text-[--error] sm:text-start"
+        >
+          {errors.email?.message}
+        </p>
       </div>
 
-      <p className="mt-3 text-center text-xs text-[--on-surface-variant] sm:text-left sm:text-sm">
+      <p className="mt-2 text-center text-xs text-[--on-surface-variant] sm:text-left sm:text-sm">
         No spam, unsubscribe at any time.{" "}
         <a href="/policies/privacy" className="font-semibold">
           Read our Privacy Policy.

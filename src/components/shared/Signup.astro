@@ -16,12 +16,14 @@ const {
   <SectionHeading
     subtitle="subscribe"
     title={cta}
-    addClasses="flex-1 w-full min-w-60"
+    addClasses=" md:w-2/5 w-full"
   >
     {message}
   </SectionHeading>
 
-  <InlineEmail client:load transition:persist />
+  <div class="w-full md:w-3/5">
+    <InlineEmail client:load transition:persist />
+  </div>
   <!-- <form
     method="post"
     class="w-full md:max-w-lg"
