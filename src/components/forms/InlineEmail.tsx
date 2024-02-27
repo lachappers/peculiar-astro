@@ -23,7 +23,7 @@ export default function InlineEmail() {
 
     await fetch(
       // "https://script.google.com/macros/s/AKfycbxE0CUcrR6pKlyJGs4R4UPc8eLWCudhkbSPxfxlXPgXADL_NBSHlZAZtDynL44jR8YJSw/exec",
-      "https://script.google.com/macros/s/AKfycbzOi0PI2CQpS32_Iwn0bCnY8_Ahialoo9110U0TYYsbrW24K5CH4lEoJh3JV-I5gnqMsQ/exec",
+      "https://script.google.com/macros/s/AKfycbxaiI7AUL9MhIr3ykq9NGvqrsyvidhLTM4qhrJO71ujStx_Ok_7TJInPw9Txv0eC3l-zQ/exec",
       {
         redirect: "follow",
         method: "POST",

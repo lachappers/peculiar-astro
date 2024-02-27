@@ -25,7 +25,7 @@ export default function PitstopPromo() {
 
   const onSubmit = async ({ formData, data, formDataJson, event }) => {
     await fetch(
-      "https://script.google.com/macros/s/AKfycbyF8V4Jy4h5uRlnlxqDkJNHpYIyEe648mJ9dMvObzieE30fd0usFvjM_xn31tvFxpxGag/exec",
+      "https://script.google.com/macros/s/AKfycbyJ0ArcbaEz1u27d2xRizp47nSGViCoGi8JwDj4irLbIb3Lo3Vm0l5zF--wdqCblOrkxw/exec",
       {
         redirect: "follow",
         method: "POST",
