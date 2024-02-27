@@ -22,8 +22,7 @@ export default function InlineEmail() {
     // https://react-hook-form.com/docs/useform/form
 
     await fetch(
-      // "https://script.google.com/macros/s/AKfycbxE0CUcrR6pKlyJGs4R4UPc8eLWCudhkbSPxfxlXPgXADL_NBSHlZAZtDynL44jR8YJSw/exec",
-      "https://script.google.com/macros/s/AKfycbxaiI7AUL9MhIr3ykq9NGvqrsyvidhLTM4qhrJO71ujStx_Ok_7TJInPw9Txv0eC3l-zQ/exec",
+      "https://script.google.com/macros/s/AKfycbz4uqnrTdFGkBB5ckIVCQobVpUESK4qUvD1nvmkORE0iHfTnghbNIjSxt1-BzLEPpbe6w/exec",
       {
         redirect: "follow",
         method: "POST",
