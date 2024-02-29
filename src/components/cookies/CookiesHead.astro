@@ -1,5 +1,8 @@
 ---
 type Props = Record<string, never>;
+
+const GA4_CODE = "G-J2E7MTN9P5";
+const GTM_CODE = "GTM-TQXQ4HMD";
 ---
 
 <>
@@ -24,7 +27,14 @@ type Props = Record<string, never>;
     gtag("set", "url_passthrough", true);
   </script>
 
-  <!-- Google Analytics -->
+  <!-- load GA4 -->
+  <script
+    data-category="analytics"
+    data-service="ga4"
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-J2E7MTN9P5"
+  ></script>
+  <!-- Google Analytics opt in -->
   <script type="text/plain" data-category="analytics" data-service="ga4">
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -39,6 +49,7 @@ type Props = Record<string, never>;
     });
     console.log("gtag: analytics_storage=granted");
   </script>
+
   <!-- Stop sending events to google analytics on opt-out -->
   <script type="text/plain" data-category="analytics" data-service="!ga4">
     window["ga-disable-G-J2E7MTN9P5"] = true;
@@ -46,16 +57,9 @@ type Props = Record<string, never>;
     console.log("gtag: disable tracking");
   </script>
 
-  <!-- Tag Manager -->
-  <script
-    type="text/plain"
-    data-category="analytics"
-    data-service="ga4"
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-J2E7MTN9P5"
-  ></script>
+  <!-- GA-4 end -->
 
-  <!-- Google Tag Manager -->
+  <!-- Load Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
       w[l] = w[l] || [];
