@@ -1,7 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Heading from "@components/shared/Heading.astro";
-
+import Quoter from "@components/quoter/Quoter";
 import Button from "../components/common/Button.astro";
 import { Image } from "astro:assets";
 ---
@@ -33,7 +33,12 @@ import { Image } from "astro:assets";
         class="giphy aspect-square h-96 w-fit rounded-full object-cover"
       />
 
-      <Button href="/contact" icon="mdi:arrow-right" text="Contact Form" />
+      <Button
+        href="/contact"
+        icon="mdi:arrow-right"
+        text="Contact Form"
+        addClasses="w-fit"
+      />
     </div>
   </section>
 </DefaultLayout>
