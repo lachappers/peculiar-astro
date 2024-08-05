@@ -11,8 +11,8 @@ categories:
   - Building Websites
   - Growing Businesses
 tags:
-  - tag:
-      - blog
+  - case studies
+  - blog
 image: /assets/images/uploads/screenshot-2024-08-05-at-10.43.02.png
 ---
 [The Farm, Gloucester](https://glosfarm.co.uk/), a multifaceted business offering everything from vehicle maintenance, repairs and sales to managed storage, faced a common problem: they were virtually invisible online. Relying primarily on word-of-mouth and Facebook posts, they were missing out on a huge potential customer base. That's where Peculiar Dynamics came in.
